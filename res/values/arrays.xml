@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="people">
+        <item>Горчичников</item>
+        <item>Черниченко</item>
+        <item>Зеленович</item>
+        <item>Голубева</item>
+        <item>Краснова</item>
+        <item>Белых</item>
+    </string-array>
+    
+    <string-array name="place">
+        <item>Прихожая</item>
+        <item>Столовая</item>
+        <item>Кухня</item>
+        <item>Терраса</item>
+        <item>Обсерватория</item>
+        <item>Демонстрационный зал</item>
+        <item>Гостиная</item>
+        <item>Ванная комната</item>
+        <item>Дом для гостей</item>
+    </string-array>
+    
+    <string-array name="weapon">
+        <item>Нож</item>
+        <item>Канделябр</item>
+        <item>Пистолет</item>
+        <item>Яд</item>
+        <item>Трофей</item>
+        <item>Веревка</item>
+        <item>Бита</item>
+        <item>Топор</item>
+        <item>Гантеля</item>
+    </string-array>
+    
+</resources>

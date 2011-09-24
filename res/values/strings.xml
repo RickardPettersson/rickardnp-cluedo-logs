@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, CluedologsActivity!</string>
     <string name="app_name">Cluedo logs</string>
+    
+    <!-- Main menu Activity -->
+    <string name="mainmenu_new">Новая игра</string>
+    <string name="mainmenu_about">Помощь</string>
+    <string name="mainmenu_donate">Поддержите Нас</string>
+    
+    <!-- Main Tab -->
+    <string name="maintab_menu_people">Имена игроков</string>
+    
+    <string name="title_people">Гости</string>
+    <string name="title_place">Комнаты</string>
+    <string name="title_weapon">Оружие</string>
+     
 </resources>
