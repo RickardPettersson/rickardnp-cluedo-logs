@@ -1,0 +1,11 @@
+<resources>
+	<color name="bgMain">#FFd8d8d8</color>
+	<!-- People colors -->
+	<color name="bgPeople1">#FFffff00</color>
+	<color name="bgPeople2">#FF674ea7</color>
+	<color name="bgPeople3">#FF6aa84f</color>
+	<color name="bgPeople4">#FF3d85c6</color>
+	<color name="bgPeople5">#FFff0000</color>
+	<color name="bgPeople6">#FFffffff</color>
+	
+</resources>
