@@ -25,7 +25,7 @@ public class CluedologsActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(CluedologsActivity.this, CluedoLogs.class));
+				startActivity(new Intent(CluedologsActivity.this, Setup.class));
 			}
 		});
         
@@ -41,7 +41,7 @@ public class CluedologsActivity extends Activity {
 		
 		@Override
 		public void onClick(View v) {
-			startActivity(new Intent(CluedologsActivity.this, CluedoLogs.class));
+			startActivity(new Intent(CluedologsActivity.this, Table.class));
 		}
 	});
     }

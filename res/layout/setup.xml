@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bgMain">
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:padding="5dp" android:background="@color/bgSetupHeader">
+        <TextView android:text="@string/setup_txt1" android:layout_margin="5dp" style="@style/TitleText" android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content"></TextView>
+        <Spinner android:layout_width="wrap_content" android:id="@+id/spinnerNumberOfPlayers" android:layout_height="wrap_content" android:layout_below="@+id/textView1"></Spinner>
+        <Spinner android:layout_width="wrap_content" android:id="@+id/spinnerYourPerson" android:layout_height="wrap_content" android:layout_below="@+id/textView1" android:layout_toRightOf="@+id/spinnerNumberOfPlayers" android:layout_alignParentRight="true"></Spinner>
+        <TextView android:layout_width="wrap_content" android:id="@+id/textView2" android:layout_height="wrap_content" android:layout_below="@+id/spinnerNumberOfPlayers" android:layout_alignLeft="@+id/textView1" style="@style/TitleText" android:text="@string/setup_txt2"></TextView>
+    </RelativeLayout>
+    
+    <ExpandableListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_alignParentLeft="true" android:id="@+id/android:list" android:cacheColorHint="@color/bgMain" android:layout_below="@+id/relativeLayout1" android:layout_above="@+id/linearLayout3"></ExpandableListView>
+    <LinearLayout android:id="@+id/linearLayout3" android:layout_width="wrap_content" android:background="#33333333" android:gravity="center_horizontal" android:padding="7dp" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:layout_alignParentRight="true">
+        <Button android:layout_height="wrap_content" android:layout_width="200dp" android:id="@+id/btnStart" android:text="@string/setup_txtbtnStart"></Button>
+    </LinearLayout>
+    
+</RelativeLayout>

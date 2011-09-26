@@ -13,5 +13,10 @@
     <string name="title_people">Гости</string>
     <string name="title_place">Комнаты</string>
     <string name="title_weapon">Оружие</string>
+    
+     <!-- Setup page -->
+    <string name="setup_txt1">Выберете количество игрков и имя своего персонажа.</string>
+    <string name="setup_txt2">Выберете карты слухов.</string>
+    <string name="setup_txtbtnStart">Начать игру</string>
      
 </resources>
