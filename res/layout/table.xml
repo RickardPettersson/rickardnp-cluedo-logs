@@ -7,7 +7,7 @@
     android:background="@color/bgMain" 
     android:weightSum="1">
     <LinearLayout android:id="@+id/header" android:layout_width="fill_parent" android:orientation="horizontal" android:layout_height="26dp">
-    	<TextView android:text="" android:id="@+id/txtPeopleOffset" android:layout_width="20dp" android:layout_height="wrap_content" android:background="@color/bgPeople1"></TextView>
+    	<TextView android:text="" android:id="@+id/txtPeopleOffset" android:layout_height="wrap_content" android:layout_width="60dp"></TextView>
         <TextView android:text="P1" android:id="@+id/txtPeople1" android:layout_width="wrap_content" android:layout_height="fill_parent" android:background="@color/bgPeople1" android:layout_weight="1" style="@style/headerPeopleText"></TextView>
         <TextView android:text="P2" android:id="@+id/txtPeople2" android:layout_width="wrap_content" android:layout_height="fill_parent" android:background="@color/bgPeople2" android:layout_weight="1" style="@style/headerPeopleText"></TextView>
         <TextView android:text="P3" android:id="@+id/txtPeople3" android:layout_width="wrap_content" android:layout_height="fill_parent" android:background="@color/bgPeople3" android:layout_weight="1" style="@style/headerPeopleText"></TextView>

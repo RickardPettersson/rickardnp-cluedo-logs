@@ -18,6 +18,8 @@ package com.bosicc.cluedo;
 
 import java.util.zip.Inflater;
 
+import com.bosicc.cluedo.PlayerPOJO.CardType;
+
 import android.app.ExpandableListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -93,6 +95,19 @@ public class Setup extends ExpandableListActivity {
 				game.setNumberOfPlayers(mPleyers.getSelectedItemPosition()+2);
 				game.setYourPlayer(mPerson.getSelectedItemPosition());
 				
+				game.setCardsData(0,0,CardType.NO);
+				game.setCardsData(0,1,CardType.NO);
+				game.setCardsData(0,2,CardType.YES);
+				game.setCardsData(0,3,CardType.NO);
+				game.setCardsData(0,4,CardType.NO);
+				game.setCardsData(0,5,CardType.NO);
+				
+				game.setCardsData(1,0,CardType.DEFAULT);
+				game.setCardsData(1,1,CardType.DEFAULT);
+				game.setCardsData(1,2,CardType.QUESTION);
+				game.setCardsData(1,3,CardType.DEFAULT);
+				game.setCardsData(1,4,CardType.DEFAULT);
+				game.setCardsData(1,5,CardType.DEFAULT);
 				startActivity(new Intent(Setup.this, Table.class));
 			}
 		});
