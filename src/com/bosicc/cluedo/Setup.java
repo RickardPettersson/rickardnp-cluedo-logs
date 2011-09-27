@@ -108,7 +108,8 @@ public class Setup extends ExpandableListActivity {
 				game.setCardsData(1,3,CardType.DEFAULT);
 				game.setCardsData(1,4,CardType.DEFAULT);
 				game.setCardsData(1,5,CardType.DEFAULT);
-				startActivity(new Intent(Setup.this, Table.class));
+				startActivity(new Intent(Setup.this, CluedoLogs.class));
+				finish();
 			}
 		});
 

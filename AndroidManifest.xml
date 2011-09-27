@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".Cluedologs"
+        <activity android:name=".CluedoLogs"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -32,6 +32,14 @@
         </activity>
         
         <activity android:name=".Table"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".Logs"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

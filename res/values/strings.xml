@@ -14,9 +14,25 @@
     <string name="title_place">Комнаты</string>
     <string name="title_weapon">Оружие</string>
     
+    <string name="tab_title_table">Карты игроков</string>
+    <string name="tab_title_logs">Хода</string>
+    
      <!-- Setup page -->
     <string name="setup_txt1">Выберете количество игрков и имя своего персонажа.</string>
     <string name="setup_txt2">Выберете карты слухов.</string>
     <string name="setup_txtbtnStart">Начать игру</string>
      
+    <!-- Logs page -->
+    <string name="logs_txt1">Выберете кто ходит, слух и кто подтвердил.</string>
+    <string name="logs_txt2">Выберете кто подтвердил текущиц слух!</string>
+    <string name="logs_txt3">Создайте новый слух, выбрав нового игрока кто ходит.</string>
+    <string name="logs_txt4">Выберете все 3 карты для распостранения слуха!</string>
+    <string name="logs_btnxodit">Ходит</string>
+    <string name="logs_btnpodtverdil">Подтвердил</string>
+    <string name="logs_alert_title">Внимание!</string>
+    
+    
+    <string name="alert_dialog_ok">Новая игра</string>
+   
+   
 </resources>

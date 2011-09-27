@@ -18,9 +18,8 @@ public class CluedoLogs extends TabActivity {
    
 	private TabHost tabHost;
 
-	public static final String TAB_MAP = "Map";
-	public static final String TAB_ACCOUNT = "Account";
-	public static final String TAB_SETTINGS = "Settings";
+	public static final String TAB_TABLE = "Table";
+	public static final String TAB_LOGS = "Logs";
 	
 
 	//======================================================
@@ -66,35 +65,18 @@ public class CluedoLogs extends TabActivity {
 	}
 	
 	private void setupTableTab() {
-//		tabHost.addTab(tabHost.newTabSpec(TAB_MAP).setIndicator(
-//				"Menu",
-//				getResources().getDrawable(android.R.drawable.ic_dialog_map))
-//				.setContent(new Intent(this, .class)));
+		tabHost.addTab(tabHost.newTabSpec(TAB_TABLE).setIndicator(
+				"Table",
+				getResources().getDrawable(android.R.drawable.ic_dialog_info))
+				.setContent(new Intent(this, Table.class)));
 	}
 	private void setupLogsTab() {
-//		tabHost.addTab(tabHost.newTabSpec(TAB_MAP).setIndicator(
-//				"Menu",
-//				getResources().getDrawable(android.R.drawable.ic_dialog_map))
-//				.setContent(new Intent(this, .class)));
+		tabHost.addTab(tabHost.newTabSpec(TAB_LOGS).setIndicator(
+				"Logs",
+				getResources().getDrawable(android.R.drawable.ic_dialog_map))
+				.setContent(new Intent(this, Logs.class)));
 	}
 	
-//	private void setupNewsTab() {
-//		tabHost.addTab(tabHost.newTabSpec(TAB_MAP).setIndicator(
-//				"News",
-//				getResources().getDrawable(android.R.drawable.ic_dialog_info))
-//				.setContent(new Intent(this, MessageList.class)));
-//	}
-	
-//	private void setupKpiTab() {
-////		tabHost.addTab(tabHost.newTabSpec(TAB_MAP).setIndicator(
-////				"Account",
-////				getResources().getDrawable(R.drawable.tab_users))
-////				.setContent(new Intent(this, News.class)));
-//		tabHost.addTab(tabHost.newTabSpec(TAB_MAP).setIndicator(
-//		"Account",
-//		getResources().getDrawable(android.R.drawable.ic_menu_preferences))
-//		.setContent(new Intent(this, Settings.class)));
-//	}
 	
 	// ==============================================================================
     // Option Menu

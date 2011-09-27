@@ -18,8 +18,11 @@ package com.bosicc.cluedo;
 
 //Need the following import to get access to the app resources, since this
 //class is in a sub-package.
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -42,13 +45,24 @@ import com.bosicc.cluedo.PlayerPOJO.CardType;
  */
 public class Table extends ListActivity {
 	
+
+
 	private static String TAG = "Table";
+	private static final int DIALOG_MARK = 1;
 
 	private ListView mList;
-	private ListAdapter mAdapter;
+	private BaseAdapter mAdapter;
 	private String[] mCards = new String[24];
+	private String[] mPeople = new String[6];
     private CluedoApp cApp;
     private GamePOJO game;
+    
+    private class Coord {
+    	public int pos=0;
+    	public int num=0;
+    }
+    
+    private Coord mCurentItem = new Coord();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -59,9 +73,10 @@ public class Table extends ListActivity {
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
 		
-	    // Example how to read String array from Resources
+
 		int i=0;
 	    Resources r = getResources();
+	    mPeople = r.getStringArray(R.array.people);
 	    for (int j=0;j<6;j++){
 	    	mCards[i] = r.getStringArray(R.array.people)[j];
 	    	i++;
@@ -79,9 +94,54 @@ public class Table extends ListActivity {
 		mAdapter = new MyListAdapter(this);
 		mList.setAdapter(mAdapter);
 		
-
 	    }
 	
+	@Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+        case DIALOG_MARK:
+            return new AlertDialog.Builder(Table.this).setTitle(" ")
+            .setItems(R.array.mark, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                	 
+                	switch(which){
+                	case 0:
+                		// Set YES in position all other = NO
+                		game.setTypeinRowNoData(mCurentItem.pos,mCurentItem.num,CardType.YES);
+                		break;
+                	case 1:
+                		game.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.QUESTION);
+                		break;
+                	case 2:
+                		game.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.NO);
+                		break;
+                	case 3:
+                		game.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.DEFAULT);
+                		break;
+                	}
+                	
+                    mAdapter.notifyDataSetChanged();
+                	 
+                }
+            })
+            .create();
+       
+        }
+        return null;
+    }
+	
+	@Override
+	protected void onPrepareDialog(int id, Dialog dialog) {
+		// TODO Auto-generated method stub
+		super.onPrepareDialog(id, dialog);
+		 switch (id) {
+			 case DIALOG_MARK:
+		     	String title = "У " + mPeople[mCurentItem.num] + " есть карта " + mCards[mCurentItem.pos] + "?";
+		     	Log.i(TAG, "onCreateDialog at mCurentItem.pos=" + mCurentItem.pos + " mCurentItem.num=" + mCurentItem.num);
+		     	Log.i(TAG, "onCreateDialog at mPeople - " + mPeople[mCurentItem.num] + " Item=" + mCards[mCurentItem.pos]);
+		     	dialog.setTitle(title);
+		 }
+	}
 	/**
      * Item view cache holder.
      */
@@ -122,11 +182,6 @@ public class Table extends ListActivity {
             return mCards.length;
         }
         
-        @Override
-		public void notifyDataSetChanged() {
-			super.notifyDataSetChanged();
-			
-		}
 
         @Override
         public boolean areAllItemsEnabled() {
@@ -262,10 +317,10 @@ public class Table extends ListActivity {
 	                    	num = 5;
 		                    break;
                     }
-                    Log.i(TAG, "onItemClick at pos=" + mPosition + "num=" + num);  
-                    game.setCardsData(mPosition,num,CardType.YES);
-                    view.setBackgroundColor(R.color.bgPeoplelistSelect);
-                    notifyDataSetChanged();
+                    Log.i(TAG, "onItemClick at pos=" + mPosition + " num=" + num); 
+                    mCurentItem.pos = mPosition;
+                    mCurentItem.num = num;
+                    showDialog(DIALOG_MARK);
             }               
         }
 
