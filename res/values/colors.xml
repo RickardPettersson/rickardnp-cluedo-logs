@@ -22,4 +22,6 @@
 	<color name="bgPeople6list">#33ffffff</color>
 	
 	<color name="textTitle">#FF000000</color>
+	<color name="textTitleLogs">#FFffffff</color>
+	
 </resources>

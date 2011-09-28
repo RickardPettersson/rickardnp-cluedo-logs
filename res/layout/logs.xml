@@ -4,10 +4,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/bgMain" android:padding="5dp">
-    <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/linearLayout2" android:gravity="center_vertical" android:background="@drawable/bglogsform">
-        <Button android:layout_height="64dp" style="@style/TitleText" android:text="@string/logs_btnxodit" android:id="@+id/btnXodit" android:layout_width="wrap_content"></Button>
-        <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_weight="1" android:id="@+id/textView1" android:text="@string/logs_txt1" android:gravity="center_vertical" android:textColor="#FFffffff" android:textStyle="bold" android:paddingLeft="5dp"></TextView>
-        <Button style="@style/TitleText" android:text="@string/logs_btnpodtverdil" android:id="@+id/btnPodtverdil" android:layout_width="wrap_content" android:layout_height="64dp"></Button>
+    <TextView android:background="@drawable/bglogsform" android:layout_width="fill_parent" android:textStyle="bold" android:textColor="@color/textTitleLogs" android:text="@string/logs_txt1" android:gravity="center_vertical" android:padding="5dp" android:ellipsize="marquee" android:singleLine="true" android:layout_height="36dp" android:id="@+id/txtSlyx"></TextView>
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:id="@+id/linearLayout2" android:background="@drawable/bglogsform" android:layout_height="64dp">
+        <Button android:layout_width="wrap_content" android:layout_marginTop="3dp" style="@style/TitleText" android:text="@string/logs_btnxodit" android:layout_marginLeft="5dp" android:layout_height="wrap_content" android:id="@+id/btnXodit"></Button>
+        <TextView android:layout_width="wrap_content" android:textStyle="bold" android:textColor="#FFffffff" android:gravity="center_vertical" android:paddingLeft="5dp" android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/txtTitle"></TextView>
+        <Button android:layout_width="wrap_content" android:layout_marginTop="3dp" style="@style/TitleText" android:text="@string/logs_btnpodtverdil" android:layout_marginRight="5dp" android:layout_height="wrap_content" android:id="@+id/btnPodtverdil"></Button>
     </LinearLayout>
-    <ListView android:layout_height="wrap_content" android:id="@+id/android:list" android:layout_width="fill_parent" android:cacheColorHint="@color/bgMain"></ListView>
+    <ListView android:id="@+id/android:list" android:layout_width="fill_parent" android:cacheColorHint="@color/bgMain" android:layout_weight="1" android:layout_height="1dp"></ListView>
 </LinearLayout>

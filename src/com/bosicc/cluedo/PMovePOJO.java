@@ -8,7 +8,7 @@ public class PMovePOJO {
 //	private int mPlace;
 //	private int mWeapon;
 	
-	private int mSlyx[] = {7, 7, 7};
+	private int mSlyx[] = {7, 10, 10};
 	
 	public PMovePOJO(){
 	}

@@ -24,6 +24,7 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,11 +50,16 @@ public class Logs extends ListActivity {
 
 	private Button mBtnXodit;
 	private Button mBtnPodtverdil;
+	private TextView mTitle;
+	private TextView mSlyx;
 	
 	private ListView mList;
 	private BaseAdapter mAdapter;
     private CluedoApp cApp;
     private GamePOJO game;
+    private String[] mPeople = new String[6];
+    private String[] mPlace = new String[9];
+    private String[] mWeapon = new String[9];
     
     private static final int DIALOG_XODIT = 1;
     private static final int DIALOG_PODTVERDIL = 2;
@@ -68,9 +74,16 @@ public class Logs extends ListActivity {
 		mList = (ListView) findViewById(android.R.id.list);
 		mBtnXodit = (Button) findViewById(R.id.btnXodit);
 		mBtnPodtverdil = (Button) findViewById(R.id.btnPodtverdil);
+		mTitle = (TextView) findViewById(R.id.txtTitle);
+		mSlyx = (TextView) findViewById(R.id.txtSlyx);
 		
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
+		
+		Resources r = getResources();
+		mPeople = r.getStringArray(R.array.people);
+		mPlace = r.getStringArray(R.array.place);
+		mWeapon = r.getStringArray(R.array.weapon);
 		
 		mBtnXodit.setOnClickListener(new OnClickListener() {
 			@Override
@@ -101,8 +114,8 @@ public class Logs extends ListActivity {
                 	.show();
 				}else{
 					if ((game.mLogsList.get(0).getSlyxPerson() == 7) &&
-							(game.mLogsList.get(0).getSlyxPlace() == 7) &&
-							(game.mLogsList.get(0).getSlyxWeapon() == 7)){
+							(game.mLogsList.get(0).getSlyxPlace() == 10) &&
+							(game.mLogsList.get(0).getSlyxWeapon() == 10)){
 				            	new AlertDialog.Builder(Logs.this)
 				            		.setIcon(R.drawable.btn_info)
 				            		.setTitle(R.string.logs_alert_title)
@@ -134,6 +147,8 @@ public class Logs extends ListActivity {
 
             		PMovePOJO item = new PMovePOJO(which);
                 	game.mLogsList.add(0,item);
+                	mSlyx.setText("");
+                	mTitle.setText(mPeople[which]);
                 	mAdapter.notifyDataSetChanged();
 
                 }
@@ -264,14 +279,40 @@ public class Logs extends ListActivity {
             
             int [] slux = game.mLogsList.get(position).getSlyx();
             cache.btn1.setImageResource(getIconForPlayer(slux[0]));
-            cache.btn2.setImageResource(getIconForPlayer(slux[1]));
-            cache.btn3.setImageResource(getIconForPlayer(slux[2]));
+            cache.btn2.setImageResource(getIconForPlace(slux[1]));
+            cache.btn3.setImageResource(getIconForPlace(slux[2]));
 
             return view;
         }
         
         
-        private int getResourceByType(CardType type){
+        @Override
+		public void notifyDataSetChanged() {
+			super.notifyDataSetChanged();
+			String text1 = "[???]";
+			String text2 = "[???]";
+			String text3 = "[???]";
+			int [] slux = game.mLogsList.get(0).getSlyx();
+			if ( game.mLogsList.get(0).getPlayerPodtverdil() == 7){
+				//Log.i(TAG,"Slyxi=" + slux[0] +" " + slux[1] + slux[2]);
+				if (slux[0] != 7){
+					text1 = mPeople[slux[0]];
+				}
+				if (slux[1] != 10){
+					text2 = mPlace[slux[1]];
+				}
+				if (slux[2] != 10){
+					text3 = mWeapon[slux[2]];
+				}
+				mSlyx.setText(text1 + " + " +text2 + " + " + text3);
+			}else{
+            	mSlyx.setText(R.string.logs_txt4);
+            	mTitle.setText("");
+			}
+			
+		}
+
+		private int getResourceByType(CardType type){
         	int res = R.drawable.btn_none;
         	switch (type){
         		case DEFAULT:
@@ -348,6 +389,74 @@ public class Logs extends ListActivity {
         	return res;
         }
         
+        private int getIconForPlace(int placenum){
+        	int res = R.drawable.btn_none;
+        	switch (placenum){
+        		case 0:
+        			res = R.drawable.pl1_icon;
+        			break;
+        		case 1:
+        			res = R.drawable.pl2_icon;
+        			break;
+        		case 2:
+        			res = R.drawable.pl3_icon;
+        			break;
+        		case 3:
+        			res = R.drawable.pl4_icon;
+        			break;
+        		case 4:
+        			res = R.drawable.pl5_icon;
+        			break;
+        		case 5:
+        			res = R.drawable.pl6_icon;
+        			break;
+        		case 6:
+        			res = R.drawable.pl7_icon;
+        			break;
+        		case 7:
+        			res = R.drawable.pl8_icon;
+        			break;
+        		case 8:
+        			res = R.drawable.pl9_icon;
+        			break;
+        	}
+        	return res;
+        }
+        
+//        private int getIconForWeapon(int weaponnum){
+//        	int res = R.drawable.btn_none;
+//        	switch (weaponnum){
+//        		case 0:
+//        			res = R.drawable.w1_icon;
+//        			break;
+//        		case 1:
+//        			res = R.drawable.w2_icon;
+//        			break;
+//        		case 2:
+//        			res = R.drawable.w3_icon;
+//        			break;
+//        		case 3:
+//        			res = R.drawable.w4_icon;
+//        			break;
+//        		case 4:
+//        			res = R.drawable.w5_icon;
+//        			break;
+//        		case 5:
+//        			res = R.drawable.w6_icon;
+//        			break;
+//        		case 6:
+//        			res = R.drawable.w7_icon;
+//        			break;
+//        		case 7:
+//        			res = R.drawable.w8_icon;
+//        			break;
+//        		case 8:
+//        			res = R.drawable.w9_icon;
+//        			break;
+//        	}
+//        	return res;
+//        }
+        
         private class OnItemClickListener implements OnClickListener{           
             private int mPosition;
             OnItemClickListener(int position){
@@ -355,8 +464,6 @@ public class Logs extends ListActivity {
             }
             @Override
             public void onClick(View view) {
-                       
-
             	// Perform Clicks only for current row
             	if (mPosition != 0){
             		return;
