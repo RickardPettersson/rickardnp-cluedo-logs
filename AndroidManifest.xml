@@ -5,7 +5,9 @@
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="7" />
 
-    <application android:name="CluedoApp" android:icon="@drawable/icon" android:label="@string/app_name">
+    <application 	android:process="com.bosicc.cluedo"
+    				android:name="CluedoApp" 
+    				android:icon="@drawable/icon" android:label="@string/app_name">
     
         <activity android:name=".CluedologsActivity"
                   android:label="@string/app_name">
@@ -16,7 +18,8 @@
         </activity>
         
          <activity android:name=".Setup"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+ 			      android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

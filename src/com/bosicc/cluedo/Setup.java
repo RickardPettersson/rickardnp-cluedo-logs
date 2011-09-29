@@ -16,18 +16,19 @@
 
 package com.bosicc.cluedo;
 
-import java.util.zip.Inflater;
-
-import com.bosicc.cluedo.PlayerPOJO.CardType;
-
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ExpandableListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
@@ -36,15 +37,22 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.ToggleButton;
+
+import com.bosicc.cluedo.PlayerPOJO.CardType;
 
 public class Setup extends ExpandableListActivity {
+	
+	private static String TAG = "Setup";
+	private static final int DIALOG_INFO = 1;
+	private static final int DIALOG_CARDSNOTSELECTED = 2;
 
     private CluedoApp cApp;
     private GamePOJO game;
 	private ExpandableListAdapter mAdapter;
+	
 	private ExpandableListView mList;
 	private Spinner mPleyers;
 	private Spinner mPerson;
@@ -54,7 +62,7 @@ public class Setup extends ExpandableListActivity {
 	private String[][] children = new String[3][];
 
 	// All check box state
-	private Card[] items = new Card[24];
+	private boolean[][] items = new boolean[3][9];
 	
 
 	@Override
@@ -95,26 +103,85 @@ public class Setup extends ExpandableListActivity {
 				game.setNumberOfPlayers(mPleyers.getSelectedItemPosition()+2);
 				game.setYourPlayer(mPerson.getSelectedItemPosition());
 				
-				game.setCardsData(0,0,CardType.NO);
-				game.setCardsData(0,1,CardType.NO);
-				game.setCardsData(0,2,CardType.YES);
-				game.setCardsData(0,3,CardType.NO);
-				game.setCardsData(0,4,CardType.NO);
-				game.setCardsData(0,5,CardType.NO);
-				
-				game.setCardsData(1,0,CardType.DEFAULT);
-				game.setCardsData(1,1,CardType.DEFAULT);
-				game.setCardsData(1,2,CardType.QUESTION);
-				game.setCardsData(1,3,CardType.DEFAULT);
-				game.setCardsData(1,4,CardType.DEFAULT);
-				game.setCardsData(1,5,CardType.DEFAULT);
-				startActivity(new Intent(Setup.this, CluedoLogs.class));
-				finish();
+				game.setPlayerNoColumn(game.getYourPlayer());
+				int TotalCards = 0;
+				for (int i=0; i<6; i++){
+					if (items[0][i]){
+						game.setTypeinRowNoData(i, game.getYourPlayer(), CardType.YES);
+						TotalCards++;
+					}
+				}
+				for (int i=0; i<9; i++){
+					if (items[1][i]){
+						game.setTypeinRowNoData(6+i, game.getYourPlayer(), CardType.YES);
+						TotalCards++;
+					}
+				}
+				for (int i=0; i<9; i++){
+					if (items[2][i]){
+						game.setTypeinRowNoData(15+i, game.getYourPlayer(), CardType.YES);
+						TotalCards++;
+					}
+				}
+				if (TotalCards < 3){
+					showDialog(DIALOG_CARDSNOTSELECTED);
+				}else{
+					game.setCreatedGame(true);
+					startActivity(new Intent(Setup.this, CluedoLogs.class));
+					finish();
+				}
+
 			}
 		});
 
+		showDialog(DIALOG_INFO);
+	}
+	
+	@Override
+	public boolean onChildClick(ExpandableListView parent, View v,
+			int groupPosition, int childPosition, long id) {
+		// TODO Auto-generated method stub
+		
+		items[groupPosition][childPosition] = !items[groupPosition][childPosition];
+		ListItemCache cache = (ListItemCache) v.getTag();
+		
+		if (items[groupPosition][childPosition]){
+			cache.check.setVisibility(View.VISIBLE);
+		}else{
+			cache.check.setVisibility(View.INVISIBLE);
+		}
+		return super.onChildClick(parent, v, groupPosition, childPosition, id);
 	}
 
+	@Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+        case DIALOG_CARDSNOTSELECTED:
+            return new AlertDialog.Builder(Setup.this)
+            		.setTitle(R.string.logs_alert_title)
+            		.setIcon(R.drawable.btn_info)
+            		.setMessage(R.string.setup_dialog_notenoughtpcards_msg)
+            		.setPositiveButton(R.string.alert_dialog_ok, null)
+            .create();
+        case DIALOG_INFO:
+	        return new AlertDialog.Builder(Setup.this)
+	        		.setTitle(R.string.logs_alert_title)
+	        		.setIcon(R.drawable.btn_info)
+	        		.setMessage(R.string.setup_dialog_info_msg)
+	        		.setPositiveButton(R.string.alert_dialog_ok, null)
+	        .create();
+        }
+	    
+        return null;
+    }
+
+    private static final class ListItemCache {
+    	
+    	public TextView Text;
+        public ImageView check;
+       
+    }
+    
 
 	/**
      * A simple adapter which maintains an ArrayList of photo resource Ids. 
@@ -170,29 +237,31 @@ public class Setup extends ExpandableListActivity {
             TextView textView = getGenericView();
             textView.setText(getChild(groupPosition, childPosition).toString());
             
-			View v = null;
-			if (convertView != null)
-				v = convertView;
-			else
-				v = inflater.inflate(R.layout.setup_child_row, parent, false);
+            ListItemCache cache = new ListItemCache();
+			View view = null;
+			if (convertView != null){
+				view = convertView;
+				cache = (ListItemCache) view.getTag();
+			}
+			else{
+				view = inflater.inflate(R.layout.setup_child_row, parent, false);
+				
+                cache.Text = (TextView)view.findViewById(R.id.childname);
+                cache.check = (ImageView)view.findViewById(R.id.check);
+                
+                view.setTag(cache);
+			}
 			
 			final Object c = (Object) getChild(groupPosition, childPosition);
-			TextView item = (TextView) v.findViewById(R.id.childname);
-			if (item != null)
-				item.setText(getChild(groupPosition, childPosition).toString());
-			
-			final CheckBox cb = (CheckBox) v.findViewById(R.id.check1);
-			//cb.setChecked(c.getState());
 
-			cb.setOnClickListener(new View.OnClickListener() {
+			cache.Text.setText(getChild(groupPosition, childPosition).toString());
+			if (items[groupPosition][childPosition]){
+				cache.check.setVisibility(View.VISIBLE);
+			}else{
+				cache.check.setVisibility(View.INVISIBLE);
+			}
 
-				@Override
-				public void onClick(View v) {
-					//c.setState(cb.isChecked());
-				}
-			});
-
-            return v;
+            return view;
             
         }
 
@@ -232,26 +301,6 @@ public class Setup extends ExpandableListActivity {
 
     }
     
-    public class Card{
-    	
-    	private String text;
-    	private boolean state;
-    	
-    	public void setState(boolean select){
-    		this.state = select;
-    	}
-    	
-    	public boolean getState(){
-    		return this.state;
-    	}
-    	
-    	public void setText(String text){
-    		this.text = text;
-    	}
-    	
-    	public String getText(){
-    		return this.text;
-    	}
-    }
-
+ 
+    
 }

@@ -3,6 +3,7 @@
     <string name="app_name">Cluedo logs</string>
     
     <!-- Main menu Activity -->
+    <string name="mainmenu_players">Имена игроков</string>
     <string name="mainmenu_new">Новая игра</string>
     <string name="mainmenu_about">Помощь</string>
     <string name="mainmenu_donate">Поддержите Нас</string>
@@ -17,9 +18,16 @@
     <string name="tab_title_table">Карты игроков</string>
     <string name="tab_title_logs">Хода</string>
     
+    <string name="tab_dialog_newgame_titile">Новая игра</string>
+    <string name="tab_dialog_newgame_msg">Текущая игра будет удалена. Создать новую игру?</string>
+    <string name="tab_dialog_yes">Да</string>
+    <string name="tab_dialog_no">Нет</string>
+    
      <!-- Setup page -->
-    <string name="setup_txt1">Выберете количество игрков и имя своего персонажа.</string>
-    <string name="setup_txt2">Выберете карты слухов.</string>
+    <string name="setup_txt1">Ваш персонаж и количество игрков:</string>
+    <string name="setup_txt2">Выберете карты слухов:</string>
+    <string name="setup_dialog_notenoughtpcards_msg">Вы отметели меньше 3-х карт. Отметьте те карты слухов которые у вас на руках.</string>
+    <string name="setup_dialog_info_msg">Выберете своего персонажа и колличество игроков. Отметьте те карты cлухов которые у вас на руках.</string>
     <string name="setup_txtbtnStart">Начать игру</string>
      
     <!-- Logs page -->
@@ -30,9 +38,13 @@
     <string name="logs_btnxodit">Ходит</string>
     <string name="logs_btnpodtverdil">Подтвердил</string>
     <string name="logs_alert_title">Внимание!</string>
+    <string name="logsmenu_sort_xodil">Кто ходил</string>
+    <string name="logsmenu_sort_podtverdil">Кто подтвердиол</string>
+    <string name="logs_alert_title_sort_xodil">Показать все хода:</string>
+    <string name="logs_alert_title_sort_podtverdil">Показать все подтверждения:</string>
     
     
-    <string name="alert_dialog_ok">Новая игра</string>
+    <string name="alert_dialog_ok">ОК</string>
    
    
 </resources>

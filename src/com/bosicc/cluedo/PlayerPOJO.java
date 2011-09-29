@@ -71,4 +71,8 @@ public class PlayerPOJO {
 	public CardType[] getWeapon(){
 		return this.weapon;
 	}
+	
+	public void reset(){
+		
+	}
 }

@@ -52,7 +52,7 @@ public class GamePOJO {
 	}
 	
 	public void fillCardsData(){
-		isCreated = true;
+		setCreatedGame(true);
 	}
 	
 	public CardType[][] getCardsData(){
@@ -74,8 +74,36 @@ public class GamePOJO {
 		setCardsData(pos, num, type);
 	}
 	
-//	public void setSelectItem(int pos, int num){
-//		mCards[pos][num] = type;
-//	}
+	public boolean isStarted(){
+		return isCreated;
+	}
+	
+	public void setCreatedGame(boolean is){
+		isCreated = is;
+	}
+	
+	public void setPlayerNoColumn(int player){
+		for (int i=0; i<24; i++){
+			mCards[i][player] = CardType.NO;
+		}
+		
+	}
+	
+	public void reset(){
+		// Clear logs items
+		mLogsList.clear();
+		// Clear tabele
+		for (int j=0; j<6; j++){
+			for (int i=0; i<24; i++){
+				mCards[i][j] = CardType.DEFAULT;
+			}
+			// TODO: May be remove not used Class?
+			Players[j].reset();
+		}
+		
+		// Set Flag that game not started
+		this.setCreatedGame(false);
+		
+	}
 	
 }

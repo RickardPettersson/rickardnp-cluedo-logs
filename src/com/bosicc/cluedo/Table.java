@@ -119,9 +119,7 @@ public class Table extends ListActivity {
                 		game.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.DEFAULT);
                 		break;
                 	}
-                	
                     mAdapter.notifyDataSetChanged();
-                	 
                 }
             })
             .create();
@@ -146,8 +144,6 @@ public class Table extends ListActivity {
      * Item view cache holder.
      */
     private static final class ListItemCache {
-
-    	public int pos;
     	
     	public View header;
         public TextView Text;
@@ -161,12 +157,6 @@ public class Table extends ListActivity {
         public ImageButton btn5;
         public ImageButton btn6;
         
-//          public ImageView btn1;
-//	      public ImageView btn2;
-//	      public ImageView btn3;
-//	      public ImageView btn4;
-//	      public ImageView btn5;
-//	      public ImageView btn6;
        
     }
 	
@@ -229,7 +219,7 @@ public class Table extends ListActivity {
             	cache = (ListItemCache) view.getTag();
             }
             
-            Log.i("Table","pos"+position);
+            //Log.i("Table","pos"+position);
             cache.btn1.setOnClickListener(new OnItemClickListener(position)); 
             cache.btn2.setOnClickListener(new OnItemClickListener(position)); 
             cache.btn3.setOnClickListener(new OnItemClickListener(position)); 

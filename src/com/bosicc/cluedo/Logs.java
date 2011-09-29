@@ -18,6 +18,8 @@ package com.bosicc.cluedo;
 
 //Need the following import to get access to the app resources, since this
 //class is in a sub-package.
+import java.util.ArrayList;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -28,6 +30,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -61,11 +65,21 @@ public class Logs extends ListActivity {
     private String[] mPlace = new String[9];
     private String[] mWeapon = new String[9];
     
+    private int mViewMode = 0;
+    
     private static final int DIALOG_XODIT = 1;
     private static final int DIALOG_PODTVERDIL = 2;
     private static final int DIALOG_PEOPLE = 3;
     private static final int DIALOG_PLACE = 4;
     private static final int DIALOG_WEAPON = 5;
+    private static final int DIALOG_SORT_BY_XODIL = 6;
+    private static final int DIALOG_SORT_BY_PODTVERDIL = 7;
+    
+	//======================================================
+	// Menu items ID
+	//======================================================
+	private static final int MENU_ITEM_SORT_BY_XODIL		=1;			
+	private static final int MENU_ITEM_SORT_BY_PODTVERDIL	=2;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -131,10 +145,9 @@ public class Logs extends ListActivity {
 		// Set up our adapter
 		mAdapter = new MyListAdapter(this);
 		mList.setAdapter(mAdapter);
-		
-		
-
-	    }
+	}
+	
+	
 	
 	@Override
     protected Dialog onCreateDialog(int id) {
@@ -194,10 +207,74 @@ public class Logs extends ListActivity {
                 }
             })
             .create();
+        case DIALOG_SORT_BY_XODIL:
+            return new AlertDialog.Builder(Logs.this)
+            .setTitle(R.string.logs_alert_title_sort_xodil)
+            .setItems(R.array.sort_list, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                	
+                	//mAdapter.notifyDataSetChanged();
+                }
+            })
+            .create();
+        case DIALOG_SORT_BY_PODTVERDIL:
+            return new AlertDialog.Builder(Logs.this)
+            .setTitle(R.string.logs_alert_title_sort_podtverdil)
+            .setItems(R.array.sort_list, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                	
+                	//mAdapter.notifyDataSetChanged();
+                }
+            })
+            .create();
         }
         return null;
     }
 	
+	
+	
+	// ==============================================================================
+    // Option Menu
+    // ==============================================================================
+	 /**
+     * On options menu creation.
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+		
+		// ===
+		MenuItem item_1 = menu.add(Menu.NONE, MENU_ITEM_SORT_BY_XODIL, Menu.NONE, R.string.logsmenu_sort_xodil);
+		item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
+
+		// ===
+     	MenuItem item_2 = menu.add(Menu.NONE, MENU_ITEM_SORT_BY_PODTVERDIL, Menu.NONE, R.string.logsmenu_sort_podtverdil);
+     	item_2.setIcon(android.R.drawable.ic_menu_sort_by_size);
+     	
+     	return super.onCreateOptionsMenu(menu);
+    }
+	
+    /**
+     * On options menu item selection.
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+          
+	        case MENU_ITEM_SORT_BY_XODIL:{
+	        	showDialog(DIALOG_SORT_BY_XODIL);   
+	        	return true;
+	        }
+	        
+	        case MENU_ITEM_SORT_BY_PODTVERDIL:{
+	        	showDialog(DIALOG_SORT_BY_PODTVERDIL);   
+	        	return true;
+	        }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    
+    
 	/**
      * Item view cache holder.
      */
@@ -212,7 +289,7 @@ public class Logs extends ListActivity {
         public ImageButton btn3;
 
     }
-	
+    
 	private class MyListAdapter extends BaseAdapter {
 
 		private Context mContext;
@@ -280,7 +357,7 @@ public class Logs extends ListActivity {
             int [] slux = game.mLogsList.get(position).getSlyx();
             cache.btn1.setImageResource(getIconForPlayer(slux[0]));
             cache.btn2.setImageResource(getIconForPlace(slux[1]));
-            cache.btn3.setImageResource(getIconForPlace(slux[2]));
+            cache.btn3.setImageResource(getIconForWeapon(slux[2]));
 
             return view;
         }
@@ -292,22 +369,24 @@ public class Logs extends ListActivity {
 			String text1 = "[???]";
 			String text2 = "[???]";
 			String text3 = "[???]";
-			int [] slux = game.mLogsList.get(0).getSlyx();
-			if ( game.mLogsList.get(0).getPlayerPodtverdil() == 7){
-				//Log.i(TAG,"Slyxi=" + slux[0] +" " + slux[1] + slux[2]);
-				if (slux[0] != 7){
-					text1 = mPeople[slux[0]];
+			if (game.mLogsList.size() !=0){
+				int [] slux = game.mLogsList.get(0).getSlyx();
+				if ( game.mLogsList.get(0).getPlayerPodtverdil() == 7){
+					//Log.i(TAG,"Slyxi=" + slux[0] +" " + slux[1] + slux[2]);
+					if (slux[0] != 7){
+						text1 = mPeople[slux[0]];
+					}
+					if (slux[1] != 10){
+						text2 = mPlace[slux[1]];
+					}
+					if (slux[2] != 10){
+						text3 = mWeapon[slux[2]];
+					}
+					mSlyx.setText(text1 + " + " +text2 + " + " + text3);
+				}else{
+	            	mSlyx.setText(R.string.logs_txt4);
+	            	mTitle.setText("");
 				}
-				if (slux[1] != 10){
-					text2 = mPlace[slux[1]];
-				}
-				if (slux[2] != 10){
-					text3 = mWeapon[slux[2]];
-				}
-				mSlyx.setText(text1 + " + " +text2 + " + " + text3);
-			}else{
-            	mSlyx.setText(R.string.logs_txt4);
-            	mTitle.setText("");
 			}
 			
 		}
@@ -423,39 +502,39 @@ public class Logs extends ListActivity {
         	return res;
         }
         
-//        private int getIconForWeapon(int weaponnum){
-//        	int res = R.drawable.btn_none;
-//        	switch (weaponnum){
-//        		case 0:
-//        			res = R.drawable.w1_icon;
-//        			break;
-//        		case 1:
-//        			res = R.drawable.w2_icon;
-//        			break;
-//        		case 2:
-//        			res = R.drawable.w3_icon;
-//        			break;
-//        		case 3:
-//        			res = R.drawable.w4_icon;
-//        			break;
-//        		case 4:
-//        			res = R.drawable.w5_icon;
-//        			break;
-//        		case 5:
-//        			res = R.drawable.w6_icon;
-//        			break;
-//        		case 6:
-//        			res = R.drawable.w7_icon;
-//        			break;
-//        		case 7:
-//        			res = R.drawable.w8_icon;
-//        			break;
-//        		case 8:
-//        			res = R.drawable.w9_icon;
-//        			break;
-//        	}
-//        	return res;
-//        }
+        private int getIconForWeapon(int weaponnum){
+        	int res = R.drawable.btn_none;
+        	switch (weaponnum){
+        		case 0:
+        			res = R.drawable.w1_icon;
+        			break;
+        		case 1:
+        			res = R.drawable.w2_icon;
+        			break;
+        		case 2:
+        			res = R.drawable.w3_icon;
+        			break;
+        		case 3:
+        			res = R.drawable.w4_icon;
+        			break;
+        		case 4:
+        			res = R.drawable.w5_icon;
+        			break;
+        		case 5:
+        			res = R.drawable.w6_icon;
+        			break;
+        		case 6:
+        			res = R.drawable.w7_icon;
+        			break;
+        		case 7:
+        			res = R.drawable.w8_icon;
+        			break;
+        		case 8:
+        			res = R.drawable.w9_icon;
+        			break;
+        	}
+        	return res;
+        }
         
         private class OnItemClickListener implements OnClickListener{           
             private int mPosition;

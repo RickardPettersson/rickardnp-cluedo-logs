@@ -1,33 +1,38 @@
 package com.bosicc.cluedo;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TabActivity;
-import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TabHost;
 
 
 public class CluedoLogs extends TabActivity {
+	
+	private static String TAG = "CluedoLogs";
    
 	private TabHost tabHost;
+    private CluedoApp cApp;
+    private GamePOJO game;
 
 	public static final String TAB_TABLE = "Table";
 	public static final String TAB_LOGS = "Logs";
+	
+	//======================================================
+	// Dialog items ID
+	//======================================================
+	private static final int DIALOG_NEWGAME = 1;
 	
 
 	//======================================================
 	// Menu items ID
 	//======================================================
-	/**
-     * Mene settings activity 
-     */
 	private static final int MENU_ITEM_PEOPLE			 	=1;			
 	private static final int MENU_ITEM_NEW					=2;
 	private static final int MENU_ITEM_HELP					=3;
@@ -40,6 +45,8 @@ public class CluedoLogs extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maintab);
         
+		cApp = (CluedoApp) getApplication();
+		game = cApp.getGame();
     	
 		tabHost = getTabHost();
 		//tabHost.setOnTabChangedListener(this);
@@ -48,12 +55,44 @@ public class CluedoLogs extends TabActivity {
        
     }
 
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onResume()
-	 */
+    @Override
+	protected void onRestart() {
+		super.onRestart();
+		Log.i(TAG, "onRestart()");
+	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		Log.i(TAG, "onStart()");
+		
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Log.i(TAG, "onPause()");
+	}
+
 	@Override
 	protected void onResume() {
-		super.onResume();
+		super.onResume();		
+		
+		Log.i(TAG, "onResume()");
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+
+		Log.i(TAG, "onStop()");
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		
+		Log.i(TAG, "onDestroy()");
 		
 	}
 	
@@ -67,16 +106,46 @@ public class CluedoLogs extends TabActivity {
 	private void setupTableTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_TABLE).setIndicator(
 				"Table",
-				getResources().getDrawable(android.R.drawable.ic_dialog_info))
+				getResources().getDrawable(R.drawable.tab_table_icon))
 				.setContent(new Intent(this, Table.class)));
 	}
 	private void setupLogsTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_LOGS).setIndicator(
 				"Logs",
-				getResources().getDrawable(android.R.drawable.ic_dialog_map))
+				getResources().getDrawable(R.drawable.tab_log_icon))
 				.setContent(new Intent(this, Logs.class)));
 	}
 	
+	@Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+        case DIALOG_NEWGAME:
+            return new AlertDialog.Builder(CluedoLogs.this)
+            .setTitle(R.string.tab_dialog_newgame_titile)
+            .setIcon(R.drawable.btn_info)
+            .setMessage(R.string.tab_dialog_newgame_msg)
+            .setPositiveButton(R.string.tab_dialog_yes, new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					
+					game.reset();
+					startActivity(new Intent(CluedoLogs.this, CluedologsActivity.class));
+					finish();
+					
+				}
+			}).setNegativeButton(R.string.tab_dialog_no, new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+
+				}
+			})
+            .create();
+       
+        }
+        return null;
+    }
 	
 	// ==============================================================================
     // Option Menu
@@ -86,17 +155,17 @@ public class CluedoLogs extends TabActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	// ===
-		MenuItem item_new_contact = menu.add(Menu.NONE, MENU_ITEM_PEOPLE, Menu.NONE, R.string.mainmenu_new);
-		item_new_contact.setIcon(android.R.drawable.ic_menu_preferences);
+//    	// ===
+//		MenuItem item_new_contact = menu.add(Menu.NONE, MENU_ITEM_PEOPLE, Menu.NONE, R.string.mainmenu_new);
+//		item_new_contact.setIcon(android.R.drawable.ic_menu_preferences);
 		
 		// ===
 		MenuItem item_2 = menu.add(Menu.NONE, MENU_ITEM_NEW, Menu.NONE, R.string.mainmenu_new);
-		item_2.setIcon(android.R.drawable.ic_menu_preferences);
+		item_2.setIcon(android.R.drawable.ic_menu_agenda);
 
 		// ===
      	MenuItem item_3 = menu.add(Menu.NONE, MENU_ITEM_HELP, Menu.NONE, R.string.mainmenu_about);
-     	item_3.setIcon(android.R.drawable.ic_menu_mapmode);
+     	item_3.setIcon(android.R.drawable.ic_menu_info_details);
      	
      	return super.onCreateOptionsMenu(menu);
     }
@@ -114,7 +183,7 @@ public class CluedoLogs extends TabActivity {
 	        }
 	        
 	        case MENU_ITEM_NEW:{
-	        	//startActivity(new Intent(this, .class));
+	        	showDialog(DIALOG_NEWGAME);
 	        	return true;
 	        }
 	        

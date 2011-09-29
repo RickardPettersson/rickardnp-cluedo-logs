@@ -27,7 +27,19 @@ import android.util.Log;
  */
 public class CluedoApp extends Application {
 
-    private static final String TAG = "[bosicc]CluedoApp";
+    @Override
+	public void onLowMemory() {
+		Log.i(TAG, "onLowMemory()");
+		super.onLowMemory();
+	}
+
+	@Override
+	public void onTerminate() {
+		Log.i(TAG, "onTerminate()");
+		super.onTerminate();
+	}
+
+	private static final String TAG = "[bosicc]CluedoApp";
 
 	private static ContentResolver resolver;
 
@@ -38,6 +50,8 @@ public class CluedoApp extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		
+		Log.i(TAG,"onCreate()");
 		
 		game = new GamePOJO();
 
