@@ -1,9 +1,14 @@
 package com.bosicc.cluedo;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +31,7 @@ import android.util.Log;
  * 
  */
 public class CluedoApp extends Application {
-
+	
     @Override
 	public void onLowMemory() {
 		Log.i(TAG, "onLowMemory()");
@@ -47,20 +52,32 @@ public class CluedoApp extends Application {
 
 	private GamePOJO game;
 	
+	private GameSave utils;
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		
 		Log.i(TAG,"onCreate()");
+		resolver = getContentResolver();
 		
 		game = new GamePOJO();
-
-		resolver = getContentResolver();
+		utils = new GameSave(getBaseContext());
+		
+		GamePOJO mLoadGame = utils.Load();
+		
+		if (mLoadGame != null){
+			game = mLoadGame;
+		}
 
 	}
 	
 	public GamePOJO getGame(){
 		return this.game;
+	}
+	
+	public GameSave getUtils(){
+		return this.utils;
 	}
 
 }

@@ -1,6 +1,13 @@
 package com.bosicc.cluedo;
 
-public class PMovePOJO {
+import java.io.Serializable;
+
+public class PMovePOJO implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8594113706866211086L;
 	
 	private int mPlayerXodit = 7;
 	private int mPlayerPodtverdil =7;

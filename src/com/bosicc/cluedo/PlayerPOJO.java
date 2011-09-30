@@ -1,7 +1,14 @@
 package com.bosicc.cluedo;
 
-public class PlayerPOJO {
+import java.io.Serializable;
+
+public class PlayerPOJO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8792232363672196444L;
+
 	public enum CardType {
 		DEFAULT(0), NO(1), YES(2), QUESTION(3);
 

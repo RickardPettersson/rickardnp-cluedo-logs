@@ -91,9 +91,10 @@ public class CluedoLogs extends TabActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		
+		if (game.isStarted()){
+			cApp.getUtils().Save(game);
+		}
 		Log.i(TAG, "onDestroy()");
-		
 	}
 	
 	private void setTabs(int activeTab){
@@ -129,7 +130,10 @@ public class CluedoLogs extends TabActivity {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					
+					// Reset all states in game
 					game.reset();
+					// Delete current game from disk;
+					cApp.getUtils().DeleteCurentGame();
 					startActivity(new Intent(CluedoLogs.this, CluedologsActivity.class));
 					finish();
 					
@@ -189,6 +193,10 @@ public class CluedoLogs extends TabActivity {
 	        
 	        case MENU_ITEM_HELP:{
 	        	//startActivity(new Intent(this, .class));
+//	        	cApp.getUtils().Save(game);
+//	        	GamePOJO loadGame = cApp.getUtils().Load();
+//	        	if (loadGame != null)
+//	        		Log.i(TAG,"game=" +loadGame.getYourPlayer());
 	        	return true;
 	        }
         }
