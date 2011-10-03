@@ -45,9 +45,7 @@ import com.bosicc.cluedo.PlayerPOJO.CardType;
  */
 public class Table extends ListActivity {
 	
-
-
-	private static String TAG = "Table";
+	//private static String TAG = "Table";
 	private static final int DIALOG_MARK = 1;
 
 	private ListView mList;
@@ -135,8 +133,8 @@ public class Table extends ListActivity {
 		 switch (id) {
 			 case DIALOG_MARK:
 		     	String title = "У " + mPeople[mCurentItem.num] + " есть карта " + mCards[mCurentItem.pos] + "?";
-		     	Log.i(TAG, "onCreateDialog at mCurentItem.pos=" + mCurentItem.pos + " mCurentItem.num=" + mCurentItem.num);
-		     	Log.i(TAG, "onCreateDialog at mPeople - " + mPeople[mCurentItem.num] + " Item=" + mCards[mCurentItem.pos]);
+		     	//Log.i(TAG, "onCreateDialog at mCurentItem.pos=" + mCurentItem.pos + " mCurentItem.num=" + mCurentItem.num);
+		     	//Log.i(TAG, "onCreateDialog at mPeople - " + mPeople[mCurentItem.num] + " Item=" + mCards[mCurentItem.pos]);
 		     	dialog.setTitle(title);
 		 }
 	}
@@ -307,7 +305,7 @@ public class Table extends ListActivity {
 	                    	num = 5;
 		                    break;
                     }
-                    Log.i(TAG, "onItemClick at pos=" + mPosition + " num=" + num); 
+                    //Log.i(TAG, "onItemClick at pos=" + mPosition + " num=" + num); 
                     mCurentItem.pos = mPosition;
                     mCurentItem.num = num;
                     showDialog(DIALOG_MARK);

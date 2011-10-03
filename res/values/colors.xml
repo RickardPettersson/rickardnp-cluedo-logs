@@ -23,5 +23,6 @@
 	
 	<color name="textTitle">#FF000000</color>
 	<color name="textTitleLogs">#FFffffff</color>
+	<color name="textTitleAbout">#FF3366CC</color>
 	
 </resources>

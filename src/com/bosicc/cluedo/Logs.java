@@ -50,7 +50,7 @@ import com.bosicc.cluedo.PlayerPOJO.CardType;
  */
 public class Logs extends ListActivity {
 	
-	private static String TAG = "Logs";
+	//private static String TAG = "Logs";
 
 	private Button mBtnXodit;
 	private Button mBtnPodtverdil;
@@ -242,13 +242,13 @@ public class Logs extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 		
-		// ===
-		MenuItem item_1 = menu.add(Menu.NONE, MENU_ITEM_SORT_BY_XODIL, Menu.NONE, R.string.logsmenu_sort_xodil);
-		item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
-
-		// ===
-     	MenuItem item_2 = menu.add(Menu.NONE, MENU_ITEM_SORT_BY_PODTVERDIL, Menu.NONE, R.string.logsmenu_sort_podtverdil);
-     	item_2.setIcon(android.R.drawable.ic_menu_sort_by_size);
+//		// ===
+//		MenuItem item_1 = menu.add(Menu.NONE, MENU_ITEM_SORT_BY_XODIL, Menu.NONE, R.string.logsmenu_sort_xodil);
+//		item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
+//
+//		// ===
+//     	MenuItem item_2 = menu.add(Menu.NONE, MENU_ITEM_SORT_BY_PODTVERDIL, Menu.NONE, R.string.logsmenu_sort_podtverdil);
+//     	item_2.setIcon(android.R.drawable.ic_menu_sort_by_size);
      	
      	return super.onCreateOptionsMenu(menu);
     }

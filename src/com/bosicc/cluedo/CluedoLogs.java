@@ -58,34 +58,34 @@ public class CluedoLogs extends TabActivity {
     @Override
 	protected void onRestart() {
 		super.onRestart();
-		Log.i(TAG, "onRestart()");
+		//Log.i(TAG, "onRestart()");
 	}
 	
 	@Override
 	protected void onStart() {
 		super.onStart();
-		Log.i(TAG, "onStart()");
+		//Log.i(TAG, "onStart()");
 		
 	}
 	
 	@Override
 	protected void onPause() {
 		super.onPause();
-		Log.i(TAG, "onPause()");
+		//Log.i(TAG, "onPause()");
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();		
 		
-		Log.i(TAG, "onResume()");
+		//Log.i(TAG, "onResume()");
 	}
 
 	@Override
 	public void onStop() {
 		super.onStop();
 
-		Log.i(TAG, "onStop()");
+		//Log.i(TAG, "onStop()");
 	}
 	
 	@Override
@@ -94,7 +94,7 @@ public class CluedoLogs extends TabActivity {
 		if (game.isStarted()){
 			cApp.getUtils().Save(game);
 		}
-		Log.i(TAG, "onDestroy()");
+		//Log.i(TAG, "onDestroy()");
 	}
 	
 	private void setTabs(int activeTab){
@@ -197,6 +197,7 @@ public class CluedoLogs extends TabActivity {
 //	        	GamePOJO loadGame = cApp.getUtils().Load();
 //	        	if (loadGame != null)
 //	        		Log.i(TAG,"game=" +loadGame.getYourPlayer());
+	        	startActivity(new Intent(CluedoLogs.this, About.class));
 	        	return true;
 	        }
         }

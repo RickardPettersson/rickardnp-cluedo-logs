@@ -34,17 +34,17 @@ public class CluedoApp extends Application {
 	
     @Override
 	public void onLowMemory() {
-		Log.i(TAG, "onLowMemory()");
+		//Log.i(TAG, "onLowMemory()");
 		super.onLowMemory();
 	}
 
 	@Override
 	public void onTerminate() {
-		Log.i(TAG, "onTerminate()");
+		//Log.i(TAG, "onTerminate()");
 		super.onTerminate();
 	}
 
-	private static final String TAG = "[bosicc]CluedoApp";
+	//private static final String TAG = "[bosicc]CluedoApp";
 
 	private static ContentResolver resolver;
 
@@ -58,7 +58,7 @@ public class CluedoApp extends Application {
 	public void onCreate() {
 		super.onCreate();
 		
-		Log.i(TAG,"onCreate()");
+		//Log.i(TAG,"onCreate()");
 		resolver = getContentResolver();
 		
 		game = new GamePOJO();

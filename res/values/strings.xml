@@ -5,7 +5,7 @@
     <!-- Main menu Activity -->
     <string name="mainmenu_players">Имена игроков</string>
     <string name="mainmenu_new">Новая игра</string>
-    <string name="mainmenu_about">Помощь</string>
+    <string name="mainmenu_about">О игре</string>
     <string name="mainmenu_donate">Поддержите Нас</string>
     
     <!-- Main Tab -->
@@ -24,24 +24,30 @@
     <string name="tab_dialog_no">Нет</string>
     
      <!-- Setup page -->
-    <string name="setup_txt1">Ваш персонаж и количество игрков:</string>
-    <string name="setup_txt2">Выберете карты слухов:</string>
+    <string name="setup_txt1">Ваш персонаж и количество игроков:</string>
+    <string name="setup_txt2">Выберите карты слухов:</string>
     <string name="setup_dialog_notenoughtpcards_msg">Вы отметели меньше 3-х карт. Отметьте те карты слухов которые у вас на руках.</string>
-    <string name="setup_dialog_info_msg">Выберете своего персонажа и колличество игроков. Отметьте те карты cлухов которые у вас на руках.</string>
+    <string name="setup_dialog_info_msg">Выберите своего персонажа и колличество игроков. Отметьте те карты cлухов которые у вас на руках.</string>
     <string name="setup_txtbtnStart">Начать игру</string>
      
     <!-- Logs page -->
-    <string name="logs_txt1">Выберете кто ходит, слух и кто подтвердил.</string>
-    <string name="logs_txt2">Выберете кто подтвердил текущиц слух!</string>
-    <string name="logs_txt3">Создайте новый слух, выбрав нового игрока кто ходит.</string>
-    <string name="logs_txt4">Выберете все 3 карты для распостранения слуха!</string>
+    <string name="logs_txt1">Выберите кто ходит, слух и кто подтвердил.</string>
+    <string name="logs_txt2">Выберите кто подтвердил текущий слух!</string>
+    <string name="logs_txt3">"Создайте новый слух, выбрав нового игрока, который ходит.</string>
+    <string name="logs_txt4">Выберите все 3 карты для распространения слуха!</string>
     <string name="logs_btnxodit">Ходит</string>
     <string name="logs_btnpodtverdil">Подтвердил</string>
     <string name="logs_alert_title">Внимание!</string>
     <string name="logsmenu_sort_xodil">Кто ходил</string>
-    <string name="logsmenu_sort_podtverdil">Кто подтвердиол</string>
+    <string name="logsmenu_sort_podtverdil">Кто подтвердил</string>
     <string name="logs_alert_title_sort_xodil">Показать все хода:</string>
     <string name="logs_alert_title_sort_podtverdil">Показать все подтверждения:</string>
+    
+     <!-- About page -->
+    <string name="about_title_ver">Cluedo logs v.1.0.1.</string>
+    <string name="about_main_text">Эта игра разработана для облегчения ведения записей в игре Cluedo. Она позволяет отмечать проверенные карты и делать пометки на картах где вы не уверены. Также, в программе предусмотрена возможность ведения логирования игры, а именно, запись всех ходов игроков.</string>
+    <string name="about_dev_website">Посетить Сайт</string>
+    <string name="about_dev_email">Написать Email</string>
     
     
     <string name="alert_dialog_ok">ОК</string>

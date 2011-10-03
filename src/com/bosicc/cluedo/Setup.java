@@ -45,7 +45,7 @@ import com.bosicc.cluedo.PlayerPOJO.CardType;
 
 public class Setup extends ExpandableListActivity {
 	
-	private static String TAG = "Setup";
+	//private static String TAG = "Setup";
 	private static final int DIALOG_INFO = 1;
 	private static final int DIALOG_CARDSNOTSELECTED = 2;
 

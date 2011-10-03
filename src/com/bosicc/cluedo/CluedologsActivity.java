@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class CluedologsActivity extends Activity {
   
-	private static String TAG = "CluedologsActivity";
+	//private static String TAG = "CluedologsActivity";
 	
     private CluedoApp cApp;
     private GamePOJO game;
@@ -26,9 +26,9 @@ public class CluedologsActivity extends Activity {
         cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
         
-		Log.i(TAG, "onCreate()");
+		//Log.i(TAG, "onCreate()");
         if (game.isStarted()){
-        	Log.i(TAG, "Start Main. Game was saved()");
+        	//Log.i(TAG, "Start Main. Game was saved()");
         	runMainThread();
         }else{
         	setContentView(R.layout.main);
@@ -48,7 +48,7 @@ public class CluedologsActivity extends Activity {
     			
     			@Override
     			public void onClick(View v) {
-    				startActivity(new Intent(CluedologsActivity.this, Table.class));
+    				startActivity(new Intent(CluedologsActivity.this, About.class));
     			}
     		});
             
