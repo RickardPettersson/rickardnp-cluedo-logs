@@ -36,6 +36,8 @@ public class CluedoLogs extends TabActivity {
 	private static final int MENU_ITEM_PEOPLE			 	=1;			
 	private static final int MENU_ITEM_NEW					=2;
 	private static final int MENU_ITEM_HELP					=3;
+	
+	private static final int group1Id = 1;  
 
 	
 	
@@ -164,12 +166,13 @@ public class CluedoLogs extends TabActivity {
 //		item_new_contact.setIcon(android.R.drawable.ic_menu_preferences);
 		
 		// ===
-		MenuItem item_2 = menu.add(Menu.NONE, MENU_ITEM_NEW, Menu.NONE, R.string.mainmenu_new);
+		MenuItem item_2 = menu.add(group1Id  , MENU_ITEM_NEW, Menu.FIRST, R.string.mainmenu_new);
 		item_2.setIcon(android.R.drawable.ic_menu_agenda);
 
 		// ===
-     	MenuItem item_3 = menu.add(Menu.NONE, MENU_ITEM_HELP, Menu.NONE, R.string.mainmenu_about);
+     	MenuItem item_3 = menu.add(group1Id, MENU_ITEM_HELP, Menu.FIRST+1, R.string.mainmenu_about);
      	item_3.setIcon(android.R.drawable.ic_menu_info_details);
+     
      	
      	return super.onCreateOptionsMenu(menu);
     }

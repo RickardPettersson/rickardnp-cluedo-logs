@@ -11,9 +11,6 @@ public class PMovePOJO implements Serializable{
 	
 	private int mPlayerXodit = 7;
 	private int mPlayerPodtverdil =7;
-//	private int mPerson;
-//	private int mPlace;
-//	private int mWeapon;
 	
 	private int mSlyx[] = {7, 10, 10};
 	

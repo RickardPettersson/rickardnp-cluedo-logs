@@ -18,7 +18,30 @@ public class GamePOJO implements Serializable{
 	private PlayerPOJO[] Players;
 	private CardType[][] mCards; 
 	
-	public ArrayList<PMovePOJO> mLogsList;
+	private ArrayList<PMovePOJO> mLogsList;
+	
+	public enum ShowModeType {
+		ALL(0), XODIT(1), PODTVERDIL(2);
+
+		private final int id;
+		
+		ShowModeType(int id) {
+			this.id = id;
+		}
+
+		public int getValue() {
+			return id;
+		}
+
+		public static ShowModeType findByOrdinal(int ordinal) {
+			for (ShowModeType item : values()) {
+				if (item.ordinal() == ordinal) {
+					return item;
+				}
+			}
+			return ALL;
+		}
+	}
 
 	public GamePOJO(){
 		YourPlayer = 1; // default
@@ -90,6 +113,36 @@ public class GamePOJO implements Serializable{
 			mCards[i][player] = CardType.NO;
 		}
 		
+	}
+	
+	public ArrayList<PMovePOJO> getAllList(){
+		return mLogsList;
+	}
+	
+	public ArrayList<PMovePOJO> getCurentList(ShowModeType mode, int person){
+		ArrayList<PMovePOJO> mNewList = new ArrayList<PMovePOJO>();
+		switch(mode){
+			case ALL:
+				return this.mLogsList;
+			case XODIT:{
+				for (PMovePOJO item: mLogsList) {
+					if (item.getPlayerXodit() == person) {
+						mNewList.add(item);
+					}
+				}
+			}
+				break;
+			case PODTVERDIL:{
+				for (PMovePOJO item: mLogsList) {
+					if (item.getPlayerPodtverdil() == person) {
+						mNewList.add(item);
+					}
+				}
+			}
+				break;
+		}
+		
+		return mNewList;
 	}
 	
 	public void reset(){

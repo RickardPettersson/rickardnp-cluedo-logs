@@ -38,13 +38,14 @@
     <string name="logs_btnxodit">Ходит</string>
     <string name="logs_btnpodtverdil">Подтвердил</string>
     <string name="logs_alert_title">Внимание!</string>
-    <string name="logsmenu_sort_xodil">Кто ходил</string>
-    <string name="logsmenu_sort_podtverdil">Кто подтвердил</string>
+    <string name="logsmenu_sort_xodil">Ходил</string>
+    <string name="logsmenu_sort_podtverdil">Подтвердил</string>
+    <string name="logsmenu_sort_all">Все</string>
     <string name="logs_alert_title_sort_xodil">Показать все хода:</string>
     <string name="logs_alert_title_sort_podtverdil">Показать все подтверждения:</string>
     
      <!-- About page -->
-    <string name="about_title_ver">Cluedo logs v.1.0.1.</string>
+    <string name="about_title_ver">Cluedo logs v.1.0.2.</string>
     <string name="about_main_text">Эта игра разработана для облегчения ведения записей в игре Cluedo. Она позволяет отмечать проверенные карты и делать пометки на картах где вы не уверены. Также, в программе предусмотрена возможность ведения логирования игры, а именно, запись всех ходов игроков.</string>
     <string name="about_dev_website">Посетить Сайт</string>
     <string name="about_dev_email">Написать Email</string>

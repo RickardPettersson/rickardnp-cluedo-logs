@@ -16,6 +16,8 @@
 
 package com.bosicc.cluedo;
 
+// http://habrahabr.ru/blogs/android/103582/
+
 //Need the following import to get access to the app resources, since this
 //class is in a sub-package.
 import android.app.AlertDialog;
