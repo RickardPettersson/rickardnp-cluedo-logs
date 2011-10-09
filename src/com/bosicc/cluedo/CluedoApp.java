@@ -20,6 +20,7 @@ import android.app.Application;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Credentials;
 import android.provider.Contacts.People;
@@ -70,6 +71,12 @@ public class CluedoApp extends Application {
 		
 		if (mLoadGame != null){
 			game = mLoadGame;
+		}else{
+			//Load default cards
+			Resources r = getResources();
+			game.mPeople = r.getStringArray(R.array.people_1);
+			game.mPlace = r.getStringArray(R.array.place_1);
+			game.mWeapon = r.getStringArray(R.array.weapon_1);
 		}
 
 	}

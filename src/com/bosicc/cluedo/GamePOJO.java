@@ -3,6 +3,8 @@ package com.bosicc.cluedo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import android.content.res.Resources;
+
 import com.bosicc.cluedo.PlayerPOJO.CardType;
 
 public class GamePOJO implements Serializable{
@@ -16,7 +18,13 @@ public class GamePOJO implements Serializable{
 	private int YourPlayer;
 	private boolean isCreated = false;
 	private PlayerPOJO[] Players;
-	private CardType[][] mCards; 
+	private CardType[][] mCards;
+	public String[] mPeopleName;
+    public String[] mPeople;
+    public String[] mPlace;
+    public String[] mWeapon;
+    
+    private int cardnum = 24;
 	
 	private ArrayList<PMovePOJO> mLogsList;
 	
@@ -48,17 +56,22 @@ public class GamePOJO implements Serializable{
 		NumberOfPlayers = 3; // default
 		
 		Players = new PlayerPOJO[6];
+		mPeopleName = new String[6]; 
+		mPeople = new String[6];
+		mPlace = new String[9];
+		mWeapon = new String[9];
 		// all raws for list
-		mCards  = new CardType[24][6]; 
+		mCards  = new CardType[cardnum][6]; 
 		
 		for (int i=0;i<6;i++){
-			for (int j=0; j<24; j++){
+			for (int j=0; j<cardnum; j++){
 				mCards[j][i] = CardType.DEFAULT;
 			}
 			Players[i] = new PlayerPOJO();
 		}
 		
 		mLogsList = new ArrayList<PMovePOJO>();
+		
 	}
 	
 	public void setNumberOfPlayers(int num){
@@ -67,6 +80,14 @@ public class GamePOJO implements Serializable{
 	
 	public int getNumberOfPlayers(){
 		return NumberOfPlayers;
+	}
+	
+	public void setPlayerName(int num, String name){
+		mPeopleName[num] = name;
+	}
+	
+	public String getPlayerName(int num){
+		return mPeopleName[num];
 	}
 	
 	public void setYourPlayer(int num){
@@ -100,6 +121,12 @@ public class GamePOJO implements Serializable{
 		setCardsData(pos, num, type);
 	}
 	
+	public void setColumnNoData(int raw){
+		for (int i=0;i<cardnum;i++){
+    		setCardsData(i,raw,CardType.NO);
+    	}
+	}
+	
 	public boolean isStarted(){
 		return isCreated;
 	}
@@ -109,7 +136,7 @@ public class GamePOJO implements Serializable{
 	}
 	
 	public void setPlayerNoColumn(int player){
-		for (int i=0; i<24; i++){
+		for (int i=0; i<cardnum; i++){
 			mCards[i][player] = CardType.NO;
 		}
 		
@@ -150,7 +177,7 @@ public class GamePOJO implements Serializable{
 		mLogsList.clear();
 		// Clear tabele
 		for (int j=0; j<6; j++){
-			for (int i=0; i<24; i++){
+			for (int i=0; i<cardnum; i++){
 				mCards[i][j] = CardType.DEFAULT;
 			}
 			// TODO: May be remove not used Class?

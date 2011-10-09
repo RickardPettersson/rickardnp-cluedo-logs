@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+	<string-array name="gameTypes">
+        <item>Cluedo: Русская версия</item>
+    </string-array>
+    
 	<string-array name="NumberOfPlayers">
         <item>3</item>
         <item>4</item>
@@ -14,16 +18,36 @@
         <item>@string/title_weapon</item>
     </string-array>
 
-    <string-array name="people">
-        <item>Горчичников</item>
-        <item>Черниченко</item>
+	<!-- ============ PEOPLE =============== -->
+    <string-array name="people_1">
+        <item>Горчичников</item> 	
+        <item>Черниченко</item>		
         <item>Зеленович</item>
         <item>Голубева</item>
         <item>Краснова</item>
         <item>Белых</item>
     </string-array>
     
-    <string-array name="place">
+    <string-array name="people_2">
+        <item>Zach Mustard</item>
+        <item>Justin Plum</item>
+        <item>Ryan Green</item>
+        <item>Ashley Peacock</item>
+        <item>Samantha Scarlet</item>
+        <item>Emma White</item>
+    </string-array>
+    
+        <string-array name="people_3">
+        <item>Colonel Mustard</item>
+        <item>Professor Plum</item>
+        <item>The Reverend Green</item>
+        <item>Mrs. Peacock</item>
+        <item>Miss Scarlett</item>
+        <item>Mrs. White</item>
+    </string-array>
+    
+    <!-- ============ PLACE =============== -->
+    <string-array name="place_1">
         <item>Прихожая</item>
         <item>Столовая</item>
         <item>Кухня</item>
@@ -35,7 +59,20 @@
         <item>Дом для гостей</item>
     </string-array>
     
-    <string-array name="weapon">
+    <string-array name="place_2">
+        <item>Place des Vosges</item>
+        <item>Bastille</item>
+        <item>Notre Dame</item>
+        <item>Orsay Museum</item>
+        <item>Eiffel Tower</item>
+        <item>Arc de Triomphe</item>
+        <item>Paris Opera</item>
+        <item>Louvre</item>
+        <item>Sacred Heart Bastilica</item>
+    </string-array>
+    
+    <!-- ============ WEAPON =============== -->
+    <string-array name="weapon_1"> <!-- russian -->
         <item>Нож</item>
         <item>Канделябр</item>
         <item>Пистолет</item>
@@ -47,19 +84,28 @@
         <item>Гантеля</item>
     </string-array>
     
-        <string-array name="mark">
-        <item>Да</item>
-        <item>Не знаю</item>
-        <item>Нет</item>
-        <item>Убрать отметку</item>
+    <string-array name="weapon_2"> <!-- in Paris -->
+ 		<item>Knife</item>
+        <item>Candlestick</item>
+        <item>Pistol</item>
+        <item>Poison</item>
+        <item>Trophy</item>
+        <item>Rope</item>
+        <item>Bat</item>
+        <item>Ax</item>
+        <item>Dumbbell</item>
     </string-array>
     
-        <string-array name="sort_list">
-        <item>Горчичников</item>
-        <item>Черниченко</item>
-        <item>Зеленович</item>
-        <item>Голубева</item>
-        <item>Краснова</item>
-        <item>Белых</item>
+    <string-array name="mark">
+        <item>@string/mark_yes</item>
+        <item>@string/mark_question</item>
+        <item>@string/mark_no</item>
+        <item>@string/mark_remove</item>
     </string-array>
+    
+    
+    <!--  <item>English version</item>
+     	<item>Clue: Secrets in Paris</item>
+        <item>Clue: Secrets in Paris</item>
+        <item>Clue: The Simpsons</item> -->
 </resources>

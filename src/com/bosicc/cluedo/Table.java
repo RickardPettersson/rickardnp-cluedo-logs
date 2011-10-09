@@ -53,7 +53,6 @@ public class Table extends ListActivity {
 	private ListView mList;
 	private BaseAdapter mAdapter;
 	private String[] mCards = new String[24];
-	private String[] mPeople = new String[6];
     private CluedoApp cApp;
     private GamePOJO game;
     
@@ -73,20 +72,24 @@ public class Table extends ListActivity {
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
 		
-
+		((TextView) findViewById(R.id.txtPeople1)).setText(game.getPlayerName(0));
+		((TextView) findViewById(R.id.txtPeople2)).setText(game.getPlayerName(1));
+		((TextView) findViewById(R.id.txtPeople3)).setText(game.getPlayerName(2));
+		((TextView) findViewById(R.id.txtPeople4)).setText(game.getPlayerName(3));
+		((TextView) findViewById(R.id.txtPeople5)).setText(game.getPlayerName(4));
+		((TextView) findViewById(R.id.txtPeople6)).setText(game.getPlayerName(5));
+		
 		int i=0;
-	    Resources r = getResources();
-	    mPeople = r.getStringArray(R.array.people);
 	    for (int j=0;j<6;j++){
-	    	mCards[i] = r.getStringArray(R.array.people)[j];
+	    	mCards[i] = game.mPeople[j];
 	    	i++;
 	    }
 	    for (int j=0;j<9;j++){
-	    	mCards[i] = r.getStringArray(R.array.place)[j];
+	    	mCards[i] = game.mPlace[j];
 	    	i++;
 	    }
 	    for (int j=0;j<9;j++){
-	    	mCards[i] = r.getStringArray(R.array.weapon)[j];
+	    	mCards[i] = game.mWeapon[j];
 	    	i++;
 	    }
 	       
@@ -134,7 +137,11 @@ public class Table extends ListActivity {
 		super.onPrepareDialog(id, dialog);
 		 switch (id) {
 			 case DIALOG_MARK:
-		     	String title = "У " + mPeople[mCurentItem.num] + " есть карта " + mCards[mCurentItem.pos] + "?";
+				String text = game.getPlayerName(mCurentItem.num);
+				if (text.equals("")){
+					text = game.mPeople[mCurentItem.num];
+				}
+		     	String title = "У " + text + " есть карта " + mCards[mCurentItem.pos] + "?";
 		     	//Log.i(TAG, "onCreateDialog at mCurentItem.pos=" + mCurentItem.pos + " mCurentItem.num=" + mCurentItem.num);
 		     	//Log.i(TAG, "onCreateDialog at mPeople - " + mPeople[mCurentItem.num] + " Item=" + mCards[mCurentItem.pos]);
 		     	dialog.setTitle(title);

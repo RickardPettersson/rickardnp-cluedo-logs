@@ -3,15 +3,72 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/bgMain" android:orientation="vertical">
-    <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout2" android:layout_width="fill_parent" android:orientation="horizontal" android:padding="3dp" android:background="@color/bgSetupHeader">
-        <Spinner android:layout_height="wrap_content" android:id="@+id/spinnerNumberOfPlayers" android:layout_width="wrap_content"></Spinner>
-        <Spinner android:layout_height="wrap_content" android:id="@+id/spinnerYourPerson" android:layout_width="wrap_content" android:layout_weight="1"></Spinner>
-    </LinearLayout>
-    <LinearLayout android:layout_height="70dp" android:id="@+id/linearLayout1" android:layout_weight="1" android:layout_width="fill_parent" android:orientation="vertical">
-        <ExpandableListView android:layout_height="fill_parent" android:cacheColorHint="@color/bgMain" android:layout_width="fill_parent" android:id="@+id/android:list"></ExpandableListView>
-    </LinearLayout>
-    <LinearLayout android:id="@+id/linearLayout3" android:gravity="center_horizontal" android:layout_height="wrap_content" android:layout_width="fill_parent" android:background="@color/bgSetupHeader">
-        <Button android:id="@+id/btnStart" android:layout_height="wrap_content" android:textStyle="bold" android:text="@string/setup_txtbtnStart" android:layout_width="200dp"></Button>
+    
+    <LinearLayout android:layout_height="70dp" android:layout_weight="1" android:layout_width="fill_parent" android:orientation="vertical" android:id="@+id/LLlist">
+        <ScrollView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/scrollView">
+            <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/linearLayout4" android:orientation="vertical">
+                <TextView style="@style/TitleText" android:layout_height="wrap_content" android:padding="5dp" android:id="@+id/tex1" android:layout_weight="1" android:text="@string/setup_txt1" android:layout_width="fill_parent"></TextView>
+                <Spinner android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/spinnerGameType"></Spinner>
+                <TextView style="@style/TitleText" android:layout_height="wrap_content" android:padding="5dp" android:id="@+id/tex2" android:layout_weight="1" android:text="@string/setup_txt2" android:layout_width="fill_parent"></TextView>
+                <Spinner android:id="@+id/spinnerYourPerson" android:layout_height="wrap_content" android:layout_width="fill_parent"></Spinner>
+                
+                <LinearLayout android:id="@+id/LL1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:padding="3dp">
+			        <TextView android:id="@+id/tex1" android:layout_width="16dp" android:layout_height="fill_parent" android:background="@color/bgPeople1"></TextView>
+			        <EditText android:id="@+id/editText1" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="textPersonName" android:layout_marginLeft="5dp">
+			        </EditText>
+			        <CheckBox android:id="@+id/checkBox1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"></CheckBox>
+			    </LinearLayout>
+			    
+			    <LinearLayout android:id="@+id/LL2" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:padding="3dp">
+			        <TextView android:id="@+id/tex1" android:layout_width="16dp" android:layout_height="fill_parent" android:background="@color/bgPeople2"></TextView>
+			        <EditText android:id="@+id/editText2" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="textPersonName" android:layout_marginLeft="5dp">
+			        </EditText>
+			        <CheckBox android:id="@+id/checkBox2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"></CheckBox>
+			    </LinearLayout>
+			    
+			    <LinearLayout android:id="@+id/LL3" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:padding="3dp">
+			        <TextView android:id="@+id/tex1" android:layout_width="16dp" android:layout_height="fill_parent" android:background="@color/bgPeople3"></TextView>
+			        <EditText android:id="@+id/editText3" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="textPersonName" android:layout_marginLeft="5dp">
+			        </EditText>
+			        <CheckBox android:id="@+id/checkBox3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"></CheckBox>
+			    </LinearLayout>
+			    
+			    <LinearLayout android:id="@+id/LL4" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:padding="3dp">
+			        <TextView android:id="@+id/tex1" android:layout_width="16dp" android:layout_height="fill_parent" android:background="@color/bgPeople4"></TextView>
+			        <EditText android:id="@+id/editText4" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="textPersonName" android:layout_marginLeft="5dp">
+			        </EditText>
+			        <CheckBox android:id="@+id/checkBox4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"></CheckBox>
+			    </LinearLayout>
+			    
+			    <LinearLayout android:id="@+id/LL5" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:padding="3dp">
+			        <TextView android:id="@+id/tex1" android:layout_width="16dp" android:layout_height="fill_parent" android:background="@color/bgPeople5"></TextView>
+			        <EditText android:id="@+id/editText5" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="textPersonName" android:layout_marginLeft="5dp">
+			        </EditText>
+			        <CheckBox android:id="@+id/checkBox5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"></CheckBox>
+			    </LinearLayout>
+			    
+			    <LinearLayout android:id="@+id/LL6" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:padding="3dp">
+			        <TextView android:id="@+id/tex1" android:layout_width="16dp" android:layout_height="fill_parent" android:background="@color/bgPeople6"></TextView>
+			        <EditText android:id="@+id/editText6" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="textPersonName" android:layout_marginLeft="5dp">
+			        </EditText>
+			        <CheckBox android:id="@+id/checkBox6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true"></CheckBox>
+			    </LinearLayout>
+            </LinearLayout>
+            
+        </ScrollView>
+        <TextView android:layout_height="wrap_content" android:id="@+id/text3" style="@style/TitleText" android:text="@string/setup_txt3" android:layout_width="fill_parent" android:padding="5dp" android:background="@color/bgSetupHeader"></TextView>
+        <ExpandableListView android:layout_height="fill_parent" android:cacheColorHint="@color/bgMain" android:layout_width="fill_parent" android:id="@+id/android:list" android:visibility="gone"></ExpandableListView>
     </LinearLayout>
     
+    <LinearLayout android:gravity="center_horizontal" android:layout_height="wrap_content" android:layout_width="fill_parent" android:background="@color/bgSetupHeader" android:padding="5dp" android:id="@+id/LLButtons">
+        <Button android:layout_height="wrap_content" android:textStyle="bold" android:layout_width="0dp" android:id="@+id/btnBack" android:layout_weight="1" android:text="@string/setup_txtbtnBack" android:visibility="invisible"></Button>
+        <Button android:layout_height="wrap_content" android:textStyle="bold" android:layout_width="0dp" android:text="@string/setup_txtbtnNext" android:id="@+id/btnNext" android:layout_weight="1"></Button>
+    </LinearLayout>
+    
+    
 </LinearLayout>
+
+<!--  
+ 
+
+ -->

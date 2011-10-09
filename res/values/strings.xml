@@ -24,10 +24,14 @@
     <string name="tab_dialog_no">Нет</string>
     
      <!-- Setup page -->
-    <string name="setup_txt1">Ваш персонаж и количество игроков:</string>
-    <string name="setup_txt2">Выберите карты слухов:</string>
+    <string name="setup_txt1">Выберите тип игры:</string>
+    <string name="setup_txt2">Выберите вашего персонажа и имена игроков:</string>
+    <string name="setup_txt3">Выберите карты которые у вас на руках:</string>
     <string name="setup_dialog_notenoughtpcards_msg">Вы отметели меньше 3-х карт. Отметьте те карты слухов, которые у вас на руках.</string>
     <string name="setup_dialog_info_msg">Выберите своего персонажа и колличество игроков. Отметьте те карты cлухов, которые у вас на руках.</string>
+    <string name="setup_edittext_hint">имя игрока - </string>
+    <string name="setup_txtbtnBack">Назад</string>
+    <string name="setup_txtbtnNext">Далее</string>
     <string name="setup_txtbtnStart">Начать игру</string>
      
     <!-- Logs page -->
@@ -43,6 +47,14 @@
     <string name="logsmenu_sort_all">Все</string>
     <string name="logs_alert_title_sort_xodil">Показать все хода:</string>
     <string name="logs_alert_title_sort_podtverdil">Показать все подтверждения:</string>
+    <string name="logs_toast_xoda">Все хода: </string>
+    <string name="logs_toast_podtverdil">Кто подтвердил: </string>
+    
+    <string name="mark_yes">Да</string>
+    <string name="mark_question">Не знаю</string>
+    <string name="mark_no">Нет</string>
+    <string name="mark_remove">Убрать отметку</string>
+    
     
      <!-- About page -->
     <string name="about_title_ver">Cluedo logs v.1.0.2.</string>

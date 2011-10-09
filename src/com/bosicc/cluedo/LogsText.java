@@ -23,23 +23,20 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bosicc.cluedo.GamePOJO.ShowModeType;
-import com.bosicc.cluedo.PlayerPOJO.CardType;
 
 
 /**
@@ -47,7 +44,7 @@ import com.bosicc.cluedo.PlayerPOJO.CardType;
  */
 public class LogsText extends ListActivity {
 	
-	private static String TAG = "Logs";
+	private static String TAG = "LogsText";
 
 	private LinearLayout mHeaderBox;
 	private TextView mTitle;
@@ -57,9 +54,6 @@ public class LogsText extends ListActivity {
 	private BaseAdapter mAdapter;
     private CluedoApp cApp;
     private GamePOJO game;
-    private String[] mPeople = new String[6];
-    private String[] mPlace = new String[9];
-    private String[] mWeapon = new String[9];
     
     private ShowModeType mViewMode = ShowModeType.ALL;
     private int mPerson = 0;
@@ -96,53 +90,31 @@ public class LogsText extends ListActivity {
 		
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
-		
-		Resources r = getResources();
-		mPeople = r.getStringArray(R.array.people);
-		mPlace = r.getStringArray(R.array.place);
-		mWeapon = r.getStringArray(R.array.weapon);
+	
 		mHeaderBox.setVisibility(View.GONE);
+		mSlyx.setVisibility(View.GONE);
 		
-				
 		// Set up our adapter
 		mAdapter = new MyListAdapter(this);
 		mList.setAdapter(mAdapter);
 	}
+	
+	@Override
+	protected void onResume() {
+		mAdapter.notifyDataSetChanged();
+		super.onResume();		
+	}
+	
 	
 	
 	
 	@Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
-        case DIALOG_XODIT:
-            return new AlertDialog.Builder(LogsText.this)
-            .setTitle(R.string.logs_btnxodit)
-            .setItems(R.array.people, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-
-            		PMovePOJO item = new PMovePOJO(which);
-                	game.getAllList().add(0,item);
-                	mSlyx.setText("");
-                	mTitle.setText(mPeople[which]);
-                	mAdapter.notifyDataSetChanged();
-
-                }
-            })
-            .create();
-        case DIALOG_PODTVERDIL:
-            return new AlertDialog.Builder(LogsText.this)
-            .setTitle(R.string.logs_btnpodtverdil)
-            .setItems(R.array.people, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                	game.getAllList().get(0).setPlayerPodtverdil(which);
-                	mAdapter.notifyDataSetChanged();
-                }
-            })
-            .create();
         case DIALOG_PEOPLE:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.title_people)
-            .setItems(R.array.people, new DialogInterface.OnClickListener() {
+            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	game.getAllList().get(0).setSlyxPerson(which);
                 	mAdapter.notifyDataSetChanged();
@@ -152,7 +124,7 @@ public class LogsText extends ListActivity {
         case DIALOG_PLACE:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.title_place)
-            .setItems(R.array.place, new DialogInterface.OnClickListener() {
+            .setItems(game.mPlace, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	game.getAllList().get(0).setSlyxPlace(which);
                 	mAdapter.notifyDataSetChanged();
@@ -162,7 +134,7 @@ public class LogsText extends ListActivity {
         case DIALOG_WEAPON:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.title_weapon)
-            .setItems(R.array.weapon, new DialogInterface.OnClickListener() {
+            .setItems(game.mWeapon, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	game.getAllList().get(0).setSlyxWeapon(which);
                 	mAdapter.notifyDataSetChanged();
@@ -172,7 +144,7 @@ public class LogsText extends ListActivity {
         case DIALOG_SORT_BY_XODIL:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.logs_alert_title_sort_xodil)
-            .setItems(R.array.sort_list, new DialogInterface.OnClickListener() {
+            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.XODIT;
             		mPerson = which;
@@ -183,7 +155,7 @@ public class LogsText extends ListActivity {
         case DIALOG_SORT_BY_PODTVERDIL:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.logs_alert_title_sort_podtverdil)
-            .setItems(R.array.sort_list, new DialogInterface.OnClickListener() {
+            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.PODTVERDIL;
             		mPerson = which;
@@ -324,16 +296,25 @@ public class LogsText extends ListActivity {
            
             
             int [] slux = game.getCurentList(mViewMode, mPerson).get(position).getSlyx();
+            Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
 
 			if (slux[0] != 7){
-				cache.txt1.setText(mPeople[slux[0]]);
+				cache.txt1.setText(game.mPeople[slux[0]]);
 				//cache.txt1.setTextColor(cApp.getColorForPlayer(num));
+			}else{
+				cache.txt1.setText("");
 			}
+			
 			if (slux[1] != 10){
-				cache.txt2.setText(mPlace[slux[1]]);
+				cache.txt2.setText(game.mPlace[slux[1]]);
+			}else{
+				cache.txt2.setText("");
 			}
+			
 			if (slux[2] != 10){
-				 cache.txt3.setText(mWeapon[slux[2]]);
+				 cache.txt3.setText(game.mWeapon[slux[2]]);
+			}else{
+				cache.txt3.setText("");
 			}
 
             return view;
@@ -344,16 +325,15 @@ public class LogsText extends ListActivity {
 		public void notifyDataSetChanged() {
 			super.notifyDataSetChanged();
 			if (mViewMode == ShowModeType.ALL){
-
-				mSlyx.setText(R.string.logsmenu_sort_all);
+				
 			}else{
 				String text = "";
 				if (mViewMode == ShowModeType.XODIT){
-					text = "Все хода: " + mPeople[mPerson];
+					text = mContext.getText(R.string.logs_toast_xoda)+ game.mPeople[mPerson];
 				}else{
-					text = "Кто подтвердил: " + mPeople[mPerson];
+					text = mContext.getText(R.string.logs_toast_podtverdil) + game.mPeople[mPerson];
 				}
-				mSlyx.setText(text);
+				Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
 			}
 			
 		}
