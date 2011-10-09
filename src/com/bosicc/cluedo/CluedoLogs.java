@@ -23,6 +23,7 @@ public class CluedoLogs extends TabActivity {
 
 	public static final String TAB_TABLE = "Table";
 	public static final String TAB_LOGS = "Logs";
+	public static final String TAB_LOGSText = "LogsText";
 	
 	//======================================================
 	// Dialog items ID
@@ -102,6 +103,7 @@ public class CluedoLogs extends TabActivity {
 	private void setTabs(int activeTab){
 		setupTableTab(); 		// tab_1
 		setupLogsTab();			// tab_2
+		setupLogsTextTab();			// tab_2
 		
 		tabHost.setCurrentTab(activeTab);
 	}
@@ -112,11 +114,19 @@ public class CluedoLogs extends TabActivity {
 				getResources().getDrawable(R.drawable.tab_table_icon))
 				.setContent(new Intent(this, Table.class)));
 	}
+	
 	private void setupLogsTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_LOGS).setIndicator(
 				"Logs",
 				getResources().getDrawable(R.drawable.tab_log_icon))
 				.setContent(new Intent(this, Logs.class)));
+	}
+	
+	private void setupLogsTextTab() {
+		tabHost.addTab(tabHost.newTabSpec(TAB_LOGS).setIndicator(
+				"Text Logs",
+				getResources().getDrawable(R.drawable.tab_log_icon))
+				.setContent(new Intent(this, LogsText.class)));
 	}
 	
 	@Override
