@@ -24,6 +24,7 @@ public class GamePOJO implements Serializable{
     public String[] mPlace;
     public String[] mWeapon;
     
+    private int version = -1;
     private int cardnum = 24;
 	
 	private ArrayList<PMovePOJO> mLogsList;
@@ -72,6 +73,14 @@ public class GamePOJO implements Serializable{
 		
 		mLogsList = new ArrayList<PMovePOJO>();
 		
+	}
+	
+	public void setVersion(int ver){
+		version = ver;
+	}
+	
+	public int getVersion(){
+		return version;
 	}
 	
 	public void setNumberOfPlayers(int num){

@@ -20,6 +20,7 @@ import android.app.Application;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Credentials;
@@ -65,19 +66,29 @@ public class CluedoApp extends Application {
 		resolver = getContentResolver();
 		
 		game = new GamePOJO();
+		//Load default cards
+		Resources r = getResources();
+		game.mPeople = r.getStringArray(R.array.people_1);
+		game.mPlace = r.getStringArray(R.array.place_1);
+		game.mWeapon = r.getStringArray(R.array.weapon_1);
+		
 		utils = new GameSave(getBaseContext());
+		
+		int ver = -1;
+	    try {
+	        ver = getPackageManager().getPackageInfo(getApplicationInfo().packageName, 0).versionCode;
+	    } catch (NameNotFoundException e) {
+	    }
 		
 		GamePOJO mLoadGame = utils.Load();
 		
 		if (mLoadGame != null){
-			game = mLoadGame;
-		}else{
-			//Load default cards
-			Resources r = getResources();
-			game.mPeople = r.getStringArray(R.array.people_1);
-			game.mPlace = r.getStringArray(R.array.place_1);
-			game.mWeapon = r.getStringArray(R.array.weapon_1);
+			if (ver == mLoadGame.getVersion()){
+				game = mLoadGame;
+			}
 		}
+		//Set current version
+		game.setVersion(ver);
 
 	}
 	

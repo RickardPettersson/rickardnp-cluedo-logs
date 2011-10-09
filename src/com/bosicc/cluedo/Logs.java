@@ -48,7 +48,7 @@ import com.bosicc.cluedo.PlayerPOJO.CardType;
  */
 public class Logs extends ListActivity {
 	
-	private static String TAG = "Logs";
+	//private static String TAG = "Logs";
 
 	private LinearLayout mHeaderBox;
 	private Button mBtnXodit;
@@ -376,7 +376,7 @@ public class Logs extends ListActivity {
            
             
             int [] slux = game.getCurentList(mViewMode, mPerson).get(position).getSlyx();
-            Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
+            //Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
             cache.btn1.setImageResource(cApp.getIconForPlayer(slux[0]));
             cache.btn2.setImageResource(cApp.getIconForPlace(slux[1]));
             cache.btn3.setImageResource(cApp.getIconForWeapon(slux[2]));

@@ -44,7 +44,7 @@ import com.bosicc.cluedo.GamePOJO.ShowModeType;
  */
 public class LogsText extends ListActivity {
 	
-	private static String TAG = "LogsText";
+	//private static String TAG = "LogsText";
 
 	private LinearLayout mHeaderBox;
 	private TextView mTitle;
@@ -296,7 +296,7 @@ public class LogsText extends ListActivity {
            
             
             int [] slux = game.getCurentList(mViewMode, mPerson).get(position).getSlyx();
-            Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
+            //Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
 
 			if (slux[0] != 7){
 				cache.txt1.setText(game.mPeople[slux[0]]);
