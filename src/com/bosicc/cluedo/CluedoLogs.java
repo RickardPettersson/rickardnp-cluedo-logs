@@ -118,7 +118,7 @@ public class CluedoLogs extends TabActivity {
 	private void setupLogsTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_LOGS).setIndicator(
 				"Logs",
-				getResources().getDrawable(R.drawable.tab_log_icon))
+				getResources().getDrawable(R.drawable.tab_log2_icon))
 				.setContent(new Intent(this, Logs.class)));
 	}
 	
