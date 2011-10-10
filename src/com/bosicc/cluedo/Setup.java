@@ -220,6 +220,18 @@ public class Setup extends ExpandableListActivity {
 					break;
 				}
 				
+				mPersonAdapter = new ArrayAdapter<String>(Setup.this, android.R.layout.simple_spinner_item, game.mPeople);
+				mPersonAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				mPerson.setAdapter(mPersonAdapter);
+				mPersonAdapter.notifyDataSetChanged();
+				
+				mEdit1.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[0]);
+				mEdit2.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[1]);
+				mEdit3.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[2]);
+				mEdit4.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[3]);
+				mEdit5.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[4]);
+				mEdit6.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[5]);
+				
 			}
 
 			@Override

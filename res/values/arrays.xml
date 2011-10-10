@@ -3,6 +3,7 @@
 
 	<string-array name="gameTypes">
         <item>Cluedo: Русская версия</item>
+        <item>Clue: Secrets in Paris</item>
     </string-array>
     
 	<string-array name="NumberOfPlayers">
