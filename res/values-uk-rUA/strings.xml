@@ -57,7 +57,6 @@
     
     
      <!-- About page -->
-    <string name="about_title_ver">Cluedo logs v.1.0.4.</string>
     <string name="about_main_text">Ця гра розроблена для полегшення ведения записів грі Cluedo. Вона дозволяе помічати перевірені карти та робити помітки на картах де ви не впевненні. Також, в программі передбачена можливість ведения логів гри, а саме, записи всіх ходів гравців.</string>
     <string name="about_dev_website">Відвідати Сайт</string>
     <string name="about_dev_email">Написати Email</string>
