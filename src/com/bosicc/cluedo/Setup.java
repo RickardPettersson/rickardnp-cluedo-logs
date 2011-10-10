@@ -209,14 +209,24 @@ public class Setup extends ExpandableListActivity {
 				
 				switch(arg2){
 				case 0: // Russian version
-					game.mPeople = r.getStringArray(R.array.people_1);
-					game.mPlace = r.getStringArray(R.array.place_1);
-					game.mWeapon = r.getStringArray(R.array.weapon_1);
+					game.mPeople = r.getStringArray(R.array.people_ru);
+					game.mPlace = r.getStringArray(R.array.place_ru);
+					game.mWeapon = r.getStringArray(R.array.weapon_ru);
 					break;
 				case 1:// Cluedo in Paris
-					game.mPeople = r.getStringArray(R.array.people_2);
-					game.mPlace = r.getStringArray(R.array.place_2);
-					game.mWeapon = r.getStringArray(R.array.weapon_2);
+					game.mPeople = r.getStringArray(R.array.people_ru);
+					game.mPlace = r.getStringArray(R.array.place_ru);
+					game.mWeapon = r.getStringArray(R.array.weapon_ru);
+					break;
+				case 2:// Clue the 24
+					game.mPeople = r.getStringArray(R.array.people_24);
+					game.mPlace = r.getStringArray(R.array.place_24);
+					game.mWeapon = r.getStringArray(R.array.weapon_24);
+					break;
+				case 3:// Clue the office
+					game.mPeople = r.getStringArray(R.array.people_office);
+					game.mPlace = r.getStringArray(R.array.place_office);
+					game.mWeapon = r.getStringArray(R.array.weapon_office);
 					break;
 				}
 				

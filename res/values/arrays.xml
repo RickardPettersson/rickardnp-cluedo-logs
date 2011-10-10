@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string-array name="gameTypes">
-        <item>Cluedo: Русская версия</item>
-        <item>Clue: Secrets in Paris</item>
+    <string-array name="mark">
+        <item>@string/mark_yes</item>
+        <item>@string/mark_question</item>
+        <item>@string/mark_no</item>
+        <item>@string/mark_remove</item>
     </string-array>
-    
-	<string-array name="NumberOfPlayers">
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-    
+   
     <string-array name="category">
         <item>@string/title_people</item>
         <item>@string/title_place</item>
         <item>@string/title_weapon</item>
     </string-array>
 
-	<!-- ============ PEOPLE =============== -->
-    <string-array name="people_1">
+
+
+	<string-array name="gameTypes">
+        <item>Cluedo: Раскрой все тайны</item>
+        <item>Clue: Secrets in Paris</item>
+        <item>Clue: The 24 Edition</item>
+        <item>Clue: The Office</item>
+    </string-array>
+    
+	<!-- ===================================== 
+	     ============== PEOPLE =============== 
+	     ====================================== -->
+    <string-array name="people_ru"> <!-- ru version -->
         <item>Горчичников</item> 	
         <item>Черниченко</item>		
         <item>Зеленович</item>
@@ -29,7 +35,7 @@
         <item>Белых</item>
     </string-array>
     
-    <string-array name="people_2">
+    <string-array name="people_paris"> <!-- secret in Paris-->
         <item>Zach Mustard</item>
         <item>Justin Plum</item>
         <item>Ryan Green</item>
@@ -38,17 +44,30 @@
         <item>Emma White</item>
     </string-array>
     
-        <string-array name="people_3">
-        <item>Colonel Mustard</item>
-        <item>Professor Plum</item>
-        <item>The Reverend Green</item>
-        <item>Mrs. Peacock</item>
-        <item>Miss Scarlett</item>
-        <item>Mrs. White</item>
+    <string-array name="people_office"> <!-- office -->
+        <item>Dwight</item>
+        <item>Stanley</item>
+        <item>Jim</item>
+        <item>Angela</item>
+        <item>Pam</item>
+        <item>Andy</item>
     </string-array>
     
-    <!-- ============ PLACE =============== -->
-    <string-array name="place_1">
+    <string-array name="people_24"> <!-- 24 -->
+        <item>Bill Buchanan</item>
+ 		<item>Chioe O\'Brain</item>
+        <item>Tony Almeida</item>
+        <item>Rudrey Raines</item>
+ 		<item>Nadia Yassir</item>
+        <item>Mike Doyle</item>
+    </string-array>
+    
+    
+    
+   	<!-- ===================================== 
+     ============== PLACE =============== 
+     ====================================== -->
+    <string-array name="place_ru"> <!-- ru -->
         <item>Прихожая</item>
         <item>Столовая</item>
         <item>Кухня</item>
@@ -60,20 +79,48 @@
         <item>Дом для гостей</item>
     </string-array>
     
-    <string-array name="place_2">
+    <string-array name="place_paris"> <!-- Paris -->
+     	<item>Louvre</item>
+     	<item>Bastille</item>
+     	<item>Arc de Triomphe</item>
         <item>Place des Vosges</item>
-        <item>Bastille</item>
         <item>Notre Dame</item>
         <item>Orsay Museum</item>
-        <item>Eiffel Tower</item>
-        <item>Arc de Triomphe</item>
         <item>Paris Opera</item>
-        <item>Louvre</item>
+        <item>Eiffel Tower</item>
         <item>Sacred Heart Bastilica</item>
     </string-array>
     
-    <!-- ============ WEAPON =============== -->
-    <string-array name="weapon_1"> <!-- russian -->
+    <string-array name="place_office"> <!-- office -->
+        <item>Break Room</item>
+        <item>Kitchen</item>
+        <item>Accounting</item>
+        <item>Michael\'s Office</item>
+        <item>Annex</item>
+        <item>Reception</item>
+        <item>Parking lot</item>
+        <item>Conference Room</item>
+        <item>Warehouse</item>
+    </string-array>
+    
+    <string-array name="place_24"> <!-- 24 -->
+        <item>Panic Room</item>
+ 		<item>Holding Cell</item>
+        <item>Situation Room</item>
+        <item>Medical Clinic</item>
+ 		<item>Jack\'s Car</item>
+        <item>The Builipen</item>
+        <item>Field Ops Office</item>
+ 		<item>Tech Center</item>
+        <item>Director\'s Office</item>
+    </string-array>
+    
+    
+    
+   	<!-- ===================================== 
+     ============== WEAPON =============== 
+     ====================================== -->
+    <string-array name="weapon_ru"> <!-- russian -->
         <item>Нож</item>
         <item>Канделябр</item>
         <item>Пистолет</item>
@@ -85,7 +132,7 @@
         <item>Гантеля</item>
     </string-array>
     
-    <string-array name="weapon_2"> <!-- in Paris -->
+    <string-array name="weapon_paris"> <!-- in Paris -->
  		<item>Knife</item>
         <item>Candlestick</item>
         <item>Pistol</item>
@@ -97,11 +144,28 @@
         <item>Dumbbell</item>
     </string-array>
     
-    <string-array name="mark">
-        <item>@string/mark_yes</item>
-        <item>@string/mark_question</item>
-        <item>@string/mark_no</item>
-        <item>@string/mark_remove</item>
+    <string-array name="weapon_office"> <!-- the oficce -->
+        <item>Dundee Trophy</item>
+ 		<item>Poisoned Pretzel</item>
+        <item>Bacon Grill</item>
+        <item>Rabit Bat</item>
+        <item>Nunchucks</item>
+		<item>Mr.A.Knife</item>
+        <item>Ream of Paper</item>
+        <item>Bicycle Chaine</item>
+        <item>Wolrld\'s Best Boss Coffe Mug</item>
+    </string-array>
+    
+    <string-array name="weapon_24"> <!-- 24 -->
+        <item>Bus</item>
+ 		<item>Computer</item>
+        <item>Money</item>
+        <item>Power Plant</item>
+ 		<item>CTU Badge</item>
+        <item>ID Card</item>
+        <item>Sattelite</item>
+ 		<item>Airport Tower</item>
+        <item>Wall Street Sign</item>
     </string-array>
     
     

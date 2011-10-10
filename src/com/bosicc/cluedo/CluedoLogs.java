@@ -146,9 +146,9 @@ public class CluedoLogs extends TabActivity {
 					// Reset all states in game
 					game.reset();
 					Resources r = getResources();
-					game.mPeople = r.getStringArray(R.array.people_1);
-					game.mPlace = r.getStringArray(R.array.place_1);
-					game.mWeapon = r.getStringArray(R.array.weapon_1);
+					game.mPeople = r.getStringArray(R.array.people_ru);
+					game.mPlace = r.getStringArray(R.array.place_ru);
+					game.mWeapon = r.getStringArray(R.array.weapon_ru);
 					// Delete current game from disk;
 					cApp.getUtils().DeleteCurentGame();
 					startActivity(new Intent(CluedoLogs.this, CluedologsActivity.class));

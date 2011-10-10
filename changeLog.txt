@@ -1,3 +1,6 @@
+--- V.1.0.5 --------------------------------------
+Добавлена игра Clue: The 24 Edition
+Добавлена игра Clue: The Office
 --- V.1.0.4 --------------------------------------
 Добавлена локализация RU, UA и по умолчанию US. 
 Добавлена игра Clue: Secrets in Paris
@@ -11,3 +14,42 @@
 --- V.1.0.1 --------------------------------------
 Добавлена сводная таблица всех игроков и их карт.
 Добавлена возможность ведения записей ходов игроков.
+
+
+
+
+
+
+
+
+
+=== ABOUT ====
+Cluedo logs это программа помощник ведения записей в настольной игре Cluedo. 
+Она позволяет отмечать проверенные карты и делать пометки, на картах где вы не уверены. 
+Также, в программе предусмотрена возможность ведения логирования игры, а именно, запись всех ходов игроков, что позволяет не пропустить мельчайшие детали.
+Это не настоящая игра Cluedo. Для того, что бы пользоваться программой у вас должна быть настольная игра.
+
+Поддерживаемые типы игр:
+* Cluedo Раскройте все секреты (Ru)
+* CLUE: Secrets in Paris
+
+Эсли в списки нет Вашей игры, напишите мне и я ее добавлю.
+
+Все замечания и пожелания отправляйте на email, я с удовольствием учту все замечания.
+
+
+
+
+==== ENG ====
+Cluedo logs is an application that is help to keep all records in a board game Cluedo.
+It allows you to mark checked cards and to make notes on clues where you are not sure.
+Also, the program allows make logs of the game and record all the moves of players. You don't miss any smallest details.
+This is not a real game Cluedo. In order to use the program, you must have a real board game.
+
+Supported types of games:
+* Cluedo Раскройте все тайны (Ru)
+* CLUE: Secrets in Paris
+
+If you have a an unsupported Cluedo board please contact me and I'll add it.
+
+All suggestions and wishes send on email, I'll be pleased to read and add your wish.
