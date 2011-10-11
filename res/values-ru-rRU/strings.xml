@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Cluedo logs</string>
     
     <!-- Main menu Activity -->
     <string name="mainmenu_players">Имена игроков</string>
@@ -23,11 +22,14 @@
     <string name="tab_dialog_yes">Да</string>
     <string name="tab_dialog_no">Нет</string>
     
+    <!-- Table page -->
+    <string name="table_title_mark">имеет карту</string>
+    
      <!-- Setup page -->
     <string name="setup_txt1">Выберите тип игры:</string>
     <string name="setup_txt2">Выберите вашего персонажа и имена игроков:</string>
     <string name="setup_txt3">Выберите карты которые у вас на руках:</string>
-    <string name="setup_dialog_notenoughtpcards_msg">Вы отметели меньше 3-х карт. Отметьте те карты слухов, которые у вас на руках.</string>
+    <string name="setup_dialog_notenoughtpcards_msg">Вы отметили меньше 3-х карт. Отметьте те карты слухов, которые у вас на руках.</string>
     <string name="setup_dialog_info_msg">Выберите своего персонажа и колличество игроков. Отметьте те карты cлухов, которые у вас на руках.</string>
     <string name="setup_edittext_hint">имя игрока - </string>
     <string name="setup_txtbtnBack">Назад</string>
@@ -37,7 +39,7 @@
     <!-- Logs page -->
     <string name="logs_txt1">Выберите кто: ходит, слух и кто подтвердил.</string>
     <string name="logs_txt2">Выберите кто подтвердил текущий слух!</string>
-    <string name="logs_txt3">"Создайте новый слух, выбрав нового игрока, который ходит.</string>
+    <string name="logs_txt3">Создайте новый слух, выбрав нового игрока, который ходит.</string>
     <string name="logs_txt4">Выберите все 3 карты для распространения слуха!</string>
     <string name="logs_btnxodit">Ходит</string>
     <string name="logs_btnpodtverdil">Подтвердил</string>

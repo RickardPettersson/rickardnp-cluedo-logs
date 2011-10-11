@@ -9,10 +9,10 @@ public class PMovePOJO implements Serializable{
 	 */
 	private static final long serialVersionUID = -8594113706866211086L;
 	
-	private int mPlayerXodit = 7;
-	private int mPlayerPodtverdil =7;
+	private int mPlayerXodit = -1;
+	private int mPlayerPodtverdil =-1;
 	
-	private int mSlyx[] = {7, 10, 10};
+	private int mSlyx[] = {-1, -1, -1};
 	
 	public PMovePOJO(){
 	}

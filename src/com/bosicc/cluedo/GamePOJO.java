@@ -23,9 +23,12 @@ public class GamePOJO implements Serializable{
     public String[] mPeople;
     public String[] mPlace;
     public String[] mWeapon;
+    public String[] mPlayersList;
+    public int[] mPlayersListNum;
     
     private int version = -1;
-    private int cardnum = 24;
+    public int cardnum = 24;
+    public int playernum = 6;
 	
 	private ArrayList<PMovePOJO> mLogsList;
 	
@@ -57,14 +60,15 @@ public class GamePOJO implements Serializable{
 		NumberOfPlayers = 3; // default
 		
 		Players = new PlayerPOJO[6];
-		mPeopleName = new String[6]; 
+		mPeopleName = new String[playernum]; //Default
+		mPlayersList = new String[playernum]; //Default
 		mPeople = new String[6];
 		mPlace = new String[9];
 		mWeapon = new String[9];
 		// all raws for list
-		mCards  = new CardType[cardnum][6]; 
+		mCards  = new CardType[cardnum][playernum]; 
 		
-		for (int i=0;i<6;i++){
+		for (int i=0;i<playernum;i++){
 			for (int j=0; j<cardnum; j++){
 				mCards[j][i] = CardType.DEFAULT;
 			}
@@ -185,7 +189,7 @@ public class GamePOJO implements Serializable{
 		// Clear logs items
 		mLogsList.clear();
 		// Clear tabele
-		for (int j=0; j<6; j++){
+		for (int j=0; j<playernum; j++){
 			for (int i=0; i<cardnum; i++){
 				mCards[i][j] = CardType.DEFAULT;
 			}

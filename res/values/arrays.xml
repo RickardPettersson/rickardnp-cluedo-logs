@@ -15,12 +15,16 @@
     </string-array>
 
 
-
 	<string-array name="gameTypes">
         <item>Cluedo: Раскрой все тайны</item>
         <item>Clue: Secrets in Paris</item>
         <item>Clue: The 24 Edition</item>
         <item>Clue: The Office</item>
+        <item>Clue: English original</item>
+        <item>Clue: Limited Gift Edition</item>
+        <item>Clue: The Simpsons</item>
+        <item>Clue: The Simpsons 3rd edition</item>
+        <item>Clue: The Harry Potter</item>
     </string-array>
     
 	<!-- ===================================== 
@@ -62,6 +66,50 @@
         <item>Mike Doyle</item>
     </string-array>
     
+    <string-array name="people_original"> <!-- original -->
+        <item>Col.Mustard</item>
+ 		<item>Prof.Plum</item>
+        <item>Mr.Green</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlet</item>
+        <item>Mrs.White</item>
+    </string-array>
+    
+	<string-array name="people_lim_gif"> <!-- lim_gif -->
+        <item>Colonel Mustard</item>
+ 		<item>Professor Plum</item>
+        <item>Mr.Green</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlet</item>
+        <item>Mrs.White</item>
+    </string-array>
+
+    <string-array name="people_simpsons"> <!-- simpsons -->
+        <item>Krusty the Clown</item>
+ 		<item>Bart Simpson</item>
+        <item>Homer Simpson</item>
+        <item>Marge Simpson</item>
+ 		<item>Lisa Simpson</item>
+        <item>Waylon Smithers</item>
+    </string-array>    
+    
+    <string-array name="people_simpsons_3rd"> <!-- simpsons_3rd -->
+        <item>Bart Simpson</item>
+ 		<item>Homer Simpson</item>
+        <item>Fat Tony</item>
+        <item>Lisa Simpson</item>
+ 		<item>Edna Krabappel</item>
+        <item>Marge Simpson</item>
+    </string-array>
+    
+     <string-array name="people_potter"> <!-- potter -->
+        <item>Draco Malfoy</item>
+ 		<item>Crabbe and Goyle</item>
+        <item>Lucius Malfoy</item>
+        <item>Dolores Umbridge</item>
+ 		<item>Peter Pettigrew</item>
+        <item>Bellatrix Lestrange</item>
+    </string-array>
     
     
    	<!-- ===================================== 
@@ -115,6 +163,65 @@
         <item>Director\'s Office</item>
     </string-array>
     
+     <string-array name="place_original"> <!-- original -->
+        <item>Hall</item>
+ 		<item>Lounge</item>
+        <item>Dining Room</item>
+        <item>Kitchen</item>
+ 		<item>Ball Room</item>
+        <item>Conservatory</item>
+        <item>Billiard Room</item>
+ 		<item>Library</item>
+        <item>Study</item>
+    </string-array>
+    
+    <string-array name="place_lim_gif"> <!-- lim_gif -->
+        <item>Hall</item>
+ 		<item>Lounge</item>
+        <item>Dining Room</item>
+        <item>Kitchen</item>
+ 		<item>Ball Room</item>
+        <item>Conservatory</item>
+        <item>Billiard Room</item>
+ 		<item>Library</item>
+        <item>Study</item>
+    </string-array>
+    
+    <string-array name="place_simpsons"> <!-- simpsons -->
+        <item>Barney\'s Bowl-A-Rama</item>
+ 		<item>Krustylu Studios</item>
+        <item>Nuclear Power Plant</item>
+        <item>The Simpsons House</item>
+ 		<item>The Flying Dutchman</item>
+        <item>Kwik-E-Mart</item>
+        <item>Burns Manor</item>
+ 		<item>Springfield Retirement Castle</item>
+        <item>The Android\'s Dungeon</item>
+    </string-array>    
+    
+   <string-array name="place_simpsons_3rd"> <!-- simpsons_3rd -->
+        <item>Egyptian Room</item>
+ 		<item>Dimosaur Room</item>
+        <item>Medieval Room</item>
+        <item>Greek Room</item>
+ 		<item>Early Man Room</item>
+        <item>Animal Diorama Room</item>
+        <item>Springfield History Room</item>
+ 		<item>Jewel Room</item>
+        <item>Great Inventions Room</item>
+    </string-array>
+    
+    <string-array name="place_potter"> <!-- potter -->
+        <item>Great Hall</item>
+ 		<item>Hospital Wing</item>
+        <item>Room of Requirement</item>
+        <item>Potions Classroom</item>
+ 		<item>Trophy Room</item>
+        <item>Divination Classroom</item>
+        <item>Owlery</item>
+ 		<item>Library</item>
+        <item>Defense Against Dark Arts</item>
+    </string-array>
     
     
    	<!-- ===================================== 
@@ -168,6 +275,51 @@
         <item>Wall Street Sign</item>
     </string-array>
     
+    <string-array name="weapon_original"> <!-- original -->
+        <item>Knife</item>
+ 		<item>Candlestick</item>
+        <item>Revolver</item>
+        <item>Rope</item>
+ 		<item>Lead Pipe</item>
+        <item>Wrench</item>
+    </string-array>
+
+    <string-array name="weapon_lim_gif"> <!-- lim_gif -->
+        <item>Knife</item>
+ 		<item>Candlestick</item>
+        <item>Pistol</item>
+        <item>Rope</item>
+ 		<item>Lead Pipe</item>
+        <item>Wrench</item>
+        <item>Chalice</item>
+    </string-array>
+    
+    <string-array name="weapon_simpsons"> <!-- simpsons -->
+        <item>Poisoned Donut</item>
+ 		<item>Extend-O-Glove</item>
+        <item>Necklace</item>
+        <item>Slingshot</item>
+ 		<item>Plutonium Rod</item>
+ 		<item>Saxophone</item>
+    </string-array>
+    
+    <string-array name="weapon_simpsons_3rd"> <!-- simpsons_3rd -->
+        <item>Cobra</item>
+ 		<item>Bone</item>
+        <item>Mace</item>
+        <item>Greek Bust</item>
+ 		<item>Spear</item>
+ 		<item>Tarantula</item>
+    </string-array>
+
+    <string-array name="weapon_potter"> <!-- potter (Item)-->
+        <item>Sleeping Draught</item>
+ 		<item>Vanishing Cabinet</item>
+        <item>Portkey</item>
+        <item>Impedimenta</item>
+ 		<item>Petrificus Totalus</item>
+        <item>Mandrake</item>
+    </string-array>
     
     <!--  <item>English version</item>
      	<item>Clue: Secrets in Paris</item>

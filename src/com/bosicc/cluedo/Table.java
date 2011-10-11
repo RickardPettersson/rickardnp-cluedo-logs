@@ -52,7 +52,7 @@ public class Table extends ListActivity {
 
 	private ListView mList;
 	private BaseAdapter mAdapter;
-	private String[] mCards = new String[24];
+	private String[] mCards;
     private CluedoApp cApp;
     private GamePOJO game;
     
@@ -79,16 +79,17 @@ public class Table extends ListActivity {
 		((TextView) findViewById(R.id.txtPeople5)).setText(game.getPlayerName(4));
 		((TextView) findViewById(R.id.txtPeople6)).setText(game.getPlayerName(5));
 		
+		mCards = new String[game.cardnum];
 		int i=0;
-	    for (int j=0;j<6;j++){
+	    for (int j=0;j<game.mPeople.length;j++){
 	    	mCards[i] = game.mPeople[j];
 	    	i++;
 	    }
-	    for (int j=0;j<9;j++){
+	    for (int j=0;j<game.mPlace.length;j++){
 	    	mCards[i] = game.mPlace[j];
 	    	i++;
 	    }
-	    for (int j=0;j<9;j++){
+	    for (int j=0;j<game.mWeapon.length;j++){
 	    	mCards[i] = game.mWeapon[j];
 	    	i++;
 	    }
@@ -133,7 +134,6 @@ public class Table extends ListActivity {
 	
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
-		// TODO Auto-generated method stub
 		super.onPrepareDialog(id, dialog);
 		 switch (id) {
 			 case DIALOG_MARK:
@@ -141,7 +141,7 @@ public class Table extends ListActivity {
 				if (text.equals("")){
 					text = game.mPeople[mCurentItem.num];
 				}
-		     	String title = "У " + text + " есть карта " + mCards[mCurentItem.pos] + "?";
+		     	String title = text + " " +getText(R.string.table_title_mark) + " " + mCards[mCurentItem.pos] + "?";
 		     	//Log.i(TAG, "onCreateDialog at mCurentItem.pos=" + mCurentItem.pos + " mCurentItem.num=" + mCurentItem.num);
 		     	//Log.i(TAG, "onCreateDialog at mPeople - " + mPeople[mCurentItem.num] + " Item=" + mCards[mCurentItem.pos]);
 		     	dialog.setTitle(title);
@@ -241,12 +241,12 @@ public class Table extends ListActivity {
             	cache.header.setVisibility(View.VISIBLE);
             }
             
-            if (position == 6){
+            if (position == game.mPeople.length){
             	cache.headerText.setText(R.string.title_place);
             	cache.header.setVisibility(View.VISIBLE);
             }
         
-            if (position == 15){
+            if (position == (game.mPeople.length + game.mPlace.length)){
             	cache.headerText.setText(R.string.title_weapon);
             	cache.header.setVisibility(View.VISIBLE);
             }

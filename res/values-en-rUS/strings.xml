@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Cluedo logs</string>
-    
+
     <!-- Main menu Activity -->
     <string name="mainmenu_players">Player Names</string>
     <string name="mainmenu_new">New game</string>
@@ -22,6 +21,9 @@
     <string name="tab_dialog_newgame_msg">Current game will be deleted. Create new game?</string>
     <string name="tab_dialog_yes">Yes</string>
     <string name="tab_dialog_no">No</string>
+    
+        <!-- Table page -->
+    <string name="table_title_mark">has a card</string>
     
      <!-- Setup page -->
     <string name="setup_txt1">Select the type of game:</string>

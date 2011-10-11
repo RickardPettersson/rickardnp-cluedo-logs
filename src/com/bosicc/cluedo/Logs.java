@@ -23,24 +23,22 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bosicc.cluedo.GamePOJO.ShowModeType;
-import com.bosicc.cluedo.PlayerPOJO.CardType;
 
 
 /**
@@ -104,7 +102,7 @@ public class Logs extends ListActivity {
 			@Override
 			public void onClick(View v) {
 				if (mViewMode == ShowModeType.ALL){
-					if ((game.getAllList().size() !=0) && (game.getAllList().get(0).getPlayerPodtverdil() == 7)){
+					if ((game.getAllList().size() !=0) && (game.getAllList().get(0).getPlayerPodtverdil() == -1)){
 		            	new AlertDialog.Builder(Logs.this)
 		            		.setIcon(R.drawable.btn_info)
 		            		.setTitle(R.string.logs_alert_title)
@@ -131,9 +129,9 @@ public class Logs extends ListActivity {
 	                	.setPositiveButton(R.string.alert_dialog_ok, null)
 	                	.show();
 					}else{
-						if ((game.getAllList().get(0).getSlyxPerson() == 7) &&
-							(game.getAllList().get(0).getSlyxPlace() == 10) &&
-							(game.getAllList().get(0).getSlyxWeapon() == 10)){
+						if ((game.getAllList().get(0).getSlyxPerson() == -1) &&
+							(game.getAllList().get(0).getSlyxPlace() == -1) &&
+							(game.getAllList().get(0).getSlyxWeapon() == -1)){
 					            	new AlertDialog.Builder(Logs.this)
 					            		.setIcon(R.drawable.btn_info)
 					            		.setTitle(R.string.logs_alert_title)
@@ -164,7 +162,7 @@ public class Logs extends ListActivity {
         case DIALOG_XODIT:
             return new AlertDialog.Builder(Logs.this)
             .setTitle(R.string.logs_btnxodit)
-            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(game.mPlayersList, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
 
             		PMovePOJO item = new PMovePOJO(which);
@@ -179,7 +177,7 @@ public class Logs extends ListActivity {
         case DIALOG_PODTVERDIL:
             return new AlertDialog.Builder(Logs.this)
             .setTitle(R.string.logs_btnpodtverdil)
-            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(game.mPlayersList, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	game.getAllList().get(0).setPlayerPodtverdil(which);
                 	mAdapter.notifyDataSetChanged();
@@ -219,7 +217,7 @@ public class Logs extends ListActivity {
         case DIALOG_SORT_BY_XODIL:
             return new AlertDialog.Builder(Logs.this)
             .setTitle(R.string.logs_alert_title_sort_xodil)
-            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(game.mPlayersList, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.XODIT;
             		mPerson = which;
@@ -230,7 +228,7 @@ public class Logs extends ListActivity {
         case DIALOG_SORT_BY_PODTVERDIL:
             return new AlertDialog.Builder(Logs.this)
             .setTitle(R.string.logs_alert_title_sort_podtverdil)
-            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(game.mPlayersList, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.PODTVERDIL;
             		mPerson = which;
@@ -301,13 +299,14 @@ public class Logs extends ListActivity {
      */
     private static final class ListItemCache {
 
+    	public LinearLayout LLmain;
         public TextView TextXodil;
         public TextView TextPodtverdil;
         public View divider;
 
-        public ImageButton btn1;
-        public ImageButton btn2;
-        public ImageButton btn3;
+        public Button btn1;
+        public Button btn2;
+        public Button btn3;
 
     }
     
@@ -349,11 +348,12 @@ public class Logs extends ListActivity {
             	view = (View) LayoutInflater.from(mContext).inflate(
                         R.layout.logs_row, parent, false);
 
+            	cache.LLmain = (LinearLayout) view.findViewById(R.id.LLmainrow);
                 cache.TextXodil = (TextView)view.findViewById(R.id.txtLeft);
                 cache.TextPodtverdil = (TextView)view.findViewById(R.id.txtRight);
-                cache.btn1 = (ImageButton)view.findViewById(R.id.btn1);
-                cache.btn2 = (ImageButton)view.findViewById(R.id.btn2);
-                cache.btn3 = (ImageButton)view.findViewById(R.id.btn3);
+                cache.btn1 = (Button)view.findViewById(R.id.btn1);
+                cache.btn2 = (Button)view.findViewById(R.id.btn2);
+                cache.btn3 = (Button)view.findViewById(R.id.btn3);
                 
                 view.setTag(cache);
 
@@ -365,9 +365,16 @@ public class Logs extends ListActivity {
             cache.btn2.setOnClickListener(new OnItemClickListener(position)); 
             cache.btn3.setOnClickListener(new OnItemClickListener(position)); 
 
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+					ViewGroup.LayoutParams.FILL_PARENT, 36);
+			if (mViewMode == ShowModeType.ALL){
+				if (position == 0){
+		            lp = new LinearLayout.LayoutParams(
+							ViewGroup.LayoutParams.FILL_PARENT, 56);
+				}
+			}
+			cache.LLmain.setLayoutParams(lp);
             
-            
-            String text = "" + (position+1);
             cache.TextXodil.setText(" ");
             int num = game.getCurentList(mViewMode, mPerson).get(position).getPlayerXodit();
             cache.TextXodil.setBackgroundResource(cApp.getColorForPlayer(num));
@@ -377,9 +384,36 @@ public class Logs extends ListActivity {
             
             int [] slux = game.getCurentList(mViewMode, mPerson).get(position).getSlyx();
             //Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
-            cache.btn1.setImageResource(cApp.getIconForPlayer(slux[0]));
-            cache.btn2.setImageResource(cApp.getIconForPlace(slux[1]));
-            cache.btn3.setImageResource(cApp.getIconForWeapon(slux[2]));
+//            cache.btn1.setImageResource(cApp.getIconForPlayer(slux[0]));
+//            cache.btn2.setImageResource(cApp.getIconForPlace(slux[1]));
+//            cache.btn3.setImageResource(cApp.getIconForWeapon(slux[2]));
+			// Layout parameters for the ExpandableListView
+            
+            if (position == 0){
+            	cache.btn1.setBackgroundResource(android.R.drawable.btn_default);
+            	cache.btn2.setBackgroundResource(android.R.drawable.btn_default);
+            	cache.btn3.setBackgroundResource(android.R.drawable.btn_default);
+			}else{
+            	cache.btn1.setBackgroundResource(R.drawable.bgempty);
+            	cache.btn2.setBackgroundResource(R.drawable.bgempty);
+            	cache.btn3.setBackgroundResource(R.drawable.bgempty);
+			}
+
+            if (slux[0] != -1){
+            	cache.btn1.setText(game.mPeople[slux[0]]);
+            }else{
+            	cache.btn1.setText("[---]");
+            }
+            if (slux[1] != -1){
+            	cache.btn2.setText(game.mPlace[slux[1]]);	
+            }else{
+            	cache.btn2.setText("[---]");
+            }
+            if (slux[2] != -1){
+            	cache.btn3.setText(game.mWeapon[slux[2]]);
+            }else{
+            	cache.btn3.setText("[---]");
+            }
 
             return view;
         }
@@ -430,15 +464,15 @@ public class Logs extends ListActivity {
 
 			if (game.getAllList().size() != 0) {
 				int[] slux = game.getAllList().get(0).getSlyx();
-				if (game.getAllList().get(0).getPlayerPodtverdil() == 7) {
+				if (game.getAllList().get(0).getPlayerPodtverdil() == -1) {
 					// Log.i(TAG,"Slyxi=" + slux[0] +" " + slux[1] + slux[2]);
-					if (slux[0] != 7) {
+					if (slux[0] != -1) {
 						text1 = game.mPeople[slux[0]];
 					}
-					if (slux[1] != 10) {
+					if (slux[1] != -1) {
 						text2 = game.mPlace[slux[1]];
 					}
-					if (slux[2] != 10) {
+					if (slux[2] != -1) {
 						text3 = game.mWeapon[slux[2]];
 					}
 					mSlyx.setText(text1 + " + " + text2 + " + " + text3);

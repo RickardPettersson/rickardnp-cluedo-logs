@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -50,7 +51,7 @@ import com.bosicc.cluedo.PlayerPOJO.CardType;
 
 public class Setup extends ExpandableListActivity {
 	
-	//private static String TAG = "Setup";
+	private static String TAG = "Setup";
 	//private static final int DIALOG_INFO = 1;
 	private static final int DIALOG_CARDSNOTSELECTED = 2;
 
@@ -228,7 +229,34 @@ public class Setup extends ExpandableListActivity {
 					game.mPlace = r.getStringArray(R.array.place_office);
 					game.mWeapon = r.getStringArray(R.array.weapon_office);
 					break;
+				case 4:// Clue English (original)
+					game.mPeople = r.getStringArray(R.array.people_original);
+					game.mPlace = r.getStringArray(R.array.place_original);
+					game.mWeapon = r.getStringArray(R.array.weapon_original);
+					break;
+				case 5:// Clue Limited edition
+					game.mPeople = r.getStringArray(R.array.people_lim_gif);
+					game.mPlace = r.getStringArray(R.array.place_lim_gif);
+					game.mWeapon = r.getStringArray(R.array.weapon_lim_gif);
+				case 6:// Clue the Simpsons
+					game.mPeople = r.getStringArray(R.array.people_simpsons);
+					game.mPlace = r.getStringArray(R.array.place_simpsons);
+					game.mWeapon = r.getStringArray(R.array.weapon_simpsons);
+					break;
+				case 7:// Clue the Simpsons 3rd edition
+					game.mPeople = r.getStringArray(R.array.people_simpsons_3rd);
+					game.mPlace = r.getStringArray(R.array.place_simpsons_3rd);
+					game.mWeapon = r.getStringArray(R.array.weapon_simpsons_3rd);
+					break;
+				case 8:// Clue the HarryPoter
+					game.mPeople = r.getStringArray(R.array.people_potter);
+					game.mPlace = r.getStringArray(R.array.place_potter);
+					game.mWeapon = r.getStringArray(R.array.weapon_potter);
+					break;
+					
 				}
+				game.playernum = game.mPeople.length;
+				game.cardnum = game.mPeople.length + game.mPlace.length + game.mWeapon.length;
 				
 				mPersonAdapter = new ArrayAdapter<String>(Setup.this, android.R.layout.simple_spinner_item, game.mPeople);
 				mPersonAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -356,19 +384,19 @@ public class Setup extends ExpandableListActivity {
 								
 								game.setPlayerNoColumn(game.getYourPlayer());
 								int TotalCards = 0;
-								for (int i=0; i<6; i++){
+								for (int i=0; i<game.mPeople.length; i++){
 									if (items[0][i]){
 										game.setTypeinRowNoData(i, game.getYourPlayer(), CardType.YES);
 										TotalCards++;
 									}
 								}
-								for (int i=0; i<9; i++){
+								for (int i=0; i<game.mPlace.length; i++){
 									if (items[1][i]){
 										game.setTypeinRowNoData(6+i, game.getYourPlayer(), CardType.YES);
 										TotalCards++;
 									}
 								}
-								for (int i=0; i<9; i++){
+								for (int i=0; i<game.mWeapon.length; i++){
 									if (items[2][i]){
 										game.setTypeinRowNoData(15+i, game.getYourPlayer(), CardType.YES);
 										TotalCards++;
@@ -382,7 +410,8 @@ public class Setup extends ExpandableListActivity {
 									finish();
 								}
 								
-								int playerNum = 1; // you are the first one
+								int playerNum = 0; // you are the first one
+								
 								// Save names
 								if (mCheckBox1.isChecked()){
 									playerNum++;
@@ -423,6 +452,20 @@ public class Setup extends ExpandableListActivity {
 								
 								//Save number of Players
 								game.setNumberOfPlayers(playerNum);
+								
+								String[] tmp = new String[playerNum];
+								int j=0;
+								for (int i=0; i<game.mPeople.length; i++){
+									if (!game.mPeopleName[i].equals("")){
+										tmp[j] = game.mPeopleName[i] + " (" + game.mPeople[i] + " )";
+									}else{
+										tmp[j] = game.mPeople[i];
+									}
+									j++;
+								}
+								
+								//Save players list
+								game.mPlayersList = tmp;
 							}
 						}
 					}

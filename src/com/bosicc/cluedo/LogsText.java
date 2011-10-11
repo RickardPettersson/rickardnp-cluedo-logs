@@ -298,20 +298,20 @@ public class LogsText extends ListActivity {
             int [] slux = game.getCurentList(mViewMode, mPerson).get(position).getSlyx();
             //Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
 
-			if (slux[0] != 7){
+			if (slux[0] != -1){
 				cache.txt1.setText(game.mPeople[slux[0]]);
 				//cache.txt1.setTextColor(cApp.getColorForPlayer(num));
 			}else{
 				cache.txt1.setText("");
 			}
 			
-			if (slux[1] != 10){
+			if (slux[1] != -1){
 				cache.txt2.setText(game.mPlace[slux[1]]);
 			}else{
 				cache.txt2.setText("");
 			}
 			
-			if (slux[2] != 10){
+			if (slux[2] != -1){
 				 cache.txt3.setText(game.mWeapon[slux[2]]);
 			}else{
 				cache.txt3.setText("");

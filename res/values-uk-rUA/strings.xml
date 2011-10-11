@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Cluedo logs</string>
-    
+        
     <!-- Main menu Activity -->
     <string name="mainmenu_players">Имена гравців</string>
     <string name="mainmenu_new">Новая гра</string>
@@ -23,13 +22,16 @@
     <string name="tab_dialog_yes">Так</string>
     <string name="tab_dialog_no">Ні</string>
     
+    <!-- Table page -->
+    <string name="table_title_mark"> маэ карту </string>
+    
      <!-- Setup page -->
     <string name="setup_txt1">Оберіть тип гри:</string>
     <string name="setup_txt2">Оберіть вашего персонажа та імена гравців:</string>
     <string name="setup_txt3">Оберіть карти які у вас на руках:</string>
     <string name="setup_dialog_notenoughtpcards_msg">Ви помітили меньше 3-х карт. Відмітьте карти cлухів, які у вас на руках.</string>
     <string name="setup_dialog_info_msg">Оберіть своего персонажа та кількість гравців. Відмітьте карти cлухів, які у вас на руках.</string>
-    <string name="setup_edittext_hint">имя гравця - </string>
+    <string name="setup_edittext_hint">им\'я гравця - </string>
     <string name="setup_txtbtnBack">Назад</string>
     <string name="setup_txtbtnNext">Далі</string>
     <string name="setup_txtbtnStart">Почати гру</string>
@@ -43,12 +45,12 @@
     <string name="logs_btnpodtverdil">Підтвердив</string>
     <string name="logs_alert_title">Увага!</string>
     <string name="logsmenu_sort_xodil">Ходив</string>
-    <string name="logsmenu_sort_podtverdil">Подтвердив</string>
+    <string name="logsmenu_sort_podtverdil">Підтвердив</string>
     <string name="logsmenu_sort_all">Все</string>
-    <string name="logs_alert_title_sort_xodil">Показать всі хода:</string>
-    <string name="logs_alert_title_sort_podtverdil">Показать всі підтвердження:</string>
-    <string name="logs_toast_xoda">Все хода: </string>
-    <string name="logs_toast_podtverdil">Кто подтвердил: </string>
+    <string name="logs_alert_title_sort_xodil">Показати всі хода:</string>
+    <string name="logs_alert_title_sort_podtverdil">Показати всі підтвердження:</string>
+    <string name="logs_toast_xoda">Усі хода: </string>
+    <string name="logs_toast_podtverdil">Хто підтвердив: </string>
     
     <string name="mark_yes">Так</string>
     <string name="mark_question">Не знаю</string>

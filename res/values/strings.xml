@@ -23,6 +23,9 @@
     <string name="tab_dialog_yes">Yes</string>
     <string name="tab_dialog_no">No</string>
     
+    <!-- Table page -->
+    <string name="table_title_mark">has a card</string>
+    
      <!-- Setup page -->
     <string name="setup_txt1">Select the type of game:</string>
     <string name="setup_txt2">Choose your character and enter players names:</string>
@@ -57,7 +60,7 @@
     
     
      <!-- About page -->
-    <string name="about_title_ver">Cluedo logs v.1.0.5.</string>
+    <string name="about_title_ver">Cluedo logs v.1.0.6.</string>
     <string name="about_main_text">This game is designed to facilitate record keeping in the game Cluedo. It allows you to mark the card and checked to make notes on maps where you are not sure. Also, the program allows logging of the game, namely, record all the moves of players.</string>
     <string name="about_dev_website">Visit Website</string>
     <string name="about_dev_email">Send Email</string>
