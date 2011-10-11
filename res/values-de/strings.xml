@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Main menu Activity -->
+    <string name="mainmenu_players">Namen der Spieler</string>
+    <string name="mainmenu_new">Neues Spiel</string>
+    <string name="mainmenu_about">Über Spiel</string>
+    <string name="mainmenu_donate">Unterstützen uns!</string>
+    
+    <!-- Main Tab -->
+    <string name="maintab_menu_people">Namen der Spieler</string>
+    
+    <string name="title_people">Gäste</string>
+    <string name="title_place">Zimmern</string>
+    <string name="title_weapon">Waffe</string>
+    
+    <string name="tab_title_table">Karten der Spieler</string>
+    <string name="tab_title_logs">Abwicklung</string>
+    
+    <string name="tab_dialog_newgame_titile">Neues Spiel</string>
+    <string name="tab_dialog_newgame_msg">Aktuelle Spiel werden gelöscht. Erstellen Sie ein neues Spiel?</string>
+    <string name="tab_dialog_yes">Ja</string>
+    <string name="tab_dialog_no">Nein</string>
+    
+    <!-- Table page -->
+    <string name="table_title_mark">Der Spieler hat eine Karte</string>
+    
+     <!-- Setup page -->
+    <string name="setup_txt1">Wählen Sie den Spieltyp:</string>
+    <string name="setup_txt2">Wählen Sie Ihren Charakter und die Namen der Spieler:</string>
+    <string name="setup_txt3">Wählen Sie die Karten, die Sie zur Hand haben:</string>
+    <string name="setup_dialog_notenoughtpcards_msg">Sie haben weniger als 3 Karten vermerkt. Beachten Sie Karten mit eines Gerücht, dass Sie zur Hand haben.</string>
+    <string name="setup_dialog_info_msg">Wählen Sie Ihren Charakter und Anzahl der Spieler. Überprüfen Sie die Karten mit eines Gerücht, dass Sie zur Hand haben.</string>
+    <string name="setup_edittext_hint">Spielername - </string>
+    <string name="setup_txtbtnBack">Zurück</string>
+    <string name="setup_txtbtnNext">Weiter</string>
+    <string name="setup_txtbtnStart">Spiel starten</string>
+     
+    <!-- Logs page -->
+    <string name="logs_txt1">Wählen Sie: wer geht, seines Gerücht und welcher Spieler bestätigt.</string>
+    <string name="logs_txt2">Wählen Sie ein Speiler, der das aktuellen Gerücht bestätigt!</string>
+    <string name="logs_txt3">Erstellen Sie ein neues Gerücht - wählen Sie ein neuen Spieler, der geht.</string>
+    <string name="logs_txt4">Wählen Sie alle drei Karten mit Gerücht!</string>
+    <string name="logs_btnxodit">Geht</string>
+    <string name="logs_btnpodtverdil">Bestätigt</string>
+    <string name="logs_alert_title">Achtung!</string>
+    <string name="logsmenu_sort_xodil">Geht</string>
+    <string name="logsmenu_sort_podtverdil">Bestätigt</string>
+    <string name="logsmenu_sort_all">Alle</string>
+    <string name="logs_alert_title_sort_xodil">Alle Abwicklungen anzeigen:</string>
+    <string name="logs_alert_title_sort_podtverdil">Alle Bestätigen anzeigen:</string>
+    <string name="logs_toast_xoda">Alle Bestätigen: </string>
+    <string name="logs_toast_podtverdil">Wer bestätigt: </string>
+    
+    <string name="mark_yes">Ja</string>
+    <string name="mark_question">Ich weiß nicht</string>
+    <string name="mark_no">Nein</string>
+    <string name="mark_remove">Entfernen das Zeichen</string>
+    
+    
+     <!-- About page -->
+    
+    <string name="about_main_text">Dieses Spiel wurde entwickelt, um Aufzeichnungen in das Spiel Cluedo erleichtern. Es ermöglicht Ihnen geprüft Karten und Karten, wo Sie sich nicht sicher zu machen, markieren. Auch das Programm Protokollierung des Spiels ermöglicht, nämlich erfassen alle Bewegungen von Spielern.</string>
+    <string name="about_dev_website">Die Webseite besuchen</string>
+    <string name="about_dev_email"> Ein E-Mail schreiben</string>
+    
+    
+    <string name="alert_dialog_ok">ОК</string>
+   
+   
+</resources>
