@@ -465,11 +465,16 @@ public class Setup extends ExpandableListActivity {
 								String[] tmp = new String[playerNum];
 								int j=0;
 								for (int i=0; i<game.mPeople.length; i++){
-									if (!game.mPeopleName[i].equals("")){
-										tmp[j] = game.mPeopleName[i] + " (" + game.mPeople[i] + " )";
+									if (game.mPeopleName[i]!=null){
+										if (!game.mPeopleName[i].equals("")){
+											tmp[j] = game.mPeopleName[i] + " (" + game.mPeople[i] + " )";
+										}else{
+											tmp[j] = game.mPeople[i];
+										}
 									}else{
 										tmp[j] = game.mPeople[i];
 									}
+									
 									j++;
 								}
 								

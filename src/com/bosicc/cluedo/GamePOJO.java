@@ -32,6 +32,8 @@ public class GamePOJO implements Serializable{
 	
 	private ArrayList<PMovePOJO> mLogsList;
 	
+	
+	
 	public enum ShowModeType {
 		ALL(0), XODIT(1), PODTVERDIL(2);
 
@@ -89,6 +91,8 @@ public class GamePOJO implements Serializable{
 	
 	public void setNumberOfPlayers(int num){
 		this.NumberOfPlayers = num;
+		mPeopleName = new String[NumberOfPlayers]; // Reload arrays
+		mPlayersList = new String[NumberOfPlayers]; // Reload arrays
 	}
 	
 	public int getNumberOfPlayers(){
