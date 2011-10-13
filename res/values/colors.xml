@@ -10,6 +10,7 @@
 	<color name="bgPeople4">#FF3d85c6</color>
 	<color name="bgPeople5">#FFff0000</color>
 	<color name="bgPeople6">#FFffffff</color>
+	<color name="bgBlack">#FF000000</color>
 	
 	<color name="bgPeoplelistSelect">#FFff0000</color>
 	

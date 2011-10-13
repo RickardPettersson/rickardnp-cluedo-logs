@@ -392,13 +392,13 @@ public class Setup extends ExpandableListActivity {
 								}
 								for (int i=0; i<game.mPlace.length; i++){
 									if (items[1][i]){
-										game.setTypeinRowNoData(6+i, game.getYourPlayer(), CardType.YES);
+										game.setTypeinRowNoData(game.mPeople.length+i, game.getYourPlayer(), CardType.YES);
 										TotalCards++;
 									}
 								}
 								for (int i=0; i<game.mWeapon.length; i++){
 									if (items[2][i]){
-										game.setTypeinRowNoData(15+i, game.getYourPlayer(), CardType.YES);
+										game.setTypeinRowNoData(game.mPeople.length+game.mPlace.length+i, game.getYourPlayer(), CardType.YES);
 										TotalCards++;
 									}
 								}
@@ -418,37 +418,46 @@ public class Setup extends ExpandableListActivity {
 									game.setPlayerName(0, mEdit1.getText().toString());
 								}else{
 									game.setColumnNoData(0);
+									game.setPlayerName(0, getText(R.string.table_notplay_text).toString());
 								}
 								if (mCheckBox2.isChecked()){
 									playerNum++;
 									game.setPlayerName(1, mEdit2.getText().toString());
 								}else{
 									game.setColumnNoData(1);
+									game.setPlayerName(1, getText(R.string.table_notplay_text).toString());
 								}
 								if (mCheckBox3.isChecked()){
 									playerNum++;
 									game.setPlayerName(2, mEdit3.getText().toString());
 								}else{
 									game.setColumnNoData(2);
+									game.setPlayerName(2, getText(R.string.table_notplay_text).toString());
 								}
 								if (mCheckBox4.isChecked()){
 									playerNum++;
 									game.setPlayerName(3, mEdit4.getText().toString());
 								}else{
 									game.setColumnNoData(3);
+									game.setPlayerName(3, getText(R.string.table_notplay_text).toString());
 								}
 								if (mCheckBox5.isChecked()){
 									playerNum++;
 									game.setPlayerName(4, mEdit5.getText().toString());
 								}else{
 									game.setColumnNoData(4);
+									game.setPlayerName(4, getText(R.string.table_notplay_text).toString());
 								}
 								if (mCheckBox6.isChecked()){
 									playerNum++;
 									game.setPlayerName(5, mEdit6.getText().toString());
 								}else{
 									game.setColumnNoData(5);
+									game.setPlayerName(5, getText(R.string.table_notplay_text).toString());
 								}
+								
+								//Set you name
+								game.setPlayerName(game.getYourPlayer(), getText(R.string.table_you_text).toString());
 								
 								//Save number of Players
 								game.setNumberOfPlayers(playerNum);

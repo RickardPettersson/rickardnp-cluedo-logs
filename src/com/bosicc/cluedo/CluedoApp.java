@@ -145,7 +145,10 @@ public class CluedoApp extends Application {
     		case 6:
     			res = R.color.bgTransperent;
     			break;
-    		case 7:
+    		case 100: //NotConfirm
+    			res = R.color.bgBlack;
+    			break;
+    		case -1:
     			res = R.color.bgMain;
     			break;
     	}

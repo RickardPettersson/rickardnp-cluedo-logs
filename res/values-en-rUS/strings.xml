@@ -24,6 +24,7 @@
     
         <!-- Table page -->
     <string name="table_title_mark">has a card</string>
+    <string name="table_you_text">You</string>
     
      <!-- Setup page -->
     <string name="setup_txt1">Select the type of game:</string>
@@ -51,6 +52,7 @@
     <string name="logs_alert_title_sort_podtverdil">Show all confirms:</string>
     <string name="logs_toast_xoda">All moves: </string>
     <string name="logs_toast_podtverdil">Who confirm: </string>
+     <string name="logs_notconfirm">NOT Confirm!</string>
     
     <string name="mark_yes">Yes</string>
     <string name="mark_question">Not sure</string>

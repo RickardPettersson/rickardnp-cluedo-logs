@@ -18,6 +18,9 @@ package com.bosicc.cluedo;
 
 //Need the following import to get access to the app resources, since this
 //class is in a sub-package.
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -175,10 +178,20 @@ public class Logs extends ListActivity {
             })
             .create();
         case DIALOG_PODTVERDIL:
+        	String[] list = new String[game.mPlayersList.length+1];
+        	list[0] = getBaseContext().getText(R.string.logs_notconfirm).toString();
+        	for (int i=1;i<game.mPlayersList.length+1;i++){
+        		list[i] = game.mPlayersList[i-1];
+        	}
             return new AlertDialog.Builder(Logs.this)
             .setTitle(R.string.logs_btnpodtverdil)
-            .setItems(game.mPlayersList, new DialogInterface.OnClickListener() {
+            .setItems(list, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
+                	if (which==0){
+                		which = 100;
+                	}else{
+                		which = which - 1;
+                	}
                 	game.getAllList().get(0).setPlayerPodtverdil(which);
                 	mAdapter.notifyDataSetChanged();
                 }

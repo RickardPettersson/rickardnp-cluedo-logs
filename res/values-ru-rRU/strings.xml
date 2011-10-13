@@ -24,6 +24,7 @@
     
     <!-- Table page -->
     <string name="table_title_mark">имеет карту</string>
+    <string name="table_you_text">Ты</string>
     
      <!-- Setup page -->
     <string name="setup_txt1">Выберите тип игры:</string>
@@ -51,6 +52,7 @@
     <string name="logs_alert_title_sort_podtverdil">Показать все подтверждения:</string>
     <string name="logs_toast_xoda">Все хода: </string>
     <string name="logs_toast_podtverdil">Кто подтвердил: </string>
+    <string name="logs_notconfirm">НЕ подтвержден!</string>
     
     <string name="mark_yes">Да</string>
     <string name="mark_question">Не знаю</string>

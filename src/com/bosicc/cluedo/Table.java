@@ -50,6 +50,8 @@ public class Table extends ListActivity {
 	//private static String TAG = "Table";
 	private static final int DIALOG_MARK = 1;
 
+
+	private ImageButton mNavBtn;
 	private ListView mList;
 	private BaseAdapter mAdapter;
 	private String[] mCards;
@@ -78,6 +80,9 @@ public class Table extends ListActivity {
 		((TextView) findViewById(R.id.txtPeople4)).setText(game.getPlayerName(3));
 		((TextView) findViewById(R.id.txtPeople5)).setText(game.getPlayerName(4));
 		((TextView) findViewById(R.id.txtPeople6)).setText(game.getPlayerName(5));
+		//((TextView) findViewById(R.id.txtPeople6)).setText(game.getPlayerName(5));
+		
+		mNavBtn = (ImageButton) findViewById(R.id.IbtnNav);
 		
 		mCards = new String[game.cardnum];
 		int i=0;
@@ -92,6 +97,20 @@ public class Table extends ListActivity {
 	    for (int j=0;j<game.mWeapon.length;j++){
 	    	mCards[i] = game.mWeapon[j];
 	    	i++;
+	    }
+	    
+	    if (game.getNumberOfPlayers() > 6){
+	    	mNavBtn.setVisibility(View.VISIBLE);
+	    	mNavBtn.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+	    }else{
+	    	mNavBtn.setVisibility(View.INVISIBLE);
 	    }
 	       
 		// Set up our adapter

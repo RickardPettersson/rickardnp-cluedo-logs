@@ -1,3 +1,11 @@
+--- V.1.0.6 --------------------------------------
+Добавлена локализация DE(German). 
+Изменены кнопки для записи логов. 
+Добавлена игра Clue: English original
+Добавлена игра Clue: Limited Gift Edition
+Добавлена игра Clue: The Simpsons
+Добавлена игра Clue: The Simpsons 3rd edition
+Добавлена игра Clue: The Harry Potter
 --- V.1.0.5 --------------------------------------
 Добавлена игра Clue: The 24 Edition
 Добавлена игра Clue: The Office
@@ -21,7 +29,7 @@
 
 
 
-
+Записывайте хода игроков и отмечайте их карты в настольной игре Cluedo.
 
 === ABOUT ====
 Cluedo logs это программа помощник ведения записей в настольной игре Cluedo. 
@@ -31,7 +39,14 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 
 Поддерживаемые типы игр:
 * Cluedo Раскройте все секреты (Ru)
-* CLUE: Secrets in Paris
+* Clue: Secrets in Paris
+* Clue: The 24 Edition
+* Clue: The Office
+* Clue: English original
+* Clue: Limited Gift Edition
+* Clue: The Simpsons
+* Clue: The Simpsons 3rd edition
+* Clue: The Harry Potter
 
 Эсли в списки нет Вашей игры, напишите мне и я ее добавлю.
 
@@ -47,8 +62,15 @@ Also, the program allows make logs of the game and record all the moves of playe
 This is not a real game Cluedo. In order to use the program, you must have a real board game.
 
 Supported types of games:
-* Cluedo Раскройте все тайны (Ru)
-* CLUE: Secrets in Paris
+* Cluedo Раскройте все секреты (Ru)
+* Clue: Secrets in Paris
+* Clue: The 24 Edition
+* Clue: The Office
+* Clue: English original
+* Clue: Limited Gift Edition
+* Clue: The Simpsons
+* Clue: The Simpsons 3rd edition
+* Clue: The Harry Potter
 
 If you have a an unsupported Cluedo board please contact me and I'll add it.
 
