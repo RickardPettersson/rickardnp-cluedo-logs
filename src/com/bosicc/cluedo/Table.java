@@ -25,21 +25,17 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bosicc.cluedo.PlayerPOJO.CardType;
+import com.bosicc.cluedo.GamePOJO.CardType;
 
 
 /**
@@ -74,12 +70,12 @@ public class Table extends ListActivity {
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
 		
-		((TextView) findViewById(R.id.txtPeople1)).setText(game.getPlayerName(0));
-		((TextView) findViewById(R.id.txtPeople2)).setText(game.getPlayerName(1));
-		((TextView) findViewById(R.id.txtPeople3)).setText(game.getPlayerName(2));
-		((TextView) findViewById(R.id.txtPeople4)).setText(game.getPlayerName(3));
-		((TextView) findViewById(R.id.txtPeople5)).setText(game.getPlayerName(4));
-		((TextView) findViewById(R.id.txtPeople6)).setText(game.getPlayerName(5));
+		((TextView) findViewById(R.id.txtPeople1)).setText(game.mPlayers.get(0).getName());
+		((TextView) findViewById(R.id.txtPeople2)).setText(game.mPlayers.get(1).getName());
+		((TextView) findViewById(R.id.txtPeople3)).setText(game.mPlayers.get(2).getName());
+		((TextView) findViewById(R.id.txtPeople4)).setText(game.mPlayers.get(3).getName());
+		((TextView) findViewById(R.id.txtPeople5)).setText(game.mPlayers.get(4).getName());
+		((TextView) findViewById(R.id.txtPeople6)).setText(game.mPlayers.get(5).getName());
 		//((TextView) findViewById(R.id.txtPeople6)).setText(game.getPlayerName(5));
 		
 		mNavBtn = (ImageButton) findViewById(R.id.IbtnNav);
@@ -156,7 +152,7 @@ public class Table extends ListActivity {
 		super.onPrepareDialog(id, dialog);
 		 switch (id) {
 			 case DIALOG_MARK:
-				String text = game.getPlayerName(mCurentItem.num);
+				String text = game.mPlayers.get(mCurentItem.num).getName();
 				if (text.equals("")){
 					text = game.mPeople[mCurentItem.num];
 				}

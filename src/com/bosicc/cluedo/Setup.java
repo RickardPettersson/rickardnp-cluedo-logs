@@ -47,7 +47,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.bosicc.cluedo.PlayerPOJO.CardType;
+import com.bosicc.cluedo.GamePOJO.CardType;
 
 public class Setup extends ExpandableListActivity {
 	
@@ -57,6 +57,7 @@ public class Setup extends ExpandableListActivity {
 
     private CluedoApp cApp;
     private GamePOJO game;
+    private Utils utils;
 	private ExpandableListAdapter mAdapter;
 	
 	private ExpandableListView mList;
@@ -101,6 +102,7 @@ public class Setup extends ExpandableListActivity {
 		
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
+		utils = new Utils(this,game);
 
 		setContentView(R.layout.setup);
 		mNext = (Button) findViewById(R.id.btnNext);
@@ -131,13 +133,6 @@ public class Setup extends ExpandableListActivity {
 		mCheckBox5 = (CheckBox) findViewById(R.id.checkBox5);
 		mCheckBox6 = (CheckBox) findViewById(R.id.checkBox6);
 		
-		mEdit1.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[0]);
-		mEdit2.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[1]);
-		mEdit3.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[2]);
-		mEdit4.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[3]);
-		mEdit5.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[4]);
-		mEdit6.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[5]);
-		
 		mText3 = (TextView) findViewById(R.id.text3);
 		
 		mLL1.setVisibility(View.GONE);
@@ -156,7 +151,7 @@ public class Setup extends ExpandableListActivity {
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				mEdit2.setEnabled(isChecked);
 				mEdit2.setFocusable(isChecked);
-				mEdit3.setFocusableInTouchMode(isChecked);
+				mEdit2.setFocusableInTouchMode(isChecked);
 			}
 		});
 		
@@ -206,57 +201,11 @@ public class Setup extends ExpandableListActivity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				Resources r = getResources();
 				
-				switch(arg2){
-				case 0: // Russian version
-					game.mPeople = r.getStringArray(R.array.people_ru);
-					game.mPlace = r.getStringArray(R.array.place_ru);
-					game.mWeapon = r.getStringArray(R.array.weapon_ru);
-					break;
-				case 1:// Cluedo in Paris
-					game.mPeople = r.getStringArray(R.array.people_ru);
-					game.mPlace = r.getStringArray(R.array.place_ru);
-					game.mWeapon = r.getStringArray(R.array.weapon_ru);
-					break;
-				case 2:// Clue the 24
-					game.mPeople = r.getStringArray(R.array.people_24);
-					game.mPlace = r.getStringArray(R.array.place_24);
-					game.mWeapon = r.getStringArray(R.array.weapon_24);
-					break;
-				case 3:// Clue the office
-					game.mPeople = r.getStringArray(R.array.people_office);
-					game.mPlace = r.getStringArray(R.array.place_office);
-					game.mWeapon = r.getStringArray(R.array.weapon_office);
-					break;
-				case 4:// Clue English (original)
-					game.mPeople = r.getStringArray(R.array.people_original);
-					game.mPlace = r.getStringArray(R.array.place_original);
-					game.mWeapon = r.getStringArray(R.array.weapon_original);
-					break;
-				case 5:// Clue Limited edition
-					game.mPeople = r.getStringArray(R.array.people_lim_gif);
-					game.mPlace = r.getStringArray(R.array.place_lim_gif);
-					game.mWeapon = r.getStringArray(R.array.weapon_lim_gif);
-				case 6:// Clue the Simpsons
-					game.mPeople = r.getStringArray(R.array.people_simpsons);
-					game.mPlace = r.getStringArray(R.array.place_simpsons);
-					game.mWeapon = r.getStringArray(R.array.weapon_simpsons);
-					break;
-				case 7:// Clue the Simpsons 3rd edition
-					game.mPeople = r.getStringArray(R.array.people_simpsons_3rd);
-					game.mPlace = r.getStringArray(R.array.place_simpsons_3rd);
-					game.mWeapon = r.getStringArray(R.array.weapon_simpsons_3rd);
-					break;
-				case 8:// Clue the HarryPoter
-					game.mPeople = r.getStringArray(R.array.people_potter);
-					game.mPlace = r.getStringArray(R.array.place_potter);
-					game.mWeapon = r.getStringArray(R.array.weapon_potter);
-					break;
-					
-				}
-				game.playernum = game.mPeople.length;
-				game.cardnum = game.mPeople.length + game.mPlace.length + game.mWeapon.length;
+				//Set new data
+				Log.i(TAG,"pos="+arg2);
+				utils.UpdateGameDataList(arg2);
+				
 				
 				mPersonAdapter = new ArrayAdapter<String>(Setup.this, android.R.layout.simple_spinner_item, game.mPeople);
 				mPersonAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -402,6 +351,73 @@ public class Setup extends ExpandableListActivity {
 										TotalCards++;
 									}
 								}
+								
+								int playerNum = 0; // you are the first one
+								game.mPlayers.get(0).inGame(mCheckBox1.isChecked());
+								game.mPlayers.get(1).inGame(mCheckBox2.isChecked());
+								game.mPlayers.get(2).inGame(mCheckBox3.isChecked());
+								game.mPlayers.get(3).inGame(mCheckBox4.isChecked());
+								game.mPlayers.get(4).inGame(mCheckBox5.isChecked());
+								game.mPlayers.get(5).inGame(mCheckBox6.isChecked());
+								
+								// Save names
+								if (game.mPlayers.get(0).inGame()){
+									playerNum++;
+									game.mPlayers.get(0).setName(mEdit1.getText().toString());
+								}else{
+									game.setColumnNoData(0);
+									game.mPlayers.get(0).setName(getText(R.string.table_notplay_text).toString());
+								}
+								
+								if (game.mPlayers.get(1).inGame()){
+									playerNum++;
+									game.mPlayers.get(1).setName(mEdit2.getText().toString());
+								}else{
+									game.setColumnNoData(1);
+									game.mPlayers.get(1).setName(getText(R.string.table_notplay_text).toString());
+								}
+								
+								if (game.mPlayers.get(2).inGame()){
+									playerNum++;
+									game.mPlayers.get(2).setName(mEdit3.getText().toString());
+								}else{
+									game.setColumnNoData(2);
+									game.mPlayers.get(2).setName(getText(R.string.table_notplay_text).toString());
+								}
+								
+								if (game.mPlayers.get(3).inGame()){
+									playerNum++;
+									game.mPlayers.get(3).setName(mEdit4.getText().toString());
+								}else{
+									game.setColumnNoData(3);
+									game.mPlayers.get(3).setName(getText(R.string.table_notplay_text).toString());
+								}
+								
+								if (game.mPlayers.get(4).inGame()){
+									playerNum++;
+									game.mPlayers.get(4).setName(mEdit5.getText().toString());
+								}else{
+									game.setColumnNoData(4);
+									game.mPlayers.get(4).setName(getText(R.string.table_notplay_text).toString());
+								}
+								
+								if (game.mPlayers.get(5).inGame()){
+									playerNum++;
+									game.mPlayers.get(5).setName(mEdit6.getText().toString());
+								}else{
+									game.setColumnNoData(5);
+									game.mPlayers.get(5).setName(getText(R.string.table_notplay_text).toString());
+								}
+								
+								//Set you name
+								game.mPlayers.get(game.getYourPlayer()).setName(getText(R.string.table_you_text).toString());
+								
+								//Save number of Players
+								game.setNumberOfPlayers(playerNum);
+								
+								// Update players label
+								utils.UpdatePlayerLabels();
+								
 								if (TotalCards < 3){
 									showDialog(DIALOG_CARDSNOTSELECTED);
 								}else{
@@ -410,76 +426,6 @@ public class Setup extends ExpandableListActivity {
 									finish();
 								}
 								
-								int playerNum = 0; // you are the first one
-								
-								// Save names
-								if (mCheckBox1.isChecked()){
-									playerNum++;
-									game.setPlayerName(0, mEdit1.getText().toString());
-								}else{
-									game.setColumnNoData(0);
-									game.setPlayerName(0, getText(R.string.table_notplay_text).toString());
-								}
-								if (mCheckBox2.isChecked()){
-									playerNum++;
-									game.setPlayerName(1, mEdit2.getText().toString());
-								}else{
-									game.setColumnNoData(1);
-									game.setPlayerName(1, getText(R.string.table_notplay_text).toString());
-								}
-								if (mCheckBox3.isChecked()){
-									playerNum++;
-									game.setPlayerName(2, mEdit3.getText().toString());
-								}else{
-									game.setColumnNoData(2);
-									game.setPlayerName(2, getText(R.string.table_notplay_text).toString());
-								}
-								if (mCheckBox4.isChecked()){
-									playerNum++;
-									game.setPlayerName(3, mEdit4.getText().toString());
-								}else{
-									game.setColumnNoData(3);
-									game.setPlayerName(3, getText(R.string.table_notplay_text).toString());
-								}
-								if (mCheckBox5.isChecked()){
-									playerNum++;
-									game.setPlayerName(4, mEdit5.getText().toString());
-								}else{
-									game.setColumnNoData(4);
-									game.setPlayerName(4, getText(R.string.table_notplay_text).toString());
-								}
-								if (mCheckBox6.isChecked()){
-									playerNum++;
-									game.setPlayerName(5, mEdit6.getText().toString());
-								}else{
-									game.setColumnNoData(5);
-									game.setPlayerName(5, getText(R.string.table_notplay_text).toString());
-								}
-								
-								//Set you name
-								game.setPlayerName(game.getYourPlayer(), getText(R.string.table_you_text).toString());
-								
-								//Save number of Players
-								game.setNumberOfPlayers(playerNum);
-								
-								String[] tmp = new String[playerNum];
-								int j=0;
-								for (int i=0; i<game.mPeople.length; i++){
-									if (game.mPeopleName[i]!=null){
-										if (!game.mPeopleName[i].equals("")){
-											tmp[j] = game.mPeopleName[i] + " (" + game.mPeople[i] + " )";
-										}else{
-											tmp[j] = game.mPeople[i];
-										}
-									}else{
-										tmp[j] = game.mPeople[i];
-									}
-									
-									j++;
-								}
-								
-								//Save players list
-								game.mPlayersList = tmp;
 							}
 						}
 					}
@@ -672,7 +618,6 @@ public class Setup extends ExpandableListActivity {
 
     }
     
- 
     private void DrawStage0(){
 		mList.setVisibility(View.GONE);
 		mScroll.setVisibility(View.VISIBLE);
@@ -680,4 +625,6 @@ public class Setup extends ExpandableListActivity {
 		mNext.setText(R.string.setup_txtbtnNext);
 		mText3.setVisibility(View.GONE);
     }
+    
+    
 }

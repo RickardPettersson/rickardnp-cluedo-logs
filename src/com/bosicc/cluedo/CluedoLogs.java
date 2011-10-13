@@ -96,7 +96,7 @@ public class CluedoLogs extends TabActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 		if (game.isStarted()){
-			cApp.getUtils().Save(game);
+			cApp.getSaveUtils().Save(game);
 		}
 		//Log.i(TAG, "onDestroy()");
 	}
@@ -150,7 +150,7 @@ public class CluedoLogs extends TabActivity {
 					game.mPlace = r.getStringArray(R.array.place_ru);
 					game.mWeapon = r.getStringArray(R.array.weapon_ru);
 					// Delete current game from disk;
-					cApp.getUtils().DeleteCurentGame();
+					cApp.getSaveUtils().DeleteCurentGame();
 					startActivity(new Intent(CluedoLogs.this, CluedologsActivity.class));
 					finish();
 					

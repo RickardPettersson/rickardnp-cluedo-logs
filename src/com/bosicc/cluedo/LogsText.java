@@ -54,6 +54,7 @@ public class LogsText extends ListActivity {
 	private BaseAdapter mAdapter;
     private CluedoApp cApp;
     private GamePOJO game;
+    private Utils utils;
     
     private ShowModeType mViewMode = ShowModeType.ALL;
     private int mPerson = 0;
@@ -90,6 +91,8 @@ public class LogsText extends ListActivity {
 		
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
+		utils = new Utils(this,game);
+
 	
 		mHeaderBox.setVisibility(View.GONE);
 		mSlyx.setVisibility(View.GONE);
@@ -116,7 +119,7 @@ public class LogsText extends ListActivity {
             .setTitle(R.string.title_people)
             .setItems(game.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                	game.getAllList().get(0).setSlyxPerson(which);
+                	utils.getAllList().get(0).setSlyxPerson(which);
                 	mAdapter.notifyDataSetChanged();
                 }
             })
@@ -126,7 +129,7 @@ public class LogsText extends ListActivity {
             .setTitle(R.string.title_place)
             .setItems(game.mPlace, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                	game.getAllList().get(0).setSlyxPlace(which);
+                	utils.getAllList().get(0).setSlyxPlace(which);
                 	mAdapter.notifyDataSetChanged();
                 }
             })
@@ -136,7 +139,7 @@ public class LogsText extends ListActivity {
             .setTitle(R.string.title_weapon)
             .setItems(game.mWeapon, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                	game.getAllList().get(0).setSlyxWeapon(which);
+                	utils.getAllList().get(0).setSlyxWeapon(which);
                 	mAdapter.notifyDataSetChanged();
                 }
             })
@@ -245,7 +248,7 @@ public class LogsText extends ListActivity {
         }
 
         public int getCount() {
-            return game.getCurentList(mViewMode, mPerson).size();
+            return utils.getCurentList(mViewMode, mPerson).size();
         }
         
 
@@ -289,13 +292,13 @@ public class LogsText extends ListActivity {
             
             String text = "" + (position+1);
             cache.TextXodil.setText(" ");
-            int num = game.getCurentList(mViewMode, mPerson).get(position).getPlayerXodit();
-            cache.TextXodil.setBackgroundResource(cApp.getColorForPlayer(num));
-            num = game.getCurentList(mViewMode, mPerson).get(position).getPlayerPodtverdil();
-           	cache.TextPodtverdil.setBackgroundResource(cApp.getColorForPlayer(num));
+            int num = utils.getCurentList(mViewMode, mPerson).get(position).getPlayerXodit();
+            cache.TextXodil.setBackgroundResource(utils.getColorForPlayer(num));
+            num = utils.getCurentList(mViewMode, mPerson).get(position).getPlayerPodtverdil();
+           	cache.TextPodtverdil.setBackgroundResource(utils.getColorForPlayer(num));
            
             
-            int [] slux = game.getCurentList(mViewMode, mPerson).get(position).getSlyx();
+            int [] slux = utils.getCurentList(mViewMode, mPerson).get(position).getSlyx();
             //Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
 
 			if (slux[0] != -1){

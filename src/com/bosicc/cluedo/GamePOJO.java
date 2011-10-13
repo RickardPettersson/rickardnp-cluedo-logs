@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 import android.content.res.Resources;
 
-import com.bosicc.cluedo.PlayerPOJO.CardType;
-
 public class GamePOJO implements Serializable{
 	
 	/**
@@ -14,25 +12,50 @@ public class GamePOJO implements Serializable{
 	 */
 	private static final long serialVersionUID = -2652613076649621996L;
 	
+	private int version = -1;
+	 
 	private int NumberOfPlayers;
 	private int YourPlayer;
 	private boolean isCreated = false;
-	private PlayerPOJO[] Players;
+	//private PlayerPOJO[] Players;
 	private CardType[][] mCards;
-	public String[] mPeopleName;
+	//public String[] mPeopleName;
     public String[] mPeople;
     public String[] mPlace;
     public String[] mWeapon;
-    public String[] mPlayersList;
+    //public String[] mPlayersList;
     public int[] mPlayersListNum;
+    public ArrayList<PlayerPOJO> mPlayers;
     
-    private int version = -1;
+   
     public int cardnum = 24;
     public int playernum = 6;
 	
-	private ArrayList<PMovePOJO> mLogsList;
+	public ArrayList<PMovePOJO> mLogsList;
 	
 	
+	public enum CardType {
+		DEFAULT(0), NO(1), YES(2), QUESTION(3);
+
+		private final int id;
+		
+		CardType(int id) {
+			this.id = id;
+		}
+
+		public int getValue() {
+			return id;
+		}
+
+		public static CardType findByOrdinal(int ordinal) {
+			for (CardType item : values()) {
+				if (item.ordinal() == ordinal) {
+					return item;
+				}
+			}
+			return DEFAULT;
+		}
+	}
 	
 	public enum ShowModeType {
 		ALL(0), XODIT(1), PODTVERDIL(2);
@@ -61,10 +84,8 @@ public class GamePOJO implements Serializable{
 		YourPlayer = 1; // default
 		NumberOfPlayers = 3; // default
 		
-		Players = new PlayerPOJO[6];
-		mPeopleName = new String[playernum]; //Default
-		mPlayersList = new String[playernum]; //Default
-		mPeople = new String[6];
+
+		mPeople = new String[playernum];
 		mPlace = new String[9];
 		mWeapon = new String[9];
 		// all raws for list
@@ -74,9 +95,9 @@ public class GamePOJO implements Serializable{
 			for (int j=0; j<cardnum; j++){
 				mCards[j][i] = CardType.DEFAULT;
 			}
-			Players[i] = new PlayerPOJO();
 		}
 		
+		mPlayers = new ArrayList<PlayerPOJO>();
 		mLogsList = new ArrayList<PMovePOJO>();
 		
 	}
@@ -91,20 +112,10 @@ public class GamePOJO implements Serializable{
 	
 	public void setNumberOfPlayers(int num){
 		this.NumberOfPlayers = num;
-		mPeopleName = new String[NumberOfPlayers]; // Reload arrays
-		mPlayersList = new String[NumberOfPlayers]; // Reload arrays
 	}
 	
 	public int getNumberOfPlayers(){
 		return NumberOfPlayers;
-	}
-	
-	public void setPlayerName(int num, String name){
-		mPeopleName[num] = name;
-	}
-	
-	public String getPlayerName(int num){
-		return mPeopleName[num];
 	}
 	
 	public void setYourPlayer(int num){
@@ -128,7 +139,7 @@ public class GamePOJO implements Serializable{
 	}
 	
 	public void setRowNoData(int pos){
-		for (int i=0;i<6;i++){
+		for (int i=0;i<playernum;i++){
     		setCardsData(pos,i,CardType.NO);
     	}
 	}
@@ -159,36 +170,8 @@ public class GamePOJO implements Serializable{
 		
 	}
 	
-	public ArrayList<PMovePOJO> getAllList(){
-		return mLogsList;
-	}
 	
-	public ArrayList<PMovePOJO> getCurentList(ShowModeType mode, int person){
-		ArrayList<PMovePOJO> mNewList = new ArrayList<PMovePOJO>();
-		switch(mode){
-			case ALL:
-				return this.mLogsList;
-			case XODIT:{
-				for (PMovePOJO item: mLogsList) {
-					if (item.getPlayerXodit() == person) {
-						mNewList.add(item);
-					}
-				}
-			}
-				break;
-			case PODTVERDIL:{
-				for (PMovePOJO item: mLogsList) {
-					if (item.getPlayerPodtverdil() == person) {
-						mNewList.add(item);
-					}
-				}
-			}
-				break;
-		}
-		
-		return mNewList;
-	}
-	
+
 	public void reset(){
 		// Clear logs items
 		mLogsList.clear();
@@ -198,12 +181,12 @@ public class GamePOJO implements Serializable{
 				mCards[i][j] = CardType.DEFAULT;
 			}
 			// TODO: May be remove not used Class?
-			Players[j].reset();
+			mPlayers.clear();
+			//Players[j].reset();
 		}
 		
 		// Set Flag that game not started
 		this.setCreatedGame(false);
-		
 	}
 	
 }

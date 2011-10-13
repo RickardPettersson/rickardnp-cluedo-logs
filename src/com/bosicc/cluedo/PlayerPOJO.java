@@ -8,78 +8,96 @@ public class PlayerPOJO implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -8792232363672196444L;
-
-	public enum CardType {
-		DEFAULT(0), NO(1), YES(2), QUESTION(3);
-
-		private final int id;
-		
-		CardType(int id) {
-			this.id = id;
-		}
-
-		public int getValue() {
-			return id;
-		}
-
-		public static CardType findByOrdinal(int ordinal) {
-			for (CardType item : values()) {
-				if (item.ordinal() == ordinal) {
-					return item;
-				}
-			}
-			return DEFAULT;
-		}
-	}
-	
-	private CardType[] people = new CardType[6];// {false,false,false,false,false,false};
-	private CardType[] place  = new CardType[9];// {false,false,false,false,false,false,false,false,false};
-	private CardType[] weapon = new CardType[9];// {false,false,false,false,false,false,false,false,false};;
+	private int mPlayernum;
+	private String mCardName;
+	private String mName;
+	private String mLabel;
+	private int mResColor;
+	private boolean inGame;
 	
 	public PlayerPOJO(){
-		
+		mPlayernum=-1;
+		mCardName="";
+		mName="";
+		mLabel="";
+		mResColor = R.color.bgMain;
+		inGame = true;
 	}
 	
-	// ===== Kards relatet to People ---------
-	public void setPeople(int people_num, CardType type){
-		this.people[people_num] = type;
+	public PlayerPOJO(String CartdName, int color){
+		mPlayernum=-1;
+		mCardName=CartdName;
+		mName="";
+		mLabel=CartdName;
+		mResColor = color;
+		inGame = true;
 	}
 	
-	public CardType getPeople(int people_num){
-		return this.people[people_num];
+	
+	public String getLabel(){
+		return mLabel;
 	}
 	
-	public CardType[] getPeople(){
-		return this.people;
+	public void setLabel(String name, String cardname){
+		if (name.equals("")){
+			mLabel = cardname;
+		}else{
+			mLabel = name + " (" + cardname + " )";
+		}
 	}
 	
-	// ===== Kards relatet to Place ---------
-	public void setPlace(int place_num, CardType type){
-		this.people[place_num] = type;
+	// ===== Number ---------
+	public void setNumber(int people_num){
+		mPlayernum = people_num;
 	}
 	
-	public CardType getPlace(int place_num){
-		return this.people[place_num];
+	public int getNumber(){
+		return mPlayernum;
 	}
 	
-	public CardType[] getPlace(){
-		return this.place;
+	// ===== Name ---------
+	public void setName(String text){
+		this.mName = text;
 	}
 	
-	// ===== Kards relatet to Weapon ---------
-	public void setWeapon(int weapon_num, CardType type){
-		this.weapon[weapon_num] = type;
+	public String getName(){
+		return this.mName;
 	}
 	
-	public CardType getWeapon(int weapon_num){
-		return this.weapon[weapon_num];
+	// ===== CardName ---------
+	public void setCardName(String text){
+		this.mCardName = text;
 	}
 	
-	public CardType[] getWeapon(){
-		return this.weapon;
+	public String getCardName(){
+		return this.mCardName;
 	}
+	
+	// ===== Color ---------
+	public void setColor(int color){
+		mResColor = color;
+	}
+	
+	public int getColor(){
+		return mResColor;
+	}
+	
+	// ===== Color ---------
+	public void inGame(boolean in){
+		inGame = in;
+	}
+	
+	public boolean inGame(){
+		return inGame;
+	}
+	
 	
 	public void reset(){
-		
+		mPlayernum=-1;
+		mCardName="";
+		mName="";
+		mLabel="";
+		mResColor = R.color.bgMain;
+		inGame = true;
 	}
 }
