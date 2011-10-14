@@ -260,8 +260,12 @@ public class Logs extends ListActivity {
             .setTitle(R.string.logs_alert_title_sort_podtverdil)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
+                	if (which==0){
+                		which = nc;
+                	}else{
+                		which = mCurentDialogList.get(which).getNumber();
+                	}
             		mViewMode = ShowModeType.PODTVERDIL;
-            		mPerson = mCurentDialogList.get(which).getNumber();;
                 	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
                 	//removeDialog(DIALOG_SORT_BY_PODTVERDIL);
@@ -272,7 +276,7 @@ public class Logs extends ListActivity {
         return null;
     }
 	
-// TODO: think about http://stackoverflow.com/questions/4811688/how-to-set-contents-of-setsinglechoiceitems-in-onpreparedialog
+
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
 		
@@ -459,7 +463,7 @@ public class Logs extends ListActivity {
 //            cache.btn3.setImageResource(cApp.getIconForWeapon(slux[2]));
 			// Layout parameters for the ExpandableListView
             
-            if (position == 0){
+            if ((position == 0)&&(mViewMode == ShowModeType.ALL)){
             	cache.btn1.setBackgroundResource(android.R.drawable.btn_default);
             	cache.btn2.setBackgroundResource(android.R.drawable.btn_default);
             	cache.btn3.setBackgroundResource(android.R.drawable.btn_default);
