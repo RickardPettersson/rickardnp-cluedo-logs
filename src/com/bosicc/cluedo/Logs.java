@@ -163,7 +163,7 @@ public class Logs extends ListActivity {
 	
 	@Override
 	protected void onResume() {
-		setSlyxText();
+		//setSlyxText();
 		super.onResume();		
 	}
 	
@@ -185,7 +185,7 @@ public class Logs extends ListActivity {
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
                 	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
-                	removeDialog(DIALOG_XODIT);
+                	//removeDialog(DIALOG_XODIT);
 
                 }
             })
@@ -199,14 +199,14 @@ public class Logs extends ListActivity {
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	if (which==0){
-                		which = 100;
+                		which = nc;
                 	}else{
                 		which = mCurentDialogList.get(which).getNumber();
                 	}
                 	utils.getAllList().get(0).setPlayerPodtverdil(which);
                 	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
-                	removeDialog(DIALOG_PODTVERDIL);
+                	//removeDialog(DIALOG_PODTVERDIL);
                 }
             })
             .create();
@@ -250,7 +250,7 @@ public class Logs extends ListActivity {
             		mPerson = mCurentDialogList.get(which).getNumber();;
                 	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
-                	removeDialog(DIALOG_SORT_BY_XODIL);
+                	//removeDialog(DIALOG_SORT_BY_XODIL);
                 }
             })
             .create();
@@ -264,7 +264,7 @@ public class Logs extends ListActivity {
             		mPerson = mCurentDialogList.get(which).getNumber();;
                 	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
-                	removeDialog(DIALOG_SORT_BY_PODTVERDIL);
+                	//removeDialog(DIALOG_SORT_BY_PODTVERDIL);
                 }
             })
             .create();
@@ -273,31 +273,44 @@ public class Logs extends ListActivity {
     }
 	
 // TODO: think about http://stackoverflow.com/questions/4811688/how-to-set-contents-of-setsinglechoiceitems-in-onpreparedialog
-//	@Override
-//	protected void onPrepareDialog(int id, Dialog dialog) {
-//		super.onPrepareDialog(id, dialog);
-//		
-//		 switch (id) {
-//	        case DIALOG_XODIT:
-//	        	mCurentDialogList = utils.getSortXodilList();
-//	        	AlertDialog alertDialog = (AlertDialog) dialog;
-//			    ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_singlechoice, 
-//			    		android.R.id.text1, utils.getString(mCurentDialogList));
-//			    alertDialog.getListView().setAdapter(adapter);
-//	        	
-//	        	return;
-//	        case DIALOG_PODTVERDIL:
-//	        	int xodit = utils.getAllList().get(0).getPlayerXodit();
-//	        	mCurentDialogList = utils.getPodtverdilList(xodit);
-//	            return;
-//	        case DIALOG_SORT_BY_XODIL:
-//	        	mCurentDialogList = utils.getSortXodilList();
-//	            return;
-//	        case DIALOG_SORT_BY_PODTVERDIL:
-//	        	mCurentDialogList = utils.getSortPodtverdilList();
-//	            return;
-//	        }
-//	}
+	@Override
+	protected void onPrepareDialog(int id, Dialog dialog) {
+		
+		AlertDialog alertDialog = (AlertDialog) dialog;
+		ArrayAdapter<CharSequence> adapter;
+		 switch (id) {
+	        case DIALOG_XODIT:
+	        	mCurentDialogList = utils.getSortXodilList();
+			    adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
+			    		android.R.id.text1, utils.getString(mCurentDialogList));
+			    alertDialog.getListView().setAdapter(adapter);
+			    break;
+			    
+	        case DIALOG_PODTVERDIL:
+	        	int xodit = utils.getAllList().get(0).getPlayerXodit();
+	        	mCurentDialogList = utils.getPodtverdilList(xodit);
+			    adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
+			    		android.R.id.text1, utils.getString(mCurentDialogList));
+			    alertDialog.getListView().setAdapter(adapter);
+			    break;
+			    
+	        case DIALOG_SORT_BY_XODIL:
+	        	mCurentDialogList = utils.getSortXodilList();
+	        	adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
+			    		android.R.id.text1, utils.getString(mCurentDialogList));
+			    alertDialog.getListView().setAdapter(adapter);
+			    break;
+			    
+	        case DIALOG_SORT_BY_PODTVERDIL:
+	        	mCurentDialogList = utils.getSortPodtverdilList();
+	        	adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
+			    		android.R.id.text1, utils.getString(mCurentDialogList));
+			    alertDialog.getListView().setAdapter(adapter);
+	            break;
+	        default:
+	            	super.onPrepareDialog(id, dialog);
+	        }
+	}
 	
 	// ==============================================================================
     // Option Menu
@@ -479,7 +492,7 @@ public class Logs extends ListActivity {
         @Override
 		public void notifyDataSetChanged() {
 			super.notifyDataSetChanged();
-			setSlyxText();
+			//setSlyxText();
 		}
 
 
@@ -512,44 +525,44 @@ public class Logs extends ListActivity {
 
     }
 	
-	private void setSlyxText() {
-		if (mViewMode == ShowModeType.ALL) {
-			String text1 = "[???]";
-			String text2 = "[???]";
-			String text3 = "[???]";
-			mHeaderBox.setVisibility(View.VISIBLE);
-
-			if (utils.getAllList().size() != 0) {
-				int[] slux = utils.getAllList().get(0).getSlyx();
-				if (utils.getAllList().get(0).getPlayerPodtverdil() == -1) {
-					// Log.i(TAG,"Slyxi=" + slux[0] +" " + slux[1] + slux[2]);
-					if (slux[0] != -1) {
-						text1 = game.mPeople[slux[0]];
-					}
-					if (slux[1] != -1) {
-						text2 = game.mPlace[slux[1]];
-					}
-					if (slux[2] != -1) {
-						text3 = game.mWeapon[slux[2]];
-					}
-					mSlyx.setText(text1 + " + " + text2 + " + " + text3);
-				} else {
-					mSlyx.setText(R.string.logs_txt4);
-					mTitle.setText("");
-				}
-			}
-		} else {
-			mHeaderBox.setVisibility(View.GONE);
-			String text = "";
-			if (mViewMode == ShowModeType.XODIT) {
-				text = this.getText(R.string.logs_toast_xoda)
-						+ game.mPeople[mPerson];
-			} else {
-				text = this.getText(R.string.logs_toast_podtverdil)
-						+ game.mPeople[mPerson];
-			}
-			mSlyx.setText(text);
-		}
-
-	}
+//	private void setSlyxText() {
+//		if (mViewMode == ShowModeType.ALL) {
+//			String text1 = "[???]";
+//			String text2 = "[???]";
+//			String text3 = "[???]";
+//			mHeaderBox.setVisibility(View.VISIBLE);
+//
+//			if (utils.getAllList().size() != 0) {
+//				int[] slux = utils.getAllList().get(0).getSlyx();
+//				if (utils.getAllList().get(0).getPlayerPodtverdil() == -1) {
+//					// Log.i(TAG,"Slyxi=" + slux[0] +" " + slux[1] + slux[2]);
+//					if (slux[0] != -1) {
+//						text1 = game.mPeople[slux[0]];
+//					}
+//					if (slux[1] != -1) {
+//						text2 = game.mPlace[slux[1]];
+//					}
+//					if (slux[2] != -1) {
+//						text3 = game.mWeapon[slux[2]];
+//					}
+//					mSlyx.setText(text1 + " + " + text2 + " + " + text3);
+//				} else {
+//					mSlyx.setText(R.string.logs_txt4);
+//					mTitle.setText("");
+//				}
+//			}
+//		} else {
+//			mHeaderBox.setVisibility(View.GONE);
+//			String text = "";
+//			if (mViewMode == ShowModeType.XODIT) {
+//				text = this.getText(R.string.logs_toast_xoda)
+//						+ game.mPeople[mPerson];
+//			} else {
+//				text = this.getText(R.string.logs_toast_podtverdil)
+//						+ game.mPeople[mPerson];
+//			}
+//			mSlyx.setText(text);
+//		}
+//
+//	}
 }
