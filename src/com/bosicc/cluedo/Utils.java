@@ -80,7 +80,7 @@ public class Utils {
 		game.cardnum = game.mPeople.length + game.mPlace.length + game.mWeapon.length;
 		
 		//Reset Players list 
-		game.mPlayers.clear();
+		game.mPlayers.removeAll(game.mPlayers);
 		for (int i=0;i<game.mPeople.length;i++){
 			PlayerPOJO item = new PlayerPOJO();
 			item.setCardName(game.mPeople[i]);

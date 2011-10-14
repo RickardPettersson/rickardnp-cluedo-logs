@@ -32,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -60,7 +61,8 @@ public class Logs extends ListActivity {
     private GamePOJO game;
     private Utils utils;
     private boolean isFinished = false;
-    ArrayList<PlayerPOJO> mCurentDialogList;
+    private ArrayList<PlayerPOJO> mCurentDialogList;
+    private int nc = 100;
     
     private ShowModeType mViewMode = ShowModeType.ALL;
     private int mPerson = 0;
@@ -114,6 +116,7 @@ public class Logs extends ListActivity {
 		            		.setIcon(R.drawable.btn_info)
 		            		.setTitle(R.string.logs_alert_title)
 		                	.setMessage(R.string.logs_txt2)
+		                	.setPositiveButton(R.string.alert_dialog_ok, null)
 		                	.show();
 	            	}else{
 	            		 showDialog(DIALOG_XODIT);
@@ -136,13 +139,14 @@ public class Logs extends ListActivity {
 	                	.setPositiveButton(R.string.alert_dialog_ok, null)
 	                	.show();
 					}else{
-						if ((utils.getAllList().get(0).getSlyxPerson() == -1) &&
-							(utils.getAllList().get(0).getSlyxPlace() == -1) &&
+						if ((utils.getAllList().get(0).getSlyxPerson() == -1) ||
+							(utils.getAllList().get(0).getSlyxPlace() == -1) ||
 							(utils.getAllList().get(0).getSlyxWeapon() == -1)){
 					            	new AlertDialog.Builder(Logs.this)
 					            		.setIcon(R.drawable.btn_info)
 					            		.setTitle(R.string.logs_alert_title)
 					                	.setMessage(R.string.logs_txt4)
+					                	.setPositiveButton(R.string.alert_dialog_ok, null)
 					                	.show();
 			            	}else{
 			            		 showDialog(DIALOG_PODTVERDIL);
@@ -173,14 +177,15 @@ public class Logs extends ListActivity {
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	
-                	mCurentDialogList.get(which).getNumber();
+                	int num = mCurentDialogList.get(which).getNumber();
                 	
-            		PMovePOJO item = new PMovePOJO(mCurentDialogList.get(which).getNumber());
+            		PMovePOJO item = new PMovePOJO(num);
                 	utils.getAllList().add(0,item);
                 	mSlyx.setText("");
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
                 	mAdapter.notifyDataSetChanged();
-            		
+                	mCurentDialogList.removeAll(mCurentDialogList);
+                	removeDialog(DIALOG_XODIT);
 
                 }
             })
@@ -200,6 +205,8 @@ public class Logs extends ListActivity {
                 	}
                 	utils.getAllList().get(0).setPlayerPodtverdil(which);
                 	mAdapter.notifyDataSetChanged();
+                	mCurentDialogList.removeAll(mCurentDialogList);
+                	removeDialog(DIALOG_PODTVERDIL);
                 }
             })
             .create();
@@ -240,8 +247,10 @@ public class Logs extends ListActivity {
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.XODIT;
-            		mPerson = which;
+            		mPerson = mCurentDialogList.get(which).getNumber();;
                 	mAdapter.notifyDataSetChanged();
+                	mCurentDialogList.removeAll(mCurentDialogList);
+                	removeDialog(DIALOG_SORT_BY_XODIL);
                 }
             })
             .create();
@@ -252,9 +261,10 @@ public class Logs extends ListActivity {
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.PODTVERDIL;
-            		
-            		mPerson = which;
+            		mPerson = mCurentDialogList.get(which).getNumber();;
                 	mAdapter.notifyDataSetChanged();
+                	mCurentDialogList.removeAll(mCurentDialogList);
+                	removeDialog(DIALOG_SORT_BY_PODTVERDIL);
                 }
             })
             .create();
@@ -262,7 +272,32 @@ public class Logs extends ListActivity {
         return null;
     }
 	
-	
+// TODO: think about http://stackoverflow.com/questions/4811688/how-to-set-contents-of-setsinglechoiceitems-in-onpreparedialog
+//	@Override
+//	protected void onPrepareDialog(int id, Dialog dialog) {
+//		super.onPrepareDialog(id, dialog);
+//		
+//		 switch (id) {
+//	        case DIALOG_XODIT:
+//	        	mCurentDialogList = utils.getSortXodilList();
+//	        	AlertDialog alertDialog = (AlertDialog) dialog;
+//			    ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_singlechoice, 
+//			    		android.R.id.text1, utils.getString(mCurentDialogList));
+//			    alertDialog.getListView().setAdapter(adapter);
+//	        	
+//	        	return;
+//	        case DIALOG_PODTVERDIL:
+//	        	int xodit = utils.getAllList().get(0).getPlayerXodit();
+//	        	mCurentDialogList = utils.getPodtverdilList(xodit);
+//	            return;
+//	        case DIALOG_SORT_BY_XODIL:
+//	        	mCurentDialogList = utils.getSortXodilList();
+//	            return;
+//	        case DIALOG_SORT_BY_PODTVERDIL:
+//	        	mCurentDialogList = utils.getSortPodtverdilList();
+//	            return;
+//	        }
+//	}
 	
 	// ==============================================================================
     // Option Menu
