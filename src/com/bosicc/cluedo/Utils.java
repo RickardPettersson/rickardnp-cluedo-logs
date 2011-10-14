@@ -70,6 +70,16 @@ public class Utils {
 			game.mPlace = r.getStringArray(R.array.place_potter);
 			game.mWeapon = r.getStringArray(R.array.weapon_potter);
 			break;
+		case 9:// Clue the Scooby Doo
+			game.mPeople = r.getStringArray(R.array.people_scooby);
+			game.mPlace = r.getStringArray(R.array.place_scooby);
+			game.mWeapon = r.getStringArray(R.array.weapon_scooby);
+			break;
+		case 10:// Clue Leeds Centenary
+			game.mPeople = r.getStringArray(R.array.people_leeds);
+			game.mPlace = r.getStringArray(R.array.place_leeds);
+			game.mWeapon = r.getStringArray(R.array.weapon_leeds);
+			break;
 			
 		}
 		

@@ -25,6 +25,8 @@
         <item>Clue: The Simpsons</item>
         <item>Clue: The Simpsons 3rd edition</item>
         <item>Clue: The Harry Potter</item>
+        <item>Clue: The Scooby Doo</item>
+        <item>Clue: Leeds Centenary</item>
     </string-array>
     
 	<!-- ===================================== 
@@ -111,6 +113,23 @@
         <item>Bellatrix Lestrange</item>
     </string-array>
     
+    <string-array name="people_scooby"> <!-- scooby -->
+        <item>Scooby-Doo as Colonel Mustard</item>
+ 		<item>Shaggy as Professor Plum</item>
+        <item>Daphne as Mr. Green</item>
+        <item>Velma as Mrs.Peacock</item>
+ 		<item>Fred as Miss Scarlet</item>
+        <item>Mrs.White</item>
+    </string-array>
+    
+    <string-array name="people_leeds"> <!-- leeds -->
+        <item>Jack Higgins</item>
+ 		<item>Denis Healey</item>
+        <item>Jimmy Savile</item>
+        <item>Elizabeth Peacock</item>
+ 		<item>Jilly Cooper</item>
+        <item>Barbara Taylor-Bradford</item>
+    </string-array>
     
    	<!-- ===================================== 
      ============== PLACE =============== 
@@ -223,6 +242,29 @@
         <item>Defense Against Dark Arts</item>
     </string-array>
     
+    <string-array name="place_scooby"> <!-- scooby -->
+        <item>Dining Room</item>
+ 		<item>Kitchen</item>
+        <item>BallRoom</item>
+        <item>Billiard Room</item>
+ 		<item>Library</item>
+        <item>Graveyard</item>
+        <item>Courtyard</item>
+ 		<item>Conservatory</item>
+        <item>Lounge</item>
+    </string-array>
+    
+    <string-array name="place_leeds"> <!-- leeds -->
+        <item>Yorkshire Bank PLC</item>
+ 		<item>Leeds Permanent Building Society</item>
+        <item>John Weddington PLC</item>
+        <item>Yorkshire Wter</item>
+ 		<item>Yorkshire Post and Yorkshire Evening Post</item>
+        <item>Leeds and Holbeck Building Society</item>
+        <item>Yorkshire Television Limited</item>
+ 		<item>The Merrion Centere</item>
+        <item>Joshua Tetley and Son Limited</item>
+    </string-array>
     
    	<!-- ===================================== 
      ============== WEAPON =============== 
@@ -321,8 +363,23 @@
         <item>Mandrake</item>
     </string-array>
     
-    <!--  <item>English version</item>
-     	<item>Clue: Secrets in Paris</item>
-        <item>Clue: Secrets in Paris</item>
-        <item>Clue: The Simpsons</item> -->
+    <string-array name="weapon_scooby"> <!-- scooby (Evidence)-->
+		<item>Funland Robot\'s Ray Gun</item>
+		<item>Carlotta\'s Spell Book</item>
+		<item>FranKenstein\'s Chain</item>
+		<item>Witch Doctor\'s Staff</item>
+		<item>Ghost Clown\'s Bomb</item>
+		<item>Redbeard\'s Sword</item>
+	</string-array>
+    
+    <string-array name="weapon_leeds"> <!-- leeds (Probable Implements)-->
+        <item>Dagger</item>
+ 		<item>Candlestick</item>
+        <item>Revolver</item>
+        <item>Rope</item>
+ 		<item>Lead Piping</item>
+        <item>Spanner</item>
+    </string-array>
+    
+
 </resources>
