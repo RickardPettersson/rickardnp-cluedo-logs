@@ -5,10 +5,9 @@ import android.app.Dialog;
 import android.app.TabActivity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.content.res.Resources;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
@@ -178,16 +177,16 @@ public class CluedoLogs extends TabActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//    	// ===
-//		MenuItem item_new_contact = menu.add(Menu.NONE, MENU_ITEM_PEOPLE, Menu.NONE, R.string.mainmenu_new);
-//		item_new_contact.setIcon(android.R.drawable.ic_menu_preferences);
+    	// ===
+		MenuItem item_new_contact = menu.add(group1Id, MENU_ITEM_PEOPLE, Menu.FIRST+1, R.string.mainmenu_players);
+		item_new_contact.setIcon(android.R.drawable.ic_menu_myplaces);
 		
 		// ===
-		MenuItem item_2 = menu.add(group1Id  , MENU_ITEM_NEW, Menu.FIRST, R.string.mainmenu_new);
+		MenuItem item_2 = menu.add(group1Id  , MENU_ITEM_NEW, Menu.FIRST+1, R.string.mainmenu_new);
 		item_2.setIcon(android.R.drawable.ic_menu_agenda);
 
 		// ===
-     	MenuItem item_3 = menu.add(group1Id, MENU_ITEM_HELP, Menu.FIRST+1, R.string.mainmenu_about);
+     	MenuItem item_3 = menu.add(group1Id, MENU_ITEM_HELP, Menu.FIRST+2, R.string.mainmenu_about);
      	item_3.setIcon(android.R.drawable.ic_menu_info_details);
      
      	
@@ -202,7 +201,8 @@ public class CluedoLogs extends TabActivity {
         switch (item.getItemId()) {
           
 	        case MENU_ITEM_PEOPLE:{
-	        	//startActivity(new Intent(this, .class));
+	        	PlayersName customizeDialog = new PlayersName(this,game);
+	        	customizeDialog.show();
 	        	return true;
 	        }
 	        

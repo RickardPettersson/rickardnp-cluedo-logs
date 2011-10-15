@@ -109,7 +109,12 @@ public class Utils {
 				game.mCards[j][i] = CardType.DEFAULT;
 			}
 		}
-		
+//		// Get colors 
+//		int tmp = r.getColor(R.color.bgPeople1);
+//		int resid = R.color.bgPeople1;
+//		for (int i=0;i<colorlist.length;i++){
+//			colorlist[i]=r.getColor(colorlist[i]);
+//		}
 		//Reset Players list 
 		game.mPlayers.removeAll(game.mPlayers);
 		for (int i=0;i<game.mPeople.length;i++){
