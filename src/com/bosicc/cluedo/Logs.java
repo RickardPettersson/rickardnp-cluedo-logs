@@ -451,9 +451,21 @@ public class Logs extends ListActivity {
             
             cache.TextXodil.setText(" ");
             int num = utils.getCurentList(mViewMode, mPerson).get(position).getPlayerXodit();
-            cache.TextXodil.setBackgroundResource(utils.getColorForPlayer(num));
+            if (num != -1){
+            	//cache.TextXodil.setBackgroundResource(game.mPlayers.get(num).getColor());	
+            	cache.TextXodil.setBackgroundColor(game.mPlayers.get(num).getColor());
+            }
+            
             num = utils.getCurentList(mViewMode, mPerson).get(position).getPlayerPodtverdil();
-           	cache.TextPodtverdil.setBackgroundResource(utils.getColorForPlayer(num));
+            cache.TextPodtverdil.setBackgroundResource(R.color.bgMain);
+            if (num != -1){
+            	if (num == 100){
+                	cache.TextPodtverdil.setBackgroundResource(R.color.bgBlack);
+                }else{
+                	cache.TextPodtverdil.setBackgroundColor(game.mPlayers.get(num).getColor());
+                }
+            }
+           	
            
             
             int [] slux = utils.getCurentList(mViewMode, mPerson).get(position).getSlyx();

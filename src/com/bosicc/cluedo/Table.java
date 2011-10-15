@@ -53,6 +53,7 @@ public class Table extends ListActivity {
 	private String[] mCards;
     private CluedoApp cApp;
     private GamePOJO game;
+    private Utils utils;
     
     private class Coord {
     	public int pos=0;
@@ -69,6 +70,7 @@ public class Table extends ListActivity {
 		
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
+		utils = new Utils(this,game);
 		
 		((TextView) findViewById(R.id.txtPeople1)).setText(game.mPlayers.get(0).getName());
 		((TextView) findViewById(R.id.txtPeople2)).setText(game.mPlayers.get(1).getName());
@@ -95,7 +97,7 @@ public class Table extends ListActivity {
 	    	i++;
 	    }
 	    
-	    if (game.getNumberOfPlayers() > 6){
+	    if (utils.getNumberOfPlayers() > 6){
 	    	mNavBtn.setVisibility(View.VISIBLE);
 	    	mNavBtn.setOnClickListener(new OnClickListener() {
 				
@@ -126,16 +128,16 @@ public class Table extends ListActivity {
                 	switch(which){
                 	case 0:
                 		// Set YES in position all other = NO
-                		game.setTypeinRowNoData(mCurentItem.pos,mCurentItem.num,CardType.YES);
+                		utils.setTypeinRowNoData(mCurentItem.pos,mCurentItem.num,CardType.YES);
                 		break;
                 	case 1:
-                		game.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.QUESTION);
+                		utils.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.QUESTION);
                 		break;
                 	case 2:
-                		game.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.NO);
+                		utils.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.NO);
                 		break;
                 	case 3:
-                		game.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.DEFAULT);
+                		utils.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.DEFAULT);
                 		break;
                 	}
                     mAdapter.notifyDataSetChanged();
@@ -268,12 +270,12 @@ public class Table extends ListActivity {
             
             cache.Text.setText(mCards[position]);
 
-            cache.btn1.setImageResource(getResourceByType(game.getCardsData()[position][0]));
-            cache.btn2.setImageResource(getResourceByType(game.getCardsData()[position][1]));
-            cache.btn3.setImageResource(getResourceByType(game.getCardsData()[position][2]));
-            cache.btn4.setImageResource(getResourceByType(game.getCardsData()[position][3]));
-            cache.btn5.setImageResource(getResourceByType(game.getCardsData()[position][4]));
-            cache.btn6.setImageResource(getResourceByType(game.getCardsData()[position][5]));
+            cache.btn1.setImageResource(getResourceByType(utils.getCardsData()[position][0]));
+            cache.btn2.setImageResource(getResourceByType(utils.getCardsData()[position][1]));
+            cache.btn3.setImageResource(getResourceByType(utils.getCardsData()[position][2]));
+            cache.btn4.setImageResource(getResourceByType(utils.getCardsData()[position][3]));
+            cache.btn5.setImageResource(getResourceByType(utils.getCardsData()[position][4]));
+            cache.btn6.setImageResource(getResourceByType(utils.getCardsData()[position][5]));
 
             return view;
         }

@@ -14,6 +14,7 @@ public class CluedologsActivity extends Activity {
 	
     private CluedoApp cApp;
     private GamePOJO game;
+    private Utils utils;
     
 	private Button mBtnNew;
 	private Button mBtnAbout;
@@ -27,7 +28,7 @@ public class CluedologsActivity extends Activity {
 		game = cApp.getGame();
         
 		//Log.i(TAG, "onCreate()");
-        if (game.isStarted()){
+        if (game.isCreated){
         	//Log.i(TAG, "Start Main. Game was saved()");
         	runMainThread();
         }else{

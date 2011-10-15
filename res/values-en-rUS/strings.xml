@@ -10,8 +10,8 @@
     <!-- Main Tab -->
     <string name="maintab_menu_people">Player Names</string>
     
-    <string name="title_people">People</string>
-    <string name="title_place">Places</string>
+    <string name="title_people">Suspects</string>
+    <string name="title_place">Rooms</string>
     <string name="title_weapon">Weapon</string>
     
     <string name="tab_title_table">Players clue</string>

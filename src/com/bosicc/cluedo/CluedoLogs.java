@@ -21,6 +21,7 @@ public class CluedoLogs extends TabActivity {
 	private TabHost tabHost;
     private CluedoApp cApp;
     private GamePOJO game;
+    private Utils utils;
 
 	public static final String TAB_TABLE = "Table";
 	public static final String TAB_LOGS = "Logs";
@@ -51,6 +52,7 @@ public class CluedoLogs extends TabActivity {
         
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
+		utils = new Utils(this,game);
     	
 		tabHost = getTabHost();
 		//tabHost.setOnTabChangedListener(this);
@@ -95,7 +97,7 @@ public class CluedoLogs extends TabActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if (game.isStarted()){
+		if (game.isCreated){
 			cApp.getSaveUtils().Save(game);
 		}
 		//Log.i(TAG, "onDestroy()");
@@ -144,7 +146,7 @@ public class CluedoLogs extends TabActivity {
 				public void onClick(DialogInterface dialog, int which) {
 					
 					// Reset all states in game
-					game.reset();
+					utils.reset();
 					Resources r = getResources();
 					game.mPeople = r.getStringArray(R.array.people_ru);
 					game.mPlace = r.getStringArray(R.array.place_ru);

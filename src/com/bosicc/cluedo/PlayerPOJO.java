@@ -3,11 +3,11 @@ package com.bosicc.cluedo;
 import java.io.Serializable;
 
 public class PlayerPOJO implements Serializable{
-	
+
+	private static final long serialVersionUID = 4039876934750255805L;
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8792232363672196444L;
 	private int mPlayernum;
 	private String mCardName;
 	private String mName;

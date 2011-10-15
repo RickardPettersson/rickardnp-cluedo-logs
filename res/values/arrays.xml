@@ -8,6 +8,15 @@
         <item>@string/mark_remove</item>
     </string-array>
    
+    <string-array name="colors_default">
+        <item>@color/bgPeople1</item>
+        <item>@color/bgPeople2</item>
+        <item>@color/bgPeople3</item>
+        <item>@color/bgPeople4</item>
+        <item>@color/bgPeople5</item>
+        <item>@color/bgPeople6</item>
+    </string-array>
+    
     <string-array name="category">
         <item>@string/title_people</item>
         <item>@string/title_place</item>
@@ -21,12 +30,14 @@
         <item>Clue: The 24 Edition</item>
         <item>Clue: The Office</item>
         <item>Clue: English original</item>
-        <item>Clue: Limited Gift Edition</item>
+        <item>Clue: Limited Gift Edition</item> <!-- lim_gif -->
         <item>Clue: The Simpsons</item>
         <item>Clue: The Simpsons 3rd edition</item>
         <item>Clue: The Harry Potter</item>
         <item>Clue: The Scooby Doo</item>
         <item>Clue: Leeds Centenary</item>
+        <item>Cluedo: Super Sleuth</item> <!-- Place: = lim_gif = 50th -->
+        <item>Clue: Master Detective</item>
     </string-array>
     
 	<!-- ===================================== 
@@ -114,11 +125,11 @@
     </string-array>
     
     <string-array name="people_scooby"> <!-- scooby -->
-        <item>Scooby-Doo as Colonel Mustard</item>
- 		<item>Shaggy as Professor Plum</item>
-        <item>Daphne as Mr. Green</item>
-        <item>Velma as Mrs.Peacock</item>
- 		<item>Fred as Miss Scarlet</item>
+        <item>Scooby-Doo</item>
+ 		<item>Shaggy</item>
+        <item>Daphne</item>
+        <item>Velma</item>
+ 		<item>Fred</item>
         <item>Mrs.White</item>
     </string-array>
     
@@ -131,6 +142,18 @@
         <item>Barbara Taylor-Bradford</item>
     </string-array>
     
+    <string-array name="people_master"> <!-- master -->
+        <item>Col. Mustard</item>
+ 		<item>Prof. Plum</item>
+        <item>Mr.Green</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlet</item>
+        <item>Mrs.White</item>
+        <item>Mme Rose</item>
+ 		<item>Sgt. Grey</item>
+        <item>M. Brunette</item>
+        <item>Miss Peach</item>
+    </string-array>
    	<!-- ===================================== 
      ============== PLACE =============== 
      ====================================== -->
@@ -266,6 +289,21 @@
         <item>Joshua Tetley and Son Limited</item>
     </string-array>
     
+    <string-array name="place_master"> <!-- master -->
+        <item>Courtyard</item>
+ 		<item>Gazebo</item>
+        <item>Drawing Room</item>
+        <item>Dining Room</item>
+ 		<item>Kitchen</item>
+        <item>Carriage House</item>
+        <item>Trophy Room</item>
+ 		<item>Conservatory</item>
+        <item>Studio</item>
+        <item>Billiard Room</item>
+ 		<item>Library</item>
+        <item>Fountain</item>
+    </string-array>
+    
    	<!-- ===================================== 
      ============== WEAPON =============== 
      ====================================== -->
@@ -372,7 +410,7 @@
 		<item>Redbeard\'s Sword</item>
 	</string-array>
     
-    <string-array name="weapon_leeds"> <!-- leeds (Probable Implements)-->
+    <string-array name="weapon_leeds"> <!-- leeds (Probable Implements) | = sleuth-->
         <item>Dagger</item>
  		<item>Candlestick</item>
         <item>Revolver</item>
@@ -381,5 +419,30 @@
         <item>Spanner</item>
     </string-array>
     
-
+    <string-array name="weapon_master"> <!-- master -->
+        <item>Knife</item>
+ 		<item>Candlestick</item>
+        <item>Revolver</item>
+        <item>Rope</item>
+ 		<item>Lead Pipe</item>
+        <item>Wrench</item>
+        <item>Poison</item>
+        <item>Horseshoe</item>
+    </string-array>
+    
+   	<!-- ===================================== 
+     ============== Colors =============== 
+     ====================================== -->
+    <string-array name="colors_master">
+        <item>@color/bgPeople1</item>
+        <item>@color/bgPeople2</item>
+        <item>@color/bgPeople3</item>
+        <item>@color/bgPeople4</item>
+        <item>@color/bgPeople5</item>
+        <item>@color/bgPeople6</item>
+        <item>@color/bgPeople7_master</item>
+        <item>@color/bgPeople8_master</item>
+        <item>@color/bgPeople9_master</item>
+        <item>@color/bgPeople10_master</item>
+    </string-array>
 </resources>

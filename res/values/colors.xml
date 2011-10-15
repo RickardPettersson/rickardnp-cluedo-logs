@@ -26,4 +26,10 @@
 	<color name="textTitleLogs">#FFffffff</color>
 	<color name="textTitleAbout">#FF3366CC</color>
 	
+	<!--  -->
+	<color name="bgPeople7_master">#FFc79b9c</color>
+	<color name="bgPeople8_master">#FF303a46</color>
+	<color name="bgPeople9_master">#FF482014</color>
+	<color name="bgPeople10_master">#FFc57849</color>
+
 </resources>

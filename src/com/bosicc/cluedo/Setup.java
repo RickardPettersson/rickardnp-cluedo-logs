@@ -91,7 +91,7 @@ public class Setup extends ExpandableListActivity {
 	private String[][] children = new String[3][];
 
 	// All check box state
-	private boolean[][] items = new boolean[3][9];
+	private boolean[][] items = new boolean[4][13]; // NOTE: Maximum cards i saw = 13
 	
 	private int stage = 0;
 	
@@ -205,6 +205,7 @@ public class Setup extends ExpandableListActivity {
 				//Set new data
 				Log.i(TAG,"pos="+arg2);
 				utils.UpdateGameDataList(arg2);
+				 
 				
 				
 				mPersonAdapter = new ArrayAdapter<String>(Setup.this, android.R.layout.simple_spinner_item, game.mPeople);
@@ -329,25 +330,25 @@ public class Setup extends ExpandableListActivity {
 						}else{
 							if (stage == 1){
 							
-								game.setYourPlayer(mPerson.getSelectedItemPosition());
+								utils.setYourPlayer(mPerson.getSelectedItemPosition());
 								
-								game.setPlayerNoColumn(game.getYourPlayer());
+								utils.setPlayerNoColumn(utils.getYourPlayer());
 								int TotalCards = 0;
 								for (int i=0; i<game.mPeople.length; i++){
 									if (items[0][i]){
-										game.setTypeinRowNoData(i, game.getYourPlayer(), CardType.YES);
+										utils.setTypeinRowNoData(i, utils.getYourPlayer(), CardType.YES);
 										TotalCards++;
 									}
 								}
 								for (int i=0; i<game.mPlace.length; i++){
 									if (items[1][i]){
-										game.setTypeinRowNoData(game.mPeople.length+i, game.getYourPlayer(), CardType.YES);
+										utils.setTypeinRowNoData(game.mPeople.length+i, utils.getYourPlayer(), CardType.YES);
 										TotalCards++;
 									}
 								}
 								for (int i=0; i<game.mWeapon.length; i++){
 									if (items[2][i]){
-										game.setTypeinRowNoData(game.mPeople.length+game.mPlace.length+i, game.getYourPlayer(), CardType.YES);
+										utils.setTypeinRowNoData(game.mPeople.length+game.mPlace.length+i, utils.getYourPlayer(), CardType.YES);
 										TotalCards++;
 									}
 								}
@@ -365,7 +366,7 @@ public class Setup extends ExpandableListActivity {
 									playerNum++;
 									game.mPlayers.get(0).setName(mEdit1.getText().toString());
 								}else{
-									game.setColumnNoData(0);
+									utils.setColumnNoData(0);
 									game.mPlayers.get(0).setName(getText(R.string.table_notplay_text).toString());
 								}
 								
@@ -373,7 +374,7 @@ public class Setup extends ExpandableListActivity {
 									playerNum++;
 									game.mPlayers.get(1).setName(mEdit2.getText().toString());
 								}else{
-									game.setColumnNoData(1);
+									utils.setColumnNoData(1);
 									game.mPlayers.get(1).setName(getText(R.string.table_notplay_text).toString());
 								}
 								
@@ -381,7 +382,7 @@ public class Setup extends ExpandableListActivity {
 									playerNum++;
 									game.mPlayers.get(2).setName(mEdit3.getText().toString());
 								}else{
-									game.setColumnNoData(2);
+									utils.setColumnNoData(2);
 									game.mPlayers.get(2).setName(getText(R.string.table_notplay_text).toString());
 								}
 								
@@ -389,7 +390,7 @@ public class Setup extends ExpandableListActivity {
 									playerNum++;
 									game.mPlayers.get(3).setName(mEdit4.getText().toString());
 								}else{
-									game.setColumnNoData(3);
+									utils.setColumnNoData(3);
 									game.mPlayers.get(3).setName(getText(R.string.table_notplay_text).toString());
 								}
 								
@@ -397,7 +398,7 @@ public class Setup extends ExpandableListActivity {
 									playerNum++;
 									game.mPlayers.get(4).setName(mEdit5.getText().toString());
 								}else{
-									game.setColumnNoData(4);
+									utils.setColumnNoData(4);
 									game.mPlayers.get(4).setName(getText(R.string.table_notplay_text).toString());
 								}
 								
@@ -405,15 +406,15 @@ public class Setup extends ExpandableListActivity {
 									playerNum++;
 									game.mPlayers.get(5).setName(mEdit6.getText().toString());
 								}else{
-									game.setColumnNoData(5);
+									utils.setColumnNoData(5);
 									game.mPlayers.get(5).setName(getText(R.string.table_notplay_text).toString());
 								}
 								
 								//Set you name
-								game.mPlayers.get(game.getYourPlayer()).setName(getText(R.string.table_you_text).toString());
+								game.mPlayers.get(utils.getYourPlayer()).setName(getText(R.string.table_you_text).toString());
 								
 								//Save number of Players
-								game.setNumberOfPlayers(playerNum);
+								utils.setNumberOfPlayers(playerNum);
 								
 								// Update players label
 								utils.UpdatePlayerLabels();
@@ -421,7 +422,7 @@ public class Setup extends ExpandableListActivity {
 								if (TotalCards < 3){
 									showDialog(DIALOG_CARDSNOTSELECTED);
 								}else{
-									game.setCreatedGame(true);
+									utils.setCreatedGame(true);
 									startActivity(new Intent(Setup.this, CluedoLogs.class));
 									finish();
 								}
