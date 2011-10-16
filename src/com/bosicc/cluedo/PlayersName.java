@@ -22,7 +22,7 @@ import com.bosicc.cluedo.pojo.GamePOJO;
 
 public class PlayersName extends Dialog {
 	
-	private static String TAG = "PlayersName";
+	//private static String TAG = "PlayersName";
 	
 	private ImageButton okButton;
 
@@ -42,9 +42,9 @@ public class PlayersName extends Dialog {
 			
 			@Override
 			public void onClick(View v) {
-				for (int i=0; i<game.mPlayers.size();i++){
-					Log.i(TAG," player="+game.mPlayers.get(i).inGame());
-				}
+//				for (int i=0; i<game.mPlayers.size();i++){
+//					Log.i(TAG," player="+game.mPlayers.get(i).inGame());
+//				}
 				dismiss();
 			}
 		});
@@ -57,9 +57,9 @@ public class PlayersName extends Dialog {
 		//Set you name
 		game.mPlayers.get(utils.getYourPlayer()).setName(context.getText(R.string.table_you_text).toString());
 		
-		for (int i=0; i<game.mPlayers.size();i++){
-			Log.i(TAG,"start player="+game.mPlayers.get(i).inGame());
-		}
+//		for (int i=0; i<game.mPlayers.size();i++){
+//			Log.i(TAG,"start player="+game.mPlayers.get(i).inGame());
+//		}
 		
 		
 		mList = (ListView) findViewById(R.id.listView);
@@ -113,7 +113,6 @@ public class PlayersName extends Dialog {
             	cache = (ListItemCache) view.getTag();
             }
             
-
             //Set player color
             cache.text.setBackgroundColor(game.mPlayers.get(position).getColor());
             
@@ -129,7 +128,7 @@ public class PlayersName extends Dialog {
             if (utils.getYourPlayer() == position){
                 cache.check.setEnabled(false);
                 cache.check.setChecked(game.mPlayers.get(position).inGame());
-                Log.i(TAG,"getView pos="+position+" checked="+game.mPlayers.get(position).inGame());
+                //Log.i(TAG,"getView pos="+position+" checked="+game.mPlayers.get(position).inGame());
             }else{
                 
                 //Disable edit
@@ -143,7 +142,7 @@ public class PlayersName extends Dialog {
                 // Check Box
                 cache.check.setEnabled(!game.isCreated);
                 boolean state = game.mPlayers.get(position).inGame();
-                Log.i(TAG,"getView pos="+position+" current state ="+state +" BOX="+cache.check.isChecked());
+                //Log.i(TAG,"getView pos="+position+" current state ="+state +" BOX="+cache.check.isChecked());
                 cache.check.setChecked(state);
                 cache.check.setOnClickListener(new OnItemClickListener(position, cache.editText));
             }
@@ -189,26 +188,11 @@ public class PlayersName extends Dialog {
 			boolean curstate = !game.mPlayers.get(mPosition).inGame();
 			
 			game.mPlayers.get(mPosition).inGame(curstate);
-			Log.i(TAG,"<<<<<<<<<<<<<<<<onCheck pos="+mPosition+" curr="+!curstate);
+			//Log.i(TAG,"<<<<<<<<<<<<<<<<onCheck pos="+mPosition+" curr="+!curstate);
 			mEdit.setEnabled(curstate);
 			mEdit.setFocusable(curstate);
 			mEdit.setFocusableInTouchMode(curstate);
 		}
-		
-
-//		@Override
-//		public void onCheckedChanged(CompoundButton buttonView,
-//				boolean isChecked) {
-//			
-//			boolean curstate = game.mPlayers.get(mPosition).inGame();
-//			
-//			game.mPlayers.get(mPosition).inGame(!curstate);
-//			Log.i(TAG,"<<<<<<<<<<<<<<<<onCheck pos="+mPosition+" curr="+curstate+" isChecked=" +isChecked);
-//			mEdit.setEnabled(isChecked);
-//			mEdit.setFocusable(isChecked);
-//			mEdit.setFocusableInTouchMode(isChecked);
-//			
-//		}      
      }
 
 }

@@ -107,6 +107,11 @@ Supported types of games:
 * Clue: Original VCR Game
 * Clue II: Murder in Disguise
 * Cluedo: Passport to Murder
+* Discover the Secrets
+* Clue: Dungeons and Dragons Edition
+* Clue: The Seinfeld Edition
+* Clue: Mystery at Sea
+* Cluedo: Super Challenge
 
 If you have a an unsupported Cluedo board please contact me and I'll add it.
 
@@ -126,6 +131,12 @@ add game type Cluedo: Super Sleuth
 add game type Clue: Master Detective
 add game type Clue: Original VCR Game
 add game type Clue II: Murder in Disguise
+add game type Cluedo: Passport to Murder
+add game type Discover the Secrets
+add game type Clue: Dungeons and Dragons Edition
+add game type Clue: The Seinfeld Edition
+add game type Clue: Mystery at Sea
+add game type Cluedo: Super Challenge
 --- V.1.0.6 --------------------------------------
 add localization DE(German). 
 Buttons changed in Logs recorder. 

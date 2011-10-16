@@ -48,10 +48,9 @@ public class Table extends ListActivity {
 	//private static String TAG = "Table";
 	private static final int DIALOG_MARK = 1;
 
-
 	private ImageButton mNavBtn;
 	private ListView mList;
-	private BaseAdapter mAdapter;
+	private MyListAdapter mAdapter;
 	private String[] mCards;
     private CluedoApp cApp;
     private GamePOJO game;
@@ -78,14 +77,13 @@ public class Table extends ListActivity {
 		game = cApp.getGame();
 		utils = new Utils(this,game);
 		
-		header = new TextView[6];
+		header = new TextView[kolnaekrane];
 		header[0] = ((TextView) findViewById(R.id.txtPeople1));
 		header[1] = ((TextView) findViewById(R.id.txtPeople2));
 		header[2] = ((TextView) findViewById(R.id.txtPeople3));
 		header[3] = ((TextView) findViewById(R.id.txtPeople4));
 		header[4] = ((TextView) findViewById(R.id.txtPeople5));
 		header[5] = ((TextView) findViewById(R.id.txtPeople6));
-		SetHeaderText();
 		
 		mNavBtn = (ImageButton) findViewById(R.id.IbtnNav);
 		
@@ -117,7 +115,6 @@ public class Table extends ListActivity {
 						mNavBtn.setImageResource(R.drawable.nav_right);
 						offset=0;
 					}
-					SetHeaderText();
 					mAdapter.notifyDataSetChanged();
 					 
 				}
@@ -131,6 +128,12 @@ public class Table extends ListActivity {
 		mList.setAdapter(mAdapter);
 		
 	    }
+	
+	@Override
+	protected void onResume() {
+		super.onResume();		
+		SetHeaderText();
+	}
 	
 	@Override
     protected Dialog onCreateDialog(int id) {
@@ -189,15 +192,7 @@ public class Table extends ListActivity {
         public TextView headerText;
         public View divider;
 
-        public ImageButton[] btn = new ImageButton[6];
-//        public ImageButton btn1;
-//        public ImageButton btn2;
-//        public ImageButton btn3;
-//        public ImageButton btn4;
-//        public ImageButton btn5;
-//        public ImageButton btn6;
-        
-       
+        public ImageButton[] btn = new ImageButton[6];       
     }
 	
 	private class MyListAdapter extends BaseAdapter {
@@ -289,7 +284,16 @@ public class Table extends ListActivity {
         }
         
         
-        private int getResourceByType(CardType type){
+        /**
+         * Update Names
+         */
+        @Override
+		public void notifyDataSetChanged() {
+			super.notifyDataSetChanged();
+        	SetHeaderText();
+		}
+
+		private int getResourceByType(CardType type){
         	int res = R.drawable.btn_none;
         	switch (type){
         		case DEFAULT:
@@ -348,7 +352,7 @@ public class Table extends ListActivity {
 
     }
 	
-	private void SetHeaderText(){
+	public void SetHeaderText(){
     	for (int i=0; i<kolnaekrane; i++){
     		header[i].setText(game.mPlayers.get(offset+i).getName());
     		header[i].setBackgroundColor(game.mPlayers.get(offset+i).getColor());
