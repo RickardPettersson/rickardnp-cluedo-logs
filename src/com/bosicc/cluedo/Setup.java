@@ -269,61 +269,19 @@ public class Setup extends ExpandableListActivity {
 									}
 								}
 								
-//								int playerNum = 0; // you are the first one
-//								
-//								// Save names
-//								if (game.mPlayers.get(0).inGame()){
-//									playerNum++;
-//									game.mPlayers.get(0).setName(mEdit1.getText().toString());
-//								}else{
-//									utils.setColumnNoData(0);
-//									game.mPlayers.get(0).setName(getText(R.string.table_notplay_text).toString());
-//								}
-//								
-//								if (game.mPlayers.get(1).inGame()){
-//									playerNum++;
-//									game.mPlayers.get(1).setName(mEdit2.getText().toString());
-//								}else{
-//									utils.setColumnNoData(1);
-//									game.mPlayers.get(1).setName(getText(R.string.table_notplay_text).toString());
-//								}
-//								
-//								if (game.mPlayers.get(2).inGame()){
-//									playerNum++;
-//									game.mPlayers.get(2).setName(mEdit3.getText().toString());
-//								}else{
-//									utils.setColumnNoData(2);
-//									game.mPlayers.get(2).setName(getText(R.string.table_notplay_text).toString());
-//								}
-//								
-//								if (game.mPlayers.get(3).inGame()){
-//									playerNum++;
-//									game.mPlayers.get(3).setName(mEdit4.getText().toString());
-//								}else{
-//									utils.setColumnNoData(3);
-//									game.mPlayers.get(3).setName(getText(R.string.table_notplay_text).toString());
-//								}
-//								
-//								if (game.mPlayers.get(4).inGame()){
-//									playerNum++;
-//									game.mPlayers.get(4).setName(mEdit5.getText().toString());
-//								}else{
-//									utils.setColumnNoData(4);
-//									game.mPlayers.get(4).setName(getText(R.string.table_notplay_text).toString());
-//								}
-//								
-//								if (game.mPlayers.get(5).inGame()){
-//									playerNum++;
-//									game.mPlayers.get(5).setName(mEdit6.getText().toString());
-//								}else{
-//									utils.setColumnNoData(5);
-//									game.mPlayers.get(5).setName(getText(R.string.table_notplay_text).toString());
-//								}
+								int playerNum = 0;
+								// Mark not Played person - thay cannot have card
+								for (PlayerPOJO item:game.mPlayers){
+									if (!item.inGame()){
+										utils.setColumnNoData(item.getNumber());
+									}else{
+										playerNum++;
+									}
+								}
 								
-								
-								
+
 								//Save number of Players
-								//utils.setNumberOfPlayers(playerNum);
+								utils.setNumberOfPlayers(playerNum);
 								
 								// Update players label
 								utils.UpdatePlayerLabels();
