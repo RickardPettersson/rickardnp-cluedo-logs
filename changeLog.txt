@@ -2,6 +2,19 @@
 Добавлена фильтрация отображения только играющих Персонажей(те которые ходят). 
 Добавлен вариант когда слух не подтвержден.
 Изменены  внешний вид записи логов (убраны строка с текстом). 
+Добавлена форма ввода имен игроков.
+Добавлена игра Clue: The Scooby Doo
+Добавлена игра Clue: Leeds Centenary
+Добавлена игра Cluedo: Super Sleuth
+Добавлена игра Clue: Master Detective
+Добавлена игра Clue: Original VCR Game
+Добавлена игра Clue II: Murder in Disguise
+Добавлена игра Cluedo: Passport to Murder
+Добавлена игра Clue: Discover the Secrets
+Добавлена игра Clue: Dungeons and Dragons Edition
+Добавлена игра Clue: The Seinfeld Edition
+Добавлена игра Clue: Mystery at Sea
+	
 --- V.1.0.6 --------------------------------------
 Добавлена локализация DE(German). 
 Изменены кнопки для записи логов. 
@@ -51,6 +64,17 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 * Clue: The Simpsons
 * Clue: The Simpsons 3rd edition
 * Clue: The Harry Potter
+* Clue: The Scooby Doo
+* Clue: Leeds Centenary
+* Cluedo: Super Sleuth
+* Clue: Master Detective
+* Clue: Original VCR Game
+* Clue II: Murder in Disguise
+* Cluedo: Passport to Murder
+* Discover the Secrets
+* Clue: Dungeons and Dragons Edition
+* Clue: The Seinfeld Edition
+* Clue: Mystery at Sea
 
 Эсли в списки нет Вашей игры, напишите мне и я ее добавлю.
 
@@ -75,7 +99,53 @@ Supported types of games:
 * Clue: The Simpsons
 * Clue: The Simpsons 3rd edition
 * Clue: The Harry Potter
+* Clue: The Scooby Doo
+* Clue: Leeds Centenary
+* Cluedo: Super Sleuth
+* Clue: Master Detective
+* Clue: Original VCR Game
+* Clue II: Murder in Disguise
+* Cluedo: Passport to Murder
 
 If you have a an unsupported Cluedo board please contact me and I'll add it.
 
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
+
+
+
+
+--- V.1.0.7 --------------------------------------
+Add filters - show only played persons in popup lists. 
+Add confirm suggestion - not confirm.
+Logs design changed. 
+Add new Dialog for Player,s name edit
+add game type Clue: The Scooby Doo
+add game type Clue: Leeds Centenary
+add game type Cluedo: Super Sleuth
+add game type Clue: Master Detective
+add game type Clue: Original VCR Game
+add game type Clue II: Murder in Disguise
+--- V.1.0.6 --------------------------------------
+add localization DE(German). 
+Buttons changed in Logs recorder. 
+add game type Clue: English original
+add game type Clue: Limited Gift Edition
+add game type Clue: The Simpsons
+add game type Clue: The Simpsons 3rd edition
+add game type Clue: The Harry Potter
+--- V.1.0.5 --------------------------------------
+add game type Clue: The 24 Edition
+add game type Clue: The Office
+--- V.1.0.4 --------------------------------------
+Добавлена локализация RU, UA и по умолчанию US. 
+Добавлена игра Clue: Secrets in Paris
+--- V.1.0.3 --------------------------------------
+Исправлена ошибка связанная с обновлением приложения. Перед установкой этой версии удалите старую (в дальнейшем это делать не нужно). 
+--- V.1.0.2 --------------------------------------
+Добавлена сортировка по игрокам кто ходил и кто подтвердил слух.
+Добавлена возможность вводить имена игроков.
+Добавлены все иконки для русской версии игры.
+Добавлена вкладка с отображением ходов игры в текстовом виде.
+--- V.1.0.1 --------------------------------------
+Добавлена сводная таблица всех игроков и их карт.
+Добавлена возможность ведения записей ходов игроков.

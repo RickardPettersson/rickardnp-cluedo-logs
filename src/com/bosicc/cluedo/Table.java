@@ -25,6 +25,8 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -187,12 +189,13 @@ public class Table extends ListActivity {
         public TextView headerText;
         public View divider;
 
-        public ImageButton btn1;
-        public ImageButton btn2;
-        public ImageButton btn3;
-        public ImageButton btn4;
-        public ImageButton btn5;
-        public ImageButton btn6;
+        public ImageButton[] btn = new ImageButton[6];
+//        public ImageButton btn1;
+//        public ImageButton btn2;
+//        public ImageButton btn3;
+//        public ImageButton btn4;
+//        public ImageButton btn5;
+//        public ImageButton btn6;
         
        
     }
@@ -232,12 +235,12 @@ public class Table extends ListActivity {
             	cache.header = view.findViewById(R.id.header);
                 cache.Text = (TextView)view.findViewById(R.id.txtLeft);
                 cache.headerText = (TextView)view.findViewById(R.id.header_text);
-                cache.btn1 = (ImageButton)view.findViewById(R.id.btn1);
-                cache.btn2 = (ImageButton)view.findViewById(R.id.btn2);
-                cache.btn3 = (ImageButton)view.findViewById(R.id.btn3);
-                cache.btn4 = (ImageButton)view.findViewById(R.id.btn4);
-                cache.btn5 = (ImageButton)view.findViewById(R.id.btn5);
-                cache.btn6 = (ImageButton)view.findViewById(R.id.btn6);
+                cache.btn[0] = (ImageButton)view.findViewById(R.id.btn1);
+                cache.btn[1] = (ImageButton)view.findViewById(R.id.btn2);
+                cache.btn[2] = (ImageButton)view.findViewById(R.id.btn3);
+                cache.btn[3] = (ImageButton)view.findViewById(R.id.btn4);
+                cache.btn[4] = (ImageButton)view.findViewById(R.id.btn5);
+                cache.btn[5] = (ImageButton)view.findViewById(R.id.btn6);
 
                 view.setTag(cache);
 
@@ -246,12 +249,15 @@ public class Table extends ListActivity {
             }
             
             //Log.i("Table","pos"+position);
-            cache.btn1.setOnClickListener(new OnItemClickListener(position)); 
-            cache.btn2.setOnClickListener(new OnItemClickListener(position)); 
-            cache.btn3.setOnClickListener(new OnItemClickListener(position)); 
-            cache.btn4.setOnClickListener(new OnItemClickListener(position)); 
-            cache.btn5.setOnClickListener(new OnItemClickListener(position));
-            cache.btn6.setOnClickListener(new OnItemClickListener(position));
+            Paint color = new Paint();
+            for (int i=0; i<kolnaekrane; i++){
+            	 cache.btn[i].setOnClickListener(new OnItemClickListener(position)); 
+            	 cache.btn[i].setImageResource(getResourceByType(utils.getCardsData()[position][offset+i]));
+            	 //cache.btn[i].setBackgroundColor(game.mPlayers.get(offset+i).getColor());
+            	 color.setColor(game.mPlayers.get(offset+i).getColor());
+            	 color.setAlpha(50);
+            	 cache.btn[i].setBackgroundColor(color.getColor());
+            }
             
             cache.header.setVisibility(View.GONE);
             
@@ -272,12 +278,12 @@ public class Table extends ListActivity {
             
             cache.Text.setText(mCards[position]);
 
-            cache.btn1.setImageResource(getResourceByType(utils.getCardsData()[position][offset+0]));
-            cache.btn2.setImageResource(getResourceByType(utils.getCardsData()[position][offset+1]));
-            cache.btn3.setImageResource(getResourceByType(utils.getCardsData()[position][offset+2]));
-            cache.btn4.setImageResource(getResourceByType(utils.getCardsData()[position][offset+3]));
-            cache.btn5.setImageResource(getResourceByType(utils.getCardsData()[position][offset+4]));
-            cache.btn6.setImageResource(getResourceByType(utils.getCardsData()[position][offset+5]));
+//            cache.btn1.setImageResource(getResourceByType(utils.getCardsData()[position][offset+0]));
+//            cache.btn2.setImageResource(getResourceByType(utils.getCardsData()[position][offset+1]));
+//            cache.btn3.setImageResource(getResourceByType(utils.getCardsData()[position][offset+2]));
+//            cache.btn4.setImageResource(getResourceByType(utils.getCardsData()[position][offset+3]));
+//            cache.btn5.setImageResource(getResourceByType(utils.getCardsData()[position][offset+4]));
+//            cache.btn6.setImageResource(getResourceByType(utils.getCardsData()[position][offset+5]));
 
             return view;
         }

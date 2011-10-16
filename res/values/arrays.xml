@@ -7,15 +7,6 @@
         <item>@string/mark_no</item>
         <item>@string/mark_remove</item>
     </string-array>
-   
-    <string-array name="colors_default">
-        <item>@color/bgPeople1</item>
-        <item>@color/bgPeople2</item>
-        <item>@color/bgPeople3</item>
-        <item>@color/bgPeople4</item>
-        <item>@color/bgPeople5</item>
-        <item>@color/bgPeople6</item>
-    </string-array>
     
     <string-array name="category">
         <item>@string/title_people</item>
@@ -30,7 +21,7 @@
         <item>Clue: The 24 Edition</item>
         <item>Clue: The Office</item>
         <item>Clue: English original</item>
-        <item>Clue: Limited Gift Edition</item> <!-- lim_gif -->
+        <item>Clue: Limited Gift (50th Anniversary) Edition</item> <!-- lim_gif -->
         <item>Clue: The Simpsons</item>
         <item>Clue: The Simpsons 3rd edition</item>
         <item>Clue: The Harry Potter</item>
@@ -38,6 +29,13 @@
         <item>Clue: Leeds Centenary</item>
         <item>Cluedo: Super Sleuth</item> <!-- Place: = lim_gif = 50th -->
         <item>Clue: Master Detective</item>
+        <item>Clue: Original VCR Game</item>
+        <item>Clue II: Murder in Disguise</item>Cluedo - Passport to Murder
+        <item>Cluedo: Passport to Murder</item>
+        <item>Clue: Discover the Secrets</item>
+        <item>Clue: Dungeons and Dragons Edition</item>
+        <item>Clue: The Seinfeld Edition</item>						
+        <item>Clue: Mystery at Sea</item>					
     </string-array>
     
 	<!-- ===================================== 
@@ -154,6 +152,72 @@
         <item>M. Brunette</item>
         <item>Miss Peach</item>
     </string-array>
+    
+
+	<string-array name="people_orig_vcr_murder"> <!-- orig_vcr + murder in del -->
+		<item>Col. Mustard</item>
+		<item>Miss Scarlet</item>
+		<item>Prof. Plum</item>
+		<item>Mrs.Peacock</item>
+		<item>Mr. Green</item>
+		<item>Mrs.White</item>
+		<item>M. Brunette</item>
+		<item>Madam Rose</item>        
+		<item>Sgt. Grey</item>
+		<item>Miss Peach</item>
+	</string-array>
+	
+	 <string-array name="people_passport"> <!-- passport -->
+        <item>Col. Mustard</item>
+        <item>Miss Peach</item>
+ 		<item>Prof. Plum</item>
+        <item>Rev. Green</item>
+        <item>Mr. Brown</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlett</item>
+        <item>Mrs.White</item>
+        <item>Earl Grey</item>
+    </string-array>
+	
+	<string-array name="people_discover"> <!-- discover -->
+        <item>Colonel Mustard</item>
+ 		<item>Professor Plum</item>
+        <item>Mr. Green</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlet</item>
+        <item>Mrs.White</item>
+    </string-array>
+    
+    <string-array name="people_dd"> <!-- d&d -->
+        <item>Tordek</item>
+ 		<item>Nebin</item>
+        <item>Mialee</item>
+        <item>Lidda</item>
+ 		<item>Regdar</item>
+        <item>Ember</item>
+    </string-array>
+    
+    <string-array name="people_seinfeld"> <!-- seinfeld -->
+        <item>Jerry</item>
+        <item>Elaine</item>
+ 		<item>George</item>
+        <item>Kramer</item>
+        <item>Peterman</item>
+        <item>Puddy</item>
+    </string-array>
+    
+    <string-array name="people_sea_card"> <!-- sea_card -->
+        <item>Colonel Mustard</item>
+ 		<item>Professor Plum</item>
+        <item>Mr. Green</item>
+        <item>Mr. Boddy</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlet</item>
+        <item>Mrs.White</item>
+    </string-array>
+    
+    
+    
    	<!-- ===================================== 
      ============== PLACE =============== 
      ====================================== -->
@@ -304,6 +368,85 @@
         <item>Fountain</item>
     </string-array>
     
+    <string-array name="place_orig_vcr"> <!-- orig_vcr -->
+        <item>Hall</item>
+        <item>Dining Room</item>
+        <item>Conservatory</item>
+        <item>Kitchen</item>
+ 		<item>Library</item>
+    </string-array>
+    
+    <string-array name="place_murder"> <!-- murder -->
+        <item>Hall</item>
+        <item>Dining Room</item>
+        <item>Billiard Rom</item>
+        <item>Lounge</item>
+ 		<item>Hotel Room</item>
+    </string-array>
+    
+    <string-array name="place_passport"> <!-- passport -->
+        <item>Cocktail Lounge</item>
+ 		<item>Waiting Room</item>
+        <item>Barber\'s Shop</item>
+        <item>Engine Room</item>
+ 		<item>Left Luggage</item>
+        <item>Dinning Car</item>
+        <item>Kiosk</item>
+ 		<item>Ticket Office</item>
+        <item>Lost Property</item>
+    </string-array>
+    
+    <string-array name="place_discover"> <!-- discover -->
+        <item>Hall</item>
+ 		<item>Dining Room</item>
+        <item>Kitchen</item>
+        <item>Patio</item>
+ 		<item>Observatory</item>
+        <item>Theater</item>
+        <item>Living Room</item>
+ 		<item>Spa</item>
+        <item>Guest House</item>
+    </string-array>
+    
+    <string-array name="place_dd"> <!-- d&d -->
+        <item>Chamber of Tricks and Traps</item>
+ 		<item>Dungeon</item>
+        <item>Dragon\'s Lair</item>
+        <item>Lost Crypt</item>
+ 		<item>Magical Armory</item>
+        <item>Wizard\'s Tower</item>
+        <item>Grand Hall</item>
+ 		<item>Treasure Chamber</item>
+        <item>Library of Arcane Tomes</item>
+    </string-array>
+    
+    <string-array name="place_seinfeld"> <!-- seinfeld -->
+        <item>Jerry\'s Apt.</item>
+ 		<item>Elaine\'s Apt.</item>
+        <item>George\'s Ofc.</item>
+        <item>Kramer\'s Apt.</item>
+ 		<item>Soup Kitchen</item>
+        <item>Car Dealership</item>
+        <item>Chinese Restaurant</item>
+ 		<item>Monk\'s Restaurant</item>
+        <item>Peterman\'s Ofc.</item>
+    </string-array>
+    
+    <string-array name="place_sea_card"> <!-- sea_card -->
+        <item>Stateroom (Port)</item>
+ 		<item>Master Suite (Star board)</item>
+        <item>Galley (Port)</item>
+        <item>Salon (Star board)</item>
+ 		<item>Sun Deck (Port)</item>
+        <item>Dinning Room (Star board)</item>
+    </string-array>
+    
+    
+    
+    
+    
+    
+    
    	<!-- ===================================== 
      ============== WEAPON =============== 
      ====================================== -->
@@ -430,19 +573,130 @@
         <item>Horseshoe</item>
     </string-array>
     
+    <string-array name="weapon_orig_vcr_murder"> <!-- orig_vcr + murder-->
+        <item>Knife</item>
+ 		<item>Candlestick</item>
+        <item>Gun</item>
+        <item>Poison</item>
+ 		<item>Rope</item>
+    </string-array>
+    
+    <string-array name="weapon_passport"> <!-- passport = challenge-->
+        <item>Dagger</item>
+ 		<item>Candlestick</item>
+        <item>Revolver</item>
+        <item>Rope</item>
+ 		<item>Lead Piping</item>
+        <item>Spanner</item>
+        <item>Blunderbuss</item>
+ 		<item>Axe</item>
+        <item>Poison</item>
+    </string-array>
+    
+    <string-array name="weapon_discover"> <!-- discover -->
+        <item>Knife</item>
+ 		<item>Candlestick</item>
+        <item>Pistol</item>
+        <item>Poison</item>
+ 		<item>Trophy</item>
+        <item>Rope</item>
+        <item>Bat</item>
+ 		<item>Axe</item>
+        <item>Dumbbell</item>
+    </string-array>
+    
+     <string-array name="weapon_dd"> <!-- d&d -->
+        <item>Vorpal Sword</item>
+ 		<item>Mace of Disruption</item>
+        <item>Ring of Magic Missiles</item>
+        <item>Staff of Power</item>
+ 		<item>Flaming Battle Axe</item>
+ 		<item>Dagger of Venom</item>
+    </string-array>
+    
+    <string-array name="weapon_seinfeld"> <!-- seinfeld -->
+        <item>Cigar Store Indian</item>
+ 		<item>Jerry\'s Microphone</item>
+        <item>J.F.K. Golf Clubs</item>
+        <item>Beef-a-reeno</item>
+ 		<item>Shower Head</item>
+        <item>Label Maker</item>
+        <item>Statue</item>
+        <item>Big Salad</item>
+ 		<item>Festivus Pole</item>
+    </string-array>
+    
+    <string-array name="weapon_sea_card"> <!-- sea_card -->
+        <item>Rope</item>
+ 		<item>Scarf</item>
+        <item>Chain</item>
+        <item>Oar</item>
+ 		<item>Telescope</item>
+        <item>Gaff</item>
+    </string-array>
+    
+    
    	<!-- ===================================== 
      ============== Colors =============== 
      ====================================== -->
-    <string-array name="colors_master">
-        <item>@color/bgPeople1</item>
-        <item>@color/bgPeople2</item>
-        <item>@color/bgPeople3</item>
-        <item>@color/bgPeople4</item>
-        <item>@color/bgPeople5</item>
-        <item>@color/bgPeople6</item>
-        <item>@color/bgPeople7_master</item>
-        <item>@color/bgPeople8_master</item>
-        <item>@color/bgPeople9_master</item>
-        <item>@color/bgPeople10_master</item>
+	
+	<string-array name="colors_default">
+        <item>@color/bgPeopleMustard</item>
+        <item>@color/bgPeoplePlum</item>
+        <item>@color/bgPeopleGreen</item>
+        <item>@color/bgPeoplePeacock</item>
+        <item>@color/bgPeopleScarlet</item>
+        <item>@color/bgPeopleWhite</item>
     </string-array>
+    
+    
+    <string-array name="colors_master">
+        <item>@color/bgPeopleMustard</item>
+        <item>@color/bgPeoplePlum</item>
+        <item>@color/bgPeopleGreen</item>
+        <item>@color/bgPeoplePeacock</item>
+        <item>@color/bgPeopleScarlet</item>
+        <item>@color/bgPeopleWhite</item>
+        <item>@color/bgPeopleRose</item>
+        <item>@color/bgPeopleSgtGrey</item>
+        <item>@color/bgPeopleBrunette</item>
+        <item>@color/bgPeoplePeach</item>
+    </string-array>
+    
+    <string-array name="colors_cvr">
+        <item>@color/bgPeopleMustard</item>
+        <item>@color/bgPeopleScarlet</item>
+        <item>@color/bgPeoplePlum</item>
+        <item>@color/bgPeoplePeacock</item>
+        <item>@color/bgPeopleGreen</item>
+        <item>@color/bgPeopleWhite</item>
+        <item>@color/bgPeopleBrunette</item>
+        <item>@color/bgPeopleRose</item>
+        <item>@color/bgPeopleSgtGrey</item>
+        <item>@color/bgPeoplePeach</item>
+    </string-array>
+    
+    <string-array name="colors_pasport">
+        <item>@color/bgPeopleMustard</item>
+        <item>@color/bgPeoplePeach</item>
+        <item>@color/bgPeoplePlum</item>
+        <item>@color/bgPeopleGreen</item>
+        <item>@color/bgPeopleBrunette</item>
+        <item>@color/bgPeoplePeacock</item>
+        <item>@color/bgPeopleScarlet</item>
+        <item>@color/bgPeopleWhite</item>
+        <item>@color/bgPeopleSgtGrey</item>
+    </string-array>
+    
+    <string-array name="colors_sea_card">
+        <item>@color/bgPeopleMustard</item>
+        <item>@color/bgPeoplePlum</item>
+        <item>@color/bgPeopleGreen</item>
+        <item>@color/bgPeopleBrunette</item>
+        <item>@color/bgPeoplePeacock</item>
+        <item>@color/bgPeopleScarlet</item>
+        <item>@color/bgPeopleWhite</item>
+    </string-array>
+    
+    	
 </resources>

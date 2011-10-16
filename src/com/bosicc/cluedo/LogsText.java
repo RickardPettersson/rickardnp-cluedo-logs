@@ -312,9 +312,10 @@ public class LogsText extends ListActivity {
 
 			if (slux[0] != -1){
 				cache.txt1.setText(game.mPeople[slux[0]]);
-				//cache.txt1.setTextColor(cApp.getColorForPlayer(num));
+				cache.txt1.setTextColor(game.mPlayers.get(slux[0]).getColor());
 			}else{
 				cache.txt1.setText("");
+				cache.txt1.setTextColor(R.color.bgBlack);
 			}
 			
 			if (slux[1] != -1){

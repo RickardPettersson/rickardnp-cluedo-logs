@@ -91,7 +91,45 @@ public class Utils {
 			game.mWeapon = r.getStringArray(R.array.weapon_master);
 			colorlist = r.getIntArray(R.array.colors_master);
 			break;	
-			
+		case 13:// Clue VCR 
+			game.mPeople = r.getStringArray(R.array.people_orig_vcr_murder);
+			game.mPlace = r.getStringArray(R.array.place_orig_vcr);
+			game.mWeapon = r.getStringArray(R.array.weapon_orig_vcr_murder);
+			colorlist = r.getIntArray(R.array.colors_cvr);
+			break;	
+		case 14:// Clue Murder in Disguise
+			game.mPeople = r.getStringArray(R.array.people_orig_vcr_murder);
+			game.mPlace = r.getStringArray(R.array.place_murder);
+			game.mWeapon = r.getStringArray(R.array.weapon_orig_vcr_murder);
+			colorlist = r.getIntArray(R.array.colors_cvr);
+			break;	
+		case 15:// Cluedo Passport to Murder
+			game.mPeople = r.getStringArray(R.array.people_passport);
+			game.mPlace = r.getStringArray(R.array.place_passport);
+			game.mWeapon = r.getStringArray(R.array.weapon_passport);
+			colorlist = r.getIntArray(R.array.colors_pasport);
+			break;	
+		case 16:// Clue: Discover the Secrets
+			game.mPeople = r.getStringArray(R.array.people_discover);
+			game.mPlace = r.getStringArray(R.array.place_discover);
+			game.mWeapon = r.getStringArray(R.array.weapon_discover);
+			break;	
+		case 17:// Clue: Dungeons and Dragons Edition
+			game.mPeople = r.getStringArray(R.array.people_dd);
+			game.mPlace = r.getStringArray(R.array.place_dd);
+			game.mWeapon = r.getStringArray(R.array.weapon_dd);
+			break;	
+		case 18:// Clue: The Seinfeld Edition
+			game.mPeople = r.getStringArray(R.array.people_seinfeld);
+			game.mPlace = r.getStringArray(R.array.place_seinfeld);
+			game.mWeapon = r.getStringArray(R.array.weapon_seinfeld);
+			break;	
+		case 19:// Clue: Mystery at Sea
+			game.mPeople = r.getStringArray(R.array.people_sea_card);
+			game.mPlace = r.getStringArray(R.array.place_sea_card);
+			game.mWeapon = r.getStringArray(R.array.weapon_sea_card);
+			colorlist = r.getIntArray(R.array.colors_sea_card);
+			break;	
 		}
 		
 		//Number of players in game
@@ -109,12 +147,7 @@ public class Utils {
 				game.mCards[j][i] = CardType.DEFAULT;
 			}
 		}
-//		// Get colors 
-//		int tmp = r.getColor(R.color.bgPeople1);
-//		int resid = R.color.bgPeople1;
-//		for (int i=0;i<colorlist.length;i++){
-//			colorlist[i]=r.getColor(colorlist[i]);
-//		}
+
 		//Reset Players list 
 		game.mPlayers.removeAll(game.mPlayers);
 		for (int i=0;i<game.mPeople.length;i++){
@@ -275,53 +308,6 @@ public class Utils {
 	}
 	
 	
-//	/**
-//	 * Get string array of played persons (all person in game) + not confirm at 0 position
-//	 * @return
-//	 */
-//	public String[] getSortPodtverdilList(){
-//		String[] list = new String[game.mPlayers.size()+1];
-//   	list[0] = ctx.getText(R.string.logs_notconfirm).toString();
-//   	for (int i=1;i<game.mPlayers.size()+1;i++){
-//   		if (game.mPlayers.get(i-1).getName().equals("")){
-//   			list[i] =game.mPlayers.get(i-1).getName();
-//			}else{
-//				list[i] =game.mPlayers.get(i-1).getName()+ " (" + game.mPlayers.get(i-1).getCardName() + " )";
-//			}
-//   	}
-//   	return list;
-//	}
-	
-	
-//		game.mPlayersList = new String[playerNum];
-//		int j=0;
-//		for (PlayerPOJO item : game.mPlayers){
-//			if (!item.getName().equals("")){
-//				game.mPlayersList[j] =item.getName()+ " (" + item.getCardName() + " )";
-//			}else{
-//				game.mPlayersList[j] = item.getCardName();
-//			}
-//			j++;
-//		}
-//		return ;
-//	}
-	
-//	public String[] getPodtverdilList(){
-//		game.mPlayersList = new String[playerNum];
-//		int j=0;
-//		for (PlayerPOJO item : game.mPlayers){
-//			if (!item.getName().equals("")){
-//				game.mPlayersList[j] =item.getName()+ " (" + item.getCardName() + " )";
-//			}else{
-//				game.mPlayersList[j] = item.getCardName();
-//			}
-//			j++;
-//		}
-//		return ;
-//	}
-	
-	
-	
 	public ArrayList<PMovePOJO> getAllList(){
 		return game.mLogsList;
 	}
@@ -373,142 +359,5 @@ public class Utils {
     	}
     	return res;
     }
-    
-//	public int getColorForPlayer(int pleyernum){
-//    	int res = R.color.bgMain;
-//    	switch (pleyernum){
-//    		case 0:
-//    			res = R.color.bgPeople1;
-//    			break;
-//    		case 1:
-//    			res = R.color.bgPeople2;
-//    			break;
-//    		case 2:
-//    			res = R.color.bgPeople3;
-//    			break;
-//    		case 3:
-//    			res = R.color.bgPeople4;
-//    			break;
-//    		case 4:
-//    			res = R.color.bgPeople5;
-//    			break;
-//    		case 5:
-//    			res = R.color.bgPeople6;
-//    			break;
-////    		case 6:
-////    			res = R.color.bgPeople7;
-////    			break;
-////    		case 7:
-////    			res = R.color.bgPeople6;
-////    			break;
-////    		case 8:
-////    			res = R.color.bgPeople6;
-////    			break;
-////    		case 9:
-////    			res = R.color.bgPeople6;
-////    			break;
-//    		case 100: //NotConfirm
-//    			res = R.color.bgBlack;
-//    			break;
-//    		case -1:
-//    			res = R.color.bgMain;
-//    			break;
-//    	}
-//    	return res;
-//    }
-//    
-//	public int getIconForPlayer(int pleyernum){
-//    	int res = R.drawable.btn_none;
-//    	switch (pleyernum){
-//    		case 0:
-//    			res = R.drawable.p1_icon;
-//    			break;
-//    		case 1:
-//    			res = R.drawable.p2_icon;
-//    			break;
-//    		case 2:
-//    			res = R.drawable.p3_icon;
-//    			break;
-//    		case 3:
-//    			res = R.drawable.p4_icon;
-//    			break;
-//    		case 4:
-//    			res = R.drawable.p5_icon;
-//    			break;
-//    		case 5:
-//    			res = R.drawable.p6_icon;
-//    			break;
-//    	}
-//    	return res;
-//    }
-//    
-//	public int getIconForPlace(int placenum){
-//    	int res = R.drawable.btn_none;
-//    	switch (placenum){
-//    		case 0:
-//    			res = R.drawable.pl1_icon;
-//    			break;
-//    		case 1:
-//    			res = R.drawable.pl2_icon;
-//    			break;
-//    		case 2:
-//    			res = R.drawable.pl3_icon;
-//    			break;
-//    		case 3:
-//    			res = R.drawable.pl4_icon;
-//    			break;
-//    		case 4:
-//    			res = R.drawable.pl5_icon;
-//    			break;
-//    		case 5:
-//    			res = R.drawable.pl6_icon;
-//    			break;
-//    		case 6:
-//    			res = R.drawable.pl7_icon;
-//    			break;
-//    		case 7:
-//    			res = R.drawable.pl8_icon;
-//    			break;
-//    		case 8:
-//    			res = R.drawable.pl9_icon;
-//    			break;
-//    	}
-//    	return res;
-//    }
-//    
-//    public int getIconForWeapon(int weaponnum){
-//    	int res = R.drawable.btn_none;
-//    	switch (weaponnum){
-//    		case 0:
-//    			res = R.drawable.w1_icon;
-//    			break;
-//    		case 1:
-//    			res = R.drawable.w2_icon;
-//    			break;
-//    		case 2:
-//    			res = R.drawable.w3_icon;
-//    			break;
-//    		case 3:
-//    			res = R.drawable.w4_icon;
-//    			break;
-//    		case 4:
-//    			res = R.drawable.w5_icon;
-//    			break;
-//    		case 5:
-//    			res = R.drawable.w6_icon;
-//    			break;
-//    		case 6:
-//    			res = R.drawable.w7_icon;
-//    			break;
-//    		case 7:
-//    			res = R.drawable.w8_icon;
-//    			break;
-//    		case 8:
-//    			res = R.drawable.w9_icon;
-//    			break;
-//    	}
-//    	return res;
-//    }
-//
 
 }

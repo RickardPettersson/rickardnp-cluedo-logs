@@ -487,8 +487,10 @@ public class Logs extends ListActivity {
 
             if (slux[0] != -1){
             	cache.btn1.setText(game.mPeople[slux[0]]);
+            	cache.btn1.setTextColor(game.mPlayers.get(slux[0]).getColor());
             }else{
             	cache.btn1.setText("[---]");
+            	cache.btn1.setTextColor(R.color.bgBlack);
             }
             if (slux[1] != -1){
             	cache.btn2.setText(game.mPlace[slux[1]]);	

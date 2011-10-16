@@ -4,12 +4,18 @@
 	<color name="bgTransperent">#00000000</color>
 
 	<!-- People colors -->
-	<color name="bgPeople1">#FFffff00</color>
-	<color name="bgPeople2">#FF674ea7</color>
-	<color name="bgPeople3">#FF6aa84f</color>
-	<color name="bgPeople4">#FF3d85c6</color>
-	<color name="bgPeople5">#FFff0000</color>
-	<color name="bgPeople6">#FFffffff</color>
+	<color name="bgPeopleMustard">#FFffff00</color>
+	<color name="bgPeoplePlum">#FF674ea7</color>
+	<color name="bgPeopleGreen">#FF6aa84f</color>
+	<color name="bgPeoplePeacock">#FF3d85c6</color>
+	<color name="bgPeopleScarlet">#FFff0000</color>
+	<color name="bgPeopleWhite">#FFffffff</color>
+	<!--  -->
+	<color name="bgPeopleRose">#FFc79b9c</color>
+	<color name="bgPeopleSgtGrey">#FF303a46</color>
+	<color name="bgPeopleBrunette">#FF482014</color>
+	<color name="bgPeoplePeach">#FFc57849</color>
+	
 	<color name="bgBlack">#FF000000</color>
 	
 	<color name="bgPeoplelistSelect">#FFff0000</color>
