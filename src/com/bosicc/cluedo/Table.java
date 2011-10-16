@@ -54,6 +54,10 @@ public class Table extends ListActivity {
     private CluedoApp cApp;
     private GamePOJO game;
     private Utils utils;
+    private TextView[] header;
+    
+    int kolnaekrane = 6;
+    int offset = 0;
     
     private class Coord {
     	public int pos=0;
@@ -72,13 +76,14 @@ public class Table extends ListActivity {
 		game = cApp.getGame();
 		utils = new Utils(this,game);
 		
-		((TextView) findViewById(R.id.txtPeople1)).setText(game.mPlayers.get(0).getName());
-		((TextView) findViewById(R.id.txtPeople2)).setText(game.mPlayers.get(1).getName());
-		((TextView) findViewById(R.id.txtPeople3)).setText(game.mPlayers.get(2).getName());
-		((TextView) findViewById(R.id.txtPeople4)).setText(game.mPlayers.get(3).getName());
-		((TextView) findViewById(R.id.txtPeople5)).setText(game.mPlayers.get(4).getName());
-		((TextView) findViewById(R.id.txtPeople6)).setText(game.mPlayers.get(5).getName());
-		//((TextView) findViewById(R.id.txtPeople6)).setText(game.getPlayerName(5));
+		header = new TextView[6];
+		header[0] = ((TextView) findViewById(R.id.txtPeople1));
+		header[1] = ((TextView) findViewById(R.id.txtPeople2));
+		header[2] = ((TextView) findViewById(R.id.txtPeople3));
+		header[3] = ((TextView) findViewById(R.id.txtPeople4));
+		header[4] = ((TextView) findViewById(R.id.txtPeople5));
+		header[5] = ((TextView) findViewById(R.id.txtPeople6));
+		SetHeaderText();
 		
 		mNavBtn = (ImageButton) findViewById(R.id.IbtnNav);
 		
@@ -97,14 +102,22 @@ public class Table extends ListActivity {
 	    	i++;
 	    }
 	    
-	    if (utils.getNumberOfPlayers() > 6){
+	    if (utils.getNumberOfPlayers() > kolnaekrane){
 	    	mNavBtn.setVisibility(View.VISIBLE);
 	    	mNavBtn.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
+					if (offset + kolnaekrane < game.mPeople.length){
+						offset = game.mPeople.length - kolnaekrane;
+						mNavBtn.setImageResource(R.drawable.nav_left);
+					}else{
+						mNavBtn.setImageResource(R.drawable.nav_right);
+						offset=0;
+					}
+					SetHeaderText();
+					mAdapter.notifyDataSetChanged();
+					 
 				}
 			});
 	    }else{
@@ -195,17 +208,6 @@ public class Table extends ListActivity {
         public int getCount() {
             return mCards.length;
         }
-        
-
-        @Override
-        public boolean areAllItemsEnabled() {
-            return false;
-        }
-
-        @Override
-        public boolean isEnabled(int position) {
-            return !mCards[position].startsWith("-");
-        }
 
         public Object getItem(int position) {
             return position;
@@ -270,12 +272,12 @@ public class Table extends ListActivity {
             
             cache.Text.setText(mCards[position]);
 
-            cache.btn1.setImageResource(getResourceByType(utils.getCardsData()[position][0]));
-            cache.btn2.setImageResource(getResourceByType(utils.getCardsData()[position][1]));
-            cache.btn3.setImageResource(getResourceByType(utils.getCardsData()[position][2]));
-            cache.btn4.setImageResource(getResourceByType(utils.getCardsData()[position][3]));
-            cache.btn5.setImageResource(getResourceByType(utils.getCardsData()[position][4]));
-            cache.btn6.setImageResource(getResourceByType(utils.getCardsData()[position][5]));
+            cache.btn1.setImageResource(getResourceByType(utils.getCardsData()[position][offset+0]));
+            cache.btn2.setImageResource(getResourceByType(utils.getCardsData()[position][offset+1]));
+            cache.btn3.setImageResource(getResourceByType(utils.getCardsData()[position][offset+2]));
+            cache.btn4.setImageResource(getResourceByType(utils.getCardsData()[position][offset+3]));
+            cache.btn5.setImageResource(getResourceByType(utils.getCardsData()[position][offset+4]));
+            cache.btn6.setImageResource(getResourceByType(utils.getCardsData()[position][offset+5]));
 
             return view;
         }
@@ -333,12 +335,18 @@ public class Table extends ListActivity {
                     }
                     //Log.i(TAG, "onItemClick at pos=" + mPosition + " num=" + num); 
                     mCurentItem.pos = mPosition;
-                    mCurentItem.num = num;
+                    mCurentItem.num = offset+num;
                     showDialog(DIALOG_MARK);
             }               
         }
 
-
-
     }
+	
+	private void SetHeaderText(){
+    	for (int i=0; i<kolnaekrane; i++){
+    		header[i].setText(game.mPlayers.get(offset+i).getName());
+    		header[i].setBackgroundColor(game.mPlayers.get(offset+i).getColor());
+    	}
+    }
+
 }
