@@ -29,7 +29,8 @@
      <!-- Setup page -->
     <string name="setup_txt1">Оберіть тип гри:</string>
     <string name="setup_txt2">Оберіть вашего персонажа та імена гравців:</string>
-    <string name="setup_txt3">Оберіть карти які у вас на руках:</string>
+    <string name="setup_txt3">Введіть імена гравців та помітьте тих хто у грі</string>
+    <string name="setup_txt4">Оберіть карти які у вас на руках:</string>
     <string name="setup_dialog_notenoughtpcards_msg">Ви помітили меньше 3-х карт. Відмітьте карти cлухів, які у вас на руках.</string>
     <string name="setup_dialog_info_msg">Оберіть своего персонажа та кількість гравців. Відмітьте карти cлухів, які у вас на руках.</string>
     <string name="setup_edittext_hint">им\'я гравця - </string>

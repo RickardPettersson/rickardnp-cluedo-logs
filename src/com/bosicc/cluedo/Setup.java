@@ -66,26 +66,9 @@ public class Setup extends ExpandableListActivity {
 	private ArrayAdapter mPersonAdapter;
 	private Button mBack;
 	private Button mNext;
+	private Button mPlayername;
 	private ScrollView mScroll;
-	private LinearLayout mLL1;
-	private LinearLayout mLL2;
-	private LinearLayout mLL3;
-	private LinearLayout mLL4;
-	private LinearLayout mLL5;
-	private LinearLayout mLL6;
-	private EditText mEdit1;
-	private EditText mEdit2;
-	private EditText mEdit3;
-	private EditText mEdit4;
-	private EditText mEdit5;
-	private EditText mEdit6;
-	private CheckBox mCheckBox1;
-	private CheckBox mCheckBox2;
-	private CheckBox mCheckBox3;
-	private CheckBox mCheckBox4;
-	private CheckBox mCheckBox5;
-	private CheckBox mCheckBox6;
-	private TextView mText3;
+	private TextView mText4;
 	
 	private String[] groups = new String[3];
 	private String[][] children = new String[3][];
@@ -107,89 +90,76 @@ public class Setup extends ExpandableListActivity {
 		setContentView(R.layout.setup);
 		mNext = (Button) findViewById(R.id.btnNext);
 		mBack = (Button) findViewById(R.id.btnBack);
+		mPlayername = (Button) findViewById(R.id.btnPlayerName);
 		mGameType = (Spinner) findViewById(R.id.spinnerGameType);
 		mPerson = (Spinner) findViewById(R.id.spinnerYourPerson);
 		mList = (ExpandableListView) findViewById(android.R.id.list);
 		mScroll = (ScrollView) findViewById(R.id.scrollView);
 		
-		mLL1 = (LinearLayout) findViewById(R.id.LL1);
-		mLL2 = (LinearLayout) findViewById(R.id.LL2);
-		mLL3 = (LinearLayout) findViewById(R.id.LL3);
-		mLL4 = (LinearLayout) findViewById(R.id.LL4);
-		mLL5 = (LinearLayout) findViewById(R.id.LL5);
-		mLL6 = (LinearLayout) findViewById(R.id.LL6);
+		mText4 = (TextView) findViewById(R.id.text4);
 		
-		mEdit1 = (EditText) findViewById(R.id.editText1);
-		mEdit2 = (EditText) findViewById(R.id.editText2);
-		mEdit3= (EditText) findViewById(R.id.editText3);
-		mEdit4 = (EditText) findViewById(R.id.editText4);
-		mEdit5 = (EditText) findViewById(R.id.editText5);
-		mEdit6 = (EditText) findViewById(R.id.editText6);
-		
-		mCheckBox1 = (CheckBox) findViewById(R.id.checkBox1);
-		mCheckBox2 = (CheckBox) findViewById(R.id.checkBox2);
-		mCheckBox3 = (CheckBox) findViewById(R.id.checkBox3);
-		mCheckBox4 = (CheckBox) findViewById(R.id.checkBox4);
-		mCheckBox5 = (CheckBox) findViewById(R.id.checkBox5);
-		mCheckBox6 = (CheckBox) findViewById(R.id.checkBox6);
-		
-		mText3 = (TextView) findViewById(R.id.text3);
-		
-		mLL1.setVisibility(View.GONE);
-		
-		mCheckBox1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		mPlayername.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				mEdit1.setEnabled(isChecked);
-				mEdit1.setFocusable(isChecked);
-				mEdit1.setFocusableInTouchMode(isChecked);
+			public void onClick(View v) {
+				PlayersName customizeDialog = new PlayersName(Setup.this,game);
+	        	customizeDialog.show();
 			}
 		});
 		
-		mCheckBox2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				mEdit2.setEnabled(isChecked);
-				mEdit2.setFocusable(isChecked);
-				mEdit2.setFocusableInTouchMode(isChecked);
-			}
-		});
-		
-		mCheckBox3.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				mEdit3.setEnabled(isChecked);
-				mEdit3.setFocusable(isChecked);
-				mEdit3.setFocusableInTouchMode(isChecked);
-			}
-		});
-		
-		mCheckBox4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				mEdit4.setEnabled(isChecked);
-				mEdit4.setFocusable(isChecked);
-				mEdit4.setFocusableInTouchMode(isChecked);
-			}
-		});
-		
-		mCheckBox5.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				mEdit5.setEnabled(isChecked);
-				mEdit5.setFocusable(isChecked);
-				mEdit5.setFocusableInTouchMode(isChecked);
-			}
-		});
-		
-		mCheckBox6.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				mEdit6.setEnabled(isChecked);
-				mEdit6.setFocusable(isChecked);
-				mEdit6.setFocusableInTouchMode(isChecked);
-			}
-		});
+//		mCheckBox1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//				mEdit1.setEnabled(isChecked);
+//				mEdit1.setFocusable(isChecked);
+//				mEdit1.setFocusableInTouchMode(isChecked);
+//			}
+//		});
+//		
+//		mCheckBox2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//				mEdit2.setEnabled(isChecked);
+//				mEdit2.setFocusable(isChecked);
+//				mEdit2.setFocusableInTouchMode(isChecked);
+//			}
+//		});
+//		
+//		mCheckBox3.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//				mEdit3.setEnabled(isChecked);
+//				mEdit3.setFocusable(isChecked);
+//				mEdit3.setFocusableInTouchMode(isChecked);
+//			}
+//		});
+//		
+//		mCheckBox4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//				mEdit4.setEnabled(isChecked);
+//				mEdit4.setFocusable(isChecked);
+//				mEdit4.setFocusableInTouchMode(isChecked);
+//			}
+//		});
+//		
+//		mCheckBox5.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//				mEdit5.setEnabled(isChecked);
+//				mEdit5.setFocusable(isChecked);
+//				mEdit5.setFocusableInTouchMode(isChecked);
+//			}
+//		});
+//		
+//		mCheckBox6.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//				mEdit6.setEnabled(isChecked);
+//				mEdit6.setFocusable(isChecked);
+//				mEdit6.setFocusableInTouchMode(isChecked);
+//			}
+//		});
 		
 		// Set list of game types
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gameTypes,
@@ -205,20 +175,11 @@ public class Setup extends ExpandableListActivity {
 				//Set new data
 				Log.i(TAG,"pos="+arg2);
 				utils.UpdateGameDataList(arg2);
-				 
-				
-				
+
 				mPersonAdapter = new ArrayAdapter<String>(Setup.this, android.R.layout.simple_spinner_item, game.mPeople);
 				mPersonAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 				mPerson.setAdapter(mPersonAdapter);
 				mPersonAdapter.notifyDataSetChanged();
-				
-				mEdit1.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[0]);
-				mEdit2.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[1]);
-				mEdit3.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[2]);
-				mEdit4.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[3]);
-				mEdit5.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[4]);
-				mEdit6.setHint(getText(R.string.setup_edittext_hint) + game.mPeople[5]);
 				
 			}
 
@@ -239,56 +200,11 @@ public class Setup extends ExpandableListActivity {
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				
-				switch(arg2){
-				case 0:
-					mLL1.setVisibility(View.GONE);
-					mLL2.setVisibility(View.VISIBLE);
-					mLL3.setVisibility(View.VISIBLE); 
-					mLL4.setVisibility(View.VISIBLE); 
-					mLL5.setVisibility(View.VISIBLE); 
-					mLL6.setVisibility(View.VISIBLE); 
-					break;
-				case 1:
-					mLL1.setVisibility(View.VISIBLE);
-					mLL2.setVisibility(View.GONE);
-					mLL3.setVisibility(View.VISIBLE); 
-					mLL4.setVisibility(View.VISIBLE); 
-					mLL5.setVisibility(View.VISIBLE); 
-					mLL6.setVisibility(View.VISIBLE); 
-					break;
-				case 2:
-					mLL1.setVisibility(View.VISIBLE);
-					mLL2.setVisibility(View.VISIBLE);
-					mLL3.setVisibility(View.GONE); 
-					mLL4.setVisibility(View.VISIBLE); 
-					mLL5.setVisibility(View.VISIBLE); 
-					mLL6.setVisibility(View.VISIBLE); 
-					break;
-				case 3:
-					mLL1.setVisibility(View.VISIBLE);
-					mLL2.setVisibility(View.VISIBLE);
-					mLL3.setVisibility(View.VISIBLE); 
-					mLL4.setVisibility(View.GONE); 
-					mLL5.setVisibility(View.VISIBLE); 
-					mLL6.setVisibility(View.VISIBLE); 
-					break;
-				case 4:
-					mLL1.setVisibility(View.VISIBLE);
-					mLL2.setVisibility(View.VISIBLE);
-					mLL3.setVisibility(View.VISIBLE); 
-					mLL4.setVisibility(View.VISIBLE); 
-					mLL5.setVisibility(View.GONE); 
-					mLL6.setVisibility(View.VISIBLE); 
-					break;
-				case 5:
-					mLL1.setVisibility(View.VISIBLE);
-					mLL2.setVisibility(View.VISIBLE);
-					mLL3.setVisibility(View.VISIBLE); 
-					mLL4.setVisibility(View.VISIBLE); 
-					mLL5.setVisibility(View.VISIBLE); 
-					mLL6.setVisibility(View.GONE); 
-					break;
+				if (utils.getYourPlayer() != arg2){
+					//clear preveous name
+					game.mPlayers.get(utils.getYourPlayer()).setName("");
 				}
+				utils.setYourPlayer(arg2);
 				
 			}
 
@@ -319,7 +235,7 @@ public class Setup extends ExpandableListActivity {
 						if (stage == 0){
 							mScroll.setVisibility(View.GONE);
 							mList.setVisibility(View.VISIBLE);
-							mText3.setVisibility(View.VISIBLE);
+							mText4.setVisibility(View.VISIBLE);
 							mBack.setVisibility(View.VISIBLE);
 							// Set up our adapter
 							mAdapter = new CardsExpandableListAdapter();
@@ -353,68 +269,61 @@ public class Setup extends ExpandableListActivity {
 									}
 								}
 								
-								int playerNum = 0; // you are the first one
-								game.mPlayers.get(0).inGame(mCheckBox1.isChecked());
-								game.mPlayers.get(1).inGame(mCheckBox2.isChecked());
-								game.mPlayers.get(2).inGame(mCheckBox3.isChecked());
-								game.mPlayers.get(3).inGame(mCheckBox4.isChecked());
-								game.mPlayers.get(4).inGame(mCheckBox5.isChecked());
-								game.mPlayers.get(5).inGame(mCheckBox6.isChecked());
+//								int playerNum = 0; // you are the first one
+//								
+//								// Save names
+//								if (game.mPlayers.get(0).inGame()){
+//									playerNum++;
+//									game.mPlayers.get(0).setName(mEdit1.getText().toString());
+//								}else{
+//									utils.setColumnNoData(0);
+//									game.mPlayers.get(0).setName(getText(R.string.table_notplay_text).toString());
+//								}
+//								
+//								if (game.mPlayers.get(1).inGame()){
+//									playerNum++;
+//									game.mPlayers.get(1).setName(mEdit2.getText().toString());
+//								}else{
+//									utils.setColumnNoData(1);
+//									game.mPlayers.get(1).setName(getText(R.string.table_notplay_text).toString());
+//								}
+//								
+//								if (game.mPlayers.get(2).inGame()){
+//									playerNum++;
+//									game.mPlayers.get(2).setName(mEdit3.getText().toString());
+//								}else{
+//									utils.setColumnNoData(2);
+//									game.mPlayers.get(2).setName(getText(R.string.table_notplay_text).toString());
+//								}
+//								
+//								if (game.mPlayers.get(3).inGame()){
+//									playerNum++;
+//									game.mPlayers.get(3).setName(mEdit4.getText().toString());
+//								}else{
+//									utils.setColumnNoData(3);
+//									game.mPlayers.get(3).setName(getText(R.string.table_notplay_text).toString());
+//								}
+//								
+//								if (game.mPlayers.get(4).inGame()){
+//									playerNum++;
+//									game.mPlayers.get(4).setName(mEdit5.getText().toString());
+//								}else{
+//									utils.setColumnNoData(4);
+//									game.mPlayers.get(4).setName(getText(R.string.table_notplay_text).toString());
+//								}
+//								
+//								if (game.mPlayers.get(5).inGame()){
+//									playerNum++;
+//									game.mPlayers.get(5).setName(mEdit6.getText().toString());
+//								}else{
+//									utils.setColumnNoData(5);
+//									game.mPlayers.get(5).setName(getText(R.string.table_notplay_text).toString());
+//								}
 								
-								// Save names
-								if (game.mPlayers.get(0).inGame()){
-									playerNum++;
-									game.mPlayers.get(0).setName(mEdit1.getText().toString());
-								}else{
-									utils.setColumnNoData(0);
-									game.mPlayers.get(0).setName(getText(R.string.table_notplay_text).toString());
-								}
 								
-								if (game.mPlayers.get(1).inGame()){
-									playerNum++;
-									game.mPlayers.get(1).setName(mEdit2.getText().toString());
-								}else{
-									utils.setColumnNoData(1);
-									game.mPlayers.get(1).setName(getText(R.string.table_notplay_text).toString());
-								}
-								
-								if (game.mPlayers.get(2).inGame()){
-									playerNum++;
-									game.mPlayers.get(2).setName(mEdit3.getText().toString());
-								}else{
-									utils.setColumnNoData(2);
-									game.mPlayers.get(2).setName(getText(R.string.table_notplay_text).toString());
-								}
-								
-								if (game.mPlayers.get(3).inGame()){
-									playerNum++;
-									game.mPlayers.get(3).setName(mEdit4.getText().toString());
-								}else{
-									utils.setColumnNoData(3);
-									game.mPlayers.get(3).setName(getText(R.string.table_notplay_text).toString());
-								}
-								
-								if (game.mPlayers.get(4).inGame()){
-									playerNum++;
-									game.mPlayers.get(4).setName(mEdit5.getText().toString());
-								}else{
-									utils.setColumnNoData(4);
-									game.mPlayers.get(4).setName(getText(R.string.table_notplay_text).toString());
-								}
-								
-								if (game.mPlayers.get(5).inGame()){
-									playerNum++;
-									game.mPlayers.get(5).setName(mEdit6.getText().toString());
-								}else{
-									utils.setColumnNoData(5);
-									game.mPlayers.get(5).setName(getText(R.string.table_notplay_text).toString());
-								}
-								
-								//Set you name
-								game.mPlayers.get(utils.getYourPlayer()).setName(getText(R.string.table_you_text).toString());
 								
 								//Save number of Players
-								utils.setNumberOfPlayers(playerNum);
+								//utils.setNumberOfPlayers(playerNum);
 								
 								// Update players label
 								utils.UpdatePlayerLabels();
@@ -624,7 +533,7 @@ public class Setup extends ExpandableListActivity {
 		mScroll.setVisibility(View.VISIBLE);
 		mBack.setVisibility(View.INVISIBLE);
 		mNext.setText(R.string.setup_txtbtnNext);
-		mText3.setVisibility(View.GONE);
+		mText4.setVisibility(View.GONE);
     }
     
     

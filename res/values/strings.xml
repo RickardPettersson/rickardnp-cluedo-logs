@@ -30,8 +30,9 @@
     
      <!-- Setup page -->
     <string name="setup_txt1">Select the type of game:</string>
-    <string name="setup_txt2">Choose your character and enter players names:</string>
-    <string name="setup_txt3">Choose which cards you have on hand:</string>
+    <string name="setup_txt2">Choose your player:</string>
+    <string name="setup_txt3">Enter players name and check who is on game</string>
+    <string name="setup_txt4">Choose which cards you have on hand:</string>
     <string name="setup_dialog_notenoughtpcards_msg">You marked less than 3 cards. Mark clue cards that you have on hand: </string>
     <string name="setup_dialog_info_msg">Choose your character and number of players. Check the maps cluhov that you have on hand.</string>
     <string name="setup_edittext_hint">player name - </string>

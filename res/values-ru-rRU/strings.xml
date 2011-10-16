@@ -29,7 +29,8 @@
      <!-- Setup page -->
     <string name="setup_txt1">Выберите тип игры:</string>
     <string name="setup_txt2">Выберите вашего персонажа и имена игроков:</string>
-    <string name="setup_txt3">Выберите карты которые у вас на руках:</string>
+    <string name="setup_txt3">Введите имена игроков и отметьте тех кто играет</string>
+    <string name="setup_txt4">Выберите карты которые у вас на руках:</string>
     <string name="setup_dialog_notenoughtpcards_msg">Вы отметили меньше 3-х карт. Отметьте те карты слухов, которые у вас на руках.</string>
     <string name="setup_dialog_info_msg">Выберите своего персонажа и колличество игроков. Отметьте те карты cлухов, которые у вас на руках.</string>
     <string name="setup_edittext_hint">имя игрока - </string>
