@@ -35,7 +35,8 @@
         <item>Clue: Discover the Secrets</item>
         <item>Clue: Dungeons and Dragons Edition</item>
         <item>Clue: The Seinfeld Edition</item>						
-        <item>Clue: Mystery at Sea</item>					
+        <item>Clue: Mystery at Sea</item>		
+        <item>Cluedo: Super Challenge</item>											
     </string-array>
     
 	<!-- ===================================== 
@@ -215,6 +216,21 @@
  		<item>Miss Scarlet</item>
         <item>Mrs.White</item>
     </string-array>
+    
+    <string-array name="people_challenge"> <!-- challenge -->
+        <item>Col. Mustard</item>
+        <item>Miss Peach</item>
+ 		<item>Prof. Plum</item>
+        <item>Rev. Green</item>
+        <item>Capt. Brown</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlett</item>
+        <item>Mrs.White</item>
+        <item>Mr. Slate-Grey</item>
+    </string-array>
+    
+    
+    
     
     
     
@@ -441,7 +457,17 @@
         <item>Dinning Room (Star board)</item>
     </string-array>
     
-    
+    <string-array name="place_challenge"> <!-- challenge -->
+        <item>Hall</item>
+ 		<item>Lounge</item>
+        <item>Dining Room</item>
+        <item>Kitchen</item>
+ 		<item>BallRoom</item>
+        <item>Conservatory</item>
+        <item>Billiard Room</item>
+ 		<item>Library</item>
+        <item>Study</item>
+    </string-array>
     
     
     
@@ -635,7 +661,18 @@
         <item>Gaff</item>
     </string-array>
     
-    
+       
+    <string-array name="weapon_challenge"> <!-- challenge -->
+        <item>Dagger</item>
+ 		<item>Candlestick</item>
+        <item>Revolver</item>
+        <item>Rope</item>
+ 		<item>Lead Piping</item>
+        <item>Spanner</item>
+        <item>Blunderbuss</item>
+ 		<item>Axe</item>
+        <item>Poison</item>
+    </string-array>
    	<!-- ===================================== 
      ============== Colors =============== 
      ====================================== -->
@@ -676,7 +713,7 @@
         <item>@color/bgPeoplePeach</item>
     </string-array>
     
-    <string-array name="colors_pasport">
+    <string-array name="colors_pasport"> <!-- same as challenge -->
         <item>@color/bgPeopleMustard</item>
         <item>@color/bgPeoplePeach</item>
         <item>@color/bgPeoplePlum</item>

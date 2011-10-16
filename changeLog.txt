@@ -14,7 +14,7 @@
 Добавлена игра Clue: Dungeons and Dragons Edition
 Добавлена игра Clue: The Seinfeld Edition
 Добавлена игра Clue: Mystery at Sea
-	
+Добавлена игра Cluedo: Super Challenge
 --- V.1.0.6 --------------------------------------
 Добавлена локализация DE(German). 
 Изменены кнопки для записи логов. 
@@ -75,6 +75,7 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 * Clue: Dungeons and Dragons Edition
 * Clue: The Seinfeld Edition
 * Clue: Mystery at Sea
+* Cluedo: Super Challenge
 
 Эсли в списки нет Вашей игры, напишите мне и я ее добавлю.
 

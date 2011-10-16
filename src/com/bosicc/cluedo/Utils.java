@@ -130,6 +130,12 @@ public class Utils {
 			game.mWeapon = r.getStringArray(R.array.weapon_sea_card);
 			colorlist = r.getIntArray(R.array.colors_sea_card);
 			break;	
+		case 21:// Cluedo: Super Challenge
+			game.mPeople = r.getStringArray(R.array.people_challenge);
+			game.mPlace = r.getStringArray(R.array.place_challenge);
+			game.mWeapon = r.getStringArray(R.array.weapon_challenge);
+			colorlist = r.getIntArray(R.array.colors_pasport); // same colors
+			break;
 		}
 		
 		//Number of players in game
