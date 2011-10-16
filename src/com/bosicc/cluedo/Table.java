@@ -25,7 +25,6 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,7 +36,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bosicc.cluedo.GamePOJO.CardType;
+import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.pojo.GamePOJO.CardType;
 
 
 /**

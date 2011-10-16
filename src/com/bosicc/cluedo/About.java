@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.bosicc.cluedo.pojo.GamePOJO;
 
 public class About extends Activity {
   

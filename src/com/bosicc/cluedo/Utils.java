@@ -2,11 +2,14 @@ package com.bosicc.cluedo;
 
 import java.util.ArrayList;
 
-import com.bosicc.cluedo.GamePOJO.CardType;
-import com.bosicc.cluedo.GamePOJO.ShowModeType;
-
 import android.content.Context;
 import android.content.res.Resources;
+
+import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.pojo.GamePOJO.CardType;
+import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
+import com.bosicc.cluedo.pojo.PMovePOJO;
+import com.bosicc.cluedo.pojo.PlayerPOJO;
 
 public class Utils {
 	

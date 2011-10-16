@@ -24,7 +24,6 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,7 +35,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bosicc.cluedo.GamePOJO.ShowModeType;
+import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
 
 
 /**

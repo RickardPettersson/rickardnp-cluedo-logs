@@ -12,8 +12,9 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
 import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
+
+import com.bosicc.cluedo.pojo.GamePOJO;
 
 public class GameSave {
 	//private static String TAG = "GameSave";
@@ -137,7 +138,7 @@ public class GameSave {
 	      return object; 
 	    } catch(ClassNotFoundException cnfe) { 
 	      
-	      Log.e("deserializeObject", "class not found error", cnfe); 
+	      //Log.e("deserializeObject", "class not found error", cnfe); 
 	      return null; 
 	    } catch(IOException ioe) { 
 	      Log.e("deserializeObject", "io error", ioe); 

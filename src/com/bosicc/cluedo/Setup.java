@@ -35,23 +35,20 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.bosicc.cluedo.GamePOJO.CardType;
+import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.pojo.GamePOJO.CardType;
+import com.bosicc.cluedo.pojo.PlayerPOJO;
 
 public class Setup extends ExpandableListActivity {
 	
-	private static String TAG = "Setup";
+	//private static String TAG = "Setup";
 	//private static final int DIALOG_INFO = 1;
 	private static final int DIALOG_CARDSNOTSELECTED = 2;
 
@@ -173,7 +170,7 @@ public class Setup extends ExpandableListActivity {
 					int arg2, long arg3) {
 				
 				//Set new data
-				Log.i(TAG,"pos="+arg2);
+				//Log.i(TAG,"pos="+arg2);
 				utils.UpdateGameDataList(arg2);
 
 				mPersonAdapter = new ArrayAdapter<String>(Setup.this, android.R.layout.simple_spinner_item, game.mPeople);

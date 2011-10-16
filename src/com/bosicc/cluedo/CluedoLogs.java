@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
 
+import com.bosicc.cluedo.pojo.GamePOJO;
+
 
 public class CluedoLogs extends TabActivity {
 	

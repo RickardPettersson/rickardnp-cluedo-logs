@@ -5,7 +5,7 @@ import android.content.ContentResolver;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 
-import com.bosicc.cluedo.GamePOJO.CardType;
+import com.bosicc.cluedo.pojo.GamePOJO;
 
 
 /**

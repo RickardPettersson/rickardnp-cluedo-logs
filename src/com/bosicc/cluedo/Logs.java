@@ -39,7 +39,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bosicc.cluedo.GamePOJO.ShowModeType;
+import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
+import com.bosicc.cluedo.pojo.PMovePOJO;
+import com.bosicc.cluedo.pojo.PlayerPOJO;
 
 
 /**

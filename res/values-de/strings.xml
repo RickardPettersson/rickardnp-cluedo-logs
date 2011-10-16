@@ -28,7 +28,7 @@
      <!-- Setup page -->
     <string name="setup_txt1">Wählen Sie den Spieltyp:</string>
     <string name="setup_txt2">Wählen Sie Ihren Charakter:</string>
-    <string name="setup_txt3">Enter players name and check who is on game</string>
+    <string name="setup_txt3">Geben Spieler Name und überprüfen, wer auf Spiel</string>
     <string name="setup_txt4">Wählen Sie die Karten, die Sie zur Hand haben:</string>
     <string name="setup_dialog_notenoughtpcards_msg">Sie haben weniger als 3 Karten vermerkt. Beachten Sie Karten mit eines Gerücht, dass Sie zur Hand haben.</string>
     <string name="setup_dialog_info_msg">Wählen Sie Ihren Charakter und Anzahl der Spieler. Überprüfen Sie die Karten mit eines Gerücht, dass Sie zur Hand haben.</string>
