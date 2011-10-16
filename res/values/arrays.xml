@@ -14,7 +14,6 @@
         <item>@string/title_weapon</item>
     </string-array>
 
-
 	<string-array name="gameTypes">
         <item>Cluedo: Раскрой все тайны</item>
         <item>Clue: Secrets in Paris</item>
@@ -30,7 +29,7 @@
         <item>Cluedo: Super Sleuth</item> <!-- Place: = lim_gif = 50th -->
         <item>Clue: Master Detective</item>
         <item>Clue: Original VCR Game</item>
-        <item>Clue II: Murder in Disguise</item>Cluedo - Passport to Murder
+        <item>Clue II: Murder in Disguise</item>
         <item>Cluedo: Passport to Murder</item>
         <item>Clue: Discover the Secrets</item>
         <item>Clue: Dungeons and Dragons Edition</item>
