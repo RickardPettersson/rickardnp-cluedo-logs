@@ -60,7 +60,7 @@ public class TableActivity extends ListActivity {
     private Utils utils;
     private TextView[] header;
     
-    int kolnaekrane = 6;
+    static int kolnaekrane = 6;
     int offset = 0;
     
     private class Coord {
@@ -105,7 +105,7 @@ public class TableActivity extends ListActivity {
 	    	i++;
 	    }
 	    
-	    if (utils.getNumberOfPlayers() > kolnaekrane){
+	    if (game.mPeople.length > kolnaekrane){
 	    	mNavBtn.setVisibility(View.VISIBLE);
 	    	mNavBtn.setOnClickListener(new OnClickListener() {
 				
@@ -195,7 +195,7 @@ public class TableActivity extends ListActivity {
         public TextView headerText;
         public View divider;
 
-        public ImageButton[] btn = new ImageButton[6];       
+        public ImageButton[] btn = new ImageButton[kolnaekrane];       
     }
 	
 	private class MyListAdapter extends BaseAdapter {

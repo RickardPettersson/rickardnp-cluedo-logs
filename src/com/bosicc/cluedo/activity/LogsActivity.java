@@ -164,15 +164,14 @@ public class LogsActivity extends ListActivity {
 	@Override
 	protected void onResume() {
 		//Log.i(TAG,"onResume");
-		mList.setVisibility(View.VISIBLE);
-		mAdapter.notifyDataSetChanged();
+		//mList.setVisibility(View.VISIBLE);
 		super.onResume();		
 	}
 	
 	@Override
 	protected void onPause() {
 		//Log.i(TAG,"onPause");
-		mList.setVisibility(View.GONE);
+		//mList.setVisibility(View.GONE);
 		super.onResume();		
 	}
 	
