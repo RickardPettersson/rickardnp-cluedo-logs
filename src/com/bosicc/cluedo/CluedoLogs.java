@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.TabHost;
 
 import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.utils.Utils;
 
 
 public class CluedoLogs extends TabActivity {
@@ -40,6 +41,8 @@ public class CluedoLogs extends TabActivity {
 	private static final int MENU_ITEM_PEOPLE			 	=1;			
 	private static final int MENU_ITEM_NEW					=2;
 	private static final int MENU_ITEM_HELP					=3;
+	private static final int MENU_ITEM_LOGSTEXT				=4;
+	
 	
 	private static final int group1Id = 1;  
 
@@ -107,7 +110,7 @@ public class CluedoLogs extends TabActivity {
 	private void setTabs(int activeTab){
 		setupTableTab(); 		// tab_1
 		setupLogsTab();			// tab_2
-		setupLogsTextTab();		// tab_2
+		//setupLogsTextTab();		// tab_2
 		
 		tabHost.setCurrentTab(activeTab);
 	}
@@ -190,6 +193,10 @@ public class CluedoLogs extends TabActivity {
 		// ===
      	MenuItem item_3 = menu.add(group1Id, MENU_ITEM_HELP, Menu.FIRST+2, R.string.mainmenu_about);
      	item_3.setIcon(android.R.drawable.ic_menu_info_details);
+     	
+		// ===
+     	MenuItem item_4 = menu.add(group1Id, MENU_ITEM_LOGSTEXT, Menu.FIRST+3, R.string.maintab_menu_logstext);
+     	item_4.setIcon(R.drawable.tab_log2_icon);
      
      	
      	return super.onCreateOptionsMenu(menu);
@@ -214,12 +221,12 @@ public class CluedoLogs extends TabActivity {
 	        }
 	        
 	        case MENU_ITEM_HELP:{
-	        	//startActivity(new Intent(this, .class));
-//	        	cApp.getUtils().Save(game);
-//	        	GamePOJO loadGame = cApp.getUtils().Load();
-//	        	if (loadGame != null)
-//	        		Log.i(TAG,"game=" +loadGame.getYourPlayer());
 	        	startActivity(new Intent(CluedoLogs.this, About.class));
+	        	return true;
+	        }
+	        
+	        case MENU_ITEM_LOGSTEXT:{
+	        	startActivity(new Intent(CluedoLogs.this, LogsText.class));
 	        	return true;
 	        }
         }

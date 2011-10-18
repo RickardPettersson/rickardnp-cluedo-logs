@@ -18,17 +18,21 @@ package com.bosicc.cluedo;
 
 //Need the following import to get access to the app resources, since this
 //class is in a sub-package.
+import java.util.ArrayList;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -37,6 +41,8 @@ import android.widget.Toast;
 
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
+import com.bosicc.cluedo.pojo.PlayerPOJO;
+import com.bosicc.cluedo.utils.Utils;
 
 
 /**
@@ -44,17 +50,19 @@ import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
  */
 public class LogsText extends ListActivity {
 	
-	//private static String TAG = "LogsText";
+	private static String TAG = "LogsText";
 
 	private LinearLayout mHeaderBox;
 	private TextView mTitle;
 	private TextView mSlyx;
 	
 	private ListView mList;
-	private BaseAdapter mAdapter;
+	private MyLogsTextListAdapter mAdapter;
     private CluedoApp cApp;
-    private GamePOJO game;
+    //private GamePOJO game;
+    private GamePOJO gameLocal;
     private Utils utils;
+    private ArrayList<PlayerPOJO> mCurentDialogList;
     
     private ShowModeType mViewMode = ShowModeType.ALL;
     private int mPerson = 0;
@@ -90,25 +98,34 @@ public class LogsText extends ListActivity {
 		mHeaderBox = (LinearLayout) findViewById(R.id.LLheader);
 		
 		cApp = (CluedoApp) getApplication();
-		game = cApp.getGame();
-		utils = new Utils(this,game);
+		gameLocal = cApp.getGame();
+		utils = new Utils(this,gameLocal);
 
 	
 		mHeaderBox.setVisibility(View.GONE);
 		mSlyx.setVisibility(View.GONE);
 		
+		mCurentDialogList = new ArrayList<PlayerPOJO>();
+		
 		// Set up our adapter
-		mAdapter = new MyListAdapter(this);
+		mAdapter = new MyLogsTextListAdapter(this);
 		mList.setAdapter(mAdapter);
+		
 	}
 	
 	@Override
 	protected void onResume() {
+		Log.i(TAG,"onResume");
+		//gameLocal = game;
 		mAdapter.notifyDataSetChanged();
 		super.onResume();		
 	}
 	
-	
+	@Override
+	protected void onPause() {
+		Log.i(TAG,"onPause");
+		super.onResume();		
+	}
 	
 	
 	@Override
@@ -117,7 +134,7 @@ public class LogsText extends ListActivity {
         case DIALOG_PEOPLE:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.title_people)
-            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(gameLocal.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	utils.getAllList().get(0).setSlyxPerson(which);
                 	mAdapter.notifyDataSetChanged();
@@ -127,7 +144,7 @@ public class LogsText extends ListActivity {
         case DIALOG_PLACE:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.title_place)
-            .setItems(game.mPlace, new DialogInterface.OnClickListener() {
+            .setItems(gameLocal.mPlace, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	utils.getAllList().get(0).setSlyxPlace(which);
                 	mAdapter.notifyDataSetChanged();
@@ -137,7 +154,7 @@ public class LogsText extends ListActivity {
         case DIALOG_WEAPON:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.title_weapon)
-            .setItems(game.mWeapon, new DialogInterface.OnClickListener() {
+            .setItems(gameLocal.mWeapon, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	utils.getAllList().get(0).setSlyxWeapon(which);
                 	mAdapter.notifyDataSetChanged();
@@ -147,7 +164,7 @@ public class LogsText extends ListActivity {
         case DIALOG_SORT_BY_XODIL:
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.logs_alert_title_sort_xodil)
-            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(gameLocal.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.XODIT;
             		mPerson = which;
@@ -156,13 +173,19 @@ public class LogsText extends ListActivity {
             })
             .create();
         case DIALOG_SORT_BY_PODTVERDIL:
+        	mCurentDialogList = utils.getSortPodtverdilList();
             return new AlertDialog.Builder(LogsText.this)
             .setTitle(R.string.logs_alert_title_sort_podtverdil)
-            .setItems(game.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
+                	if (which==0){
+                		mPerson = 100;
+                	}else{
+                		mPerson = mCurentDialogList.get(which).getNumber();
+                	}
             		mViewMode = ShowModeType.PODTVERDIL;
-            		mPerson = which;
                 	mAdapter.notifyDataSetChanged();
+                	mCurentDialogList.removeAll(mCurentDialogList);
                 }
             })
             .create();
@@ -171,6 +194,30 @@ public class LogsText extends ListActivity {
     }
 	
 	
+	@Override
+	protected void onPrepareDialog(int id, Dialog dialog) {
+		
+		AlertDialog alertDialog = (AlertDialog) dialog;
+		ArrayAdapter<CharSequence> adapter;
+		 switch (id) {
+		 
+	        case DIALOG_XODIT:
+	        	mCurentDialogList = utils.getSortXodilList();
+			    adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
+			    		android.R.id.text1, utils.getString(mCurentDialogList));
+			    alertDialog.getListView().setAdapter(adapter);
+			    break;
+			    
+	        case DIALOG_SORT_BY_PODTVERDIL:
+	        	mCurentDialogList = utils.getSortPodtverdilList();
+	        	adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
+			    		android.R.id.text1, utils.getString(mCurentDialogList));
+			    alertDialog.getListView().setAdapter(adapter);
+	            break;
+	        default:
+	            	super.onPrepareDialog(id, dialog);
+	        }
+	}
 	
 	// ==============================================================================
     // Option Menu
@@ -231,7 +278,6 @@ public class LogsText extends ListActivity {
 
         public TextView TextXodil;
         public TextView TextPodtverdil;
-        public View divider;
 
         public TextView txt1;
         public TextView txt2;
@@ -239,11 +285,11 @@ public class LogsText extends ListActivity {
 
     }
     
-	private class MyListAdapter extends BaseAdapter {
+	private class MyLogsTextListAdapter extends BaseAdapter {
 
 		private Context mContext;
 		 
-        public MyListAdapter(Context context) {
+        public MyLogsTextListAdapter(Context context) {
         	this.mContext = context;
         }
 
@@ -251,7 +297,6 @@ public class LogsText extends ListActivity {
             return utils.getCurentList(mViewMode, mPerson).size();
         }
         
-
         @Override
         public boolean areAllItemsEnabled() {
             return false;
@@ -290,11 +335,10 @@ public class LogsText extends ListActivity {
             }
            
             
-            String text = "" + (position+1);
             cache.TextXodil.setText(" ");
             int num = utils.getCurentList(mViewMode, mPerson).get(position).getPlayerXodit();
             if (num != -1){
-            	cache.TextXodil.setBackgroundColor(game.mPlayers.get(num).getColor());
+            	cache.TextXodil.setBackgroundColor(gameLocal.mPlayers.get(num).getColor());
             }
             num = utils.getCurentList(mViewMode, mPerson).get(position).getPlayerPodtverdil();
             cache.TextPodtverdil.setBackgroundResource(R.color.bgMain);
@@ -302,7 +346,7 @@ public class LogsText extends ListActivity {
             	if (num == 100){
                 	cache.TextPodtverdil.setBackgroundResource(R.color.bgBlack);
                 }else{
-                	cache.TextPodtverdil.setBackgroundColor(game.mPlayers.get(num).getColor());
+                	cache.TextPodtverdil.setBackgroundColor(gameLocal.mPlayers.get(num).getColor());
                 }
             }
            
@@ -311,21 +355,21 @@ public class LogsText extends ListActivity {
             //Log.i(TAG,"slyx:"+slux[0]+slux[1]+slux[2]);
 
 			if (slux[0] != -1){
-				cache.txt1.setText(game.mPeople[slux[0]]);
-				cache.txt1.setTextColor(game.mPlayers.get(slux[0]).getColor());
+				cache.txt1.setText(gameLocal.mPeople[slux[0]]);
+				cache.txt1.setTextColor(gameLocal.mPlayers.get(slux[0]).getColor());
 			}else{
 				cache.txt1.setText("");
 				cache.txt1.setTextColor(R.color.bgBlack);
 			}
 			
 			if (slux[1] != -1){
-				cache.txt2.setText(game.mPlace[slux[1]]);
+				cache.txt2.setText(gameLocal.mPlace[slux[1]]);
 			}else{
 				cache.txt2.setText("");
 			}
 			
 			if (slux[2] != -1){
-				 cache.txt3.setText(game.mWeapon[slux[2]]);
+				 cache.txt3.setText(gameLocal.mWeapon[slux[2]]);
 			}else{
 				cache.txt3.setText("");
 			}
@@ -336,15 +380,21 @@ public class LogsText extends ListActivity {
         
         @Override
 		public void notifyDataSetChanged() {
+        	Log.i(TAG,"notifyDataSetChanged");
 			super.notifyDataSetChanged();
+			String text = "";
 			if (mViewMode == ShowModeType.ALL){
-				
+				text = mContext.getText(R.string.logsmenu_sort_all).toString();
 			}else{
-				String text = "";
+
 				if (mViewMode == ShowModeType.XODIT){
-					text = mContext.getText(R.string.logs_toast_xoda)+ game.mPeople[mPerson];
+					text = mContext.getText(R.string.logs_toast_xoda)+" "+ gameLocal.mPeople[mPerson];
 				}else{
-					text = mContext.getText(R.string.logs_toast_podtverdil) + game.mPeople[mPerson];
+					if (mPerson == 100){
+						text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ mContext.getText(R.string.logs_notconfirm);
+					}else{
+						text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ gameLocal.mPeople[mPerson];
+					}
 				}
 				Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
 			}

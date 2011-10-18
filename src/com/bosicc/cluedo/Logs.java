@@ -25,10 +25,13 @@ import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -43,6 +46,7 @@ import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
 import com.bosicc.cluedo.pojo.PMovePOJO;
 import com.bosicc.cluedo.pojo.PlayerPOJO;
+import com.bosicc.cluedo.utils.Utils;
 
 
 /**
@@ -50,7 +54,7 @@ import com.bosicc.cluedo.pojo.PlayerPOJO;
  */
 public class Logs extends ListActivity {
 	
-	//private static String TAG = "Logs";
+	private static String TAG = "Logs";
 
 	private LinearLayout mHeaderBox;
 	private Button mBtnXodit;
@@ -59,7 +63,7 @@ public class Logs extends ListActivity {
 	private TextView mSlyx;
 	
 	private ListView mList;
-	private BaseAdapter mAdapter;
+	private MyLogsListAdapter mAdapter;
     private CluedoApp cApp;
     private GamePOJO game;
     private Utils utils;
@@ -81,15 +85,16 @@ public class Logs extends ListActivity {
 	//======================================================
 	// Menu items ID
 	//======================================================
-	private static final int MENU_ITEM_SORT_BY_XODIL		=11;		
-	private static final int MENU_ITEM_SORT_ALL				=12;
-	private static final int MENU_ITEM_SORT_BY_PODTVERDIL	=13;
+    private static final int MENU_ITEM_SORT					=11;
+    private static final int MENU_ITEM_SORT_ALL				=12;
+	private static final int MENU_ITEM_SORT_BY_XODIL		=13;				
+	private static final int MENU_ITEM_SORT_BY_PODTVERDIL	=14;
+	private static final int MENU_ITEM_LOGSTEXT				=15;
 	
 	private static final int group2Id = 0;  
 
-	private static final int sortXodilBtnId = Menu.FIRST+2;  
-	private static final int sortAllBtnId = sortXodilBtnId + 1;  
-	private static final int sortPodtverdilBtnId = sortAllBtnId + 1;  
+	private static final int sortBtnId = Menu.FIRST+4;  
+//	private static final int logstextBtnId = Menu.FIRST+3; 
 	 
 
 	@Override
@@ -160,13 +165,22 @@ public class Logs extends ListActivity {
 		});
 		
 		// Set up our adapter
-		mAdapter = new MyListAdapter(this);
+		mAdapter = new MyLogsListAdapter(this);
 		mList.setAdapter(mAdapter);
 	}
 	
 	@Override
 	protected void onResume() {
-		//setSlyxText();
+		Log.i(TAG,"onResume");
+		mList.setVisibility(View.VISIBLE);
+		mAdapter.notifyDataSetChanged();
+		super.onResume();		
+	}
+	
+	@Override
+	protected void onPause() {
+		Log.i(TAG,"onPause");
+		mList.setVisibility(View.GONE);
 		super.onResume();		
 	}
 	
@@ -178,15 +192,25 @@ public class Logs extends ListActivity {
             return new AlertDialog.Builder(Logs.this)
             .setTitle(R.string.logs_btnxodit)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(DialogInterface dialog, final int which) {
                 	
-                	int num = mCurentDialogList.get(which).getNumber();
+                	// http://code.google.com/p/k9mail/source/detail?r=3132
+                	//  https://github.com/k9mail/k-9/blob/master/src/com/fsck/k9/activity/ChooseFolder.java
+                	// https://github.com/sunlightlabs/congress
+                	 runOnUiThread(new Runnable() {
+                         @Override
+                         public void run() {
+                        	 int num = mCurentDialogList.get(which).getNumber();
+                        	 PMovePOJO item = new PMovePOJO(num);
+                        	 utils.getAllList().add(0,item);
+                             mAdapter.notifyDataSetChanged();
+                         }
+                     });
+            		
                 	
-            		PMovePOJO item = new PMovePOJO(num);
-                	utils.getAllList().add(0,item);
                 	mSlyx.setText("");
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
-                	mAdapter.notifyDataSetChanged();
+                	//mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
                 	//removeDialog(DIALOG_XODIT);
 
@@ -275,6 +299,23 @@ public class Logs extends ListActivity {
                 }
             })
             .create();
+//        case DIALOG_SORT:
+//            return new AlertDialog.Builder(Logs.this)
+//            .setTitle(R.string.logs_alert_title_sort_podtverdil)
+//            .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+//                	if (which==0){
+//                		which = nc;
+//                	}else{
+//                		which = mCurentDialogList.get(which).getNumber();
+//                	}
+//            		mViewMode = ShowModeType.PODTVERDIL;
+//                	mAdapter.notifyDataSetChanged();
+//                	mCurentDialogList.removeAll(mCurentDialogList);
+//                	//removeDialog(DIALOG_SORT_BY_PODTVERDIL);
+//                }
+//            })
+//            .create();
         }
         return null;
     }
@@ -329,16 +370,24 @@ public class Logs extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 		
 		// ===
-		MenuItem item_1 = menu.add(group2Id, MENU_ITEM_SORT_BY_XODIL, sortXodilBtnId, R.string.logsmenu_sort_xodil);
-		item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
 		
-		// ===
-     	MenuItem item_2 = menu.add(group2Id, MENU_ITEM_SORT_ALL, sortAllBtnId, R.string.logsmenu_sort_all);
-     	item_2.setIcon(android.R.drawable.ic_menu_edit);
+		SubMenu sortMenu = menu.addSubMenu(group2Id, MENU_ITEM_SORT, sortBtnId, R.string.logsmenu_sort);
+		sortMenu.add(MENU_ITEM_SORT, MENU_ITEM_SORT_ALL, 0,  R.string.logsmenu_sort_all);
+		sortMenu.add(MENU_ITEM_SORT, MENU_ITEM_SORT_BY_XODIL, 1, R.string.logsmenu_sort_xodil);
+		sortMenu.add(MENU_ITEM_SORT, MENU_ITEM_SORT_BY_PODTVERDIL, 2, R.string.logsmenu_sort_podtverdil);
+		sortMenu.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
+		
+//		// ===
+//     	MenuItem item_2 = menu.add(group2Id, MENU_ITEM_LOGSTEXT, logstextBtnId, R.string.logsmenu_sort_all);
+//     	item_2.setIcon(android.R.drawable.ic_menu_edit);
      	
-		// ===
-     	MenuItem item_3 = menu.add(group2Id, MENU_ITEM_SORT_BY_PODTVERDIL, sortPodtverdilBtnId, R.string.logsmenu_sort_podtverdil);
-     	item_3.setIcon(android.R.drawable.ic_menu_sort_by_size);
+//     	// ===
+//     	MenuItem item_2 = menu.add(group2Id, MENU_ITEM_SORT_ALL, sortAllBtnId, R.string.logsmenu_sort_all);
+//     	item_2.setIcon(android.R.drawable.ic_menu_edit);
+//     	
+//		// ===
+//     	MenuItem item_3 = menu.add(group2Id, MENU_ITEM_SORT_BY_PODTVERDIL, sortPodtverdilBtnId, R.string.logsmenu_sort_podtverdil);
+//     	item_3.setIcon(android.R.drawable.ic_menu_sort_by_size);
      	
      	return super.onCreateOptionsMenu(menu);
     }
@@ -365,6 +414,9 @@ public class Logs extends ListActivity {
 	        	showDialog(DIALOG_SORT_BY_PODTVERDIL);   
 	        	return true;
 	        }
+	        case MENU_ITEM_LOGSTEXT:{
+	        	startActivity(new Intent(Logs.this, LogsText.class));
+	        }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -387,11 +439,11 @@ public class Logs extends ListActivity {
 
     }
     
-	private class MyListAdapter extends BaseAdapter {
+	private class MyLogsListAdapter extends BaseAdapter {
 
 		private Context mContext;
 		 
-        public MyListAdapter(Context context) {
+        public MyLogsListAdapter(Context context) {
         	this.mContext = context;
         }
 
@@ -545,6 +597,37 @@ public class Logs extends ListActivity {
         }
 
     }
+	
+//    /**
+//     * @param messages Never {@code null}.
+//     */
+//    public void addNewMove() {
+//        
+//        final boolean wasEmpty = mAdapter.messages.isEmpty();
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (final MessageInfoHolder message : messages) {
+//                    if (mFolderName == null || (message.folder != null && message.folder.name.equals(mFolderName))) {
+//                        int index;
+//                        synchronized (mAdapter.messages) {
+//                            index = Collections.binarySearch(mAdapter.messages, message, getComparator());
+//                        }
+//
+//                        if (index < 0) {
+//                            index = (index * -1) - 1;
+//                        }
+//
+//                        mAdapter.messages.add(index, message);
+//                    }
+//                }
+//
+//                resetUnreadCountOnThread();
+//
+//                mAdapter.notifyDataSetChanged();
+//            }
+//        });
+//    }
 	
 //	private void setSlyxText() {
 //		if (mViewMode == ShowModeType.ALL) {

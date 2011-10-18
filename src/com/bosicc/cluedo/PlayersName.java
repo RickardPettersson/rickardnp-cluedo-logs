@@ -2,7 +2,6 @@ package com.bosicc.cluedo;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -16,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.utils.Utils;
 
 
 

@@ -13,6 +13,12 @@
         <item>@string/title_place</item>
         <item>@string/title_weapon</item>
     </string-array>
+    
+    <string-array name="sortlist">
+        <item>@string/logsmenu_sort_all</item>
+        <item>@string/logsmenu_sort_podtverdil</item>
+        <item>@string/logsmenu_sort_all</item>
+    </string-array>
 
 	<string-array name="gameTypes">
         <item>Cluedo: Раскрой все тайны</item>

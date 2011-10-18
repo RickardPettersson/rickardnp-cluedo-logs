@@ -1,10 +1,11 @@
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.utils;
 
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.res.Resources;
 
+import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.CardType;
 import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;

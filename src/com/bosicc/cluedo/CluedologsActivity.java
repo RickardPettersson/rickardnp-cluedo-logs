@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.utils.Utils;
 
 public class CluedologsActivity extends Activity {
   

@@ -10,6 +10,7 @@
     
     <!-- Main Tab -->
     <string name="maintab_menu_people">Player Names</string>
+    <string name="maintab_menu_logstext">Text Logs</string>
     
     <string name="title_people">People</string>
     <string name="title_place">Places</string>
@@ -51,6 +52,7 @@
     <string name="logsmenu_sort_xodil">Move</string>
     <string name="logsmenu_sort_podtverdil">Confirm</string>
     <string name="logsmenu_sort_all">All</string>
+    <string name="logsmenu_sort">Sort</string>
     <string name="logs_alert_title_sort_xodil">Show all moves:</string>
     <string name="logs_alert_title_sort_podtverdil">Show all confirms:</string>
     <string name="logs_toast_xoda">All moves: </string>

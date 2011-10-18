@@ -1,4 +1,4 @@
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
