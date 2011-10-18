@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.activity;
 
 // http://habrahabr.ru/blogs/android/103582/
 
@@ -36,6 +36,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bosicc.cluedo.CluedoApp;
+import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.CardType;
 import com.bosicc.cluedo.utils.Utils;
@@ -44,7 +46,7 @@ import com.bosicc.cluedo.utils.Utils;
 /**
  * A list view example where the data comes from a custom ListAdapter
  */
-public class Table extends ListActivity {
+public class TableActivity extends ListActivity {
 	
 	//private static String TAG = "Table";
 	private static final int DIALOG_MARK = 1;
@@ -140,7 +142,7 @@ public class Table extends ListActivity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DIALOG_MARK:
-            return new AlertDialog.Builder(Table.this).setTitle(" ")
+            return new AlertDialog.Builder(TableActivity.this).setTitle(" ")
             .setItems(R.array.mark, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	 

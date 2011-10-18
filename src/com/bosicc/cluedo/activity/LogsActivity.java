@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.activity;
 
 //Need the following import to get access to the app resources, since this
 //class is in a sub-package.
@@ -42,6 +42,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bosicc.cluedo.CluedoApp;
+import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
 import com.bosicc.cluedo.pojo.PMovePOJO;
@@ -52,7 +54,7 @@ import com.bosicc.cluedo.utils.Utils;
 /**
  * A list view example where the data comes from a custom ListAdapter
  */
-public class Logs extends ListActivity {
+public class LogsActivity extends ListActivity {
 	
 	private static String TAG = "Logs";
 
@@ -120,7 +122,7 @@ public class Logs extends ListActivity {
 			public void onClick(View v) {
 				if (mViewMode == ShowModeType.ALL){
 					if ((utils.getAllList().size() !=0) && (utils.getAllList().get(0).getPlayerPodtverdil() == -1)){
-		            	new AlertDialog.Builder(Logs.this)
+		            	new AlertDialog.Builder(LogsActivity.this)
 		            		.setIcon(R.drawable.btn_info)
 		            		.setTitle(R.string.logs_alert_title)
 		                	.setMessage(R.string.logs_txt2)
@@ -140,7 +142,7 @@ public class Logs extends ListActivity {
 			public void onClick(View v) {
 				if (mViewMode == ShowModeType.ALL){
 					if (utils.getAllList().size() == 0){
-						new AlertDialog.Builder(Logs.this)
+						new AlertDialog.Builder(LogsActivity.this)
 	            		.setIcon(R.drawable.btn_info)
 	            		.setTitle(R.string.logs_alert_title)
 	                	.setMessage(R.string.logs_txt3)
@@ -150,7 +152,7 @@ public class Logs extends ListActivity {
 						if ((utils.getAllList().get(0).getSlyxPerson() == -1) ||
 							(utils.getAllList().get(0).getSlyxPlace() == -1) ||
 							(utils.getAllList().get(0).getSlyxWeapon() == -1)){
-					            	new AlertDialog.Builder(Logs.this)
+					            	new AlertDialog.Builder(LogsActivity.this)
 					            		.setIcon(R.drawable.btn_info)
 					            		.setTitle(R.string.logs_alert_title)
 					                	.setMessage(R.string.logs_txt4)
@@ -189,7 +191,7 @@ public class Logs extends ListActivity {
         switch (id) {
         case DIALOG_XODIT:
         	mCurentDialogList = utils.getSortXodilList();
-            return new AlertDialog.Builder(Logs.this)
+            return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.logs_btnxodit)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, final int which) {
@@ -221,7 +223,7 @@ public class Logs extends ListActivity {
         	int xodit = utils.getAllList().get(0).getPlayerXodit();
         	mCurentDialogList = utils.getPodtverdilList(xodit);
         	
-            return new AlertDialog.Builder(Logs.this)
+            return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.logs_btnpodtverdil)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -238,7 +240,7 @@ public class Logs extends ListActivity {
             })
             .create();
         case DIALOG_PEOPLE:
-            return new AlertDialog.Builder(Logs.this)
+            return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.title_people)
             .setItems(game.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -248,7 +250,7 @@ public class Logs extends ListActivity {
             })
             .create();
         case DIALOG_PLACE:
-            return new AlertDialog.Builder(Logs.this)
+            return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.title_place)
             .setItems(game.mPlace, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -258,7 +260,7 @@ public class Logs extends ListActivity {
             })
             .create();
         case DIALOG_WEAPON:
-            return new AlertDialog.Builder(Logs.this)
+            return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.title_weapon)
             .setItems(game.mWeapon, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -269,7 +271,7 @@ public class Logs extends ListActivity {
             .create();
         case DIALOG_SORT_BY_XODIL:
         	mCurentDialogList = utils.getSortXodilList();
-            return new AlertDialog.Builder(Logs.this)
+            return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.logs_alert_title_sort_xodil)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -283,7 +285,7 @@ public class Logs extends ListActivity {
             .create();
         case DIALOG_SORT_BY_PODTVERDIL:
         	mCurentDialogList = utils.getSortPodtverdilList();
-            return new AlertDialog.Builder(Logs.this)
+            return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.logs_alert_title_sort_podtverdil)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -415,7 +417,7 @@ public class Logs extends ListActivity {
 	        	return true;
 	        }
 	        case MENU_ITEM_LOGSTEXT:{
-	        	startActivity(new Intent(Logs.this, LogsText.class));
+	        	startActivity(new Intent(LogsActivity.this, LogsTextActivity.class));
 	        }
         }
         return super.onOptionsItemSelected(item);

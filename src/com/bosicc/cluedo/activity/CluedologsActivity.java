@@ -1,4 +1,4 @@
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.bosicc.cluedo.CluedoApp;
+import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.utils.Utils;
 
@@ -42,7 +44,7 @@ public class CluedologsActivity extends Activity {
     			
     			@Override
     			public void onClick(View v) {
-    				startActivity(new Intent(CluedologsActivity.this, Setup.class));
+    				startActivity(new Intent(CluedologsActivity.this, SetupActivity.class));
     				finish();
     			}
     		});
@@ -51,7 +53,7 @@ public class CluedologsActivity extends Activity {
     			
     			@Override
     			public void onClick(View v) {
-    				startActivity(new Intent(CluedologsActivity.this, About.class));
+    				startActivity(new Intent(CluedologsActivity.this, AboutActivity.class));
     			}
     		});
             
@@ -59,7 +61,7 @@ public class CluedologsActivity extends Activity {
     		
 	    		@Override
 	    		public void onClick(View v) {
-	    			startActivity(new Intent(CluedologsActivity.this, Logs.class));
+	    			startActivity(new Intent(CluedologsActivity.this, LogsActivity.class));
 	    		}
             });
         }
@@ -70,7 +72,7 @@ public class CluedologsActivity extends Activity {
 
             public void run() {
                 setPriority(Thread.MIN_PRIORITY);
-        		startActivity(new Intent(CluedologsActivity.this, CluedoLogs.class));
+        		startActivity(new Intent(CluedologsActivity.this, TabCluedoLogsActivity.class));
 				finish();
             }
         }.start();

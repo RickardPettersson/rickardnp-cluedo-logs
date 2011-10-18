@@ -1,4 +1,4 @@
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,13 +14,14 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.utils.Utils;
 
 
 
 
-public class PlayersName extends Dialog {
+public class PlayersNameDialog extends Dialog {
 	
 	//private static String TAG = "PlayersName";
 	
@@ -32,7 +33,7 @@ public class PlayersName extends Dialog {
     private ListView mList;
     private BaseAdapter mAdapter;
     
-	public PlayersName(Context context, GamePOJO Game) {
+	public PlayersNameDialog(Context context, GamePOJO Game) {
 		super(context);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 

@@ -1,4 +1,4 @@
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.activity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -12,11 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
 
+import com.bosicc.cluedo.CluedoApp;
+import com.bosicc.cluedo.R;
+import com.bosicc.cluedo.dialogs.PlayersNameDialog;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.utils.Utils;
 
 
-public class CluedoLogs extends TabActivity {
+public class TabCluedoLogsActivity extends TabActivity {
 	
 	private static String TAG = "CluedoLogs";
    
@@ -119,28 +122,28 @@ public class CluedoLogs extends TabActivity {
 		tabHost.addTab(tabHost.newTabSpec(TAB_TABLE).setIndicator(
 				"Table",
 				getResources().getDrawable(R.drawable.tab_table_icon))
-				.setContent(new Intent(this, Table.class)));
+				.setContent(new Intent(this, TableActivity.class)));
 	}
 	
 	private void setupLogsTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_LOGS).setIndicator(
 				"Logs",
 				getResources().getDrawable(R.drawable.tab_log2_icon))
-				.setContent(new Intent(this, Logs.class)));
+				.setContent(new Intent(this, LogsActivity.class)));
 	}
 	
 	private void setupLogsTextTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_LOGSTEXT).setIndicator(
 				"Text Logs",
 				getResources().getDrawable(R.drawable.tab_log_icon))
-				.setContent(new Intent(this, LogsText.class)));
+				.setContent(new Intent(this, LogsTextActivity.class)));
 	}
 	
 	@Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DIALOG_NEWGAME:
-            return new AlertDialog.Builder(CluedoLogs.this)
+            return new AlertDialog.Builder(TabCluedoLogsActivity.this)
             .setTitle(R.string.tab_dialog_newgame_titile)
             .setIcon(R.drawable.btn_info)
             .setMessage(R.string.tab_dialog_newgame_msg)
@@ -157,7 +160,7 @@ public class CluedoLogs extends TabActivity {
 					game.mWeapon = r.getStringArray(R.array.weapon_ru);
 					// Delete current game from disk;
 					cApp.getSaveUtils().DeleteCurentGame();
-					startActivity(new Intent(CluedoLogs.this, CluedologsActivity.class));
+					startActivity(new Intent(TabCluedoLogsActivity.this, CluedologsActivity.class));
 					finish();
 					
 				}
@@ -210,7 +213,7 @@ public class CluedoLogs extends TabActivity {
         switch (item.getItemId()) {
           
 	        case MENU_ITEM_PEOPLE:{
-	        	PlayersName customizeDialog = new PlayersName(this,game);
+	        	PlayersNameDialog customizeDialog = new PlayersNameDialog(this,game);
 	        	customizeDialog.show();
 	        	return true;
 	        }
@@ -221,12 +224,12 @@ public class CluedoLogs extends TabActivity {
 	        }
 	        
 	        case MENU_ITEM_HELP:{
-	        	startActivity(new Intent(CluedoLogs.this, About.class));
+	        	startActivity(new Intent(TabCluedoLogsActivity.this, AboutActivity.class));
 	        	return true;
 	        }
 	        
 	        case MENU_ITEM_LOGSTEXT:{
-	        	startActivity(new Intent(CluedoLogs.this, LogsText.class));
+	        	startActivity(new Intent(TabCluedoLogsActivity.this, LogsTextActivity.class));
 	        	return true;
 	        }
         }

@@ -1,4 +1,4 @@
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.bosicc.cluedo.CluedoApp;
+import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 
-public class About extends Activity {
+public class AboutActivity extends Activity {
   
 	//private static String TAG = "About";
 	

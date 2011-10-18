@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.activity;
 
 //Need the following import to get access to the app resources, since this
 //class is in a sub-package.
@@ -39,6 +39,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bosicc.cluedo.CluedoApp;
+import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
 import com.bosicc.cluedo.pojo.PlayerPOJO;
@@ -48,7 +50,7 @@ import com.bosicc.cluedo.utils.Utils;
 /**
  * A list view example where the data comes from a custom ListAdapter
  */
-public class LogsText extends ListActivity {
+public class LogsTextActivity extends ListActivity {
 	
 	private static String TAG = "LogsText";
 
@@ -132,7 +134,7 @@ public class LogsText extends ListActivity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DIALOG_PEOPLE:
-            return new AlertDialog.Builder(LogsText.this)
+            return new AlertDialog.Builder(LogsTextActivity.this)
             .setTitle(R.string.title_people)
             .setItems(gameLocal.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -142,7 +144,7 @@ public class LogsText extends ListActivity {
             })
             .create();
         case DIALOG_PLACE:
-            return new AlertDialog.Builder(LogsText.this)
+            return new AlertDialog.Builder(LogsTextActivity.this)
             .setTitle(R.string.title_place)
             .setItems(gameLocal.mPlace, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -152,7 +154,7 @@ public class LogsText extends ListActivity {
             })
             .create();
         case DIALOG_WEAPON:
-            return new AlertDialog.Builder(LogsText.this)
+            return new AlertDialog.Builder(LogsTextActivity.this)
             .setTitle(R.string.title_weapon)
             .setItems(gameLocal.mWeapon, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -162,7 +164,7 @@ public class LogsText extends ListActivity {
             })
             .create();
         case DIALOG_SORT_BY_XODIL:
-            return new AlertDialog.Builder(LogsText.this)
+            return new AlertDialog.Builder(LogsTextActivity.this)
             .setTitle(R.string.logs_alert_title_sort_xodil)
             .setItems(gameLocal.mPeople, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
@@ -174,7 +176,7 @@ public class LogsText extends ListActivity {
             .create();
         case DIALOG_SORT_BY_PODTVERDIL:
         	mCurentDialogList = utils.getSortPodtverdilList();
-            return new AlertDialog.Builder(LogsText.this)
+            return new AlertDialog.Builder(LogsTextActivity.this)
             .setTitle(R.string.logs_alert_title_sort_podtverdil)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {

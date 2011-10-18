@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bosicc.cluedo;
+package com.bosicc.cluedo.activity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -41,12 +41,15 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.bosicc.cluedo.CluedoApp;
+import com.bosicc.cluedo.R;
+import com.bosicc.cluedo.dialogs.PlayersNameDialog;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.CardType;
 import com.bosicc.cluedo.pojo.PlayerPOJO;
 import com.bosicc.cluedo.utils.Utils;
 
-public class Setup extends ExpandableListActivity {
+public class SetupActivity extends ExpandableListActivity {
 	
 	//private static String TAG = "Setup";
 	//private static final int DIALOG_INFO = 1;
@@ -99,7 +102,7 @@ public class Setup extends ExpandableListActivity {
 			
 			@Override
 			public void onClick(View v) {
-				PlayersName customizeDialog = new PlayersName(Setup.this,game);
+				PlayersNameDialog customizeDialog = new PlayersNameDialog(SetupActivity.this,game);
 	        	customizeDialog.show();
 			}
 		});
@@ -173,7 +176,7 @@ public class Setup extends ExpandableListActivity {
 				//Log.i(TAG,"pos="+arg2);
 				utils.UpdateGameDataList(arg2);
 
-				mPersonAdapter = new ArrayAdapter<String>(Setup.this, android.R.layout.simple_spinner_item, game.mPeople);
+				mPersonAdapter = new ArrayAdapter<String>(SetupActivity.this, android.R.layout.simple_spinner_item, game.mPeople);
 				mPersonAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 				mPerson.setAdapter(mPersonAdapter);
 				mPersonAdapter.notifyDataSetChanged();
@@ -287,7 +290,7 @@ public class Setup extends ExpandableListActivity {
 									showDialog(DIALOG_CARDSNOTSELECTED);
 								}else{
 									utils.setCreatedGame(true);
-									startActivity(new Intent(Setup.this, CluedoLogs.class));
+									startActivity(new Intent(SetupActivity.this, TabCluedoLogsActivity.class));
 									finish();
 								}
 								
@@ -334,7 +337,7 @@ public class Setup extends ExpandableListActivity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DIALOG_CARDSNOTSELECTED:
-            return new AlertDialog.Builder(Setup.this)
+            return new AlertDialog.Builder(SetupActivity.this)
             		.setTitle(R.string.logs_alert_title)
             		.setIcon(R.drawable.btn_info)
             		.setMessage(R.string.setup_dialog_notenoughtpcards_msg)
@@ -398,7 +401,7 @@ public class Setup extends ExpandableListActivity {
             AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
                     ViewGroup.LayoutParams.FILL_PARENT, 64);
 
-            TextView textView = new TextView(Setup.this);
+            TextView textView = new TextView(SetupActivity.this);
             textView.setLayoutParams(lp);
             // Center the text vertically
             textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
