@@ -48,6 +48,7 @@ import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
 import com.bosicc.cluedo.pojo.PMovePOJO;
 import com.bosicc.cluedo.pojo.PlayerPOJO;
+import com.bosicc.cluedo.utils.CConstants;
 import com.bosicc.cluedo.utils.Utils;
 
 
@@ -56,7 +57,7 @@ import com.bosicc.cluedo.utils.Utils;
  */
 public class LogsActivity extends ListActivity {
 	
-	private static String TAG = "Logs";
+	//private static String TAG = "Logs";
 
 	private LinearLayout mHeaderBox;
 	private Button mBtnXodit;
@@ -173,7 +174,7 @@ public class LogsActivity extends ListActivity {
 	
 	@Override
 	protected void onResume() {
-		Log.i(TAG,"onResume");
+		//Log.i(TAG,"onResume");
 		mList.setVisibility(View.VISIBLE);
 		mAdapter.notifyDataSetChanged();
 		super.onResume();		
@@ -181,7 +182,7 @@ public class LogsActivity extends ListActivity {
 	
 	@Override
 	protected void onPause() {
-		Log.i(TAG,"onPause");
+		//Log.i(TAG,"onPause");
 		mList.setVisibility(View.GONE);
 		super.onResume();		
 	}
@@ -195,24 +196,18 @@ public class LogsActivity extends ListActivity {
             .setTitle(R.string.logs_btnxodit)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, final int which) {
+                	sendBroadcast( new Intent(CConstants.ACTION_UPDATE_DATA) );
                 	
                 	// http://code.google.com/p/k9mail/source/detail?r=3132
                 	//  https://github.com/k9mail/k-9/blob/master/src/com/fsck/k9/activity/ChooseFolder.java
                 	// https://github.com/sunlightlabs/congress
-                	 runOnUiThread(new Runnable() {
-                         @Override
-                         public void run() {
-                        	 int num = mCurentDialogList.get(which).getNumber();
-                        	 PMovePOJO item = new PMovePOJO(num);
-                        	 utils.getAllList().add(0,item);
-                             mAdapter.notifyDataSetChanged();
-                         }
-                     });
-            		
-                	
+                	int num = mCurentDialogList.get(which).getNumber();
+                	PMovePOJO item = new PMovePOJO(num);
+               	 	utils.getAllList().add(0,item);
+                    
                 	mSlyx.setText("");
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
-                	//mAdapter.notifyDataSetChanged();
+                	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
                 	//removeDialog(DIALOG_XODIT);
 

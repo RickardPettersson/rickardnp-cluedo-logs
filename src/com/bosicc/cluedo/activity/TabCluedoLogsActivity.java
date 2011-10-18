@@ -16,6 +16,7 @@ import com.bosicc.cluedo.CluedoApp;
 import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.dialogs.PlayersNameDialog;
 import com.bosicc.cluedo.pojo.GamePOJO;
+import com.bosicc.cluedo.utils.CConstants;
 import com.bosicc.cluedo.utils.Utils;
 
 
@@ -113,7 +114,7 @@ public class TabCluedoLogsActivity extends TabActivity {
 	private void setTabs(int activeTab){
 		setupTableTab(); 		// tab_1
 		setupLogsTab();			// tab_2
-		//setupLogsTextTab();		// tab_2
+		setupLogsTextTab();		// tab_2
 		
 		tabHost.setCurrentTab(activeTab);
 	}
@@ -160,6 +161,7 @@ public class TabCluedoLogsActivity extends TabActivity {
 					game.mWeapon = r.getStringArray(R.array.weapon_ru);
 					// Delete current game from disk;
 					cApp.getSaveUtils().DeleteCurentGame();
+					sendBroadcast( new Intent(CConstants.ACTION_UPDATE_DATA));
 					startActivity(new Intent(TabCluedoLogsActivity.this, CluedologsActivity.class));
 					finish();
 					
@@ -197,9 +199,9 @@ public class TabCluedoLogsActivity extends TabActivity {
      	MenuItem item_3 = menu.add(group1Id, MENU_ITEM_HELP, Menu.FIRST+2, R.string.mainmenu_about);
      	item_3.setIcon(android.R.drawable.ic_menu_info_details);
      	
-		// ===
-     	MenuItem item_4 = menu.add(group1Id, MENU_ITEM_LOGSTEXT, Menu.FIRST+3, R.string.maintab_menu_logstext);
-     	item_4.setIcon(R.drawable.tab_log2_icon);
+//		// ===
+//     	MenuItem item_4 = menu.add(group1Id, MENU_ITEM_LOGSTEXT, Menu.FIRST+3, R.string.maintab_menu_logstext);
+//     	item_4.setIcon(R.drawable.tab_log2_icon);
      
      	
      	return super.onCreateOptionsMenu(menu);

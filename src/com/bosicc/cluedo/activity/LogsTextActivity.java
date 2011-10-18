@@ -23,8 +23,11 @@ import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,6 +47,7 @@ import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
 import com.bosicc.cluedo.pojo.GamePOJO.ShowModeType;
 import com.bosicc.cluedo.pojo.PlayerPOJO;
+import com.bosicc.cluedo.utils.CConstants;
 import com.bosicc.cluedo.utils.Utils;
 
 
@@ -52,7 +56,7 @@ import com.bosicc.cluedo.utils.Utils;
  */
 public class LogsTextActivity extends ListActivity {
 	
-	private static String TAG = "LogsText";
+	//private static String TAG = "LogsText";
 
 	private LinearLayout mHeaderBox;
 	private TextView mTitle;
@@ -65,6 +69,8 @@ public class LogsTextActivity extends ListActivity {
     private GamePOJO gameLocal;
     private Utils utils;
     private ArrayList<PlayerPOJO> mCurentDialogList;
+    
+    private LogsTextDataChangeReceiver mLogsTextDataChangeReceiver = null;
     
     private ShowModeType mViewMode = ShowModeType.ALL;
     private int mPerson = 0;
@@ -109,6 +115,11 @@ public class LogsTextActivity extends ListActivity {
 		
 		mCurentDialogList = new ArrayList<PlayerPOJO>();
 		
+		// Register Data change receiver 
+		mLogsTextDataChangeReceiver = new LogsTextDataChangeReceiver();
+        IntentFilter intentFilter = new IntentFilter( CConstants.ACTION_UPDATE_DATA );
+        registerReceiver(mLogsTextDataChangeReceiver, intentFilter);
+        
 		// Set up our adapter
 		mAdapter = new MyLogsTextListAdapter(this);
 		mList.setAdapter(mAdapter);
@@ -117,18 +128,28 @@ public class LogsTextActivity extends ListActivity {
 	
 	@Override
 	protected void onResume() {
-		Log.i(TAG,"onResume");
+		//Log.i(TAG,"onResume");
 		//gameLocal = game;
-		mAdapter.notifyDataSetChanged();
+		//mAdapter.notifyDataSetChanged();
+		//mList.setAdapter(mAdapter);
 		super.onResume();		
 	}
 	
 	@Override
 	protected void onPause() {
-		Log.i(TAG,"onPause");
+		///Log.i(TAG,"onPause");
+		//mList.setAdapter(null);
 		super.onResume();		
 	}
 	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if( mLogsTextDataChangeReceiver != null ){
+        	unregisterReceiver(mLogsTextDataChangeReceiver);
+        	mLogsTextDataChangeReceiver = null;
+		}
+	}
 	
 	@Override
     protected Dialog onCreateDialog(int id) {
@@ -382,7 +403,7 @@ public class LogsTextActivity extends ListActivity {
         
         @Override
 		public void notifyDataSetChanged() {
-        	Log.i(TAG,"notifyDataSetChanged");
+        	//Log.i(TAG,"notifyDataSetChanged");
 			super.notifyDataSetChanged();
 			String text = "";
 			if (mViewMode == ShowModeType.ALL){
@@ -402,8 +423,13 @@ public class LogsTextActivity extends ListActivity {
 			}
 			
 		}
-
-		
-
     }
+	
+    public class LogsTextDataChangeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+        	mAdapter.notifyDataSetChanged();
+        }
+	}
+
 }
