@@ -49,6 +49,7 @@
     <string name="logsmenu_sort_xodil">Ходил</string>
     <string name="logsmenu_sort_podtverdil">Подтвердил</string>
     <string name="logsmenu_sort_all">Все</string>
+    <string name="logsmenu_sort">Сортировать</string>
     <string name="logs_alert_title_sort_xodil">Показать все хода:</string>
     <string name="logs_alert_title_sort_podtverdil">Показать все подтверждения:</string>
     <string name="logs_toast_xoda">Все хода: </string>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 
 import com.bosicc.cluedo.R;
 import com.bosicc.cluedo.pojo.GamePOJO;
@@ -14,6 +15,8 @@ import com.bosicc.cluedo.pojo.PlayerPOJO;
 
 public class Utils {
 	
+	private static String TAG = "Utils";
+	
 	private Context ctx;
     private GamePOJO game;
 	
@@ -22,126 +25,169 @@ public class Utils {
 		this.game = game;
 	}
 	
+	public enum GemeType {
+		RuRaskroiSekret,	//		<item>Cluedo: Раскрой все тайны</item>
+		DiscoverTheSecrets,	//        <item>Clue: Discover the Secrets</item>
+		Entdecken,			//			<item>Cluedo: Entdecken sie die Geheimnisse</item>
+		SecretinParis,		//        <item>Clue: Secrets in Paris</item>
+		The24,				//        <item>Clue: The 24 Edition</item>
+		TheOffice,			//        <item>Clue: The Office</item>
+		EnglishOriginal,	//        <item>Clue: English original</item>
+		LimitedGift,		//        <item>Clue: Limited Gift (50th Anniversary) Edition</item> <!-- lim_gif -->
+		Simpsons,			//        <item>Clue: The Simpsons</item>
+		Simpsons3D,			//        <item>Clue: The Simpsons 3rd edition</item>
+		HarryPotrer,		//        <item>Clue: The Harry Potter</item>
+		Scooby,				//        <item>Clue: The Scooby Doo</item>
+		LeedsCentenary,		//        <item>Clue: Leeds Centenary</item>
+		SuperSleuth,		//        <item>Cluedo: Super Sleuth</item> <!-- Place: = lim_gif = 50th -->
+		MasterDetective,	//        <item>Clue: Master Detective</item>
+		OriginalVCR,		//        <item>Clue: Original VCR Game</item>
+		MurderinDisguise,	//        <item>Clue II: Murder in Disguise</item>
+		Passport2Murder,	//        <item>Cluedo: Passport to Murder</item>
+		DD,					//        <item>Clue: Dungeons and Dragons Edition</item>
+		Seinfeld,			//        <item>Clue: The Seinfeld Edition</item>						
+		MysteryAtSea,		//        <item>Clue: Mystery at Sea</item>		
+		SuperChalange;		//        <item>Cluedo: Super Challenge</item>		
+
+		public static GemeType findByOrdinal(int ordinal) {
+			for (GemeType item : values()) {
+				if (item.ordinal() == ordinal) {
+					return item;
+				}
+			}
+			return RuRaskroiSekret;
+		}	
+		
+	}
+		
 	/**
 	 * Fill new game data in Game class from resourses
 	 * @param GameNum
 	 */
 	public void UpdateGameDataList(int GameNum){
+		
     	Resources r = ctx.getResources();
 		int [] colorlist = r.getIntArray(R.array.colors_default);
-		switch(GameNum){
-		case 0: // Russian version
+		GemeType type = GemeType.findByOrdinal(GameNum); // In list begin with 0
+		Log.i(TAG,"GameNum="+GameNum+" Type=" + type);
+		switch(type){
+		case RuRaskroiSekret: // Russian version
 			game.mPeople = r.getStringArray(R.array.people_ru);
 			game.mPlace = r.getStringArray(R.array.place_ru);
 			game.mWeapon = r.getStringArray(R.array.weapon_ru);
 			break;
-		case 1:// Cluedo in Paris
-			game.mPeople = r.getStringArray(R.array.people_ru);
-			game.mPlace = r.getStringArray(R.array.place_ru);
-			game.mWeapon = r.getStringArray(R.array.weapon_ru);
+		case DiscoverTheSecrets:// Clue: Discover the Secrets
+			game.mPeople = r.getStringArray(R.array.people_discover);
+			game.mPlace = r.getStringArray(R.array.place_discover);
+			game.mWeapon = r.getStringArray(R.array.weapon_discover);
+			break;	
+		case Entdecken:
+			game.mPeople = r.getStringArray(R.array.people_Entdecken);
+			game.mPlace = r.getStringArray(R.array.place_Entdecken);
+			game.mWeapon = r.getStringArray(R.array.weapon_Entdecken);
 			break;
-		case 2:// Clue the 24
+		case SecretinParis:// Cluedo in Paris
+			game.mPeople = r.getStringArray(R.array.people_paris);
+			game.mPlace = r.getStringArray(R.array.place_paris);
+			game.mWeapon = r.getStringArray(R.array.weapon_paris);
+			break;
+		case The24:// Clue the 24
 			game.mPeople = r.getStringArray(R.array.people_24);
 			game.mPlace = r.getStringArray(R.array.place_24);
 			game.mWeapon = r.getStringArray(R.array.weapon_24);
 			break;
-		case 3:// Clue the office
+		case TheOffice:// Clue the office
 			game.mPeople = r.getStringArray(R.array.people_office);
 			game.mPlace = r.getStringArray(R.array.place_office);
 			game.mWeapon = r.getStringArray(R.array.weapon_office);
 			break;
-		case 4:// Clue English (original)
+		case EnglishOriginal:// Clue English (original)
 			game.mPeople = r.getStringArray(R.array.people_original);
 			game.mPlace = r.getStringArray(R.array.place_original);
 			game.mWeapon = r.getStringArray(R.array.weapon_original);
 			break;
-		case 5:// Clue Limited edition
+		case LimitedGift:// Clue Limited edition
 			game.mPeople = r.getStringArray(R.array.people_lim_gif);
 			game.mPlace = r.getStringArray(R.array.place_lim_gif);
 			game.mWeapon = r.getStringArray(R.array.weapon_lim_gif);
-		case 6:// Clue the Simpsons
+		case Simpsons:// Clue the Simpsons
 			game.mPeople = r.getStringArray(R.array.people_simpsons);
 			game.mPlace = r.getStringArray(R.array.place_simpsons);
 			game.mWeapon = r.getStringArray(R.array.weapon_simpsons);
 			break;
-		case 7:// Clue the Simpsons 3rd edition
+		case Simpsons3D:// Clue the Simpsons 3rd edition
 			game.mPeople = r.getStringArray(R.array.people_simpsons_3rd);
 			game.mPlace = r.getStringArray(R.array.place_simpsons_3rd);
 			game.mWeapon = r.getStringArray(R.array.weapon_simpsons_3rd);
 			break;
-		case 8:// Clue the HarryPoter
+		case HarryPotrer:// Clue the HarryPoter
 			game.mPeople = r.getStringArray(R.array.people_potter);
 			game.mPlace = r.getStringArray(R.array.place_potter);
 			game.mWeapon = r.getStringArray(R.array.weapon_potter);
 			break;
-		case 9:// Clue the Scooby Doo
+		case Scooby:// Clue the Scooby Doo
 			game.mPeople = r.getStringArray(R.array.people_scooby);
 			game.mPlace = r.getStringArray(R.array.place_scooby);
 			game.mWeapon = r.getStringArray(R.array.weapon_scooby);
 			break;
-		case 10:// Clue Leeds Centenary
+		case LeedsCentenary:// Clue Leeds Centenary
 			game.mPeople = r.getStringArray(R.array.people_leeds);
 			game.mPlace = r.getStringArray(R.array.place_leeds);
 			game.mWeapon = r.getStringArray(R.array.weapon_leeds);
 			break;
-		case 11:// Cluedo Super Sleuth
+		case SuperSleuth:// Cluedo Super Sleuth
 			game.mPeople = r.getStringArray(R.array.people_lim_gif);// the same as lim_gif
 			game.mPlace = r.getStringArray(R.array.place_lim_gif); 	// the same as lim_gif
 			game.mWeapon = r.getStringArray(R.array.weapon_leeds); 	// the same as leeds
 			break;
-		case 12:// Clue Master Detective
+		case MasterDetective:// Clue Master Detective
 			game.mPeople = r.getStringArray(R.array.people_master);
 			game.mPlace = r.getStringArray(R.array.place_master);
 			game.mWeapon = r.getStringArray(R.array.weapon_master);
 			colorlist = r.getIntArray(R.array.colors_master);
 			break;	
-		case 13:// Clue VCR 
+		case OriginalVCR:// Clue VCR 
 			game.mPeople = r.getStringArray(R.array.people_orig_vcr_murder);
 			game.mPlace = r.getStringArray(R.array.place_orig_vcr);
 			game.mWeapon = r.getStringArray(R.array.weapon_orig_vcr_murder);
 			colorlist = r.getIntArray(R.array.colors_cvr);
 			break;	
-		case 14:// Clue Murder in Disguise
+		case MurderinDisguise:// Clue Murder in Disguise
 			game.mPeople = r.getStringArray(R.array.people_orig_vcr_murder);
 			game.mPlace = r.getStringArray(R.array.place_murder);
 			game.mWeapon = r.getStringArray(R.array.weapon_orig_vcr_murder);
 			colorlist = r.getIntArray(R.array.colors_cvr);
 			break;	
-		case 15:// Cluedo Passport to Murder
+		case Passport2Murder:// Cluedo Passport to Murder
 			game.mPeople = r.getStringArray(R.array.people_passport);
 			game.mPlace = r.getStringArray(R.array.place_passport);
 			game.mWeapon = r.getStringArray(R.array.weapon_passport);
 			colorlist = r.getIntArray(R.array.colors_pasport);
 			break;	
-		case 16:// Clue: Discover the Secrets
-			game.mPeople = r.getStringArray(R.array.people_discover);
-			game.mPlace = r.getStringArray(R.array.place_discover);
-			game.mWeapon = r.getStringArray(R.array.weapon_discover);
-			break;	
-		case 17:// Clue: Dungeons and Dragons Edition
+		case DD:// Clue: Dungeons and Dragons Edition
 			game.mPeople = r.getStringArray(R.array.people_dd);
 			game.mPlace = r.getStringArray(R.array.place_dd);
 			game.mWeapon = r.getStringArray(R.array.weapon_dd);
 			break;	
-		case 18:// Clue: The Seinfeld Edition
+		case Seinfeld:// Clue: The Seinfeld Edition
 			game.mPeople = r.getStringArray(R.array.people_seinfeld);
 			game.mPlace = r.getStringArray(R.array.place_seinfeld);
 			game.mWeapon = r.getStringArray(R.array.weapon_seinfeld);
 			break;	
-		case 19:// Clue: Mystery at Sea
+		case MysteryAtSea:// Clue: Mystery at Sea
 			game.mPeople = r.getStringArray(R.array.people_sea_card);
 			game.mPlace = r.getStringArray(R.array.place_sea_card);
 			game.mWeapon = r.getStringArray(R.array.weapon_sea_card);
 			colorlist = r.getIntArray(R.array.colors_sea_card);
 			break;	
-		case 21:// Cluedo: Super Challenge
+		case SuperChalange:// Cluedo: Super Challenge
 			game.mPeople = r.getStringArray(R.array.people_challenge);
 			game.mPlace = r.getStringArray(R.array.place_challenge);
 			game.mWeapon = r.getStringArray(R.array.weapon_challenge);
 			colorlist = r.getIntArray(R.array.colors_pasport); // same colors
 			break;
 		}
-		
+				
 		//Number of players in game
 		game.playernum = game.mPeople.length;
 		

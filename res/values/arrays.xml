@@ -22,6 +22,8 @@
 
 	<string-array name="gameTypes">
         <item>Cluedo: Раскрой все тайны</item>
+        <item>Clue: Discover the Secrets</item>
+        <item>Cluedo: Entdecken sie die Geheimnisse</item>
         <item>Clue: Secrets in Paris</item>
         <item>Clue: The 24 Edition</item>
         <item>Clue: The Office</item>
@@ -37,7 +39,6 @@
         <item>Clue: Original VCR Game</item>
         <item>Clue II: Murder in Disguise</item>
         <item>Cluedo: Passport to Murder</item>
-        <item>Clue: Discover the Secrets</item>
         <item>Clue: Dungeons and Dragons Edition</item>
         <item>Clue: The Seinfeld Edition</item>						
         <item>Clue: Mystery at Sea</item>		
@@ -54,6 +55,24 @@
         <item>Голубева</item>
         <item>Краснова</item>
         <item>Белых</item>
+    </string-array>
+    
+    <string-array name="people_discover"> <!-- discover -->
+        <item>Colonel Mustard</item>
+ 		<item>Professor Plum</item>
+        <item>Mr. Green</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlet</item>
+        <item>Mrs.White</item>
+    </string-array>
+    
+    <string-array name="people_Entdecken"> <!-- Entdecken -->
+        <item>Dennis Gatow</item>
+ 		<item>Felix Bloom</item>
+        <item>Tom Grün</item>
+        <item>Klara Porz</item>
+ 		<item>Gloria Roth</item>
+        <item>Diana Weiss</item>
     </string-array>
     
     <string-array name="people_paris"> <!-- secret in Paris-->
@@ -184,15 +203,6 @@
         <item>Mrs.White</item>
         <item>Earl Grey</item>
     </string-array>
-	
-	<string-array name="people_discover"> <!-- discover -->
-        <item>Colonel Mustard</item>
- 		<item>Professor Plum</item>
-        <item>Mr. Green</item>
-        <item>Mrs.Peacock</item>
- 		<item>Miss Scarlet</item>
-        <item>Mrs.White</item>
-    </string-array>
     
     <string-array name="people_dd"> <!-- d&d -->
         <item>Tordek</item>
@@ -252,6 +262,30 @@
         <item>Гостиная</item>
         <item>Ванная комната</item>
         <item>Дом для гостей</item>
+    </string-array>
+   
+    <string-array name="place_discover"> <!-- discover -->
+        <item>Hall</item>
+ 		<item>Dining Room</item>
+        <item>Kitchen</item>
+        <item>Patio</item>
+ 		<item>Observatory</item>
+        <item>Theater</item>
+        <item>Living Room</item>
+ 		<item>Spa</item>
+        <item>Guest House</item>
+    </string-array>
+    
+    <string-array name="place_Entdecken"> <!-- Entdecken -->
+        <item>Halle</item>
+ 		<item>Speisezimmer</item>
+        <item>Küche</item>
+        <item>Terrasse</item>
+ 		<item>Observatorium</item>
+        <item>Heimkino</item>
+        <item>Wohnzimmer</item>
+ 		<item>Wellnessraum</item>
+        <item>Gästehaus</item>
     </string-array>
     
     <string-array name="place_paris"> <!-- Paris -->
@@ -417,18 +451,6 @@
         <item>Lost Property</item>
     </string-array>
     
-    <string-array name="place_discover"> <!-- discover -->
-        <item>Hall</item>
- 		<item>Dining Room</item>
-        <item>Kitchen</item>
-        <item>Patio</item>
- 		<item>Observatory</item>
-        <item>Theater</item>
-        <item>Living Room</item>
- 		<item>Spa</item>
-        <item>Guest House</item>
-    </string-array>
-    
     <string-array name="place_dd"> <!-- d&d -->
         <item>Chamber of Tricks and Traps</item>
  		<item>Dungeon</item>
@@ -491,6 +513,30 @@
         <item>Бита</item>
         <item>Топор</item>
         <item>Гантеля</item>
+    </string-array>
+    
+   <string-array name="weapon_discover"> <!-- discover -->
+        <item>Knife</item>
+ 		<item>Candlestick</item>
+        <item>Pistol</item>
+        <item>Poison</item>
+ 		<item>Trophy</item>
+        <item>Rope</item>
+        <item>Bat</item>
+ 		<item>Axe</item>
+        <item>Dumbbell</item>
+    </string-array>
+    
+    <string-array name="weapon_Entdecken"> <!-- Entdecken -->
+        <item>Messer</item>
+ 		<item>Leuchter</item>
+        <item>Pistol</item>
+        <item>Gift</item>
+ 		<item>Trophäe</item>
+        <item>Seil</item>
+        <item>Keule</item>
+ 		<item>Axt</item>
+        <item>Hantel</item>
     </string-array>
     
     <string-array name="weapon_paris"> <!-- in Paris -->
@@ -622,18 +668,6 @@
         <item>Blunderbuss</item>
  		<item>Axe</item>
         <item>Poison</item>
-    </string-array>
-    
-    <string-array name="weapon_discover"> <!-- discover -->
-        <item>Knife</item>
- 		<item>Candlestick</item>
-        <item>Pistol</item>
-        <item>Poison</item>
- 		<item>Trophy</item>
-        <item>Rope</item>
-        <item>Bat</item>
- 		<item>Axe</item>
-        <item>Dumbbell</item>
     </string-array>
     
      <string-array name="weapon_dd"> <!-- d&d -->

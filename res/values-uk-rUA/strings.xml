@@ -48,7 +48,8 @@
     <string name="logs_alert_title">Увага!</string>
     <string name="logsmenu_sort_xodil">Ходив</string>
     <string name="logsmenu_sort_podtverdil">Підтвердив</string>
-    <string name="logsmenu_sort_all">Все</string>
+    <string name="logsmenu_sort_all">Всі</string>
+    <string name="logsmenu_sort">Сортувати</string>
     <string name="logs_alert_title_sort_xodil">Показати всі хода:</string>
     <string name="logs_alert_title_sort_podtverdil">Показати всі підтвердження:</string>
     <string name="logs_toast_xoda">Усі хода: </string>

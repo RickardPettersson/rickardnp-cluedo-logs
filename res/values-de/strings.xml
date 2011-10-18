@@ -48,6 +48,7 @@
     <string name="logsmenu_sort_xodil">Geht</string>
     <string name="logsmenu_sort_podtverdil">Bestätigt</string>
     <string name="logsmenu_sort_all">Alle</string>
+    <string name="logsmenu_sort">Art</string>
     <string name="logs_alert_title_sort_xodil">Alle Abwicklungen anzeigen:</string>
     <string name="logs_alert_title_sort_podtverdil">Alle Bestätigen anzeigen:</string>
     <string name="logs_toast_xoda">Alle Bestätigen: </string>
