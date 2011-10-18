@@ -42,10 +42,10 @@ public class TabCluedoLogsActivity extends TabActivity {
 	//======================================================
 	// Menu items ID
 	//======================================================
-	private static final int MENU_ITEM_PEOPLE			 	=1;			
-	private static final int MENU_ITEM_NEW					=2;
-	private static final int MENU_ITEM_HELP					=3;
-	private static final int MENU_ITEM_LOGSTEXT				=4;
+	public static final int MENU_ITEM_PEOPLE			 	=1;			
+	public static final int MENU_ITEM_NEW					=2;
+	public static final int MENU_ITEM_HELP					=3;
+	public static final int MENU_ITEM_LOGSTEXT				=4;
 	
 	
 	private static final int group1Id = 1;  

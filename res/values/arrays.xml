@@ -42,7 +42,8 @@
         <item>Clue: Dungeons and Dragons Edition</item>
         <item>Clue: The Seinfeld Edition</item>						
         <item>Clue: Mystery at Sea</item>		
-        <item>Cluedo: Super Challenge</item>											
+        <item>Cluedo: Super Challenge</item>
+        <item>Clue: SFX/FX</item>							
     </string-array>
     
 	<!-- ===================================== 
@@ -244,7 +245,16 @@
         <item>Mr. Slate-Grey</item>
     </string-array>
     
-    
+    <string-array name="people_fx"> <!-- fx -->
+        <item>Col. Mustard</item>
+ 		<item>Prof. Plum</item>
+        <item>Mr.Green</item>
+        <item>Mrs.Peacock</item>
+ 		<item>Miss Scarlet</item>
+        <item>Mrs.White</item>
+        <item>Rusty</item>
+ 		<item>Mrs. Meadow-Brook</item>
+    </string-array> 
     
     
     
@@ -496,7 +506,17 @@
         <item>Study</item>
     </string-array>
     
-    
+    <string-array name="place_fx"> <!-- fx -->
+        <item>Tudor Mansion</item>
+ 		<item>Boat House</item>
+        <item>Gazebo</item>
+        <item>Swimming Pool</item>
+ 		<item>Stable</item>
+        <item>Gate House</item>
+        <item>Garden</item>
+ 		<item>Tennis Courts</item>
+        <item>Garage</item>
+    </string-array>
     
     
     
@@ -712,6 +732,15 @@
  		<item>Axe</item>
         <item>Poison</item>
     </string-array>
+    
+    <string-array name="weapon_fx"> <!-- fx -->
+        <item>Horseshoe</item>
+ 		<item>Hammer</item>
+        <item>Garden Shears</item>
+        <item>Water Bucket</item>
+ 		<item>Tennis Racquet</item>
+ 		<item>Lawn Gnome</item>
+    </string-array>
    	<!-- ===================================== 
      ============== Colors =============== 
      ====================================== -->
@@ -772,6 +801,17 @@
         <item>@color/bgPeoplePeacock</item>
         <item>@color/bgPeopleScarlet</item>
         <item>@color/bgPeopleWhite</item>
+    </string-array>
+    
+   <string-array name="colors_fx">
+        <item>@color/bgPeopleMustard</item>
+        <item>@color/bgPeoplePlum</item>
+        <item>@color/bgPeopleGreen</item>
+        <item>@color/bgPeoplePeacock</item>
+        <item>@color/bgPeopleScarlet</item>
+        <item>@color/bgPeopleWhite</item>
+        <item>@color/bgPeoplePeach</item>
+        <item>@color/bgPeopleRose</item>
     </string-array>
     
     	

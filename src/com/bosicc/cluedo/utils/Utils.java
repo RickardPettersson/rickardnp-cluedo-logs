@@ -47,7 +47,8 @@ public class Utils {
 		DD,					//        <item>Clue: Dungeons and Dragons Edition</item>
 		Seinfeld,			//        <item>Clue: The Seinfeld Edition</item>						
 		MysteryAtSea,		//        <item>Clue: Mystery at Sea</item>		
-		SuperChalange;		//        <item>Cluedo: Super Challenge</item>		
+		SuperChalange,		//        <item>Cluedo: Super Challenge</item>		
+		SFX;				//		  <item>Clue: SFX/FX</item>
 
 		public static GemeType findByOrdinal(int ordinal) {
 			for (GemeType item : values()) {
@@ -185,6 +186,12 @@ public class Utils {
 			game.mPlace = r.getStringArray(R.array.place_challenge);
 			game.mWeapon = r.getStringArray(R.array.weapon_challenge);
 			colorlist = r.getIntArray(R.array.colors_pasport); // same colors
+			break;
+		case SFX:// Cluedo: SFX/FX
+			game.mPeople = r.getStringArray(R.array.people_fx);
+			game.mPlace = r.getStringArray(R.array.place_fx);
+			game.mWeapon = r.getStringArray(R.array.weapon_fx);
+			colorlist = r.getIntArray(R.array.colors_fx); 
 			break;
 		}
 				

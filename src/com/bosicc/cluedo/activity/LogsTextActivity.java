@@ -56,7 +56,7 @@ import com.bosicc.cluedo.utils.Utils;
  */
 public class LogsTextActivity extends ListActivity {
 	
-	//private static String TAG = "LogsText";
+	private static String TAG = "LogsText";
 
 	private LinearLayout mHeaderBox;
 	private TextView mTitle;
@@ -90,7 +90,7 @@ public class LogsTextActivity extends ListActivity {
 	private static final int MENU_ITEM_SORT_ALL				=12;
 	private static final int MENU_ITEM_SORT_BY_PODTVERDIL	=13;
 	
-	private static final int group2Id = 0;  
+	private static final int group3Id = 3;  
 
 	private static final int sortXodilBtnId = Menu.FIRST+2;  
 	private static final int sortAllBtnId = sortXodilBtnId + 1;  
@@ -220,6 +220,7 @@ public class LogsTextActivity extends ListActivity {
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
 		
+		
 		AlertDialog alertDialog = (AlertDialog) dialog;
 		ArrayAdapter<CharSequence> adapter;
 		 switch (id) {
@@ -250,27 +251,38 @@ public class LogsTextActivity extends ListActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-		
+    	
+    	Log.i(TAG,"onCreateOptionsMenu(): menu size=" + menu.size());
 		// ===
-		MenuItem item_1 = menu.add(group2Id, MENU_ITEM_SORT_BY_XODIL, sortXodilBtnId, R.string.logsmenu_sort_xodil);
+		MenuItem item_1 = menu.add(group3Id, MENU_ITEM_SORT_BY_XODIL, sortXodilBtnId, R.string.logsmenu_sort_xodil);
 		item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
 		
 		// ===
-     	MenuItem item_2 = menu.add(group2Id, MENU_ITEM_SORT_ALL, sortAllBtnId, R.string.logsmenu_sort_all);
+     	MenuItem item_2 = menu.add(group3Id, MENU_ITEM_SORT_ALL, sortAllBtnId, R.string.logsmenu_sort_all);
      	item_2.setIcon(android.R.drawable.ic_menu_edit);
      	
 		// ===
-     	MenuItem item_3 = menu.add(group2Id, MENU_ITEM_SORT_BY_PODTVERDIL, sortPodtverdilBtnId, R.string.logsmenu_sort_podtverdil);
+     	MenuItem item_3 = menu.add(group3Id, MENU_ITEM_SORT_BY_PODTVERDIL, sortPodtverdilBtnId, R.string.logsmenu_sort_podtverdil);
      	item_3.setIcon(android.R.drawable.ic_menu_sort_by_size);
      	
      	return super.onCreateOptionsMenu(menu);
     }
 	
-    /**
+    @Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+
+    	menu.removeItem(TabCluedoLogsActivity.MENU_ITEM_PEOPLE);
+    	menu.removeItem(TabCluedoLogsActivity.MENU_ITEM_NEW);
+    	menu.removeItem(TabCluedoLogsActivity.MENU_ITEM_HELP);
+		return super.onPrepareOptionsMenu(menu);
+	}
+
+	/**
      * On options menu item selection.
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+    	Log.i(TAG,"onCreateOptionsMenu(): item group id=" + item.getGroupId());
         switch (item.getItemId()) {
           
 	        case MENU_ITEM_SORT_BY_XODIL:{

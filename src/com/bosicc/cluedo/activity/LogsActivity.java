@@ -94,7 +94,7 @@ public class LogsActivity extends ListActivity {
 	private static final int MENU_ITEM_SORT_BY_PODTVERDIL	=14;
 	private static final int MENU_ITEM_LOGSTEXT				=15;
 	
-	private static final int group2Id = 0;  
+	private static final int group2Id = 2;  
 
 	private static final int sortBtnId = Menu.FIRST+4;  
 //	private static final int logstextBtnId = Menu.FIRST+3; 
@@ -150,18 +150,7 @@ public class LogsActivity extends ListActivity {
 	                	.setPositiveButton(R.string.alert_dialog_ok, null)
 	                	.show();
 					}else{
-						if ((utils.getAllList().get(0).getSlyxPerson() == -1) ||
-							(utils.getAllList().get(0).getSlyxPlace() == -1) ||
-							(utils.getAllList().get(0).getSlyxWeapon() == -1)){
-					            	new AlertDialog.Builder(LogsActivity.this)
-					            		.setIcon(R.drawable.btn_info)
-					            		.setTitle(R.string.logs_alert_title)
-					                	.setMessage(R.string.logs_txt4)
-					                	.setPositiveButton(R.string.alert_dialog_ok, null)
-					                	.show();
-			            	}else{
-			            		 showDialog(DIALOG_PODTVERDIL);
-			            	}
+						 showDialog(DIALOG_PODTVERDIL);
 					}
 				}
 			}
@@ -204,6 +193,7 @@ public class LogsActivity extends ListActivity {
                 	int num = mCurentDialogList.get(which).getNumber();
                 	PMovePOJO item = new PMovePOJO(num);
                	 	utils.getAllList().add(0,item);
+               	 	mBtnPodtverdil.setEnabled(false);
                     
                 	mSlyx.setText("");
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
@@ -388,6 +378,12 @@ public class LogsActivity extends ListActivity {
      	
      	return super.onCreateOptionsMenu(menu);
     }
+    
+    @Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+    	menu.removeItem(TabCluedoLogsActivity.MENU_ITEM_HELP);
+		return super.onPrepareOptionsMenu(menu);
+	}
 	
     /**
      * On options menu item selection.
@@ -562,7 +558,15 @@ public class LogsActivity extends ListActivity {
         @Override
 		public void notifyDataSetChanged() {
 			super.notifyDataSetChanged();
-			//setSlyxText();
+			
+			if ((utils.getAllList().get(0).getSlyxPerson() == -1) ||
+				(utils.getAllList().get(0).getSlyxPlace() == -1) ||
+				(utils.getAllList().get(0).getSlyxWeapon() == -1)){
+					mBtnPodtverdil.setEnabled(false);
+            	}else{
+            		mBtnPodtverdil.setEnabled(true);
+            		mBtnPodtverdil.setClickable(true);
+            	}
 		}
 
 
