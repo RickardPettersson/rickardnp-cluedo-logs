@@ -1,4 +1,7 @@
+--- V.1.0.9 --------------------------------------
+Исправлена ошибка при переключении игры SFX на English original
 --- V.1.0.8 --------------------------------------
+Исправлена локализация ru и uk. 
 Изменено меню в каждой закладке.
 Добавлена игра Cluedo: Entdecken sie die Geheimnisse(DE)
 Добавлена игра Clue: SFX/FX
@@ -59,7 +62,9 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 Это не настоящая игра Cluedo. Для того, что бы пользоваться программой у вас должна быть настольная игра.
 
 Поддерживаемые типы игр:
-* Cluedo Раскройте все секреты (Ru)
+* Cluedo: Раскройте все секреты (Ru)
+* Clue: Discover the Secrets (Eng)
+* Cluedo: Entdecken sie die Geheimnisse(De)
 * Clue: Secrets in Paris
 * Clue: The 24 Edition
 * Clue: The Office
@@ -75,13 +80,13 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 * Clue: Original VCR Game
 * Clue II: Murder in Disguise
 * Cluedo: Passport to Murder
-* Discover the Secrets
 * Clue: Dungeons and Dragons Edition
 * Clue: The Seinfeld Edition
 * Clue: Mystery at Sea
 * Cluedo: Super Challenge
+* Clue: SFX/FX
 
-Эсли в списки нет Вашей игры, напишите мне и я ее добавлю.
+Эсли в списке нет Вашей игры, напишите мне и я ее добавлю.
 
 Все замечания и пожелания отправляйте на email, я с удовольствием учту все замечания.
 
@@ -95,7 +100,9 @@ Also, the program allows make logs of the game and record all the moves of playe
 This is not a real game Cluedo. In order to use the program, you must have a real board game.
 
 Supported types of games:
-* Cluedo Раскройте все секреты (Ru)
+* Cluedo: Раскройте все секреты (Ru)
+* Clue: Discover the Secrets
+* Cluedo: Entdecken sie die Geheimnisse(DE)
 * Clue: Secrets in Paris
 * Clue: The 24 Edition
 * Clue: The Office
@@ -111,19 +118,24 @@ Supported types of games:
 * Clue: Original VCR Game
 * Clue II: Murder in Disguise
 * Cluedo: Passport to Murder
-* Discover the Secrets
 * Clue: Dungeons and Dragons Edition
 * Clue: The Seinfeld Edition
 * Clue: Mystery at Sea
 * Cluedo: Super Challenge
+* Clue: SFX/FX
 
 If you have a an unsupported Cluedo board please contact me and I'll add it.
 
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
 
 
-
-
+--- V.1.0.9 --------------------------------------
+Fixed bug while game type switching from SFX to English original
+--- V.1.0.8 --------------------------------------
+Changed localization for ru and uk. 
+Changed menu items in all activities.
+add game type Cluedo: Entdecken sie die Geheimnisse(DE)
+add game type Clue: SFX/FX
 --- V.1.0.7 --------------------------------------
 Add filters - show only played persons in popup lists. 
 Add confirm suggestion - not confirm.

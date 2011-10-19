@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -107,60 +108,6 @@ public class SetupActivity extends ExpandableListActivity {
 			}
 		});
 		
-//		mCheckBox1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//			@Override
-//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//				mEdit1.setEnabled(isChecked);
-//				mEdit1.setFocusable(isChecked);
-//				mEdit1.setFocusableInTouchMode(isChecked);
-//			}
-//		});
-//		
-//		mCheckBox2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//			@Override
-//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//				mEdit2.setEnabled(isChecked);
-//				mEdit2.setFocusable(isChecked);
-//				mEdit2.setFocusableInTouchMode(isChecked);
-//			}
-//		});
-//		
-//		mCheckBox3.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//			@Override
-//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//				mEdit3.setEnabled(isChecked);
-//				mEdit3.setFocusable(isChecked);
-//				mEdit3.setFocusableInTouchMode(isChecked);
-//			}
-//		});
-//		
-//		mCheckBox4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//			@Override
-//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//				mEdit4.setEnabled(isChecked);
-//				mEdit4.setFocusable(isChecked);
-//				mEdit4.setFocusableInTouchMode(isChecked);
-//			}
-//		});
-//		
-//		mCheckBox5.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//			@Override
-//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//				mEdit5.setEnabled(isChecked);
-//				mEdit5.setFocusable(isChecked);
-//				mEdit5.setFocusableInTouchMode(isChecked);
-//			}
-//		});
-//		
-//		mCheckBox6.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//			@Override
-//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//				mEdit6.setEnabled(isChecked);
-//				mEdit6.setFocusable(isChecked);
-//				mEdit6.setFocusableInTouchMode(isChecked);
-//			}
-//		});
-		
 		// Set list of game types
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gameTypes,
 				android.R.layout.simple_spinner_item);
@@ -198,14 +145,14 @@ public class SetupActivity extends ExpandableListActivity {
 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
+					int pos, long arg3) {
 				
-				if (utils.getYourPlayer() != arg2){
+				//Log.i(TAG,"pos="+pos);
+				if (utils.getYourPlayer() != pos){
 					//clear preveous name
-					game.mPlayers.get(utils.getYourPlayer()).setName("");
+					utils.setYourPlayer(pos);
+					game.mPlayers.get(pos).setName("");
 				}
-				utils.setYourPlayer(arg2);
-				
 			}
 
 			@Override
