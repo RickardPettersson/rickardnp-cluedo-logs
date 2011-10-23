@@ -53,7 +53,7 @@ public class GamePOJO implements Serializable{
 	}
 	
 	public enum ShowModeType {
-		ALL(0), XODIT(1), PODTVERDIL(2);
+		ALL(0), XODIT(1), PODTVERDIL(2), PEOPLE(3), PLACE(4), WEAPON(5);
 
 		private final int id;
 		

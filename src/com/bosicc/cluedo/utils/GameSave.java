@@ -17,7 +17,7 @@ import android.util.Log;
 import com.bosicc.cluedo.pojo.GamePOJO;
 
 public class GameSave {
-	//private static String TAG = "GameSave";
+	private static String TAG = "GameSave";
 	
 	private static String CURENT_GAME_DIR_NAME = "save";
 	private static String CURENT_GAME_FILE_NAME = "CluedoCurentGame.bin";
@@ -30,7 +30,7 @@ public class GameSave {
 	
 	public void Save(GamePOJO game){
 		
-		//Log.i(TAG,"Save.begin");
+		Log.i(TAG,"Save.begin");
 		//Log.i(TAG,"Filename="+CURENT_GAME_FILE_NAME);
 		byte[] gameBytes = serializeObject(game); 
 		
@@ -38,19 +38,20 @@ public class GameSave {
 		
 		File file = new File(path, CURENT_GAME_FILE_NAME);
 		if (file.exists()) {
-			//Log.i(TAG,"file exist! = "+file);
+			Log.i(TAG,"file exist! = "+file);
 			if (!file.delete()) {
-               //Log.e(TAG, "cannot delete file !!!");
+               Log.e(TAG, "cannot delete file !!!");
 			}
 		}else{
 			//Log.i(TAG,"file="+file);
 			//Log.i(TAG,"file.getParentFile()="+file.getParentFile());
+			Log.i(TAG,"mkdirs...");
 			file.getParentFile().mkdirs();
 		}
 		  
 		  try {
 			  FileOutputStream fout = new FileOutputStream(file);
-			  //Log.i(TAG,"Write data...");
+			  Log.i(TAG,"Write data...");
 			  fout.write(gameBytes);
 			  fout.flush();
 			  fout.close();
@@ -62,7 +63,7 @@ public class GameSave {
 				e.printStackTrace();
 		  }
 		  
-		//Log.i(TAG,"Save.end");
+		Log.i(TAG,"Save.end");
 	}
 	
 	public GamePOJO Load(){
@@ -70,13 +71,13 @@ public class GameSave {
 		 GamePOJO game = null;
 		 
 		 File path = new File(mContext.getFilesDir(),CURENT_GAME_DIR_NAME);
-		 //Log.i(TAG,"Load() path="+path);
+		 Log.i(TAG,"Load() path="+path);
 		 File file = new File(path, CURENT_GAME_FILE_NAME);
 			if (file.exists()) {
-				//Log.i(TAG,"Load() File exist. Begin loading...");
+				Log.i(TAG,"Load() File exist. Begin loading...");
 			}else{
 				//file.getParentFile().mkdirs();
-				//Log.i(TAG,"Load() File not FOUND! ");
+				Log.i(TAG,"Load() File not FOUND! ");
 				//Log.i(TAG,"Load() file="+file);
 				return game;
 			}
@@ -86,7 +87,7 @@ public class GameSave {
 
 				fin.read(gameBytes);
 				fin.close();
-				//Log.i(TAG, "dataLen=" + gameBytes.length);
+				Log.i(TAG, "dataLen=" + gameBytes.length);
 				game = (GamePOJO) deserializeObject(gameBytes); 
 					 
 			  } catch (FileNotFoundException e) {
@@ -96,7 +97,7 @@ public class GameSave {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 			  }
-		//Log.i(TAG,"Load.end");
+		Log.i(TAG,"Load.end");
 		return game;
 	}
 	
@@ -106,7 +107,7 @@ public class GameSave {
 		File file = new File(path, CURENT_GAME_FILE_NAME);
 		if (file.exists()) {
 			if (!file.delete()) {
-               //Log.e(TAG, "cannot delete file !!!");
+               Log.e(TAG, "cannot delete file !!!");
 			}
 		}
 	}
@@ -138,7 +139,7 @@ public class GameSave {
 	      return object; 
 	    } catch(ClassNotFoundException cnfe) { 
 	      
-	      //Log.e("deserializeObject", "class not found error", cnfe); 
+	      Log.e("deserializeObject", "class not found error", cnfe); 
 	      return null; 
 	    } catch(IOException ioe) { 
 	      Log.e("deserializeObject", "io error", ioe); 

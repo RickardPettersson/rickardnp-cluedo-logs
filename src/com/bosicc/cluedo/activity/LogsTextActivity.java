@@ -74,14 +74,13 @@ public class LogsTextActivity extends ListActivity {
     
     private ShowModeType mViewMode = ShowModeType.ALL;
     private int mPerson = 0;
+    private int nc = 100;
     
-    private static final int DIALOG_XODIT = 1;
-    private static final int DIALOG_PODTVERDIL = 2;
-    private static final int DIALOG_PEOPLE = 3;
-    private static final int DIALOG_PLACE = 4;
-    private static final int DIALOG_WEAPON = 5;
     private static final int DIALOG_SORT_BY_XODIL = 6;
     private static final int DIALOG_SORT_BY_PODTVERDIL = 7;
+    private static final int DIALOG_SORT_BY_PEOPLE = 8;
+    private static final int DIALOG_SORT_BY_PLACE = 9;
+    private static final int DIALOG_SORT_BY_WEAPON = 10;
     
 	//======================================================
 	// Menu items ID
@@ -89,12 +88,18 @@ public class LogsTextActivity extends ListActivity {
 	private static final int MENU_ITEM_SORT_BY_XODIL		=11;		
 	private static final int MENU_ITEM_SORT_ALL				=12;
 	private static final int MENU_ITEM_SORT_BY_PODTVERDIL	=13;
+	private static final int MENU_ITEM_SORT_BY_PEOPLE		=14;
+	private static final int MENU_ITEM_SORT_BY_PLACE		=15;
+	private static final int MENU_ITEM_SORT_BY_WEAPON		=16;
 	
 	private static final int group3Id = 3;  
 
 	private static final int sortXodilBtnId = Menu.FIRST+2;  
 	private static final int sortAllBtnId = sortXodilBtnId + 1;  
 	private static final int sortPodtverdilBtnId = sortAllBtnId + 1;  
+	private static final int sortPeopleBtnId = sortPodtverdilBtnId + 1;  
+	private static final int sortPlacelBtnId = sortPeopleBtnId + 1;  
+	private static final int sortWeaponBtnId = sortPlacelBtnId + 1;  
 	 
 
 	@Override
@@ -154,44 +159,16 @@ public class LogsTextActivity extends ListActivity {
 	@Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
-        case DIALOG_PEOPLE:
-            return new AlertDialog.Builder(LogsTextActivity.this)
-            .setTitle(R.string.title_people)
-            .setItems(gameLocal.mPeople, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                	utils.getAllList().get(0).setSlyxPerson(which);
-                	mAdapter.notifyDataSetChanged();
-                }
-            })
-            .create();
-        case DIALOG_PLACE:
-            return new AlertDialog.Builder(LogsTextActivity.this)
-            .setTitle(R.string.title_place)
-            .setItems(gameLocal.mPlace, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                	utils.getAllList().get(0).setSlyxPlace(which);
-                	mAdapter.notifyDataSetChanged();
-                }
-            })
-            .create();
-        case DIALOG_WEAPON:
-            return new AlertDialog.Builder(LogsTextActivity.this)
-            .setTitle(R.string.title_weapon)
-            .setItems(gameLocal.mWeapon, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                	utils.getAllList().get(0).setSlyxWeapon(which);
-                	mAdapter.notifyDataSetChanged();
-                }
-            })
-            .create();
         case DIALOG_SORT_BY_XODIL:
+        	mCurentDialogList = utils.getSortXodilList();
             return new AlertDialog.Builder(LogsTextActivity.this)
             .setTitle(R.string.logs_alert_title_sort_xodil)
-            .setItems(gameLocal.mPeople, new DialogInterface.OnClickListener() {
+            .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
             		mViewMode = ShowModeType.XODIT;
-            		mPerson = which;
+            		mPerson = mCurentDialogList.get(which).getNumber();;
                 	mAdapter.notifyDataSetChanged();
+                	mCurentDialogList.removeAll(mCurentDialogList);
                 }
             })
             .create();
@@ -202,16 +179,53 @@ public class LogsTextActivity extends ListActivity {
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	if (which==0){
-                		mPerson = 100;
+                		which = nc;
                 	}else{
-                		mPerson = mCurentDialogList.get(which).getNumber();
+                		which = mCurentDialogList.get(which).getNumber();
                 	}
+                	mPerson = which;
             		mViewMode = ShowModeType.PODTVERDIL;
                 	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
                 }
             })
             .create();
+            
+        case DIALOG_SORT_BY_PEOPLE:
+            return new AlertDialog.Builder(LogsTextActivity.this)
+            .setTitle(R.string.title_people)
+            .setItems(gameLocal.mPeople, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                	mViewMode = ShowModeType.PEOPLE;
+            		mPerson = which;
+                	mAdapter.notifyDataSetChanged();
+                }
+            })
+            .create();
+        case DIALOG_SORT_BY_PLACE:
+            return new AlertDialog.Builder(LogsTextActivity.this)
+            .setTitle(R.string.title_place)
+            .setItems(gameLocal.mPlace, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                	mViewMode = ShowModeType.PLACE;
+            		mPerson = which;
+                	mAdapter.notifyDataSetChanged();
+                }
+            })
+            .create();
+        case DIALOG_SORT_BY_WEAPON:
+            return new AlertDialog.Builder(LogsTextActivity.this)
+            .setTitle(R.string.title_weapon)
+            .setItems(gameLocal.mWeapon, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                	mViewMode = ShowModeType.WEAPON;
+            		mPerson = which;
+                	mAdapter.notifyDataSetChanged();
+                }
+            })
+            .create();
+            
+       
         }
         return null;
     }
@@ -225,9 +239,9 @@ public class LogsTextActivity extends ListActivity {
 		ArrayAdapter<CharSequence> adapter;
 		 switch (id) {
 		 
-	        case DIALOG_XODIT:
+	        case DIALOG_SORT_BY_XODIL:
 	        	mCurentDialogList = utils.getSortXodilList();
-			    adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
+	        	adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
 			    		android.R.id.text1, utils.getString(mCurentDialogList));
 			    alertDialog.getListView().setAdapter(adapter);
 			    break;
@@ -255,7 +269,7 @@ public class LogsTextActivity extends ListActivity {
     	Log.i(TAG,"onCreateOptionsMenu(): menu size=" + menu.size());
 		// ===
 		MenuItem item_1 = menu.add(group3Id, MENU_ITEM_SORT_BY_XODIL, sortXodilBtnId, R.string.logsmenu_sort_xodil);
-		item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
+		//item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
 		
 		// ===
      	MenuItem item_2 = menu.add(group3Id, MENU_ITEM_SORT_ALL, sortAllBtnId, R.string.logsmenu_sort_all);
@@ -263,7 +277,19 @@ public class LogsTextActivity extends ListActivity {
      	
 		// ===
      	MenuItem item_3 = menu.add(group3Id, MENU_ITEM_SORT_BY_PODTVERDIL, sortPodtverdilBtnId, R.string.logsmenu_sort_podtverdil);
-     	item_3.setIcon(android.R.drawable.ic_menu_sort_by_size);
+     	//item_3.setIcon(android.R.drawable.ic_menu_sort_by_size);
+     	
+     	// ===
+     	MenuItem item_4 = menu.add(group3Id, MENU_ITEM_SORT_BY_PEOPLE, sortPeopleBtnId, R.string.title_people);
+     	item_4.setIcon(R.drawable.ic_menu_people);
+     	
+     	// ===
+     	MenuItem item_5 = menu.add(group3Id, MENU_ITEM_SORT_BY_PLACE, sortPlacelBtnId, R.string.title_place);
+     	item_5.setIcon(R.drawable.ic_menu_place);
+     	
+     	// ===
+     	MenuItem item_6 = menu.add(group3Id, MENU_ITEM_SORT_BY_WEAPON, sortWeaponBtnId, R.string.title_weapon);
+     	item_6.setIcon(R.drawable.ic_menu_weapon);
      	
      	return super.onCreateOptionsMenu(menu);
     }
@@ -298,6 +324,21 @@ public class LogsTextActivity extends ListActivity {
 	        
 	        case MENU_ITEM_SORT_BY_PODTVERDIL:{
 	        	showDialog(DIALOG_SORT_BY_PODTVERDIL);   
+	        	return true;
+	        }
+	        
+	        case MENU_ITEM_SORT_BY_PEOPLE:{
+	        	showDialog(DIALOG_SORT_BY_PEOPLE);   
+	        	return true;
+	        }
+	        
+	        case MENU_ITEM_SORT_BY_PLACE:{
+	        	showDialog(DIALOG_SORT_BY_PLACE);   
+	        	return true;
+	        }
+	        
+	        case MENU_ITEM_SORT_BY_WEAPON:{
+	        	showDialog(DIALOG_SORT_BY_WEAPON);   
 	        	return true;
 	        }
         }
@@ -368,7 +409,6 @@ public class LogsTextActivity extends ListActivity {
             } else {
             	cache = (ListItemCache) view.getTag();
             }
-           
             
             cache.TextXodil.setText(" ");
             int num = utils.getCurentList(mViewMode, mPerson).get(position).getPlayerXodit();
@@ -418,22 +458,33 @@ public class LogsTextActivity extends ListActivity {
         	//Log.i(TAG,"notifyDataSetChanged");
 			super.notifyDataSetChanged();
 			String text = "";
-			if (mViewMode == ShowModeType.ALL){
-				text = mContext.getText(R.string.logsmenu_sort_all).toString();
-			}else{
 
-				if (mViewMode == ShowModeType.XODIT){
-					text = mContext.getText(R.string.logs_toast_xoda)+" "+ gameLocal.mPeople[mPerson];
+			switch(mViewMode){
+			case ALL:
+				text = mContext.getText(R.string.logsmenu_sort_all).toString();
+				break;
+			case XODIT:
+				text = mContext.getText(R.string.logs_toast_xoda)+" "+ gameLocal.mPlayers.get(mPerson).getLabel();
+				break;
+			case PODTVERDIL:
+				if (mPerson == nc){
+					text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ mContext.getText(R.string.logs_notconfirm);
 				}else{
-					if (mPerson == 100){
-						text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ mContext.getText(R.string.logs_notconfirm);
-					}else{
-						text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ gameLocal.mPeople[mPerson];
-					}
+					text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ gameLocal.mPlayers.get(mPerson).getLabel();
 				}
-				Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
+				break;
+			case PEOPLE:
+				text = mContext.getText(R.string.title_people)+": "+ gameLocal.mPeople[mPerson];
+				break;
+			case PLACE:
+				text = mContext.getText(R.string.title_place)+": "+ gameLocal.mPlace[mPerson];
+				break;
+			case WEAPON:
+				text = mContext.getText(R.string.title_weapon)+": "+ gameLocal.mWeapon[mPerson];
+				break;
 			}
-			
+
+			Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
 		}
     }
 	

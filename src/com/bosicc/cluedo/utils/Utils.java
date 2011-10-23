@@ -396,6 +396,33 @@ public class Utils {
 				}
 			}
 				break;
+				
+			case PEOPLE:{
+				for (PMovePOJO item: game.mLogsList) {
+					if (item.getSlyx()[0]  == person) {
+						mNewList.add(item);
+					}
+				}
+			}
+				break;
+				
+			case PLACE:{
+				for (PMovePOJO item: game.mLogsList) {
+					if (item.getSlyx()[1]  == person) {
+						mNewList.add(item);
+					}
+				}
+			}
+				break;
+				
+			case WEAPON:{
+				for (PMovePOJO item: game.mLogsList) {
+					if (item.getSlyx()[2]  == person) {
+						mNewList.add(item);
+					}
+				}
+			}
+				break;
 		}
 		
 		return mNewList;
