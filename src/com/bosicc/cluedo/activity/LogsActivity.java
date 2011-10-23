@@ -27,7 +27,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -73,6 +72,7 @@ public class LogsActivity extends ListActivity {
     private boolean isFinished = false;
     private ArrayList<PlayerPOJO> mCurentDialogList;
     private int nc = 100;
+    private float scale;
     
     private ShowModeType mViewMode = ShowModeType.ALL;
     private int mPerson = 0;
@@ -114,6 +114,8 @@ public class LogsActivity extends ListActivity {
 		cApp = (CluedoApp) getApplication();
 		game = cApp.getGame();
 		utils = new Utils(this,game);
+		
+		scale = getResources().getDisplayMetrics().density;
 
 		
 		mCurentDialogList = new ArrayList<PlayerPOJO>();
@@ -285,23 +287,6 @@ public class LogsActivity extends ListActivity {
                 }
             })
             .create();
-//        case DIALOG_SORT:
-//            return new AlertDialog.Builder(Logs.this)
-//            .setTitle(R.string.logs_alert_title_sort_podtverdil)
-//            .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int which) {
-//                	if (which==0){
-//                		which = nc;
-//                	}else{
-//                		which = mCurentDialogList.get(which).getNumber();
-//                	}
-//            		mViewMode = ShowModeType.PODTVERDIL;
-//                	mAdapter.notifyDataSetChanged();
-//                	mCurentDialogList.removeAll(mCurentDialogList);
-//                	//removeDialog(DIALOG_SORT_BY_PODTVERDIL);
-//                }
-//            })
-//            .create();
         }
         return null;
     }
@@ -486,12 +471,14 @@ public class LogsActivity extends ListActivity {
             cache.btn2.setOnClickListener(new OnItemClickListener(position)); 
             cache.btn3.setOnClickListener(new OnItemClickListener(position)); 
 
+            
+
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-					ViewGroup.LayoutParams.FILL_PARENT, 36);
+					ViewGroup.LayoutParams.FILL_PARENT, (int) (48 * scale + 0.5f));
 			if (mViewMode == ShowModeType.ALL){
 				if (position == 0){
 		            lp = new LinearLayout.LayoutParams(
-							ViewGroup.LayoutParams.FILL_PARENT, 56);
+							ViewGroup.LayoutParams.FILL_PARENT, (int) (64 * scale + 0.5f));
 				}
 			}
 			cache.LLmain.setLayoutParams(lp);

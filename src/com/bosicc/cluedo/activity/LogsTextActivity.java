@@ -56,7 +56,7 @@ import com.bosicc.cluedo.utils.Utils;
  */
 public class LogsTextActivity extends ListActivity {
 	
-	private static String TAG = "LogsText";
+	//private static String TAG = "LogsText";
 
 	private LinearLayout mHeaderBox;
 	private TextView mTitle;
@@ -73,6 +73,7 @@ public class LogsTextActivity extends ListActivity {
     private LogsTextDataChangeReceiver mLogsTextDataChangeReceiver = null;
     
     private ShowModeType mViewMode = ShowModeType.ALL;
+    private boolean isActive = false;
     private int mPerson = 0;
     private int nc = 100;
     
@@ -137,6 +138,7 @@ public class LogsTextActivity extends ListActivity {
 		//gameLocal = game;
 		//mAdapter.notifyDataSetChanged();
 		//mList.setAdapter(mAdapter);
+		isActive = true;
 		super.onResume();		
 	}
 	
@@ -144,6 +146,7 @@ public class LogsTextActivity extends ListActivity {
 	protected void onPause() {
 		///Log.i(TAG,"onPause");
 		//mList.setAdapter(null);
+		isActive = false;
 		super.onResume();		
 	}
 	
@@ -266,7 +269,7 @@ public class LogsTextActivity extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	
-    	Log.i(TAG,"onCreateOptionsMenu(): menu size=" + menu.size());
+    	//Log.i(TAG,"onCreateOptionsMenu(): menu size=" + menu.size());
 		// ===
 		MenuItem item_1 = menu.add(group3Id, MENU_ITEM_SORT_BY_XODIL, sortXodilBtnId, R.string.logsmenu_sort_xodil);
 		//item_1.setIcon(android.R.drawable.ic_menu_sort_alphabetically);
@@ -308,7 +311,7 @@ public class LogsTextActivity extends ListActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	Log.i(TAG,"onCreateOptionsMenu(): item group id=" + item.getGroupId());
+    	//Log.i(TAG,"onCreateOptionsMenu(): item group id=" + item.getGroupId());
         switch (item.getItemId()) {
           
 	        case MENU_ITEM_SORT_BY_XODIL:{
@@ -455,36 +458,37 @@ public class LogsTextActivity extends ListActivity {
         
         @Override
 		public void notifyDataSetChanged() {
-        	//Log.i(TAG,"notifyDataSetChanged");
 			super.notifyDataSetChanged();
-			String text = "";
 
-			switch(mViewMode){
-			case ALL:
-				text = mContext.getText(R.string.logsmenu_sort_all).toString();
-				break;
-			case XODIT:
-				text = mContext.getText(R.string.logs_toast_xoda)+" "+ gameLocal.mPlayers.get(mPerson).getLabel();
-				break;
-			case PODTVERDIL:
-				if (mPerson == nc){
-					text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ mContext.getText(R.string.logs_notconfirm);
-				}else{
-					text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ gameLocal.mPlayers.get(mPerson).getLabel();
+			if (isActive){
+				String text = "";
+
+				switch(mViewMode){
+				case ALL:
+					text = mContext.getText(R.string.logsmenu_sort_all).toString();
+					break;
+				case XODIT:
+					text = mContext.getText(R.string.logs_toast_xoda)+" "+ gameLocal.mPlayers.get(mPerson).getLabel();
+					break;
+				case PODTVERDIL:
+					if (mPerson == nc){
+						text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ mContext.getText(R.string.logs_notconfirm);
+					}else{
+						text = mContext.getText(R.string.logs_toast_podtverdil) +" "+ gameLocal.mPlayers.get(mPerson).getLabel();
+					}
+					break;
+				case PEOPLE:
+					text = mContext.getText(R.string.title_people)+": "+ gameLocal.mPeople[mPerson];
+					break;
+				case PLACE:
+					text = mContext.getText(R.string.title_place)+": "+ gameLocal.mPlace[mPerson];
+					break;
+				case WEAPON:
+					text = mContext.getText(R.string.title_weapon)+": "+ gameLocal.mWeapon[mPerson];
+					break;
 				}
-				break;
-			case PEOPLE:
-				text = mContext.getText(R.string.title_people)+": "+ gameLocal.mPeople[mPerson];
-				break;
-			case PLACE:
-				text = mContext.getText(R.string.title_place)+": "+ gameLocal.mPlace[mPerson];
-				break;
-			case WEAPON:
-				text = mContext.getText(R.string.title_weapon)+": "+ gameLocal.mWeapon[mPerson];
-				break;
+				Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
 			}
-
-			Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
 		}
     }
 	

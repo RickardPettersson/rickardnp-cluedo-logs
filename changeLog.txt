@@ -1,3 +1,10 @@
+--- V.1.1.0 --------------------------------------
+Добавлена новые возможность сортировки ходов. Теперь доступны сортировки
+- Кто ходил
+- Кто подтвердил
+- Кто убил (персонаж)
+- Где убили (место)
+- Чем убили (оружие)
 --- V.1.0.9 --------------------------------------
 Исправлена ошибка при переключении игры SFX на English original
 --- V.1.0.8 --------------------------------------
@@ -61,6 +68,9 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 Также, в программе предусмотрена возможность ведения логирования игры, а именно, запись всех ходов игроков, что позволяет не пропустить мельчайшие детали.
 Это не настоящая игра Cluedo. Для того, что бы пользоваться программой у вас должна быть настольная игра.
 
+Поддерживаемые языки:
+ Русский, Украинский, Английский, Немецкий.
+ 
 Поддерживаемые типы игр:
 * Cluedo: Раскройте все секреты (Ru)
 * Clue: Discover the Secrets (Eng)
@@ -86,7 +96,7 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 * Cluedo: Super Challenge
 * Clue: SFX/FX
 
-Эсли в списке нет Вашей игры, напишите мне и я ее добавлю.
+Если в списке нет Вашей игры, напишите мне и я ее добавлю.
 
 Все замечания и пожелания отправляйте на email, я с удовольствием учту все замечания.
 
@@ -98,6 +108,9 @@ Cluedo logs is an application that is help to keep all records in a board game C
 It allows you to mark checked cards and to make notes on clues where you are not sure.
 Also, the program allows make logs of the game and record all the moves of players. You don't miss any smallest details.
 This is not a real game Cluedo. In order to use the program, you must have a real board game.
+
+Supported languages:
+ English, German, Ukrainian, Russian
 
 Supported types of games:
 * Cluedo: Раскройте все секреты (Ru)
@@ -128,7 +141,13 @@ If you have a an unsupported Cluedo board please contact me and I'll add it.
 
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
 
-
+--- V.1.1.0 --------------------------------------
+Added new types of Logs list sort. Now you can sort by: новые возможность сортировки ходов. Теперь доступны сортировки
+- Players move
+- Players confirm
+- Who kill (person)
+- Where (place)
+- By what item (weapon)
 --- V.1.0.9 --------------------------------------
 Fixed bug while game type switching from SFX to English original
 --- V.1.0.8 --------------------------------------

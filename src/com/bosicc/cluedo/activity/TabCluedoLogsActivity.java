@@ -22,7 +22,7 @@ import com.bosicc.cluedo.utils.Utils;
 
 public class TabCluedoLogsActivity extends TabActivity {
 	
-	private static String TAG = "CluedoLogs";
+	//private static String TAG = "CluedoLogs";
    
 	private TabHost tabHost;
     private CluedoApp cApp;
