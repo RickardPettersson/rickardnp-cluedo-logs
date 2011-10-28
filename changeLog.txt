@@ -1,5 +1,5 @@
 --- V.1.1.0 --------------------------------------
-Добавлена новые возможность сортировки ходов. Теперь доступны сортировки
+Добавлена новые возможность сортировки ходов. Теперь доступны сортировки:
 - Кто ходил
 - Кто подтвердил
 - Кто убил (персонаж)
@@ -142,7 +142,7 @@ If you have a an unsupported Cluedo board please contact me and I'll add it.
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
 
 --- V.1.1.0 --------------------------------------
-Added new types of Logs list sort. Now you can sort by: новые возможность сортировки ходов. Теперь доступны сортировки
+Added new types of Logs list sort. Now you can sort by:
 - Players move
 - Players confirm
 - Who kill (person)
