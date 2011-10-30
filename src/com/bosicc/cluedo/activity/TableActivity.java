@@ -157,8 +157,11 @@ public class TableActivity extends ListActivity {
                 	case 2:
                 		utils.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.NO);
                 		break;
-                	case 3:
+                	case 4:
                 		utils.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.DEFAULT);
+                		break;
+                    case 3:
+                		utils.setCardsData(mCurentItem.pos,mCurentItem.num,CardType.ASK);
                 		break;
                 	}
                     mAdapter.notifyDataSetChanged();
@@ -312,6 +315,9 @@ public class TableActivity extends ListActivity {
 
         		case QUESTION:
         			res = R.drawable.btn_help;
+        			break;
+                case ASK:
+        			res = R.drawable.btn_ask;
         			break;
         	}
         	return res;

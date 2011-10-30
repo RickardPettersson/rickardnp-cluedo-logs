@@ -58,6 +58,7 @@
     <string name="mark_question">Ich weiß nicht</string>
     <string name="mark_no">Nein</string>
     <string name="mark_remove">Entfernen das Zeichen</string>
+    <string name="mark_ask">Gefragt</string>
     
     
      <!-- About page -->

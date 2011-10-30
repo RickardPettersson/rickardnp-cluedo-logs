@@ -84,6 +84,7 @@ public class LogsActivity extends ListActivity {
     private static final int DIALOG_WEAPON = 5;
     private static final int DIALOG_SORT_BY_XODIL = 6;
     private static final int DIALOG_SORT_BY_PODTVERDIL = 7;
+    private static final int DIALOG_XODIT_EDIT = 8;
     
 	//======================================================
 	// Menu items ID
@@ -181,15 +182,13 @@ public class LogsActivity extends ListActivity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
         case DIALOG_XODIT:
-        	mCurentDialogList = utils.getSortXodilList();
             return new AlertDialog.Builder(LogsActivity.this)
             .setTitle(R.string.logs_btnxodit)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, final int which) {
                 	sendBroadcast( new Intent(CConstants.ACTION_UPDATE_DATA) );
-                	
                 	// http://code.google.com/p/k9mail/source/detail?r=3132
-                	//  https://github.com/k9mail/k-9/blob/master/src/com/fsck/k9/activity/ChooseFolder.java
+                	// https://github.com/k9mail/k-9/blob/master/src/com/fsck/k9/activity/ChooseFolder.java
                 	// https://github.com/sunlightlabs/congress
                 	int num = mCurentDialogList.get(which).getNumber();
                 	PMovePOJO item = new PMovePOJO(num);
@@ -198,10 +197,33 @@ public class LogsActivity extends ListActivity {
                     
                 	mSlyx.setText("");
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
+                    mTitle.setOnClickListener(new OnClickListener() {
+                        public void onClick(View view) {
+                                showDialog(DIALOG_XODIT_EDIT);
+                            }
+                    });
+
                 	mAdapter.notifyDataSetChanged();
                 	mCurentDialogList.removeAll(mCurentDialogList);
-                	//removeDialog(DIALOG_XODIT);
+                }
+            })
+            .create();
+        case DIALOG_XODIT_EDIT:
+            return new AlertDialog.Builder(LogsActivity.this)
+            .setTitle(R.string.logs_btnxodit)
+            .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, final int which) {
+                	sendBroadcast( new Intent(CConstants.ACTION_UPDATE_DATA) );
+                    utils.getAllList().remove(0);
+                	int num = mCurentDialogList.get(which).getNumber();
+                	PMovePOJO item = new PMovePOJO(num);
+               	 	utils.getAllList().add(0,item);
+               	 	mBtnPodtverdil.setEnabled(false);
 
+                	mSlyx.setText("");
+                	mTitle.setText(mCurentDialogList.get(which).getLabel());
+                	mAdapter.notifyDataSetChanged();
+                	mCurentDialogList.removeAll(mCurentDialogList);
                 }
             })
             .create();
@@ -299,6 +321,8 @@ public class LogsActivity extends ListActivity {
 		ArrayAdapter<CharSequence> adapter;
 		 switch (id) {
 	        case DIALOG_XODIT:
+            case DIALOG_XODIT_EDIT:
+            case DIALOG_SORT_BY_XODIL:
 	        	mCurentDialogList = utils.getSortXodilList();
 			    adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
 			    		android.R.id.text1, utils.getString(mCurentDialogList));
@@ -313,13 +337,7 @@ public class LogsActivity extends ListActivity {
 			    alertDialog.getListView().setAdapter(adapter);
 			    break;
 			    
-	        case DIALOG_SORT_BY_XODIL:
-	        	mCurentDialogList = utils.getSortXodilList();
-	        	adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 
-			    		android.R.id.text1, utils.getString(mCurentDialogList));
-			    alertDialog.getListView().setAdapter(adapter);
-			    break;
-			    
+
 	        case DIALOG_SORT_BY_PODTVERDIL:
 	        	mCurentDialogList = utils.getSortPodtverdilList();
 	        	adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.select_dialog_item, 

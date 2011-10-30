@@ -30,7 +30,7 @@ public class GamePOJO implements Serializable{
     
 	
 	public enum CardType {
-		DEFAULT(0), NO(1), YES(2), QUESTION(3);
+		DEFAULT(0), NO(1), YES(2), QUESTION(3), ASK(4);
 
 		private final int id;
 		

@@ -5,6 +5,7 @@
         <item>@string/mark_yes</item>
         <item>@string/mark_question</item>
         <item>@string/mark_no</item>
+        <item>@string/mark_ask</item>
         <item>@string/mark_remove</item>
     </string-array>
     
@@ -28,6 +29,7 @@
         <item>Clue: The 24 Edition</item>
         <item>Clue: The Office</item>
         <item>Clue: English original</item>
+        <item>Clue: English original (Русская версия)</item>
         <item>Clue: Limited Gift (50th Anniversary) Edition</item> <!-- lim_gif -->
         <item>Clue: The Simpsons</item>
         <item>Clue: The Simpsons 3rd edition</item>
@@ -110,6 +112,15 @@
         <item>Mrs.Peacock</item>
  		<item>Miss Scarlet</item>
         <item>Mrs.White</item>
+    </string-array>
+
+    <string-array name="people_original_rus"> <!-- original rus -->
+        <item>Полк.Мустард</item>
+ 		<item>Проф.Плам</item>
+        <item>О.Грин</item>
+        <item>Миссис Пикук</item>
+ 		<item>Мисс Скарлетт</item>
+        <item>Миссис Уайт</item>
     </string-array>
     
 	<string-array name="people_lim_gif"> <!-- lim_gif -->
@@ -345,7 +356,19 @@
  		<item>Library</item>
         <item>Study</item>
     </string-array>
-    
+
+    <string-array name="place_original_rus"> <!-- original rus -->
+        <item>Холл</item>
+ 		<item>Гостиная</item>
+        <item>Столовая</item>
+        <item>Кухня</item>
+ 		<item>Зал для балов</item>
+        <item>Зимний сад</item>
+        <item>Бильярдная</item>
+ 		<item>Библиотека</item>
+        <item>Кабинет</item>
+    </string-array>
+
     <string-array name="place_lim_gif"> <!-- lim_gif -->
         <item>Hall</item>
  		<item>Lounge</item>
@@ -602,6 +625,15 @@
         <item>Rope</item>
  		<item>Lead Pipe</item>
         <item>Wrench</item>
+    </string-array>
+
+    <string-array name="weapon_original_rus"> <!-- original rus -->
+        <item>Кинжал</item>
+ 		<item>Подсвечник</item>
+        <item>Револьвер</item>
+        <item>Верёвка</item>
+ 		<item>Свинцовая труба</item>
+        <item>Гаечный ключ</item>
     </string-array>
 
     <string-array name="weapon_lim_gif"> <!-- lim_gif -->

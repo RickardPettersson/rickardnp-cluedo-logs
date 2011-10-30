@@ -1,3 +1,8 @@
 syntax: regexp
 bin/.*
 gen/.*
+syntax: glob
+cluedo logs.iml
+cluedo logs.ipr
+cluedo logs.iws
+gen.unaligned

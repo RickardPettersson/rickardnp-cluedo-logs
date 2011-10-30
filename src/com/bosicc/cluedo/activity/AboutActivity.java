@@ -51,7 +51,7 @@ public class AboutActivity extends Activity {
     	        	 final Intent emailIntent = new Intent(
     	     				android.content.Intent.ACTION_SEND);
     	     		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, to);
-    	     		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "От: ");
+    	     		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Cluedo logs");
     	     		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Cluedo logs.");
     	     		
     	     		emailIntent.setType(PLAIN_TEXT);

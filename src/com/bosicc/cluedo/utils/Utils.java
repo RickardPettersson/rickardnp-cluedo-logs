@@ -26,13 +26,14 @@ public class Utils {
 	}
 	
 	public enum GemeType {
-		RuRaskroiSekret,	//		<item>Cluedo: Раскрой все тайны</item>
+		RuRaskroiSekret,	//		<item>Cluedo: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</item>
 		DiscoverTheSecrets,	//        <item>Clue: Discover the Secrets</item>
 		Entdecken,			//			<item>Cluedo: Entdecken sie die Geheimnisse</item>
 		SecretinParis,		//        <item>Clue: Secrets in Paris</item>
 		The24,				//        <item>Clue: The 24 Edition</item>
 		TheOffice,			//        <item>Clue: The Office</item>
 		EnglishOriginal,	//        <item>Clue: English original</item>
+        EnglishRussianVer,	//        <item>Clue: English original (Р СѓСЃСЃРєР°СЏ РІРµСЂСЃРёСЏ)</item>
 		LimitedGift,		//        <item>Clue: Limited Gift (50th Anniversary) Edition</item> <!-- lim_gif -->
 		Simpsons,			//        <item>Clue: The Simpsons</item>
 		Simpsons3D,			//        <item>Clue: The Simpsons 3rd edition</item>
@@ -106,6 +107,11 @@ public class Utils {
 			game.mPeople = r.getStringArray(R.array.people_original);
 			game.mPlace = r.getStringArray(R.array.place_original);
 			game.mWeapon = r.getStringArray(R.array.weapon_original);
+			break;
+        case EnglishRussianVer:// Clue English Russian (russian version)
+			game.mPeople = r.getStringArray(R.array.people_original_rus);
+			game.mPlace = r.getStringArray(R.array.place_original_rus);
+			game.mWeapon = r.getStringArray(R.array.weapon_original_rus);
 			break;
 		case LimitedGift:// Clue Limited edition
 			game.mPeople = r.getStringArray(R.array.people_lim_gif);
@@ -445,6 +451,9 @@ public class Utils {
 
     		case QUESTION:
     			res = R.drawable.btn_help;
+    			break;
+            case ASK:
+    			res = R.drawable.btn_ask;
     			break;
     	}
     	return res;
