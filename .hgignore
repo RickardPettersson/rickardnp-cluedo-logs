@@ -6,3 +6,4 @@ cluedo logs.iml
 cluedo logs.ipr
 cluedo logs.iws
 gen.unaligned
+default.properties

@@ -490,15 +490,14 @@ public class LogsActivity extends ListActivity {
             cache.btn3.setOnClickListener(new OnItemClickListener(position)); 
 
             
-
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-					ViewGroup.LayoutParams.FILL_PARENT, (int) (48 * scale + 0.5f));
-			if (mViewMode == ShowModeType.ALL){
-				if (position == 0){
-		            lp = new LinearLayout.LayoutParams(
-							ViewGroup.LayoutParams.FILL_PARENT, (int) (64 * scale + 0.5f));
-				}
-			}
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams( 
+					ViewGroup.LayoutParams.FILL_PARENT, (int) (72 * scale + 0.5f));
+//			if (mViewMode == ShowModeType.ALL){
+//				if (position == 0){
+//		            lp = new LinearLayout.LayoutParams(
+//							ViewGroup.LayoutParams.FILL_PARENT, (int) (72 * scale + 0.5f));
+//				}
+//			}
 			cache.LLmain.setLayoutParams(lp);
             
             cache.TextXodil.setText(" ");
