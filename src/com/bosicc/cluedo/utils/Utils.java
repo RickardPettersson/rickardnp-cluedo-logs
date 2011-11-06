@@ -1,4 +1,4 @@
-package com.bosicc.cluedo.utils;
+﻿package com.bosicc.cluedo.utils;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class Utils {
 	}
 	
 	public enum GemeType {
-		RuRaskroiSekret,	//		<item>Cluedo: ������� ��� �����</item>
+		RuRaskroiSekret,	//		<item>Cluedo: Раскрой все секреты</item>
 		DiscoverTheSecrets,	//        <item>Clue: Discover the Secrets</item>
 		Entdecken,			//			<item>Cluedo: Entdecken sie die Geheimnisse</item>
 		SecretinParis,		//        <item>Clue: Secrets in Paris</item>

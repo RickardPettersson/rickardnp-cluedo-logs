@@ -1,3 +1,9 @@
+--- V.1.1.1 --------------------------------------
+Добавлен новый тип маркера - Спросил. Ним можно отмечать вещи про которые спрашивал игрок.
+Добавлена игра Clue: English original(Русская версия)
+Добавлена возможность менять того кто ходит в течении всего хода. Для этого нужно нажать на его имя.
+Изменено поведение при записи лога. Теперь кнопки становятся неактивными.
+*Большое спасибо Roman Nagorkin за участие в этом релизе.
 --- V.1.1.0 --------------------------------------
 Добавлена новые возможность сортировки ходов. Теперь доступны сортировки:
 - Кто ходил
@@ -79,6 +85,7 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 * Clue: The 24 Edition
 * Clue: The Office
 * Clue: English original
+* Clue: English original(Russian version)
 * Clue: Limited Gift Edition
 * Clue: The Simpsons
 * Clue: The Simpsons 3rd edition
@@ -120,6 +127,7 @@ Supported types of games:
 * Clue: The 24 Edition
 * Clue: The Office
 * Clue: English original
+* Clue: English original(Russian version)
 * Clue: Limited Gift Edition
 * Clue: The Simpsons
 * Clue: The Simpsons 3rd edition
@@ -141,6 +149,12 @@ If you have a an unsupported Cluedo board please contact me and I'll add it.
 
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
 
+--- V.1.1.1 --------------------------------------
+Added a new type of marker - Asked. You can mark things that are asked about the player.
+Added game type Clue: English original((Russian version)
+Added ability to change the one who move in current the entire course. To do this, click on its name.
+Changed behavior for log entries. Now the buttons could be enable/disable.
+* Many thanks to Roman Nagorkin for participation in this release.
 --- V.1.1.0 --------------------------------------
 Added new types of Logs list sort. Now you can sort by:
 - Players move

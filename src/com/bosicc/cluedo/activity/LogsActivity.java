@@ -194,6 +194,7 @@ public class LogsActivity extends ListActivity {
                 	PMovePOJO item = new PMovePOJO(num);
                	 	utils.getAllList().add(0,item);
                	 	mBtnPodtverdil.setEnabled(false);
+               	 	mBtnXodit.setEnabled(false);
                     
                 	mSlyx.setText("");
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
@@ -213,12 +214,11 @@ public class LogsActivity extends ListActivity {
             .setTitle(R.string.logs_btnxodit)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, final int which) {
-                	sendBroadcast( new Intent(CConstants.ACTION_UPDATE_DATA) );
-                    utils.getAllList().remove(0);
+                	
+                	//No need to remove current row, only update
                 	int num = mCurentDialogList.get(which).getNumber();
-                	PMovePOJO item = new PMovePOJO(num);
-               	 	utils.getAllList().add(0,item);
-               	 	mBtnPodtverdil.setEnabled(false);
+                    utils.getAllList().get(0).setPlayerXodit(num);
+                    sendBroadcast( new Intent(CConstants.ACTION_UPDATE_DATA) );
 
                 	mSlyx.setText("");
                 	mTitle.setText(mCurentDialogList.get(which).getLabel());
@@ -235,6 +235,7 @@ public class LogsActivity extends ListActivity {
             .setTitle(R.string.logs_btnpodtverdil)
             .setItems(utils.getString(mCurentDialogList), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
+                	mBtnXodit.setEnabled(true);
                 	if (which==0){
                 		which = nc;
                 	}else{
