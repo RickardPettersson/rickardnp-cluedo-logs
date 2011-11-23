@@ -15,7 +15,7 @@ import com.bosicc.cluedo.pojo.PlayerPOJO;
 
 public class Utils {
 	
-	private static String TAG = "Utils";
+	//private static String TAG = "Utils";
 	
 	private Context ctx;
     private GamePOJO game;
@@ -27,8 +27,9 @@ public class Utils {
 	
 	public enum GemeType {
 		RuRaskroiSekret,	//		<item>Cluedo: Раскрой все секреты</item>
-		DiscoverTheSecrets,	//        <item>Clue: Discover the Secrets</item>
-		Entdecken,			//			<item>Cluedo: Entdecken sie die Geheimnisse</item>
+		RuRoadGame,			//		<item>Cluedo: Дорожная игра</item>
+		DiscoverTheSecrets,	//      <item>Clue: Discover the Secrets</item>
+		Entdecken,			//		<item>Cluedo: Entdecken sie die Geheimnisse</item>
 		SecretinParis,		//        <item>Clue: Secrets in Paris</item>
 		The24,				//        <item>Clue: The 24 Edition</item>
 		TheOffice,			//        <item>Clue: The Office</item>
@@ -71,12 +72,17 @@ public class Utils {
     	Resources r = ctx.getResources();
 		int [] colorlist = r.getIntArray(R.array.colors_default);
 		GemeType type = GemeType.findByOrdinal(GameNum); // In list begin with 0
-		Log.i(TAG,"GameNum="+GameNum+" Type=" + type);
+		//Log.i(TAG,"GameNum="+GameNum+" Type=" + type);
 		switch(type){
 		case RuRaskroiSekret: // Russian version
 			game.mPeople = r.getStringArray(R.array.people_ru);
 			game.mPlace = r.getStringArray(R.array.place_ru);
 			game.mWeapon = r.getStringArray(R.array.weapon_ru);
+			break;
+		case RuRoadGame: // Russian version road game
+			game.mPeople = r.getStringArray(R.array.people_ru);
+			game.mPlace = r.getStringArray(R.array.place_ru_road);
+			game.mWeapon = r.getStringArray(R.array.weapon_ru_road);
 			break;
 		case DiscoverTheSecrets:// Clue: Discover the Secrets
 			game.mPeople = r.getStringArray(R.array.people_discover);

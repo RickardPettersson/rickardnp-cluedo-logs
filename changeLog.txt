@@ -1,3 +1,5 @@
+--- V.1.1.2 --------------------------------------
+Добавлена игра Cluedo: Дорожная версия 
 --- V.1.1.1 --------------------------------------
 Добавлен новый тип маркера - Спросил. Ним можно отмечать вещи про которые спрашивал игрок.
 Добавлена игра Clue: English original(Русская версия)
@@ -79,6 +81,7 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
  
 Поддерживаемые типы игр:
 * Cluedo: Раскройте все секреты (Ru)
+* Cluedo: Дорожная версия (Ru)
 * Clue: Discover the Secrets (Eng)
 * Cluedo: Entdecken sie die Geheimnisse(De)
 * Clue: Secrets in Paris
@@ -121,6 +124,7 @@ Supported languages:
 
 Supported types of games:
 * Cluedo: Раскройте все секреты (Ru)
+* Cluedo: Дорожная версия (Ru)
 * Clue: Discover the Secrets
 * Cluedo: Entdecken sie die Geheimnisse(DE)
 * Clue: Secrets in Paris
@@ -149,6 +153,8 @@ If you have a an unsupported Cluedo board please contact me and I'll add it.
 
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
 
+--- V.1.1.2 --------------------------------------
+add game type Cluedo: Дорожная версия (Russian version)
 --- V.1.1.1 --------------------------------------
 Added a new type of marker - Asked. You can mark things that are asked about the player.
 Added game type Clue: English original((Russian version)

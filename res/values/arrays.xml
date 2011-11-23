@@ -23,6 +23,7 @@
 
 	<string-array name="gameTypes">
         <item>Cluedo: Раскрой все тайны</item>
+        <item>Cluedo: Дорожная игра</item>
         <item>Clue: Discover the Secrets</item>
         <item>Cluedo: Entdecken sie die Geheimnisse</item>
         <item>Clue: Secrets in Paris</item>
@@ -280,6 +281,18 @@
         <item>Терраса</item>
         <item>Обсерватория</item>
         <item>Демонстрационный зал</item>
+        <item>Гостиная</item>
+        <item>Ванная комната</item>
+        <item>Дом для гостей</item>
+    </string-array>
+    
+    <string-array name="place_ru_road"> <!-- ru road -->
+        <item>Хол</item>
+        <item>Столовая</item>
+        <item>Кухня</item>
+        <item>Терраса</item>
+        <item>Обсерватория</item>
+        <item>Кинотеатр</item>
         <item>Гостиная</item>
         <item>Ванная комната</item>
         <item>Дом для гостей</item>
@@ -555,6 +568,15 @@
         <item>Веревка</item>
         <item>Бита</item>
         <item>Топор</item>
+        <item>Гантеля</item>
+    </string-array>
+    
+    <string-array name="weapon_ru_road"> <!-- russian road -->
+        <item>Нож</item>
+        <item>Канделябр</item>
+        <item>Пистолет</item>
+        <item>Яд</item>
+        <item>Веревка</item>
         <item>Гантеля</item>
     </string-array>
     
