@@ -2,7 +2,7 @@
 <resources>
         
     <!-- Main menu Activity -->
-    <string name="mainmenu_players">Имена гравців</string>
+    <string name="mainmenu_players">імена гравців</string>
     <string name="mainmenu_new">Новая гра</string>
     <string name="mainmenu_about">Про гру</string>
     <string name="mainmenu_donate">Підтримайте Нас</string>
@@ -54,7 +54,7 @@
     <string name="logs_alert_title_sort_podtverdil">Показати всі підтвердження:</string>
     <string name="logs_toast_xoda">Усі хода: </string>
     <string name="logs_toast_podtverdil">Хто підтвердив: </string>
-    <string name="logs_notconfirm">НЕ підтверджен!</string>
+    <string name="logs_notconfirm">НЕ підтверджено!</string>
     
     <string name="mark_yes">Так</string>
     <string name="mark_question">Не знаю</string>
