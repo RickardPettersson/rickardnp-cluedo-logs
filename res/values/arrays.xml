@@ -27,6 +27,7 @@
         <item>Clue: Discover the Secrets</item>
         <item>Cluedo: Entdecken sie die Geheimnisse</item>
         <item>Cluedo: Afslør hemmelighederne</item>
+        <item>Cluedo: Odkryj najciemniejsze tajemnice</item>
         <item>Clue: Secrets in Paris</item>
         <item>Clue: The 24 Edition</item>
         <item>Clue: The Office</item>
@@ -49,7 +50,7 @@
         <item>Cluedo: Super Challenge</item>
         <item>Clue: SFX/FX</item>	
     </string-array>
-    
+
 	<!-- ===================================== 
 	     ============== PEOPLE =============== 
 	     ====================================== -->
@@ -89,6 +90,15 @@
         <item>Vivan Hvid</item>
     </string-array>
     
+    <string-array name="people_OdkryjNT"> <!-- OdkryjNT - PL-->
+        <item>Gorczyński</item>
+ 		<item>Purpulewski</item>
+        <item>Zielnicki</item>
+        <item>Kostkiewicz</item>
+ 		<item>Gwiazdowicz</item>
+        <item>Siwecka</item>
+    </string-array>
+       
     <string-array name="people_paris"> <!-- secret in Paris-->
         <item>Zach Mustard</item>
         <item>Justin Plum</item>
@@ -201,7 +211,6 @@
         <item>Miss Peach</item>
     </string-array>
     
-
 	<string-array name="people_orig_vcr_murder"> <!-- orig_vcr + murder in del -->
 		<item>Col. Mustard</item>
 		<item>Miss Scarlet</item>
@@ -279,8 +288,6 @@
     </string-array> 
     
     
-    
-    
    	<!-- ===================================== 
      ============== PLACE =============== 
      ====================================== -->
@@ -342,6 +349,18 @@
         <item>Opholdsstue</item>
  		<item>Spa</item>
         <item>Gæstehus</item>
+    </string-array>
+    
+    <string-array name="place_OdkryjNT"> <!-- place_OdkryjNT - PL -->
+        <item>Hol</item>
+ 		<item>Jadalnia</item>
+        <item>Kuchnia</item>
+        <item>Patio</item>
+ 		<item>Gabinet</item>
+        <item>Kino</item>
+        <item>Salon</item>
+ 		<item>Spa</item>
+        <item>Sypialnia</item>
     </string-array>
     
     <string-array name="place_paris"> <!-- Paris -->
@@ -636,6 +655,18 @@
         <item>Bat</item>
  		<item>Økse</item>
         <item>Håndvægt</item>
+    </string-array>
+    
+    <string-array name="weapon_OdkryjNT"> <!-- weapon_OdkryjNT - PL -->
+        <item>Nóż</item>
+ 		<item>Świecznik</item>
+        <item>Rewolwer</item>
+        <item>Trucizna</item>
+ 		<item>Puchar</item>
+        <item>Lina</item>
+        <item>Kij baseballowy</item>
+ 		<item>Młotek</item>
+        <item>Ciężarek</item>
     </string-array>
     
     <string-array name="weapon_paris"> <!-- in Paris -->

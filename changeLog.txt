@@ -1,3 +1,6 @@
+--- V.1.1.5 --------------------------------------
+Добавлена игра Cluedo: Odkryj najciemniejsze tajemnice. Польская версия игры Discover the Secrets.
+Добавлена локализация для польского языка (не полная).
 --- V.1.1.4 --------------------------------------
 Добавлена игра Cluedo: Afslor hemmelighederne. Датская версия игры Discover the Secrets.
 --- V.1.1.3 --------------------------------------
@@ -89,6 +92,7 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
 * Clue: Discover the Secrets (Eng)
 * Cluedo: Entdecken sie die Geheimnisse (De)
 * Cluedo: Afslor hemmelighederne (Da)
+* Cluedo: Odkryj najciemniejsze tajemnice (Pl)
 * Clue: Secrets in Paris
 * Clue: The 24 Edition
 * Clue: The Office
@@ -133,6 +137,7 @@ Supported types of games:
 * Clue: Discover the Secrets (Eng)
 * Cluedo: Entdecken sie die Geheimnisse (De)
 * Cluedo: Afslor hemmelighederne (Da)
+* Cluedo: Odkryj najciemniejsze tajemnice (Pl)
 * Clue: Secrets in Paris
 * Clue: The 24 Edition
 * Clue: The Office
@@ -159,6 +164,9 @@ If you have a an unsupported Cluedo board please contact me and I'll add it.
 
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
 
+--- V.1.1.5 --------------------------------------
+add a new game type Cluedo: Odkryj najciemniejsze tajemnice. Polish translation of original game Discover the Secrets.
+add Polish localization (not full).
 --- V.1.1.4 --------------------------------------
 add a new game type Cluedo: Afslor hemmelighederne. Danish translation of original game Discover the Secrets.
 --- V.1.1.3 --------------------------------------

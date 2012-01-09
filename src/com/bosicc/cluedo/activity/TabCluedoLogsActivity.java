@@ -121,21 +121,21 @@ public class TabCluedoLogsActivity extends TabActivity {
 	
 	private void setupTableTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_TABLE).setIndicator(
-				"Table",
+				getResources().getString(R.string.maintab_table),
 				getResources().getDrawable(R.drawable.tab_table_icon))
 				.setContent(new Intent(this, TableActivity.class)));
 	}
 	
 	private void setupLogsTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_LOGS).setIndicator(
-				"Logs",
+				getResources().getString(R.string.maintab_logs),
 				getResources().getDrawable(R.drawable.tab_log2_icon))
 				.setContent(new Intent(this, LogsActivity.class)));
 	}
 	
 	private void setupLogsTextTab() {
 		tabHost.addTab(tabHost.newTabSpec(TAB_LOGSTEXT).setIndicator(
-				"Text Logs",
+				getResources().getString(R.string.maintab_textlogs),
 				getResources().getDrawable(R.drawable.tab_log_icon))
 				.setContent(new Intent(this, LogsTextActivity.class)));
 	}
