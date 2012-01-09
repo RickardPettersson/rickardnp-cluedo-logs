@@ -26,6 +26,7 @@
         <item>Cluedo: Дорожная игра</item>
         <item>Clue: Discover the Secrets</item>
         <item>Cluedo: Entdecken sie die Geheimnisse</item>
+        <item>Cluedo: Afslør hemmelighederne</item>
         <item>Clue: Secrets in Paris</item>
         <item>Clue: The 24 Edition</item>
         <item>Clue: The Office</item>
@@ -46,7 +47,7 @@
         <item>Clue: The Seinfeld Edition</item>						
         <item>Clue: Mystery at Sea</item>		
         <item>Cluedo: Super Challenge</item>
-        <item>Clue: SFX/FX</item>							
+        <item>Clue: SFX/FX</item>	
     </string-array>
     
 	<!-- ===================================== 
@@ -62,12 +63,12 @@
     </string-array>
     
     <string-array name="people_discover"> <!-- discover -->
-        <item>Colonel Mustard</item>
- 		<item>Professor Plum</item>
-        <item>Mr. Green</item>
-        <item>Mrs.Peacock</item>
- 		<item>Miss Scarlet</item>
-        <item>Mrs.White</item>
+        <item>Jack Mustard</item>
+ 		<item>Victor Plum</item>
+        <item>Jacob Green</item>
+        <item>Eleanor Peacock</item>
+ 		<item>Kasandra Scarlet</item>
+        <item>Diane White</item>
     </string-array>
     
     <string-array name="people_Entdecken"> <!-- Entdecken -->
@@ -77,6 +78,15 @@
         <item>Klara Porz</item>
  		<item>Gloria Roth</item>
         <item>Diana Weiss</item>
+    </string-array>
+    
+    <string-array name="people_AfslorHemmelighederne"> <!-- AfslorHemmelighederne -->
+        <item>Søren Sennepsgul</item>
+ 		<item>Birger Blomme</item>
+        <item>Georg Grøn</item>
+        <item>Pia Påfugleblå</item>
+ 		<item>Pernille Purpurrød</item>
+        <item>Vivan Hvid</item>
     </string-array>
     
     <string-array name="people_paris"> <!-- secret in Paris-->
@@ -320,6 +330,18 @@
         <item>Wohnzimmer</item>
  		<item>Wellnessraum</item>
         <item>Gästehaus</item>
+    </string-array>
+    
+    <string-array name="place_AfslorHemmelighederne"> <!-- AfslorHemmelighederne -->
+        <item>Forhal</item>
+ 		<item>Spisestue</item>
+        <item>Køkken</item>
+        <item>Gårdhave</item>
+ 		<item>Observatorium</item>
+        <item>Biograf</item>
+        <item>Opholdsstue</item>
+ 		<item>Spa</item>
+        <item>Gæstehus</item>
     </string-array>
     
     <string-array name="place_paris"> <!-- Paris -->
@@ -602,6 +624,18 @@
         <item>Keule</item>
  		<item>Axt</item>
         <item>Hantel</item>
+    </string-array>
+    
+    <string-array name="weapon_AfslorHemmelighederne"> <!-- AfslorHemmelighederne -->
+        <item>Kniv</item>
+ 		<item>Lysestage</item>
+        <item>Pistol</item>
+        <item>Gift</item>
+ 		<item>Trofæ</item>
+        <item>Reb</item>
+        <item>Bat</item>
+ 		<item>Økse</item>
+        <item>Håndvægt</item>
     </string-array>
     
     <string-array name="weapon_paris"> <!-- in Paris -->

@@ -30,6 +30,7 @@ public class Utils {
 		RuRoadGame,			//		<item>Cluedo: Дорожная игра</item>
 		DiscoverTheSecrets,	//      <item>Clue: Discover the Secrets</item>
 		Entdecken,			//		<item>Cluedo: Entdecken sie die Geheimnisse</item>
+		AfslorHemmelighederne,//	<item>Cluedo: Afslør hemmelighederne</item>
 		SecretinParis,		//        <item>Clue: Secrets in Paris</item>
 		The24,				//        <item>Clue: The 24 Edition</item>
 		TheOffice,			//        <item>Clue: The Office</item>
@@ -94,6 +95,11 @@ public class Utils {
 			game.mPlace = r.getStringArray(R.array.place_Entdecken);
 			game.mWeapon = r.getStringArray(R.array.weapon_Entdecken);
 			break;
+		case AfslorHemmelighederne:
+			game.mPeople = r.getStringArray(R.array.people_AfslorHemmelighederne);
+			game.mPlace = r.getStringArray(R.array.place_AfslorHemmelighederne);
+			game.mWeapon = r.getStringArray(R.array.weapon_AfslorHemmelighederne);
+			break;	
 		case SecretinParis:// Cluedo in Paris
 			game.mPeople = r.getStringArray(R.array.people_paris);
 			game.mPlace = r.getStringArray(R.array.place_paris);
