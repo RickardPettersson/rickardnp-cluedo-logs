@@ -52,7 +52,8 @@ public class Utils {
 		Seinfeld,			//        <item>Clue: The Seinfeld Edition</item>						
 		MysteryAtSea,		//        <item>Clue: Mystery at Sea</item>		
 		SuperChalange,		//        <item>Cluedo: Super Challenge</item>		
-		SFX;				//		  <item>Clue: SFX/FX</item>
+		SFX,				//		  <item>Clue: SFX/FX</item>
+		GermanOriginal;		//		  <item>Cluedo: Das klassische Detektiv-Spiel</item>	 
 
 		public static GemeType findByOrdinal(int ordinal) {
 			for (GemeType item : values()) {
@@ -216,6 +217,11 @@ public class Utils {
 			game.mPlace = r.getStringArray(R.array.place_fx);
 			game.mWeapon = r.getStringArray(R.array.weapon_fx);
 			colorlist = r.getIntArray(R.array.colors_fx); 
+			break;
+		case GermanOriginal:// Clue German (original)
+			game.mPeople = r.getStringArray(R.array.people_original_de);
+			game.mPlace = r.getStringArray(R.array.place_original_de);
+			game.mWeapon = r.getStringArray(R.array.weapon_original_de);
 			break;
 		}
 				
