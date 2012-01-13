@@ -5,43 +5,43 @@
     <string name="mainmenu_players">Namen der Spieler</string>
     <string name="mainmenu_new">Neues Spiel</string>
     <string name="mainmenu_about">Über Spiel</string>
-    <string name="mainmenu_donate">Unterstützen uns!</string>
+    <string name="mainmenu_donate">Unterstützen Sie uns!</string>
     
     <!-- Main Tab -->
     <string name="maintab_menu_people">Namen der Spieler</string>
     
     <string name="title_people">Gäste</string>
-    <string name="title_place">Zimmern</string>
-    <string name="title_weapon">Waffe</string>
+    <string name="title_place">Zimmer</string>
+    <string name="title_weapon">Tatwaffe</string>
     
     <string name="tab_title_table">Karten der Spieler</string>
     <string name="tab_title_logs">Abwicklung</string>
     
     <string name="tab_dialog_newgame_titile">Neues Spiel</string>
-    <string name="tab_dialog_newgame_msg">Aktuelle Spiel werden gelöscht. Erstellen Sie ein neues Spiel?</string>
+    <string name="tab_dialog_newgame_msg">Aktuelles Spiel wird gelöscht. Neues Spiel erstellen?</string>
     <string name="tab_dialog_yes">Ja</string>
     <string name="tab_dialog_no">Nein</string>
     
     <!-- Table page -->
-    <string name="table_title_mark">Der Spieler hat eine Karte</string>
+    <string name="table_title_mark">hat der Spieler hat die Indiezkarte</string>
     
      <!-- Setup page -->
     <string name="setup_txt1">Wählen Sie den Spieltyp:</string>
     <string name="setup_txt2">Wählen Sie Ihren Charakter:</string>
-    <string name="setup_txt3">Geben Spieler Name und überprüfen, wer auf Spiel</string>
-    <string name="setup_txt4">Wählen Sie die Karten, die Sie zur Hand haben:</string>
-    <string name="setup_dialog_notenoughtpcards_msg">Sie haben weniger als 3 Karten vermerkt. Beachten Sie Karten mit eines Gerücht, dass Sie zur Hand haben.</string>
-    <string name="setup_dialog_info_msg">Wählen Sie Ihren Charakter und Anzahl der Spieler. Überprüfen Sie die Karten mit eines Gerücht, dass Sie zur Hand haben.</string>
+    <string name="setup_txt3">Makieren sie vergebene Charaktere und ergänzen ggf. die echten Namen der Spieler.</string>
+    <string name="setup_txt4">Makieren Sie die Karten, die Sie zur Hand haben:</string>
+    <string name="setup_dialog_notenoughtpcards_msg">Sie haben weniger als 3 Karten makiert. Makieren Sie alle Karten, die Sie zur Hand haben.</string>
+    <string name="setup_dialog_info_msg">Wählen Sie Ihren Charakter und die Anzahl der Spieler. Überprüfen Sie die Indiezkarten, die sie auf der Hand haben.</string>
     <string name="setup_edittext_hint">Spielername - </string>
     <string name="setup_txtbtnBack">Zurück</string>
     <string name="setup_txtbtnNext">Weiter</string>
     <string name="setup_txtbtnStart">Spiel starten</string>
      
     <!-- Logs page -->
-    <string name="logs_txt1">Wählen Sie: wer geht, seines Gerücht und welcher Spieler bestätigt.</string>
-    <string name="logs_txt2">Wählen Sie ein Speiler, der das aktuellen Gerücht bestätigt!</string>
-    <string name="logs_txt3">Erstellen Sie ein neues Gerücht - wählen Sie ein neuen Spieler, der geht.</string>
-    <string name="logs_txt4">Wählen Sie alle drei Karten mit Gerücht!</string>
+    <string name="logs_txt1">Wählen Sie: wer zieht, seinen Verdacht und welcher Spieler bestätigt.</string>
+    <string name="logs_txt2">Wählen Sie den Spieler, der den aktuellen Verdacht bestätigt!</string>
+    <string name="logs_txt3">Erstellen Sie einen neuen Verdacht - wählen Sie einen neuen Spieler, der zieht.</string>
+    <string name="logs_txt4">Wählen Sie alle drei Karten mit Verdacht!</string>
     <string name="logs_btnxodit">Geht</string>
     <string name="logs_btnpodtverdil">Bestätigt</string>
     <string name="logs_alert_title">Achtung!</string>
@@ -55,15 +55,15 @@
     <string name="logs_toast_podtverdil">Wer bestätigt: </string>
     
     <string name="mark_yes">Ja</string>
-    <string name="mark_question">Ich weiß nicht</string>
+    <string name="mark_question">Vielleicht</string>
     <string name="mark_no">Nein</string>
-    <string name="mark_remove">Entfernen das Zeichen</string>
+    <string name="mark_remove">Makierung entfernen</string>
     <string name="mark_ask">Gefragt</string>
     
     
      <!-- About page -->
     
-    <string name="about_main_text">Dieses Spiel wurde entwickelt, um Aufzeichnungen in das Spiel Cluedo erleichtern. Es ermöglicht Ihnen geprüft Karten und Karten, wo Sie sich nicht sicher zu machen, markieren. Auch das Programm Protokollierung des Spiels ermöglicht, nämlich erfassen alle Bewegungen von Spielern.</string>
+    <string name="about_main_text">Dieses Programm wurde entwickelt, um die Aufzeichnungen in dem Spiel Cluedo zu erleichtern. Es ermöglicht Ihnen geprüfte und verdächtige Karten zu markieren. Das Programm ermöglicht zudem die Protokollierung des Spiels, in dem es alle Bewegungen der Spieler erfasst.</string>
     <string name="about_dev_website">Die Webseite besuchen</string>
     <string name="about_dev_email"> Ein E-Mail schreiben</string>
     

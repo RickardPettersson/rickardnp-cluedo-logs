@@ -1,3 +1,6 @@
+--- V.1.1.7 --------------------------------------
+Исправлены ошибки в Немецкой локализации
+Добавлена игра Cluedo: Das klassische Detektiv-Spiel
 --- V.1.1.6 --------------------------------------
 Закончена локализация для Польского языка. Большое спасибо Pawel Kolodziej за перевод.
 --- V.1.1.5 --------------------------------------
@@ -73,10 +76,6 @@
 
 
 
-
-
-
-
 Записывайте хода игроков и отмечайте их карты в настольной игре Cluedo.
 
 === ABOUT ====
@@ -89,37 +88,13 @@ Cluedo logs это программа помощник ведения записей в настольной игре Cluedo.
  Русский, Украинский, Английский, Немецкий, Французкий.
  
 Поддерживаемые типы игр:
-* Cluedo: Раскройте все секреты (Ru)
-* Cluedo: Дорожная версия (Ru)
-* Clue: Discover the Secrets (Eng)
-* Cluedo: Entdecken sie die Geheimnisse (De)
-* Cluedo: Afslor hemmelighederne (Da)
-* Cluedo: Odkryj najciemniejsze tajemnice (Pl)
-* Clue: Secrets in Paris
-* Clue: The 24 Edition
-* Clue: The Office
-* Clue: English original
-* Clue: English original(Russian version)
-* Clue: Limited Gift Edition
-* Clue: The Simpsons
-* Clue: The Simpsons 3rd edition
-* Clue: The Harry Potter
-* Clue: The Scooby Doo
-* Clue: Leeds Centenary
-* Cluedo: Super Sleuth
-* Clue: Master Detective
-* Clue: Original VCR Game
-* Clue II: Murder in Disguise
-* Cluedo: Passport to Murder
-* Clue: Dungeons and Dragons Edition
-* Clue: The Seinfeld Edition
-* Clue: Mystery at Sea
-* Cluedo: Super Challenge
-* Clue: SFX/FX
+- .. -
 
 Если в списке нет Вашей игры, напишите мне и я ее добавлю.
 
 Все замечания и пожелания отправляйте на email, я с удовольствием учту все замечания.
+
+
 
 
 
@@ -161,11 +136,15 @@ Supported types of games:
 * Clue: Mystery at Sea
 * Cluedo: Super Challenge
 * Clue: SFX/FX
+* Cluedo: Das klassische Detektiv-Spiel (De)
 
 If you have a an unsupported Cluedo board please contact me and I'll add it.
 
 All suggestions and wishes send on email, I'll be pleased to read and add your wish.
 
+--- V.1.1.7 --------------------------------------
+Fix mistakes in German localization
+Add new game type Cluedo - Das klassische Detektiv-Spiel
 --- V.1.1.6 --------------------------------------
 finish Polish localization. Big thanks to Pawel Kolodziej.
 --- V.1.1.5 --------------------------------------
