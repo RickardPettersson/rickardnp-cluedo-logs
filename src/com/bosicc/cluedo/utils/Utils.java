@@ -53,7 +53,8 @@ public class Utils {
 		MysteryAtSea,		//        <item>Clue: Mystery at Sea</item>		
 		SuperChalange,		//        <item>Cluedo: Super Challenge</item>		
 		SFX,				//		  <item>Clue: SFX/FX</item>
-		GermanOriginal;		//		  <item>Cluedo: Das klassische Detektiv-Spiel</item>	 
+		GermanOriginal,		//		  <item>Cluedo: Das klassische Detektiv-Spiel</item>
+		SwedishOriginal;	//		  <item>Cluedo: Svensk version</item>
 
 		public static GemeType findByOrdinal(int ordinal) {
 			for (GemeType item : values()) {
@@ -222,6 +223,11 @@ public class Utils {
 			game.mPeople = r.getStringArray(R.array.people_original_de);
 			game.mPlace = r.getStringArray(R.array.place_original_de);
 			game.mWeapon = r.getStringArray(R.array.weapon_original_de);
+			break;
+		case SwedishOriginal: // Clue: Svensk version
+			game.mPeople = r.getStringArray(R.array.people_swedish);
+			game.mPlace = r.getStringArray(R.array.place_swedish);
+			game.mWeapon = r.getStringArray(R.array.weapon_swedish);
 			break;
 		}
 				

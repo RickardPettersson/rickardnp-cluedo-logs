@@ -50,6 +50,7 @@
         <item>Cluedo: Super Challenge</item>
         <item>Clue: SFX/FX</item>
         <item>Cluedo: Das klassische Detektiv-Spiel</item>	 
+        <item>Cluedo: Svensk version</item>
     </string-array>
 
 	<!-- ===================================== 
@@ -295,6 +296,15 @@
         <item>Baronin von Porz</item>
  		<item>Fräulein Gloria</item>
         <item>Frau Weiß</item>
+    </string-array>
+    
+    <string-array name="people_swedish"> <!-- Swedish names -->
+        <item>Jack Senap</item>
+ 		<item>Viktor Plommon</item>
+        <item>Greger Grön</item>
+        <item>Patricia Påfågel</item>
+ 		<item>Kassandra Schar- lakan</item>
+        <item>Vivi Vit</item>
     </string-array>
     
    	<!-- ===================================== 
@@ -616,7 +626,17 @@
         <item>Arbeitszimmer</item>
     </string-array>
     
-        
+     <string-array name="place_swedish"> <!-- swedish -->
+        <item>Hallen</item>
+ 		<item>Matsalen</item>
+        <item>Köket</item>
+        <item>Uteplatsen</item>
+ 		<item>Observa- toriet</item>
+        <item>Bio- salongen</item>
+        <item>Vardags- rummet</item>
+ 		<item>Spaav- delningen</item>
+        <item>Gästhuset</item>
+    </string-array>
         
    	<!-- ===================================== 
      ============== WEAPON =============== 
@@ -890,6 +910,18 @@
  		<item>Heizungsrohr</item>
         <item>Rohrzange</item>
     </string-array>
+    
+    <string-array name="weapon_swedish"> <!-- swedish -->
+        <item>Kniv</item>
+ 		<item>Ljusstake</item>
+        <item>Pistol</item>
+        <item>Gift</item>
+ 		<item>Trofè</item>
+        <item>Rep</item>
+        <item>Slagträ</item>
+        <item>Yxa</item>
+        <item>Hantel</item>
+    </string-array>
             
    	<!-- ===================================== 
      ============== Colors =============== 
@@ -964,5 +996,4 @@
         <item>@color/bgPeopleRose</item>
     </string-array>
     
-    	
 </resources>
